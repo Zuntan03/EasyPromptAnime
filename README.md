@@ -44,6 +44,7 @@
 	- Colab のメニュー `ファイル - ドライブにコピーを保存` して、一番下の `コードを表示` から該当部分を編集します。
 - モデルを追加したい
 	- `animatediff-cli-prompt-travel/data/models/sd/` にモデルを置きます。
+		- [stable-diffusion-model-toolkit](https://github.com/arenasys/stable-diffusion-webui-model-toolkit) などで VAE をモデルに埋め込んでください。
 	- Colab ソースの `model_name = "nadenadesitai_v10" # @param ["mistoonAnime_v20", "nadenadesitai_v10", "onigiriMix_v10", "xxmix9realistic_v40", "Custom"]` を書き換えます。
 - モーションモジュールを追加したい
 	- `animatediff-cli-prompt-travel/data/models/motion-module/` にモーションモジュールを置きます。
