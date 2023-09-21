@@ -1,0 +1,54 @@
+{
+  "name": "",
+  "path": "models/sd/xxmix9realistic_v40.safetensors",
+  "motion_module": "models/motion-module/mm_sd_v15_v2.ckpt",
+  "compile": false,
+  "seed": [
+    -1
+  ],
+  "scheduler": "k_dpmpp_sde",
+  "steps": 20,
+  "guidance_scale": 8,
+  "clip_skip": 2,
+  "head_prompt": "(crowds, street of Akihabara Tokyo: 1.2), black short hair, black cat ears, black eyes",
+  "prompt_map": {
+    "0": "closed eyes, portrait, maid headdress, edwardian maid outfit",
+    "10": "portrait, upper body, maid headdress, edwardian maid outfit",
+    "20": "upper body, dancing, maid headdress, edwardian maid outfit, happy",
+    "30": "upper body, cowboy shot, dancing, maid headdress, edwardian maid outfit, happy",
+    "40": "cowboy shot, dancing, maid headdress, maid outfit, happy",
+    "50": "dancing, cowboy shot, full body maid headdress, miniskirt maid outfit, happy",
+    "60": "dancing, full body, maid headdress, miniskirt maid outfit, frilled, happy",
+    "70": "night, dancing, full body, cowboy shot, idol, frilled, ribbon, tiara, happy",
+    "80": "night, dancing, cowboy shot, idol, magical girl, angel wings, frilled, ribbon, tiara, happy",
+    "90": "night, stylish pose, explosion, idol, magical girl, angel wings, frilled, ribbon, tiara, happy",
+    "100": "night, stylish pose, explosion, idol, magical girl, angel wings, frilled, ribbon, tiara",
+    "110": "night, upper body, maid headdress, edwardian maid outfit"
+  },
+  "tail_prompt": "1girl, solo, black choker, hair between eyes",
+  "n_prompt": [
+    "(worst quality, low quality:1.4), cat"
+  ],
+  "lora_map": {},
+  "upscale_config": {
+    "scheduler": "k_dpmpp_sde",
+    "steps": 15,
+    "strength": 0.5,
+    "guidance_scale": 8,
+    "controlnet_tile": {
+      "enable": true,
+      "use_preprocessor": false,
+      "controlnet_conditioning_scale": 1.0,
+      "guess_mode": false,
+      "control_guidance_start": 0.0,
+      "control_guidance_end": 1.0
+    }
+  },
+  "output": {
+    "format": "mp4",
+    "fps": 10,
+    "encode_param": {
+      "crf": 20
+    }
+  }
+}
