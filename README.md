@@ -11,7 +11,7 @@
 
 ## サンプル
 
-- 9/21: [KuronekoAkiba](https://yyy.wpx.jp/m/202309/KuronekoAkiba.mp4)
+- 9/21: FullHD 相当 [KuronekoAkiba](https://yyy.wpx.jp/m/202309/KuronekoAkiba.mp4)
 - 9/18: [nadenadesitai_v10](https://yyy.wpx.jp/m/202309/nadenadesitai_v10.mp4), [xxmix9realistic_v40](https://yyy.wpx.jp/m/202309/xxmix9realistic_v40.mp4), [onigiriMix_v10](https://yyy.wpx.jp/m/202309/onigiriMix_v10.mp4), [mistoonAnime_v20](https://yyy.wpx.jp/m/202309/mistoonAnime_v20.mp4)
 
 ## 動作環境
@@ -37,6 +37,14 @@
 2. ひとつめの`▶`を押してプロンプト入力欄を表示し、プロンプトやパラメータを編集して、ふたつめの`▶`を押すと動画生成用の生成設定ファイル (*.json) をダウンロードします。
 3. 生成設定ファイルをインストール先([Setup-EasyPromptAnime.bat](https://github.com/Zuntan03/EasyPromptAnime/raw/main/src/Setup-EasyPromptAnime.bat) を実行したフォルダ)にある `Generate.bat` にドラッグ＆ドロップすると、生成設定ファイルの場所に動画を生成します。
 	- 生成した動画とフレームレート補間した動画と再エンコードした動画を生成します。
+
+## 主な更新履歴
+
+- 2023/09/23
+	- motion-module に mm-Stabilized_high.pth と mm-Stabilized_mid.pth を追加
+		- `src/Setup.bat` を実行するとダウンロードします。
+- 2023/09/22
+	- 公開
 
 ## FAQ
 

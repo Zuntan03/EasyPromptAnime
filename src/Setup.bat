@@ -48,7 +48,16 @@ if not exist mm_sd_v15.ckpt (
 if not exist mm_sd_v14.ckpt (
 	curl -LO https://huggingface.co/guoyww/animatediff/resolve/main/mm_sd_v14.ckpt
 )
+if not exist mm-Stabilized_high.pth (
+	curl -LO https://huggingface.co/manshoety/AD_Stabilized_Motion/resolve/main/mm-Stabilized_high.pth
+)
+if not exist mm-Stabilized_mid.pth (
+	curl -LO https://huggingface.co/manshoety/AD_Stabilized_Motion/resolve/main/mm-Stabilized_mid.pth
+)
 for %%f in (*.ckpt) do (
+	if %%~zf LSS 10240 ( echo [BROKEN FILE]: "%%f" & del "%%f" )
+)
+for %%f in (*.pth) do (
 	if %%~zf LSS 10240 ( echo [BROKEN FILE]: "%%f" & del "%%f" )
 )
 popd rem data\models\motion-module
