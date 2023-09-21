@@ -11,12 +11,12 @@ set CRF=20
 if not "%2" == "" ( set FPS=%2 )
 if not "%3" == "" ( set CRF=%3 )
 
-echo ffmpeg.exe -y -framerate %FPS% -i "%FRAMES_DIR%\%%08d.png" -pix_fmt yuv420p -vcodec libx265 -tune animation -r %FPS% -crf %CRF% "%FRAMES_DIR%.mp4"
+echo ffmpeg.exe -y -framerate %FPS% -i "%FRAMES_DIR%\%%08d.png" -pix_fmt yuv420p -vcodec libx264 -tune animation -r %FPS% -crf %CRF% "%FRAMES_DIR%.mp4"
 
 ffmpeg.exe -y -framerate %FPS%^
 	-i "%FRAMES_DIR%\%%08d.png"^
 	-pix_fmt yuv420p^
-	-vcodec libx265^
+	-vcodec libx264^
 	-tune animation^
 	-r %FPS%^
 	-crf %CRF%^
