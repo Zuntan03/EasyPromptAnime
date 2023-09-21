@@ -27,7 +27,7 @@
 2. インストールが終わると、Google Colabでプロンプト編集用の「[簡単プロンプトアニメエディタ](https://colab.research.google.com/drive/1XeVRMmw-dyALMacKU-_Xj2nMboZL_TM3)」が立ち上がります。
 
 - `C:\Windows\System32\` にパスが通っていないと、インストールに失敗します。
-	- 通常の Windows のインストールではパスが通っている想定です。
+	- 通常の Windows のインストールではパスが通っているはずです。
 - [Civitai](https://civitai.com) がダウンしているとインストールに失敗する可能性があります。
 	- インストールに失敗しているようでしたら、間をおいて `src/Setup.bat` を再実行してください。
 
@@ -55,7 +55,8 @@
 - モデルを追加したい
 	- `animatediff-cli-prompt-travel/data/models/sd/` にモデルを置きます。
 		- [stable-diffusion-model-toolkit](https://github.com/arenasys/stable-diffusion-webui-model-toolkit) などで VAE をモデルに埋め込んでください。
-	- Colab ソースの `model_name = "nadenadesitai_v10" # @param ["mistoonAnime_v20", "nadenadesitai_v10", "onigiriMix_v10", "xxmix9realistic_v40", "Custom"]` を書き換えます。
+	- Colab ソースの `model_name = "nadenadesitai_v10" # @param ["mistoonAnime_v20", "nadenadesitai_v10", "xxmix9realistic_v40", "Custom"]` を書き換えます。
+	- モデルと AnimateDiff に相性があり、上手く動かないモデルや使えないモデルもあります。
 - モーションモジュールを追加したい
 	- `animatediff-cli-prompt-travel/data/models/motion-module/` にモーションモジュールを置きます。
 	- Colab ソースの `motion_module = "mm_sd_v15_v2.ckpt" # @param ["mm_sd_v15_v2.ckpt", "mm_sd_v15.ckpt", "mm_sd_v14.ckpt"]` を書き換えます。

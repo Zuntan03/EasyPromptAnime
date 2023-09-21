@@ -27,9 +27,6 @@ if not exist mistoonAnime_v20.safetensors (
 if not exist nadenadesitai_v10.safetensors (
 	curl -Lo nadenadesitai_v10.safetensors https://civitai.com/api/download/models/84669
 )
-if not exist onigiriMix_v10.safetensors (
-	curl -Lo onigiriMix_v10.safetensors https://civitai.com/api/download/models/163077
-)
 if not exist xxmix9realistic_v40.safetensors (
 	curl -Lo xxmix9realistic_v40.safetensors https://civitai.com/api/download/models/102222
 )
