@@ -1,7 +1,7 @@
 @echo off
 pushd %~dp0
 
-python --version | findstr "3.10.6" || (
+python --version | findstr "3.10." || (
 	echo [ERROR] Invalid python version. require 3.10.6.
 	python --version
 	echo Ctrl + Click: https://www.python.org/ftp/python/3.10.6/python-3.10.6-amd64.exe
