@@ -1,7 +1,7 @@
 ﻿# 簡単プロンプトアニメ
 
 [AnimateDiff prompt travel](https://github.com/s9roll7/animatediff-cli-prompt-travel) を使って、ローカル PC で簡単に動画を生成する環境です。  
-**<!--[[ 概要 ]() ]--> [[ Colab版 ](https://twitter.com/Zuntan03/status/1703674198101803268)]**  
+**[[ 概要 ](https://twitter.com/Zuntan03/status/1704807854384066714) ] [[ Colab版 ](https://twitter.com/Zuntan03/status/1703674198101803268)] ↓作例動画リンク↓**  
 [![title](./doc/img/title.webp)](https://yyy.wpx.jp/m/202309/KuronekoAkiba.mp4)
 
 - プロンプトだけで FullHD 面積のスムーズな長尺動画を生成 (Geforce RTX 3060 12GB)
@@ -78,6 +78,8 @@
 	- mp4 をドラッグ＆ドロップすると、[RIFE](https://github.com/megvii-research/ECCV2022-RIFE/tree/main) で FPS を8倍にします。サイズが大きいので再エンコード版も生成します。`FpsX8Fps60.bat` は再エンコード時に 60FPS化します。
 - `Frames2Mp4.bat`
 	- Tile アップスケールは mp4 を生成しませんが、`animatediff-cli-prompt-travel\upscaled` にある連番 png が入っているフォルダをドラッグ＆ドロップすると、mp4 を生成します。
+- `DeleteOutput.bat`
+	- ストレージ容量を消費しがちな `animatediff-cli-prompt-travel/` の `output/*/`, `upscaled/*/`, `refine/*/` を削除します。
 
 ## [AnimateDiff prompt travel](https://github.com/s9roll7/animatediff-cli-prompt-travel) 利用者向け情報
 
