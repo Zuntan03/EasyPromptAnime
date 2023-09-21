@@ -26,6 +26,8 @@
 	- **「WindowsによってPCが保護されました」と表示されたら、「詳細表示」から「実行」します。**  
 2. インストールが終わると、Google Colabでプロンプト編集用の「[簡単プロンプトアニメエディタ](https://colab.research.google.com/drive/1XeVRMmw-dyALMacKU-_Xj2nMboZL_TM3)」が立ち上がります。
 
+- `C:\Windows\System32\` にパスが通っていないと、インストールに失敗します。
+	- 通常の Windows のインストールではパスが通っている想定です。
 - [Civitai](https://civitai.com) がダウンしているとインストールに失敗する可能性があります。
 	- インストールに失敗しているようでしたら、間をおいて `src/Setup.bat` を再実行してください。
 
