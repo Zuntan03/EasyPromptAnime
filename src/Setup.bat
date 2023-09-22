@@ -21,10 +21,6 @@ if not exist animatediff-cli-prompt-travel (
 pushd animatediff-cli-prompt-travel
 
 pushd data\models\sd
-if not exist mistoonAnime_v20.safetensors (
-	curl -Lo mistoonAnime_v20.safetensors https://civitai.com/api/download/models/108545
-	timeout /t 1 /nobreak >nul
-)
 if not exist nadenadesitai_v10.safetensors (
 	curl -Lo nadenadesitai_v10.safetensors https://civitai.com/api/download/models/84669
 	timeout /t 1 /nobreak >nul

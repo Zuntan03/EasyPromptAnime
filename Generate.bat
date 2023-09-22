@@ -192,7 +192,7 @@ exit /b 0
 
 :FIND_NEW_DIR
 set NEW_DIR=
-set DIR_COMMAND=dir /b /ad /o-d /tc %1
+set DIR_COMMAND=dir /b /ad /o-d /tw %1
 for /f %%d in ('%DIR_COMMAND%') do (
 	set NEW_DIR=%%d
 	exit /b 0
@@ -201,7 +201,7 @@ exit /b 0
 
 :FIND_NEW_MP4
 set NEW_MP4=
-set DIR_COMMAND=dir /b /a-d /o-d /tc "%~1*.mp4"
+set DIR_COMMAND=dir /b /a-d /o-d /tw "%~1*.mp4"
 echo %DIR_COMMAND%
 for /f %%f in ('%DIR_COMMAND%') do (
 	set NEW_MP4=%%f

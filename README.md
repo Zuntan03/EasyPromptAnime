@@ -42,27 +42,28 @@
 
 ## 主な更新履歴
 
-- 2023/09/23
+- 2023/09/22
 	- motion-module に mm-Stabilized_high.pth と mm-Stabilized_mid.pth を追加
 		- `src/Setup.bat` を実行するとダウンロードします。
-- 2023/09/22
+	- 同一シードで同じフォルダに再出力した際に、正しくフレーム補間されない不具合の修正
+		- インストール済みの方は `Update.bat` を実行してください。
+- 2023/09/21
 	- 公開
 
 ## FAQ
 
-- デフォルトモデルの動画生成で正常に動画を生成できない
-	- デフォルトモデル: `mistoonAnime_v20`, `nadenadesitai_v10`, `onigiriMix_v10`, `xxmix9realistic_v40` 
+- デフォルトモデル (`nadenadesitai_v10`, `onigiriMix_v10`, `xxmix9realistic_v40`) で正常に動画を生成できない
 	- モデルのダウンロードに失敗している場合がありますので、`animatediff-cli-prompt-travel/data/models/sd/` にある該当ファイルを削除し、`src/Setup.bat` で再ダウンロードしてください。
 - 「[簡単プロンプトアニメエディタ](https://colab.research.google.com/drive/1XeVRMmw-dyALMacKU-_Xj2nMboZL_TM3)」の初期値や選択肢を変えたい
 	- Colab のメニュー `ファイル - ドライブにコピーを保存` して、一番下の `コードを表示` から該当部分を編集します。
 - モデルを追加したい
 	- `animatediff-cli-prompt-travel/data/models/sd/` にモデルを置きます。
 		- [stable-diffusion-model-toolkit](https://github.com/arenasys/stable-diffusion-webui-model-toolkit) などで VAE をモデルに埋め込んでください。
-	- Colab ソースの `model_name = "nadenadesitai_v10" # @param ["nadenadesitai_v10", "xxmix9realistic_v40", "Custom"]` を書き換えます。
-	- モデルと AnimateDiff に相性があり、上手く動かないモデルや使えないモデルもあります。
+	- Colab ソースの `model_name = "nadenadesitai_v10" # @param [...]` の `...` を書き換えます。
+	- AnimateDiff とモデルに相性があり、使えない・アニメーションしない場合があります。
 - モーションモジュールを追加したい
 	- `animatediff-cli-prompt-travel/data/models/motion-module/` にモーションモジュールを置きます。
-	- Colab ソースの `motion_module = "mm_sd_v15_v2.ckpt" # @param ["mm_sd_v15_v2.ckpt", "mm_sd_v15.ckpt", "mm_sd_v14.ckpt"]` を書き換えます。
+	- Colab ソースの `motion_module = "mm_sd_v15_v2.ckpt" # @param [...]` の `...` を書き換えます。
 - LoRA を使いたい
 	- `animatediff-cli-prompt-travel/data/lora/` に LoRA を置きます。
 		- 使える LoRA は通常の LierLa 形式で、C3Lier(Locon) 以降は使えないっぽいです。
