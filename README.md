@@ -50,6 +50,9 @@
 
 ## FAQ
 
+- デフォルトモデルの動画生成で正常に動画を生成できない
+	- デフォルトモデル: `mistoonAnime_v20`, `nadenadesitai_v10`, `onigiriMix_v10`, `xxmix9realistic_v40` 
+	- モデルのダウンロードに失敗している場合がありますので、`animatediff-cli-prompt-travel/data/models/sd/` にある該当ファイルを削除し、`src/Setup.bat` で再ダウンロードしてください。
 - 「[簡単プロンプトアニメエディタ](https://colab.research.google.com/drive/1XeVRMmw-dyALMacKU-_Xj2nMboZL_TM3)」の初期値や選択肢を変えたい
 	- Colab のメニュー `ファイル - ドライブにコピーを保存` して、一番下の `コードを表示` から該当部分を編集します。
 - モデルを追加したい

@@ -21,17 +21,21 @@ if not exist animatediff-cli-prompt-travel (
 pushd animatediff-cli-prompt-travel
 
 pushd data\models\sd
-@REM if not exist mistoonAnime_v20.safetensors (
-@REM 	curl -Lo mistoonAnime_v20.safetensors https://civitai.com/api/download/models/108545
-@REM )
+if not exist mistoonAnime_v20.safetensors (
+	curl -Lo mistoonAnime_v20.safetensors https://civitai.com/api/download/models/108545
+	timeout /t 1 /nobreak >nul
+)
 if not exist nadenadesitai_v10.safetensors (
 	curl -Lo nadenadesitai_v10.safetensors https://civitai.com/api/download/models/84669
+	timeout /t 1 /nobreak >nul
 )
-@REM if not exist onigiriMix_v10.safetensors (
-@REM 	curl -Lo onigiriMix_v10.safetensors https://civitai.com/api/download/models/163077
-@REM )
+if not exist onigiriMix_v10.safetensors (
+	curl -Lo onigiriMix_v10.safetensors https://civitai.com/api/download/models/163077
+	timeout /t 1 /nobreak >nul
+)
 if not exist xxmix9realistic_v40.safetensors (
 	curl -Lo xxmix9realistic_v40.safetensors https://civitai.com/api/download/models/102222
+	timeout /t 1 /nobreak >nul
 )
 for %%f in (*.safetensors) do (
 	if %%~zf LSS 10240 ( echo [BROKEN FILE]: "%%f" & del "%%f" )
@@ -41,18 +45,23 @@ popd rem data\models\sd
 pushd data\models\motion-module
 if not exist mm_sd_v15_v2.ckpt (
 	curl -LO https://huggingface.co/guoyww/animatediff/resolve/main/mm_sd_v15_v2.ckpt
+	timeout /t 1 /nobreak >nul
 )
 if not exist mm_sd_v15.ckpt (
 	curl -LO https://huggingface.co/guoyww/animatediff/resolve/main/mm_sd_v15.ckpt
+	timeout /t 1 /nobreak >nul
 )
 if not exist mm_sd_v14.ckpt (
 	curl -LO https://huggingface.co/guoyww/animatediff/resolve/main/mm_sd_v14.ckpt
+	timeout /t 1 /nobreak >nul
 )
 if not exist mm-Stabilized_high.pth (
 	curl -LO https://huggingface.co/manshoety/AD_Stabilized_Motion/resolve/main/mm-Stabilized_high.pth
+	timeout /t 1 /nobreak >nul
 )
 if not exist mm-Stabilized_mid.pth (
 	curl -LO https://huggingface.co/manshoety/AD_Stabilized_Motion/resolve/main/mm-Stabilized_mid.pth
+	timeout /t 1 /nobreak >nul
 )
 for %%f in (*.ckpt) do (
 	if %%~zf LSS 10240 ( echo [BROKEN FILE]: "%%f" & del "%%f" )
@@ -65,9 +74,11 @@ popd rem data\models\motion-module
 pushd data\embeddings
 if not exist EasyNegative.safetensors (
 	curl -LO https://huggingface.co/datasets/gsdf/EasyNegative/resolve/main/EasyNegative.safetensors
+	timeout /t 1 /nobreak >nul
 )
 if not exist EasyNegativeV2.safetensors (
 	curl -LO https://huggingface.co/gsdf/Counterfeit-V3.0/resolve/main/embedding/EasyNegativeV2.safetensors
+	timeout /t 1 /nobreak >nul
 )
 for %%f in (*.safetensors) do (
 	if %%~zf LSS 3072 ( echo [BROKEN FILE]: "%%f" & del "%%f" )
