@@ -26,8 +26,6 @@
 	- **「WindowsによってPCが保護されました」と表示されたら、「詳細表示」から「実行」します。**  
 2. インストールが終わると、Google Colabでプロンプト編集用の「[簡単プロンプトアニメエディタ](https://colab.research.google.com/drive/1XeVRMmw-dyALMacKU-_Xj2nMboZL_TM3)」が立ち上がります。
 
-- `C:\Windows\System32\` にパスが通っていないと、インストールに失敗します。
-	- 通常の Windows のインストールではパスが通っているはずです。
 - [Civitai](https://civitai.com) がダウンしているとインストールに失敗する可能性があります。
 	- インストールに失敗しているようでしたら、間をおいて `src/Setup.bat` を再実行してください。
 
@@ -43,10 +41,11 @@
 ## 主な更新履歴
 
 - 2023/09/22
-	- motion-module に mm-Stabilized_high.pth と mm-Stabilized_mid.pth を追加
+	- motion-module に mm-Stabilized_high.pth と mm-Stabilized_mid.pth を追加しました。
 		- `src/Setup.bat` を実行するとダウンロードします。
-	- 同一シードで同じフォルダに再出力した際に、正しくフレーム補間されない不具合の修正
+	- 同一シードで同じフォルダに再出力した際に、正しくフレーム補間されない不具合を修正しました。
 		- インストール済みの方は `Update.bat` を実行してください。
+	- インストーラーで `C:\Windows\System32` にパスが通っていない場合にエラー扱いにしました。
 - 2023/09/21
 	- 公開
 
