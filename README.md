@@ -51,6 +51,11 @@
 
 ## FAQ
 
+- 効率的にシードガチャをしたい
+	- アップスケールを無効にしたり、アップスケールのサイズを下げたりすることで効率的にシードガチャができます。
+- ガチャ結果動画のシード値を知りたい
+	- mp4 ファイル名先頭の `00-数値` や `00_数値` の `数値` 部分がシードです。
+	- `animatediff-cli-prompt-travel/(output|upscaled|refine)/` 以下にある `prompt.json` でも確認できます。
 - デフォルトモデル (`nadenadesitai_v10`, `onigiriMix_v10`, `xxmix9realistic_v40`) で正常に動画を生成できない
 	- モデルのダウンロードに失敗している場合がありますので、`animatediff-cli-prompt-travel/data/models/sd/` にある該当ファイルを削除し、`src/Setup.bat` で再ダウンロードしてください。
 - 「[簡単プロンプトアニメエディタ](https://colab.research.google.com/drive/1XeVRMmw-dyALMacKU-_Xj2nMboZL_TM3)」の初期値や選択肢を変えたい
