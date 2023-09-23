@@ -6,14 +6,13 @@
 
 - プロンプトだけで FullHD 面積のスムーズな長尺動画を生成 (Geforce RTX 3060 12GB)
 - インストール・2段アップスケール・フレームレート補間などが自動
-	- 作例は生成設定ファイルを `Generate.bat` にドロップしただけです。
-- [AnimateDiff prompt travel](https://github.com/s9roll7/animatediff-cli-prompt-travel) を利用していれば生成設定ファイルを流用可能
+- [AnimateDiff prompt travel](https://github.com/s9roll7/animatediff-cli-prompt-travel) を利用していれば、生成設定ファイルを流用可能
 
-**作例**
+## 作例
 
 - 9/21: FullHD 相当 [KuronekoAkiba](https://yyy.wpx.jp/m/202309/KuronekoAkiba.mp4)
 - 9/18: [nadenadesitai_v10](https://yyy.wpx.jp/m/202309/nadenadesitai_v10.mp4), [xxmix9realistic_v40](https://yyy.wpx.jp/m/202309/xxmix9realistic_v40.mp4), [onigiriMix_v10](https://yyy.wpx.jp/m/202309/onigiriMix_v10.mp4), [mistoonAnime_v20](https://yyy.wpx.jp/m/202309/mistoonAnime_v20.mp4)
-- 利用者の作例つぶやき（通知で補足できたもの）
+- 通知があった利用者のつぶやき
 	- [1](https://twitter.com/llrinnell/status/1703711755128779226),
 [2](https://twitter.com/ai_gene_fumo7/status/1704116905299382547),
 [3](https://twitter.com/moshimur/status/1704322583095812332),

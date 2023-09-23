@@ -27,7 +27,7 @@
   },
   "tail_prompt": "1girl, solo, black choker, hair between eyes",
   "n_prompt": [
-    "(worst quality, low quality:1.4), cat"
+    "(worst quality, low quality:1.4), cat, cow"
   ],
   "lora_map": {},
   "upscale_config": {
