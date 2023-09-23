@@ -25,6 +25,8 @@
 
 ## 主な更新履歴
 
+- 2024/09/24
+	- 生成した動画から X(Twitter) 投稿用の動画を生成する `XMp4*.bat` を追加しました。
 - 2023/09/23
 	- 生成する動画のデフォルトの FPS を、様々なサービスとの互換性の観点から 40FPS にしました。
 		- 生成設定ファイル名に `-D3` を付け足すと、以前と同様に 80FPS になります。
@@ -127,6 +129,11 @@
 	- Tile アップスケールは mp4 を生成しませんが、`animatediff-cli-prompt-travel\upscaled` にある連番 png が入っているフォルダをドラッグ＆ドロップすると、mp4 を生成します。
 - `DeleteOutput.bat`
 	- ストレージ容量を消費しがちな `animatediff-cli-prompt-travel/` の `output/*/`, `upscaled/*/`, `refine/*/` を削除します。
+- `XMp4.bat`, `XMp4W1920.bat`, `XMp4W1200.bat`, `XMp4H1900.bat`, `XMp4H1200.bat`
+	- mp4 をドラッグ＆ドロップすると X(Twitter) 用の動画(40FPS, 25Mbps)を生成します。
+		- [Xで動画を共有および視聴する方法](https://help.twitter.com/ja/using-x/x-videos#:~:text=%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E3%81%8B%E3%82%89%E3%82%A2%E3%83%83%E3%83%97%E3%83%AD%E3%83%BC%E3%83%89%E3%81%A7%E3%81%8D%E3%82%8B%E5%8B%95%E7%94%BB%E3%81%AE%E8%A7%A3%E5%83%8F%E5%BA%A6%E3%81%A8%E7%B8%A6%E6%A8%AA%E6%AF%94%E3%82%92%E6%95%99%E3%81%88%E3%81%A6%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82)
+		- 動画の大きさが W1920 x H1200 か W1200 x H1900 に収まらない場合は、`XMp4W1920.bat`, `XMp4W1200.bat`, `XMp4H1900.bat`, `XMp4H1200.bat` を使用して、W1920 x H1200 か W1200 x H1900 に収まるように縮小します。
+		- mp4 ファイル名の末尾が `*-D2e.mp4` な再エンコード後の mp4 でなく、`*-D2.mp4` な再エンコード前の mp4 から生成したほうが、品質が高くなります。
 
 ## [AnimateDiff prompt travel](https://github.com/s9roll7/animatediff-cli-prompt-travel) 利用者向け情報
 
