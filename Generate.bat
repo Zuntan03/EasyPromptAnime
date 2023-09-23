@@ -6,18 +6,13 @@ set WIDTH=384
 set HEIGHT=512
 set CONTEXT=16
 
-set INTERPOLATION=FpsX8
-set TILE_UPSCALE_MP4_FPS=10
-set TILE_UPSCALE_MP4_CRF=20
+set RIFE_DIV=2
+set RIFE_FPS=0
+set FFMPEG_FPS=0
+set FFMPEG_CRF=20
+set TILE_UPSCALE_FPS=10
 
 set /a REFINER_CONTEXT=%CONTEXT%/2
-
-@REM set UPSCALE_MODEL=
-@REM set UPSCALE1_MODEL=%UPSCALE_MODEL%
-@REM set UPSCALE2_MODEL=%UPSCALE_MODEL%
-
-@REM set UPSCALE1_STRENGTH=
-@REM set UPSCALE2_STRENGTH=
 
 set UPSCALE1=
 set UPSCALE1_HEIGHT=
@@ -25,8 +20,8 @@ set UPSCALE2=
 set UPSCALE2_HEIGHT=
 
 if "%~1" == "" (
-	echo Drag and drop the configuration *[OPTIONS].json file.
-	echo -L[Lenght]-W[Width]-H[Height]-C[Context]-T[TileWidth]-R[RefineWidth]
+	echo [ERROR] Drag and drop the configuration *[OPTIONS].json file.
+	echo -L[Lenght]-W[Width]-H[Height]-C[Context]-T[TileHeight]
 	pause & exit /b 1
 )
 
@@ -34,11 +29,10 @@ set CONFIG_PATH=%~f1
 set CONFIG_DIR=%~dp1
 set CONFIG_TEMP_PATH=temp\%~nx1
 
-echo pushd %~dp0animatediff-cli-prompt-travel
 pushd %~dp0animatediff-cli-prompt-travel
 call venv\Scripts\activate.bat
 
-for /f "tokens=2-8 delims=-" %%a in ("%~n1") do (
+for /f "tokens=2-12 delims=-" %%a in ("%~n1") do (
 	call :PARSE_ARG %%a
 	call :PARSE_ARG %%b
 	call :PARSE_ARG %%c
@@ -46,6 +40,10 @@ for /f "tokens=2-8 delims=-" %%a in ("%~n1") do (
 	call :PARSE_ARG %%e
 	call :PARSE_ARG %%f
 	call :PARSE_ARG %%g
+	call :PARSE_ARG %%h
+	call :PARSE_ARG %%i
+	call :PARSE_ARG %%j
+	call :PARSE_ARG %%k
 )
 
 if not exist temp\ ( mkdir temp )
@@ -79,14 +77,12 @@ if "%UPSCALE1%" == "" (
 
 	call :FIND_NEW_DIR upscaled
 	set UPSCALE1_DIR=upscaled\!NEW_DIR!
-	echo UPSCALE1_DIR: !UPSCALE1_DIR!
 
 	call :FIND_NEW_DIR !UPSCALE1_DIR!
 	set UPSCALE1_FRAMES_DIR=!UPSCALE1_DIR!\!NEW_DIR!
-	echo UPSCALE1_FRAMES_DIR: !UPSCALE1_FRAMES_DIR!
 
-	echo Frames2Mp4.bat !UPSCALE1_FRAMES_DIR! %TILE_UPSCALE_MP4_FPS% %TILE_UPSCALE_MP4_CRF%
-	call ..\Frames2Mp4.bat "!UPSCALE1_FRAMES_DIR!" %TILE_UPSCALE_MP4_FPS% %TILE_UPSCALE_MP4_CRF%
+	echo Frames2Mp4.bat !UPSCALE1_FRAMES_DIR! %TILE_UPSCALE_FPS% %FFMPEG_CRF%
+	call ..\Frames2Mp4.bat "!UPSCALE1_FRAMES_DIR!" %TILE_UPSCALE_FPS% %FFMPEG_CRF%
 ) else if "%UPSCALE1%" == "refine" (
 	echo animatediff %UPSCALE1% -H %UPSCALE1_HEIGHT% -C %REFINER_CONTEXT% %GENERATE_FRAMES_DIR%
 	animatediff %UPSCALE1% -H %UPSCALE1_HEIGHT% -C %REFINER_CONTEXT% %GENERATE_FRAMES_DIR%
@@ -95,13 +91,12 @@ if "%UPSCALE1%" == "" (
 	set UPSCALE1_DIR=refine\!NEW_DIR!
 	call :FIND_NEW_DIR !UPSCALE1_DIR!
 	set UPSCALE1_DIR=!UPSCALE1_DIR!\!NEW_DIR!
-	echo UPSCALE1_DIR: !UPSCALE1_DIR!
 
 	call :FIND_NEW_DIR !UPSCALE1_DIR!
 	set UPSCALE1_FRAMES_DIR=!UPSCALE1_DIR!\!NEW_DIR!
-	echo UPSCALE1_FRAMES_DIR: !UPSCALE1_FRAMES_DIR!
 ) else (
 	echo [ERROR] Unknown upscale type: %UPSCALE1%
+	pause
 	goto :END
 )
 
@@ -122,8 +117,8 @@ if "%UPSCALE2%" == "" (
 	call :FIND_NEW_DIR !UPSCALE2_DIR!
 	set UPSCALE2_FRAMES_DIR=!UPSCALE2_DIR!\!NEW_DIR!
 
-	echo Frames2Mp4.bat !UPSCALE2_FRAMES_DIR! %TILE_UPSCALE_MP4_FPS% %TILE_UPSCALE_MP4_CRF%
-	call ..\Frames2Mp4.bat "!UPSCALE2_FRAMES_DIR!" %TILE_UPSCALE_MP4_FPS% %TILE_UPSCALE_MP4_CRF%
+	echo Frames2Mp4.bat !UPSCALE2_FRAMES_DIR! %TILE_UPSCALE_FPS% %FFMPEG_CRF%
+	call ..\Frames2Mp4.bat "!UPSCALE2_FRAMES_DIR!" %TILE_UPSCALE_FPS% %FFMPEG_CRF%
 ) else if "%UPSCALE2%" == "refine" (
 	echo animatediff %UPSCALE2% -H %UPSCALE2_HEIGHT% -C %REFINER_CONTEXT% !UPSCALE1_FRAMES_DIR!
 	animatediff %UPSCALE2% -H %UPSCALE2_HEIGHT% -C %REFINER_CONTEXT% !UPSCALE1_FRAMES_DIR!
@@ -137,6 +132,7 @@ if "%UPSCALE2%" == "" (
 	set UPSCALE2_FRAMES_DIR=!UPSCALE2_DIR!\!NEW_DIR!
 ) else (
 	echo [ERROR] Unknown upscale type: %UPSCALE1%
+	pause
 	goto :END
 )
 
@@ -155,9 +151,11 @@ for /f "tokens=2-7 delims=/:. " %%a in ("echo %DATE% %TIME%") do (
 call :FIND_NEW_MP4 "%CONFIG_DIR%"
 rename "%CONFIG_DIR%\%NEW_MP4%" "%MMDD_HHMM_SS%-%NEW_MP4:~3%"
 
-if "%INTERPOLATION%" == "" ( exit /b 0 )
+if "%RIFE_DIV%" == "0" ( exit /b 0 )
 call :FIND_NEW_MP4 "%CONFIG_DIR%"
-call %~dp0%INTERPOLATION%.bat "%CONFIG_DIR%\%NEW_MP4%"
+
+echo FpsX4.bat "%CONFIG_DIR%\%NEW_MP4%" %RIFE_DIV% %RIFE_FPS% %FFMPEG_FPS% %FFMPEG_CRF%
+call %~dp0FpsX4.bat "%CONFIG_DIR%\%NEW_MP4%" %RIFE_DIV% %RIFE_FPS% %FFMPEG_FPS% %FFMPEG_CRF%
 
 exit /b 0
 
@@ -191,8 +189,19 @@ if "%ARG_KEY%" == "L" (
 		set UPSCALE2=refine
 		set UPSCALE2_HEIGHT=%ARG_VALUE%
 	)
+) else if "%ARG_KEY%" == "D" (
+	set RIFE_DIV=%ARG_VALUE%
+) else if "%ARG_KEY%" == "I" (
+	set RIFE_FPS=%ARG_VALUE%
+) else if "%ARG_KEY%" == "F" (
+	set FFMPEG_FPS=%ARG_VALUE%
+) else if "%ARG_KEY%" == "M" (
+	set FFMPEG_CRF=%ARG_VALUE%
+) else if "%ARG_KEY%" == "U" (
+	set TILE_UPSCALE_FPS=%ARG_VALUE%
 ) else (
 	echo [ERROR] Unknown argument: %ARG%
+	pause
 )
 exit /b 0
 
@@ -208,7 +217,6 @@ exit /b 0
 :FIND_NEW_MP4
 set NEW_MP4=
 set DIR_COMMAND=dir /b /a-d /o-d /tw "%~1*.mp4"
-echo %DIR_COMMAND%
 for /f %%f in ('%DIR_COMMAND%') do (
 	set NEW_MP4=%%f
 	exit /b 0

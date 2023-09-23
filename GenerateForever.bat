@@ -1,6 +1,6 @@
 @echo off
 if "%~1" == "" (
-	echo Drag and drop the configuration *[OPTIONS].json file.
+	echo [ERROR] Drag and drop the configuration *[OPTIONS].json file.
 	echo -L[Lenght]-W[Width]-H[Height]-C[Context]-T[TileWidth]-R[RefineWidth]
 	pause & exit /b 1
 )

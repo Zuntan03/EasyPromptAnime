@@ -26,6 +26,9 @@
 ## 主な更新履歴
 
 - 2023/09/23
+	- 生成する動画のデフォルトの FPS を、様々なサービスとの互換性の観点から 40FPS にしました。
+		- 生成設定ファイル名に `-D3` を付け足すと、以前と同様に 80FPS になります。
+		- FPS 指定の詳細は [ファイル名オプション一覧](#ファイル名オプション一覧) や `FpsX4.bat` の説明を参照してください。
 	- 生成した mp4 ファイル名に、日時のプレフィックスを追加するようにしました。
 		- 同一シードで生成しても、mp4 ファイルを上書きしなくなります。
 - 2023/09/22
@@ -52,6 +55,10 @@
 	- **「WindowsによってPCが保護されました」と表示されたら、「詳細表示」から「実行」します。**  
 4. インストールが終わると、Google Colabでプロンプト編集用の「[簡単プロンプトアニメエディタ](https://colab.research.google.com/drive/1XeVRMmw-dyALMacKU-_Xj2nMboZL_TM3)」が立ち上がります。
 
+## 更新方法
+
+簡単プロンプトアニメを更新するには、`Update.bat` を実行します。
+
 ## つかい方
 
 12秒のアニメをとりあえず生成してみたい方は、`sample/UpscaleGacha.bat` を実行してみてください(RTX 3060 で約 15分)。
@@ -60,8 +67,6 @@
 2. ひとつめの`▶`を押してプロンプト入力欄を表示し、プロンプトやパラメータを編集して、ふたつめの`▶`を押すと動画生成用の生成設定ファイル (*.json) をダウンロードします。
 3. 生成設定ファイルをインストール先([Setup-EasyPromptAnime.bat](https://github.com/Zuntan03/EasyPromptAnime/raw/main/src/Setup-EasyPromptAnime.bat) を実行したフォルダ)にある `Generate.bat` にドラッグ＆ドロップすると、生成設定ファイルの場所に動画を生成します。
 	- 生成した動画とフレームレート補間した動画と再エンコードした動画を生成します。
-
-簡単プロンプトアニメを更新するには、`Update.bat` を実行します。
 
 ## FAQ
 
@@ -98,7 +103,7 @@
 	- context を半分にしていますが、落ちますね。
 	- 初回のアップスケールで解像度を抑えつつ Refine を使用、とかもできましたが、重い印象でした。
 - ストレージ容量が足りない
-	- [WizTree](https://forest.watch.impress.co.jp/library/software/wiztree/) で状況を確認して、それでも足りなかったら SSD を買うのがオススメです。
+	- まずは [WizTree](https://forest.watch.impress.co.jp/library/software/wiztree/) で状況を確認してください。それでもストレージ容量が足りなかったら、買ってください。
 - Colabで編集する意味ある？
 	- ありません。「[Colab版簡単プロンプトアニメ](https://colab.research.google.com/drive/1QVxBjAamxOIAAlSohQklZltRPx8WsxEN)」のコードを流用しただけなので、利用者が多そうだったらローカルエディタを用意する、かも。
 
@@ -112,8 +117,12 @@
 	- 生成設定ファイルをドラッグ＆ドロップすると、動画を生成し続けます。終了時は `Ctrl+C` で止めてください。
 - `Update.bat`
 	- 簡単プロンプトアニメを更新します。
-- `FpsX8.bat`, `FpsX8Fps60.bat`
-	- mp4 をドラッグ＆ドロップすると、[RIFE](https://github.com/megvii-research/ECCV2022-RIFE/tree/main) で FPS を8倍にします。サイズが大きくなるので再エンコード版も生成します。`FpsX8Fps60.bat` は再エンコード時に 60FPS化します。
+- `FpsX4.bat`
+	- mp4 をドラッグ＆ドロップすると、[RIFE](https://github.com/megvii-research/ECCV2022-RIFE/tree/main) で FPS を4倍にします。サイズが大きくなるので再エンコード版も生成します。
+		- 第 2 引数に RIFE による中割りの分割回数（FPSの倍増を何回実施するかの）を指定できます。FPSが 1 なら 2倍、2 なら 4倍、3 なら 8倍、4 なら 16倍になります。未指定や 0 なら 2 になります。
+		- 第 3 引数に RIFE の分割後の FPS を指定できます。 **この FPS 指定では画像の枚数を変更せずに FPS を適用しますので、アニメーションの速度と長さが変わります。** 1秒の 10FPS の動画を RIFE で 4倍にして 40枚の画像がある状態で、第三引数で 60FPS を指定すると、アニメーションが早くなり 0.66秒で再生が終わります。逆に 8倍で80枚にして 60FPS を指定した場合は、ゆっくり再生されて 1.33秒で再生が終わります。0 なら未指定です。
+		- 第 4 引数で ffmpeg による再エンコード時の FPS を指定できます。再生速度や動画の長さは変わりません。0 なら未指定です。
+		- 第 5 引数で ffmpeg による再エンコード時の crf を指定できます。未指定や 0 なら 20 になります。
 - `Frames2Mp4.bat`
 	- Tile アップスケールは mp4 を生成しませんが、`animatediff-cli-prompt-travel\upscaled` にある連番 png が入っているフォルダをドラッグ＆ドロップすると、mp4 を生成します。
 - `DeleteOutput.bat`
@@ -130,6 +139,22 @@
 	- `-R` なら `animediff refine -C (context / 2)`
 3. `animediff tile-upscale -H 1632` から ffmpeg で mp4 生成
 4. [RIFE](https://github.com/megvii-research/ECCV2022-RIFE/tree/main) でフレーム補間
+
+### ファイル名オプション一覧
+
+|キー|デフォルト値|説明|
+|---:|---:|----|
+|L|30|動画のフレーム総数を指定します。|
+|C|16|AnimeDiffのコンテキスト長を指定します。|
+|W|384|動画の幅を指定します。|
+|H|512|動画の高さを指定します。|
+|T|-|Tile アップスケール後の動画の高さを指定します。2回指定できます。|
+|R|-|Refine アップスケール後の動画の高さを指定します。2回指定できます。|
+|D|2|RIFE による中割りの分割回数を指定します。`FpsX4.bat` の第 2 引数説明参照。|
+|I|0|RIFE による中割り後の FPS を指定します。`FpsX4.bat` の第 3 引数説明参照。|
+|F|0|ffmpeg で mp4 に変換する際の FPS を指定します。`FpsX4.bat` の第 4 引数説明参照。|
+|M|20|ffmpeg で mp4 に変換する際の crf を指定します。`FpsX4.bat` の第 5 引数説明参照。|
+|U|10|Tile アップスケール後の画像を MP4 にする際のFPSを指定します。|
 
 ## 参照
 

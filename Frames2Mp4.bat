@@ -2,7 +2,7 @@
 
 pushd %~dp0animatediff-cli-prompt-travel
 if "%~1" == "" (
-	echo Drag and drop the frames directory.
+	echo [ERROR] Drag and drop the frames directory.
 	pause & exit /b 1
 )
 set FRAMES_DIR=%~dpn1
