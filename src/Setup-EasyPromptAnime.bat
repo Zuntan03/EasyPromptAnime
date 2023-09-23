@@ -30,5 +30,5 @@ robocopy .\EasyPromptAnime\ . /s /move
 call src\Setup.bat
 start OpenColabEditor.bat
 
-popd
+popd rem %~dp0
 del %~f0

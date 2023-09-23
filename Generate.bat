@@ -149,6 +149,12 @@ endlocal
 call venv\Scripts\deactivate.bat
 popd rem %~dp0animatediff-cli-prompt-travel
 
+for /f "tokens=2-7 delims=/:. " %%a in ("echo %DATE% %TIME%") do (
+	set MMDD_HHMM_SS=%%b%%c_%%d%%e_%%f
+)
+call :FIND_NEW_MP4 "%CONFIG_DIR%"
+rename "%CONFIG_DIR%\%NEW_MP4%" "%MMDD_HHMM_SS%-%NEW_MP4:~3%"
+
 if "%INTERPOLATION%" == "" ( exit /b 0 )
 call :FIND_NEW_MP4 "%CONFIG_DIR%"
 call %~dp0%INTERPOLATION%.bat "%CONFIG_DIR%\%NEW_MP4%"

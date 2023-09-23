@@ -12,7 +12,7 @@
 
 - 9/21: FullHD 相当 [KuronekoAkiba](https://yyy.wpx.jp/m/202309/KuronekoAkiba.mp4)
 - 9/18: [nadenadesitai_v10](https://yyy.wpx.jp/m/202309/nadenadesitai_v10.mp4), [xxmix9realistic_v40](https://yyy.wpx.jp/m/202309/xxmix9realistic_v40.mp4), [onigiriMix_v10](https://yyy.wpx.jp/m/202309/onigiriMix_v10.mp4), [mistoonAnime_v20](https://yyy.wpx.jp/m/202309/mistoonAnime_v20.mp4)
-- 通知があった利用者のつぶやき
+- 利用者のつぶやき（通知があったもののみ）
 	- [1](https://twitter.com/llrinnell/status/1703711755128779226),
 [2](https://twitter.com/ai_gene_fumo7/status/1704116905299382547),
 [3](https://twitter.com/moshimur/status/1704322583095812332),
@@ -25,6 +25,9 @@
 
 ## 主な更新履歴
 
+- 2023/09/23
+	- 生成した mp4 ファイル名に、日時のプレフィックスを追加するようにしました。
+		- 同一シードで生成しても、mp4 ファイルを上書きしなくなります。
 - 2023/09/22
 	- motion-module に mm-Stabilized_high.pth と mm-Stabilized_mid.pth を追加しました。
 		- `Update.bat` を実行するとダウンロードします。
@@ -64,8 +67,9 @@
 
 - 効率的にシードガチャをしたい
 	- アップスケールを無効にしたり、アップスケールのサイズを下げたりすることで効率的にシードガチャができます。
+	- プロンプトをざっくり詰める段階なら、最初の生成解像度を下げたり、短時間にして先頭付近のキーフレームで検証するのも手です。
 - ガチャ結果動画のシード値を知りたい
-	- mp4 ファイル名先頭の `00-数値` や `00_数値` の `数値` 部分がシードです。
+	- mp4 ファイル名先頭の `日時(MMDD_HHMM_SS)-数値` の `数値` 部分がシードです。
 	- `animatediff-cli-prompt-travel/(output|upscaled|refine)/` 以下にある `prompt.json` でも確認できます。
 - 動画の生成が一晩経っても終わらない、サンプル（`sample/UpscaleGacha.bat`、RTX 3060 で約 15分）の生成に長い時間が掛かる
 	- [AI 画像生成の VRAM オフロード問題](https://www.google.com/search?q=%E7%94%BB%E5%83%8F%E7%94%9F%E6%88%90+VRAM%E3%82%AA%E3%83%95%E3%83%AD%E3%83%BC%E3%83%89%E5%95%8F%E9%A1%8C)を踏んでいる可能性がありますので、グラフィックスドライバのバージョンを確認してください。
@@ -109,7 +113,7 @@
 - `Update.bat`
 	- 簡単プロンプトアニメを更新します。
 - `FpsX8.bat`, `FpsX8Fps60.bat`
-	- mp4 をドラッグ＆ドロップすると、[RIFE](https://github.com/megvii-research/ECCV2022-RIFE/tree/main) で FPS を8倍にします。サイズが大きいので再エンコード版も生成します。`FpsX8Fps60.bat` は再エンコード時に 60FPS化します。
+	- mp4 をドラッグ＆ドロップすると、[RIFE](https://github.com/megvii-research/ECCV2022-RIFE/tree/main) で FPS を8倍にします。サイズが大きくなるので再エンコード版も生成します。`FpsX8Fps60.bat` は再エンコード時に 60FPS化します。
 - `Frames2Mp4.bat`
 	- Tile アップスケールは mp4 を生成しませんが、`animatediff-cli-prompt-travel\upscaled` にある連番 png が入っているフォルダをドラッグ＆ドロップすると、mp4 を生成します。
 - `DeleteOutput.bat`
