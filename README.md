@@ -90,11 +90,11 @@
 - モデルを追加したい
 	- `animatediff-cli-prompt-travel/data/models/sd/` にモデルを置きます。
 		- [stable-diffusion-model-toolkit](https://github.com/arenasys/stable-diffusion-webui-model-toolkit) などで VAE をモデルに埋め込んでください。以下手順。
-			- 1. WebUI の `Toolkit` タブで `リフレッシュ` してから `入力` で VAE を埋め込むモデルを選択して `読み込み` ます。
-			- 2. `高度な設定`	に移り、`Component - Class` から `VAE-v1` を選択します。
-			- 3. `実行 - ファイル` で埋め込む VAE を選択して `Import` します。
-			- 4. `名前` で VAE を埋め込んだモデルのファイル名を指定して `保存` で、モデルフォルダに VAE を埋め込んだモデルが保存されます。
-			- 5. `animatediff-cli-prompt-travel/data/models/sd/` に VAE を埋め込んだモデルを移動します。
+			- WebUI の `Toolkit` タブで `リフレッシュ` してから `入力` で VAE を埋め込むモデルを選択して `読み込み` ます。
+			- `高度な設定`	に移り、`Component - Class` から `VAE-v1` を選択します。
+			- `実行 - ファイル` で埋め込む VAE を選択して `Import` します。
+			- `名前` で VAE を埋め込んだモデルのファイル名を指定して `保存` で、モデルフォルダに VAE を埋め込んだモデルが保存されます。
+			- `animatediff-cli-prompt-travel/data/models/sd/` に VAE を埋め込んだモデルを移動します。
 	- Colab ソースの `model_name = "nadenadesitai_v10" # @param [...]` の `...` を書き換えます。
 	- AnimateDiff とモデルに相性があり、使えない・アップスケール時に黒画像になる(埋め込みVAEの影響ならVAE差し替え？)・アニメーションしない場合があります。
 - モーションモジュールを追加したい
