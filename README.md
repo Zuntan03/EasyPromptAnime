@@ -1,7 +1,7 @@
 ﻿# 簡単プロンプトアニメ
 
 [AnimateDiff prompt travel](https://github.com/s9roll7/animatediff-cli-prompt-travel) を使って、ローカル PC で簡単に動画を生成する環境です。  
-**[[ 概要 ](https://twitter.com/Zuntan03/status/1704807854384066714) ] [[ Colab版 ](https://twitter.com/Zuntan03/status/1703674198101803268)] ↓作例動画リンク↓**  
+**[[ 概要 ](https://twitter.com/Zuntan03/status/1704807854384066714) ] [[ Colab版 ](https://twitter.com/Zuntan03/status/1703674198101803268)]**  
 [![title](./doc/img/title.webp)](https://yyy.wpx.jp/m/202309/KuronekoAkiba.mp4)
 
 - プロンプトだけで FullHD 面積のスムーズな長尺動画を生成 (Geforce RTX 3060 12GB)
@@ -9,7 +9,7 @@
 	- 作例は生成設定ファイルを `Generate.bat` にドロップしただけです。
 - [AnimateDiff prompt travel](https://github.com/s9roll7/animatediff-cli-prompt-travel) を利用していれば生成設定ファイルを流用可能
 
-## サンプル
+**作例**
 
 - 9/21: FullHD 相当 [KuronekoAkiba](https://yyy.wpx.jp/m/202309/KuronekoAkiba.mp4)
 - 9/18: [nadenadesitai_v10](https://yyy.wpx.jp/m/202309/nadenadesitai_v10.mp4), [xxmix9realistic_v40](https://yyy.wpx.jp/m/202309/xxmix9realistic_v40.mp4), [onigiriMix_v10](https://yyy.wpx.jp/m/202309/onigiriMix_v10.mp4), [mistoonAnime_v20](https://yyy.wpx.jp/m/202309/mistoonAnime_v20.mp4)
@@ -22,12 +22,12 @@
 
 ## インストール
 
-1. [Setup-EasyPromptAnime.bat](https://github.com/Zuntan03/EasyPromptAnime/raw/main/src/Setup-EasyPromptAnime.bat) を **右クリックから「名前をつけてリンク先を保存…」** でインストール先のフォルダ（英数字のみの浅いパス）にダウンロードして実行します。
+1. 動作環境の [Python 3.10.6](https://www.python.org/ftp/python/3.10.6/python-3.10.6-amd64.exe) を導入していない場合は、[Python のインストール](https://github.com/Zuntan03/SdWebUiTutorial/blob/main/_/doc/SdWebUiInstall/SdWebUiInstall.md#python-%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB) をします。
+2. 動作環境の [Git for Windows](https://gitforwindows.org/) を導入していない場合は、[Git for Windows のインストール](https://github.com/Zuntan03/SdWebUiTutorial/blob/main/_/doc/SdWebUiInstall/SdWebUiInstall.md#git-for-windows-%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB) をします。
+2. [Civitai](https://civitai.com) がダウンしていないか確認します。
+3. [Setup-EasyPromptAnime.bat](https://github.com/Zuntan03/EasyPromptAnime/raw/main/src/Setup-EasyPromptAnime.bat) を **右クリックから「名前をつけてリンク先を保存…」** でインストール先のフォルダ（英数字のみの浅いパス）にダウンロードして実行します。
 	- **「WindowsによってPCが保護されました」と表示されたら、「詳細表示」から「実行」します。**  
-2. インストールが終わると、Google Colabでプロンプト編集用の「[簡単プロンプトアニメエディタ](https://colab.research.google.com/drive/1XeVRMmw-dyALMacKU-_Xj2nMboZL_TM3)」が立ち上がります。
-
-- [Civitai](https://civitai.com) がダウンしているとインストールに失敗する可能性があります。
-	- インストールに失敗しているようでしたら、間をおいて `src/Setup.bat` を再実行してください。
+4. インストールが終わると、Google Colabでプロンプト編集用の「[簡単プロンプトアニメエディタ](https://colab.research.google.com/drive/1XeVRMmw-dyALMacKU-_Xj2nMboZL_TM3)」が立ち上がります。
 
 ## つかい方
 
@@ -42,7 +42,7 @@
 
 - 2023/09/22
 	- motion-module に mm-Stabilized_high.pth と mm-Stabilized_mid.pth を追加しました。
-		- `src/Setup.bat` を実行するとダウンロードします。
+		- `Update.bat` を実行した後に、`src/Setup.bat` を実行するとダウンロードします。
 	- 同一シードで同じフォルダに再出力した際に、正しくフレーム補間されない不具合を修正しました。
 		- インストール済みの方は `Update.bat` を実行してください。
 	- インストーラーで `C:\Windows\System32` にパスが通っていない場合にエラー扱いにしました。
