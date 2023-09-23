@@ -13,6 +13,16 @@
 
 - 9/21: FullHD 相当 [KuronekoAkiba](https://yyy.wpx.jp/m/202309/KuronekoAkiba.mp4)
 - 9/18: [nadenadesitai_v10](https://yyy.wpx.jp/m/202309/nadenadesitai_v10.mp4), [xxmix9realistic_v40](https://yyy.wpx.jp/m/202309/xxmix9realistic_v40.mp4), [onigiriMix_v10](https://yyy.wpx.jp/m/202309/onigiriMix_v10.mp4), [mistoonAnime_v20](https://yyy.wpx.jp/m/202309/mistoonAnime_v20.mp4)
+- 利用者の作例つぶやき（通知で補足できたもの）
+	- [1](https://twitter.com/llrinnell/status/1703711755128779226),
+[2](https://twitter.com/ai_gene_fumo7/status/1704116905299382547),
+[3](https://twitter.com/moshimur/status/1704322583095812332),
+[4](https://twitter.com/mouriAIart/status/1704986700358013430),
+[5](https://twitter.com/katarina7410/status/1705152174471463009),
+[6](https://twitter.com/PhotogenicWeekE/status/1705175475176530146),
+[7](https://twitter.com/safa_dayo/status/1705183157920616482),
+[8](https://twitter.com/hina_chocoboo13/status/1705213931466485813),
+[9](https://twitter.com/cigmatari/status/1705225865356009612)
 
 ## 動作環境
 
@@ -31,7 +41,7 @@
 
 ## つかい方
 
-とりあえず長尺アニメ (12秒 120コマ 672x768) を生成してみたい方は、`sample/UpscaleGacha.bat` を実行してみてください(RTX 3060 で約 15分)。
+12秒のアニメをとりあえず生成してみたい方は、`sample/UpscaleGacha.bat` を実行してみてください(RTX 3060 で約 15分)。
 
 1. `OpenClabEditor.bat` で「[簡単プロンプトアニメエディタ](https://colab.research.google.com/drive/1XeVRMmw-dyALMacKU-_Xj2nMboZL_TM3)」を開きます。
 2. ひとつめの`▶`を押してプロンプト入力欄を表示し、プロンプトやパラメータを編集して、ふたつめの`▶`を押すと動画生成用の生成設定ファイル (*.json) をダウンロードします。
