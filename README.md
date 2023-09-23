@@ -80,6 +80,8 @@
 - Refine がメモリ不足で落ちる
 	- context を半分にしていますが、落ちますね。
 	- 初回のアップスケールで解像度を抑えつつ Refine を使用、とかもできましたが、重い印象でした。
+- ストレージ容量が足りない
+	- [WizTree](https://forest.watch.impress.co.jp/library/software/wiztree/) で状況を確認して、それでも足りなかったら SSD を買うのがオススメです。
 - Colabで編集する意味ある？
 	- ありません。「[Colab版簡単プロンプトアニメ](https://colab.research.google.com/drive/1QVxBjAamxOIAAlSohQklZltRPx8WsxEN)」のコードを流用しただけなので、利用者が多そうだったらローカルエディタを用意する、かも。
 
