@@ -24,9 +24,20 @@
 [8](https://twitter.com/hina_chocoboo13/status/1705213931466485813),
 [9](https://twitter.com/cigmatari/status/1705225865356009612)
 
+## 主な更新履歴
+
+- 2023/09/22
+	- motion-module に mm-Stabilized_high.pth と mm-Stabilized_mid.pth を追加しました。
+		- `Update.bat` を実行するとダウンロードします。
+	- 同一シードで同じフォルダに再出力した際に、正しくフレーム補間されない不具合を修正しました。
+		- インストール済みの方は `Update.bat` を実行してください。
+	- インストーラーで `C:\Windows\System32` にパスが通っていない場合にエラー扱いにしました。
+- 2023/09/21
+	- 公開
+
 ## 動作環境
 
-- Windows 10 PC
+- Windows 10 以降（Windows Update済み）の PC で、Windows/System32 にパスが通っている
 - 最近の NVIDIA Geforce RTX **VRAM 8BG 以上**
 - パスを通した [Python 3.10.6](https://www.python.org/ftp/python/3.10.6/python-3.10.6-amd64.exe) と [Git for Windows](https://gitforwindows.org/)
 
@@ -48,16 +59,7 @@
 3. 生成設定ファイルをインストール先([Setup-EasyPromptAnime.bat](https://github.com/Zuntan03/EasyPromptAnime/raw/main/src/Setup-EasyPromptAnime.bat) を実行したフォルダ)にある `Generate.bat` にドラッグ＆ドロップすると、生成設定ファイルの場所に動画を生成します。
 	- 生成した動画とフレームレート補間した動画と再エンコードした動画を生成します。
 
-## 主な更新履歴
-
-- 2023/09/22
-	- motion-module に mm-Stabilized_high.pth と mm-Stabilized_mid.pth を追加しました。
-		- `Update.bat` を実行した後に、`src/Setup.bat` を実行するとダウンロードします。
-	- 同一シードで同じフォルダに再出力した際に、正しくフレーム補間されない不具合を修正しました。
-		- インストール済みの方は `Update.bat` を実行してください。
-	- インストーラーで `C:\Windows\System32` にパスが通っていない場合にエラー扱いにしました。
-- 2023/09/21
-	- 公開
+簡単プロンプトアニメを更新するには、`Update.bat` を実行します。
 
 ## FAQ
 
