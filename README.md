@@ -30,7 +30,7 @@
 ## 主な更新履歴
 
 - 2024/09/24
-	- **今回の更新では `Update.bat` を変更したため、`Update.bat` を 2回実行してください。**
+	- **今回の更新では `Update.bat` を 2回！実行してください（`Update.bat` を更新したため）。**
 	- [AnimateDiff prompt travel](https://github.com/s9roll7/animatediff-cli-prompt-travel) の更新に対応しました。
 		- AnimateDiff 用にモデルを修正する `FixCheckpoint.bat` を追加しました。<br>
 		が、手元で利用しているモデルは修正不要でした。
