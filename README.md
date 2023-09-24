@@ -4,13 +4,14 @@
 **[[ 概要 ](https://twitter.com/Zuntan03/status/1704807854384066714) ] [[ Colab版 ](https://twitter.com/Zuntan03/status/1703674198101803268)]**  
 [![title](./doc/img/title.webp)](https://yyy.wpx.jp/m/202309/KuronekoAkiba.mp4)
 
-- プロンプトだけで FullHD 面積のスムーズな長尺動画を生成 (Geforce RTX 3060 12GB)
-- インストール・2段アップスケール・フレームレート補間などが自動
-- [AnimateDiff prompt travel](https://github.com/s9roll7/animatediff-cli-prompt-travel) を利用していれば、生成設定ファイルを流用可能
+- プロンプトだけで FullHD のスムーズな長尺動画を生成
+- セットアップ・2段アップスケール・フレームレート補間などが自動
+- [AnimateDiff prompt travel](https://github.com/s9roll7/animatediff-cli-prompt-travel) の生成設定ファイルを流用可能
 
 ## 作例
 
-- 9/23: [motion-moduleのmm_sd_v15_v2とmm-Stabilized_high比較](https://twitter.com/Zuntan03/status/1705537060491432132) [HullHD 超え動画](https://yyy.wpx.jp/m/202309/V152HighGrid.mp4)
+- 9/24: [モデルへの VAE 組み込み有無比較](https://twitter.com/Zuntan03/status/1705779826056147188) の [きれいな動画](https://yyy.wpx.jp/m/202309/ModelVae-crf26.mp4)
+- 9/23: [motion-moduleのmm_sd_v15_v2とmm-Stabilized_high比較](https://twitter.com/Zuntan03/status/1705537060491432132) [FullHD 超え動画](https://yyy.wpx.jp/m/202309/V152HighGrid.mp4)
 - 9/21: FullHD 相当 [KuronekoAkiba](https://yyy.wpx.jp/m/202309/KuronekoAkiba.mp4)
 - 9/18: [nadenadesitai_v10](https://yyy.wpx.jp/m/202309/nadenadesitai_v10.mp4), [xxmix9realistic_v40](https://yyy.wpx.jp/m/202309/xxmix9realistic_v40.mp4), [onigiriMix_v10](https://yyy.wpx.jp/m/202309/onigiriMix_v10.mp4), [mistoonAnime_v20](https://yyy.wpx.jp/m/202309/mistoonAnime_v20.mp4)
 - 利用者のつぶやき（通知があったもののみ）
