@@ -90,16 +90,26 @@
 - mp4 ファイル名先頭の `日時(MMDD_HHMM_SS)-数値` の `数値` 部分がシードです。
 - `animatediff-cli-prompt-travel/(output|upscaled|refine)/` 以下にある `prompt.json` でも確認できます。
 
+### 真っ黒の動画が生成されてしまう
+
+以下のいずれかの手順で、改善するかもしれません。
+
+1. 生成設定ファイルのファイル名に `-V` を付け足します（改善報告あり）。
+2. [モデルの VAE を差し替え](#stable-diffusion-model-toolkit-によるモデルへの-vae-埋め込み方法)ます。
+3. 生成設定ファイルのファイル名に `-X` を付け足します（未検証、`-V`, `-v`, `-x` との併用も）。
+4. 別のモデルを使います。
+
 ### 「[簡単プロンプトアニメエディタ](https://colab.research.google.com/drive/1XeVRMmw-dyALMacKU-_Xj2nMboZL_TM3)」の初期値や選択肢を変えたい
 - Colab のメニュー `ファイル - ドライブにコピーを保存` して、一番下の `コードを表示` から該当部分を編集します。
 
 ### モデルを追加したい
-- `animatediff-cli-prompt-travel/data/models/sd/` にモデルを置きます。
+1. `animatediff-cli-prompt-travel/data/models/sd/` にモデルを置きます。
 	- **[！注意！] [stable-diffusion-model-toolkit](https://github.com/arenasys/stable-diffusion-webui-model-toolkit) などで、[モデルに VAE を埋め込んでください](#stable-diffusion-model-toolkit-によるモデルへの-vae-埋め込み方法)。** <br>
 	モデルに VAE を埋め込まないと、[このようになる](https://twitter.com/Zuntan03/status/1705779826056147188) 場合があります。
 
-- Colab ソースの `model_name = "nadenadesitai_v10" # @param [...]` の `...` を書き換えます。
-- AnimateDiff とモデルに相性があり、使えない・アップスケール時に黒画像になる(埋め込みVAEの影響ならVAE差し替え？)・アニメーションしない場合があります。
+2. Colab ソースの `model_name = "nadenadesitai_v10" # @param [...]` の `...` を書き換えます。
+
+AnimateDiff とモデルに相性があり、[黒画像になる](#真っ黒の動画が生成されてしまう)、あまりアニメーションしない、といった場合があります。
 
 #### [stable-diffusion-model-toolkit](https://github.com/arenasys/stable-diffusion-webui-model-toolkit) によるモデルへの VAE 埋め込み方法
 
@@ -110,18 +120,9 @@
 5. `名前` で VAE を埋め込んだモデルのファイル名を指定して `保存` で、モデルフォルダに VAE を埋め込んだモデルが保存されます。
 6. `animatediff-cli-prompt-travel/data/models/sd/` に VAE を埋め込んだモデルを移動します。
 
-### 真っ黒の動画が生成されてしまう
-
-以下のいずれかの手順で、改善するかもしれません。
-
-1. 生成設定ファイルのファイル名に `-V` を付け足します（改善報告あり）。
-2. [モデルの VAE を差し替え](#stable-diffusion-model-toolkit-によるモデルへの-vae-埋め込み方法)ます。
-3. 生成設定ファイルのファイル名に `-X` を付け足します（未検証、`-V`, `-v`, `-x` との併用も）。
-4. 別のモデルを使います。
-
 ### モーションモジュールを追加したい
-- `animatediff-cli-prompt-travel/data/models/motion-module/` にモーションモジュールを置きます。
-- Colab ソースの `motion_module = "mm_sd_v15_v2.ckpt" # @param [...]` の `...` を書き換えます。
+1. `animatediff-cli-prompt-travel/data/models/motion-module/` にモーションモジュールを置きます。
+2. Colab ソースの `motion_module = "mm_sd_v15_v2.ckpt" # @param [...]` の `...` を書き換えます。
 
 ### LoRA を使いたい
 - `animatediff-cli-prompt-travel/data/lora/` に LoRA を置きます。

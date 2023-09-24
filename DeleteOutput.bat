@@ -1,4 +1,6 @@
 @echo off
+
+@REM If you want to disable (y/n), delete the three lines below.
 echo Delete output/*/  upscaled/*/  refine/*/ (y/n)
 set /p YES_OR_NO=
 if /i not "%YES_OR_NO%" == "Y" ( exit /b 0 )
