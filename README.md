@@ -32,6 +32,9 @@
 - 2024/09/24
 	- 生成した動画のサイズを低減する `Mp4Crf(26|32|38)` を追加しました。
 	- 生成した動画から X(Twitter) 投稿用の動画を生成する `XMp4*.bat` を追加しました。
+	- [AnimateDiff prompt travel](https://github.com/s9roll7/animatediff-cli-prompt-travel) の更新に対応しました。
+		- AnimateDiff 用にモデルを修正する `FixCheckpoint.bat` を追加しました。<br>
+		が、手元で利用しているモデルは修正不要でした。
 - 2023/09/23
 	- 生成する動画のデフォルトの FPS を、様々なサービスとの互換性の観点から 40FPS にしました。
 		- 生成設定ファイル名に `-D3` を付け足すと、以前と同様に 80FPS になります。
@@ -95,20 +98,22 @@
 
 以下のいずれかの手順で、改善するかもしれません。
 
-1. 生成設定ファイルのファイル名に `-V` を付け足します（改善報告あり）。
-2. [モデルの VAE を差し替え](#stable-diffusion-model-toolkit-によるモデルへの-vae-埋め込み方法)ます。
-3. 生成設定ファイルのファイル名に `-X` を付け足します（未検証、`-V`, `-v`, `-x` との併用も）。
-4. 別のモデルを使います。
+1. `FixCheckpoint.bat` でモデルに修正が必要でないかを確認します。
+2. 生成設定ファイルのファイル名に `-V` を付け足します（改善報告あり）。
+3. [モデルの VAE を差し替え](#stable-diffusion-model-toolkit-によるモデルへの-vae-埋め込み方法)ます。
+4. 生成設定ファイルのファイル名に `-X` を付け足します（未検証、`-V`, `-v`, `-x` との併用も）。
+5. 別のモデルを使います。
 
 ### 「[簡単プロンプトアニメエディタ](https://colab.research.google.com/drive/1XeVRMmw-dyALMacKU-_Xj2nMboZL_TM3)」の初期値や選択肢を変えたい
 - Colab のメニュー `ファイル - ドライブにコピーを保存` して、一番下の `コードを表示` から該当部分を編集します。
 
 ### モデルを追加したい
-1. `animatediff-cli-prompt-travel/data/models/sd/` にモデルを置きます。
+
+1. `FixCheckpoint.bat` でモデルに修正が必要でないかを確認します。
+2. `animatediff-cli-prompt-travel/data/models/sd/` にモデルを置きます。
 	- **[！注意！] [stable-diffusion-model-toolkit](https://github.com/arenasys/stable-diffusion-webui-model-toolkit) などで、[モデルに VAE を埋め込んでください](#stable-diffusion-model-toolkit-によるモデルへの-vae-埋め込み方法)。** <br>
 	モデルに VAE を埋め込まないと、[このようになる](https://twitter.com/Zuntan03/status/1705779826056147188) 場合があります。
-
-2. Colab ソースの `model_name = "nadenadesitai_v10" # @param [...]` の `...` を書き換えます。
+3. Colab ソースの `model_name = "nadenadesitai_v10" # @param [...]` の `...` を書き換えます。
 
 AnimateDiff とモデルに相性があり、[黒画像になる](#真っ黒の動画が生成されてしまう)、あまりアニメーションしない、といった場合があります。
 
@@ -156,7 +161,10 @@ AnimateDiff とモデルに相性があり、[黒画像になる](#真っ黒の�
 - `GenerateForever.bat`
 	- 生成設定ファイルをドラッグ＆ドロップすると、動画を生成し続けます。終了時は `Ctrl+C` で止めてください。
 - `Update.bat`
-	- 簡単プロンプトアニメを更新します。
+	- 簡単プロンプトアニメと [AnimateDiff prompt travel](https://github.com/s9roll7/animatediff-cli-prompt-travel) を更新します。
+- `FixCheckpoint.bat`
+	- モデルをドラッグ＆ドロップすると、必要であれば AnimateDiff 用にモデルを修正します。
+	- `This file works fine.` と表示されていれば、モデルに変更はありません。
 - `FpsX4.bat`
 	- mp4 をドラッグ＆ドロップすると、[RIFE](https://github.com/megvii-research/ECCV2022-RIFE/tree/main) で FPS を4倍にします。サイズが大きくなるので再エンコード版も生成します。
 		- 第 2 引数に RIFE による中割りの分割回数（FPSの倍増を何回実施するかの）を指定できます。FPSが 1 なら 2倍、2 なら 4倍、3 なら 8倍、4 なら 16倍になります。未指定や 0 なら 2 になります。
