@@ -15,18 +15,20 @@
 - 9/21: FullHD 相当 [KuronekoAkiba](https://yyy.wpx.jp/m/202309/KuronekoAkiba.mp4)
 - 9/18: [nadenadesitai_v10](https://yyy.wpx.jp/m/202309/nadenadesitai_v10.mp4), [xxmix9realistic_v40](https://yyy.wpx.jp/m/202309/xxmix9realistic_v40.mp4), [onigiriMix_v10](https://yyy.wpx.jp/m/202309/onigiriMix_v10.mp4), [mistoonAnime_v20](https://yyy.wpx.jp/m/202309/mistoonAnime_v20.mp4)
 - 利用者のつぶやき（通知があったもののみ）
-	- [1](https://twitter.com/llrinnell/status/1703711755128779226),
-[2](https://twitter.com/ai_gene_fumo7/status/1704116905299382547),
-[3](https://twitter.com/moshimur/status/1704322583095812332),
-[4](https://twitter.com/mouriAIart/status/1704986700358013430),
-[5](https://twitter.com/katarina7410/status/1705152174471463009),
-[6](https://twitter.com/PhotogenicWeekE/status/1705175475176530146),
-[7](https://twitter.com/safa_dayo/status/1705183157920616482),
-[8](https://twitter.com/hina_chocoboo13/status/1705213931466485813),
-[9](https://twitter.com/cigmatari/status/1705225865356009612),
-[10](https://twitter.com/keythpiece/status/1705605784091193717),
-[11](https://twitter.com/TakaWeekendProg/status/1705745532424233372),
+	- [1](https://twitter.com/llrinnell/status/1703711755128779226)
+[2](https://twitter.com/ai_gene_fumo7/status/1704116905299382547)
+[3](https://twitter.com/moshimur/status/1704322583095812332)
+[4](https://twitter.com/mouriAIart/status/1704986700358013430)
+[5](https://twitter.com/katarina7410/status/1705152174471463009)
+[6](https://twitter.com/PhotogenicWeekE/status/1705175475176530146)
+[7](https://twitter.com/safa_dayo/status/1705183157920616482)
+[8](https://twitter.com/hina_chocoboo13/status/1705213931466485813)
+[9](https://twitter.com/cigmatari/status/1705225865356009612)
+[10](https://twitter.com/keythpiece/status/1705605784091193717)
+[11](https://twitter.com/TakaWeekendProg/status/1705745532424233372)
 [12](https://twitter.com/llrinnell/status/1705898369586212877)
+[13](https://twitter.com/toki_mwc/status/1705929754455794159)
+[14](https://twitter.com/towya_aillust/status/1705957586636513745)
 
 ## 主な更新履歴
 
@@ -54,7 +56,7 @@
 
 ## 動作環境
 
-- Windows 10 以降（Windows Update済み）の PC で、Windows/System32 にパスが通っている
+- Windows 10 以降（Update済み）の PC で、/Windows/System32 にパスが通っている
 - 最近の NVIDIA Geforce RTX **VRAM 8BG 以上**
 - パスを通した [Python 3.10.6](https://www.python.org/ftp/python/3.10.6/python-3.10.6-amd64.exe) と [Git for Windows](https://gitforwindows.org/)
 
@@ -63,7 +65,7 @@
 1. 動作環境の [Python 3.10.6](https://www.python.org/ftp/python/3.10.6/python-3.10.6-amd64.exe) を導入していない場合は、[Python のインストール](https://github.com/Zuntan03/SdWebUiTutorial/blob/main/_/doc/SdWebUiInstall/SdWebUiInstall.md#python-%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB) をします。
 2. 動作環境の [Git for Windows](https://gitforwindows.org/) を導入していない場合は、[Git for Windows のインストール](https://github.com/Zuntan03/SdWebUiTutorial/blob/main/_/doc/SdWebUiInstall/SdWebUiInstall.md#git-for-windows-%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB) をします。
 2. [Civitai](https://civitai.com) がダウンしていないか確認します。
-3. [Setup-EasyPromptAnime.bat](https://github.com/Zuntan03/EasyPromptAnime/raw/main/src/Setup-EasyPromptAnime.bat) を **右クリックから「名前をつけてリンク先を保存…」** でインストール先のフォルダ（英数字のみの浅いパス）にダウンロードして実行します。
+3. [Setup-EasyPromptAnime.bat](https://github.com/Zuntan03/EasyPromptAnime/raw/main/src/Setup-EasyPromptAnime.bat) を **右クリックから「名前をつけてリンク先を保存…」** でインストール先のフォルダ（英数字のみの浅いパス、 **スペース不可**）にダウンロードして実行します。
 	- **「WindowsによってPCが保護されました」と表示されたら、「詳細表示」から「実行」します。**  
 4. インストールが終わると、Google Colabでプロンプト編集用の「[簡単プロンプトアニメエディタ](https://colab.research.google.com/drive/1XeVRMmw-dyALMacKU-_Xj2nMboZL_TM3)」が立ち上がります。
 
@@ -163,33 +165,55 @@ AnimateDiff とモデルに相性があり、[黒画像になる](#真っ黒の�
 
 ## 各ツールの説明
 
-- `OpenColabEditor.bat`
-	- 「[簡単プロンプトアニメエディタ](https://colab.research.google.com/drive/1XeVRMmw-dyALMacKU-_Xj2nMboZL_TM3)」を開きます。
-- `Generate.bat`
-	- 生成設定ファイルをドラッグ＆ドロップすると、動画を生成します。
-- `GenerateForever.bat`
-	- 生成設定ファイルをドラッグ＆ドロップすると、動画を生成し続けます。終了時は `Ctrl+C` で止めてください。
-- `Update.bat`
-	- 簡単プロンプトアニメと [AnimateDiff prompt travel](https://github.com/s9roll7/animatediff-cli-prompt-travel) を更新します。
-- `FixCheckpoint.bat`
-	- モデルをドラッグ＆ドロップすると、モデルに問題があれば AnimateDiff 用に修正します。モデルが書き換わったかどうかは更新日時で確認してください。
-- `FpsX4.bat`
-	- mp4 をドラッグ＆ドロップすると、[RIFE](https://github.com/megvii-research/ECCV2022-RIFE/tree/main) で FPS を4倍にします。サイズが大きくなるので再エンコード版も生成します。
-		- 第 2 引数に RIFE による中割りの分割回数（FPSの倍増を何回実施するかの）を指定できます。FPSが 1 なら 2倍、2 なら 4倍、3 なら 8倍、4 なら 16倍になります。未指定や 0 なら 2 になります。
-		- 第 3 引数に RIFE の分割後の FPS を指定できます。 **この FPS 指定では画像の枚数を変更せずに FPS を適用しますので、アニメーションの速度と長さが変わります。** 1秒の 10FPS の動画を RIFE で 4倍にして 40枚の画像がある状態で、第三引数で 60FPS を指定すると、アニメーションが早くなり 0.66秒で再生が終わります。逆に 8倍で80枚にして 60FPS を指定した場合は、ゆっくり再生されて 1.33秒で再生が終わります。0 なら未指定です。
-		- 第 4 引数で ffmpeg による再エンコード時の FPS を指定できます。再生速度や動画の長さは変わりません。0 なら未指定です。
-		- 第 5 引数で ffmpeg による再エンコード時の crf を指定できます。未指定や 0 なら 20 になります。
-- `Frames2Mp4.bat`
-	- Tile アップスケールは mp4 を生成しませんが、`animatediff-cli-prompt-travel\upscaled` にある連番 png が入っているフォルダをドラッグ＆ドロップすると、mp4 を生成します。
-- `DeleteOutput.bat`
-	- ストレージ容量を消費しがちな `animatediff-cli-prompt-travel/` の `output/*/`, `upscaled/*/`, `refine/*/` を削除します。
-- `Mp4Crf26.bat`, `Mp4Crf32.bat`, `Mp4Crf38.bat`
-	- mp4 をドラッグ＆ドロップすると、Crf26 で 1/2、Crf32 で 1/4、Crf38 で 1/8 ぐらいのサイズの mp4 に変換します。
-- `XMp4.bat`, `XMp4W1920.bat`, `XMp4W1200.bat`, `XMp4H1900.bat`, `XMp4H1200.bat`
-	- mp4 をドラッグ＆ドロップすると X(Twitter) アップロード用の動画(40FPS, 25Mbps)を生成します。
-		- [Xで動画を共有および視聴する方法](https://help.twitter.com/ja/using-x/x-videos#:~:text=%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E3%81%8B%E3%82%89%E3%82%A2%E3%83%83%E3%83%97%E3%83%AD%E3%83%BC%E3%83%89%E3%81%A7%E3%81%8D%E3%82%8B%E5%8B%95%E7%94%BB%E3%81%AE%E8%A7%A3%E5%83%8F%E5%BA%A6%E3%81%A8%E7%B8%A6%E6%A8%AA%E6%AF%94%E3%82%92%E6%95%99%E3%81%88%E3%81%A6%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82)
-		- 動画の大きさが W1920 x H1200 か W1200 x H1900 に収まらない場合は、`XMp4W1920.bat`, `XMp4W1200.bat`, `XMp4H1900.bat`, `XMp4H1200.bat` を使用して、W1920 x H1200 か W1200 x H1900 に収まるように縮小します。
-		- mp4 ファイル名の末尾が `*-D2e.mp4` な再エンコード後の mp4 でなく、`*-D2.mp4` な再エンコード前の mp4 から生成したほうが、品質が高くなります。
+### `OpenColabEditor.bat`
+
+「[簡単プロンプトアニメエディタ](https://colab.research.google.com/drive/1XeVRMmw-dyALMacKU-_Xj2nMboZL_TM3)」を開きます。
+
+### `Generate.bat`
+
+生成設定ファイルをドラッグ＆ドロップすると、動画を生成します。
+
+### `GenerateForever.bat`
+
+生成設定ファイルをドラッグ＆ドロップすると、動画を生成し続けます。終了時は `Ctrl+C` で止めてください。
+
+### `Update.bat`
+
+簡単プロンプトアニメと [AnimateDiff prompt travel](https://github.com/s9roll7/animatediff-cli-prompt-travel) を更新します。
+
+### `FixCheckpoint.bat`
+
+ モデルをドラッグ＆ドロップすると、モデルに問題があれば AnimateDiff 用に修正します。モデルが書き換わったかどうかは更新日時で確認してください。
+
+### `FpsX4.bat`
+
+mp4 をドラッグ＆ドロップすると、[RIFE](https://github.com/megvii-research/ECCV2022-RIFE/tree/main) で FPS を4倍にします。サイズが大きくなるので再エンコード版も生成します。
+
+- 第 2 引数に RIFE による中割りの分割回数（FPSの倍増を何回実施するかの）を指定できます。FPSが 1 なら 2倍、2 なら 4倍、3 なら 8倍、4 なら 16倍になります。未指定や 0 なら 2 になります。
+- 第 3 引数に RIFE の分割後の FPS を指定できます。 **この FPS 指定では画像の枚数を変更せずに FPS を適用しますので、アニメーションの速度と長さが変わります。** 1秒の 10FPS の動画を RIFE で 4倍にして 40枚の画像がある状態で、第三引数で 60FPS を指定すると、アニメーションが早くなり 0.66秒で再生が終わります。逆に 8倍で80枚にして 60FPS を指定した場合は、ゆっくり再生されて 1.33秒で再生が終わります。0 なら未指定です。
+- 第 4 引数で ffmpeg による再エンコード時の FPS を指定できます。再生速度や動画の長さは変わりません。0 なら未指定です。
+- 第 5 引数で ffmpeg による再エンコード時の crf を指定できます。未指定や 0 なら 20 になります。
+
+### `Frames2Mp4.bat`
+
+Tile アップスケールは mp4 を生成しませんが、`animatediff-cli-prompt-travel\upscaled` にある連番 png が入っているフォルダをドラッグ＆ドロップすると、mp4 を生成します。
+
+### `DeleteOutput.bat`
+
+ストレージ容量を消費しがちな `animatediff-cli-prompt-travel/` の `output/*/`, `upscaled/*/`, `refine/*/` を削除します。
+
+### `Mp4Crf26.bat`, `Mp4Crf32.bat`, `Mp4Crf38.bat`
+
+mp4 をドラッグ＆ドロップすると、Crf26 で 1/2、Crf32 で 1/4、Crf38 で 1/8 ぐらいのサイズの mp4 に変換します。
+
+### `XMp4.bat`, `XMp4W1920.bat`, `XMp4W1200.bat`, `XMp4H1900.bat`, `XMp4H1200.bat`
+
+mp4 をドラッグ＆ドロップすると X(Twitter) アップロード用の動画(40FPS, 25Mbps)を生成します。<br>
+アップロード時に再エンコードされる前提ですので、省サイズではありません。
+
+- [Xで動画を共有および視聴する方法](https://help.twitter.com/ja/using-x/x-videos#:~:text=%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E3%81%8B%E3%82%89%E3%82%A2%E3%83%83%E3%83%97%E3%83%AD%E3%83%BC%E3%83%89%E3%81%A7%E3%81%8D%E3%82%8B%E5%8B%95%E7%94%BB%E3%81%AE%E8%A7%A3%E5%83%8F%E5%BA%A6%E3%81%A8%E7%B8%A6%E6%A8%AA%E6%AF%94%E3%82%92%E6%95%99%E3%81%88%E3%81%A6%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82)
+- 動画の大きさが W1920 x H1200 か W1200 x H1900 に収まらない場合は、`XMp4W1920.bat`, `XMp4W1200.bat`, `XMp4H1900.bat`, `XMp4H1200.bat` を使用して、W1920 x H1200 か W1200 x H1900 に収まるように縮小します。
+- mp4 ファイル名の末尾が `*-D2e.mp4` な再エンコード後の mp4 でなく、`*-D2.mp4` な再エンコード前の mp4 から生成したほうが、品質が高くなります。
 
 ## [AnimateDiff prompt travel](https://github.com/s9roll7/animatediff-cli-prompt-travel) 利用者向け情報
 
@@ -224,6 +248,8 @@ AnimateDiff とモデルに相性があり、[黒画像になる](#真っ黒の�
 |X|-|動画のアップスケールで xFormers を有効にします。|
 
 ## 参照
+
+### ツール・ライブラリ
 
 - [AnimateDiff prompt travel](https://github.com/s9roll7/animatediff-cli-prompt-travel) 
 - [Codex FFmpeg](https://github.com/GyanD/codexffmpeg)
