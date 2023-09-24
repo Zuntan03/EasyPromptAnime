@@ -25,7 +25,8 @@
 [8](https://twitter.com/hina_chocoboo13/status/1705213931466485813),
 [9](https://twitter.com/cigmatari/status/1705225865356009612),
 [10](https://twitter.com/keythpiece/status/1705605784091193717),
-[11](https://twitter.com/TakaWeekendProg/status/1705745532424233372)
+[11](https://twitter.com/TakaWeekendProg/status/1705745532424233372),
+[12](https://twitter.com/llrinnell/status/1705898369586212877)
 
 ## 主な更新履歴
 
@@ -67,9 +68,10 @@
 4. インストールが終わると、Google Colabでプロンプト編集用の「[簡単プロンプトアニメエディタ](https://colab.research.google.com/drive/1XeVRMmw-dyALMacKU-_Xj2nMboZL_TM3)」が立ち上がります。
 
 ### セットアップ FAQ
+
 - 動画の生成が一晩経っても終わらない、サンプル（`sample/UpscaleGacha.bat`、RTX 3060 で約 15分）の生成に長い時間が掛かる
 	- [AI 画像生成の VRAM オフロード問題](https://www.google.com/search?q=%E7%94%BB%E5%83%8F%E7%94%9F%E6%88%90+VRAM%E3%82%AA%E3%83%95%E3%83%AD%E3%83%BC%E3%83%89%E5%95%8F%E9%A1%8C)を踏んでいる可能性がありますので、グラフィックスドライバのバージョンを確認してください。
-- デフォルトモデル (`nadenadesitai_v10`, `xxmix9realistic_v40`) で正常に動画を生成できない
+- セットアップでダウンロードされるモデルで動画を正常に生成できない
 	- モデルのダウンロードに失敗している場合がありますので、`animatediff-cli-prompt-travel/data/models/sd/` にある該当ファイルを削除し、`src/Setup.bat` で再ダウンロードしてください。
 
 ## 更新方法
@@ -88,10 +90,12 @@
 ## FAQ
 
 ### 効率的にシードガチャをしたい
+
 - アップスケールを無効にしたり、アップスケールのサイズを下げたりすることで効率的にシードガチャができます。
 - プロンプトをざっくり詰める段階なら、最初の生成解像度を下げたり、短時間にして先頭付近のキーフレームで検証するのも手です。
 
 ### ガチャ結果動画のシード値を知りたい
+
 - mp4 ファイル名先頭の `日時(MMDD_HHMM_SS)-数値` の `数値` 部分がシードです。
 - `animatediff-cli-prompt-travel/(output|upscaled|refine)/` 以下にある `prompt.json` でも確認できます。
 
@@ -99,7 +103,7 @@
 
 以下のいずれかの手順で、改善するかもしれません。
 
-1. `FixCheckpoint.bat` でモデルに修正が必要でないかを確認します。
+1. `FixCheckpoint.bat` でモデルを修正します。モデルが書き換わる可能性があります。
 2. 生成設定ファイルのファイル名に `-V` を付け足します（改善報告あり）。
 3. [モデルの VAE を差し替え](#stable-diffusion-model-toolkit-によるモデルへの-vae-埋め込み方法)ます。
 4. 生成設定ファイルのファイル名に `-X` を付け足します（未検証、`-V`, `-v`, `-x` との併用も）。
@@ -110,7 +114,7 @@
 
 ### モデルを追加したい
 
-1. `FixCheckpoint.bat` でモデルに修正が必要でないかを確認します。
+1. `FixCheckpoint.bat` でモデルを修正します。モデルが書き換わる可能性があります。
 2. `animatediff-cli-prompt-travel/data/models/sd/` にモデルを置きます。
 	- **[！注意！] [stable-diffusion-model-toolkit](https://github.com/arenasys/stable-diffusion-webui-model-toolkit) などで、[モデルに VAE を埋め込んでください](#stable-diffusion-model-toolkit-によるモデルへの-vae-埋め込み方法)。** <br>
 	モデルに VAE を埋め込まないと、[このようになる](https://twitter.com/Zuntan03/status/1705779826056147188) 場合があります。
@@ -143,6 +147,10 @@ AnimateDiff とモデルに相性があり、[黒画像になる](#真っ黒の�
 - [AnimateDiff prompt travel](https://github.com/s9roll7/animatediff-cli-prompt-travel) がそのまま動作していますので、生成設定ファイルを手書きすれば使えます。
 - そのうち対応するかも？
 
+### Widlcard を使いたい
+
+- `animatediff-cli-prompt-travel/wildcards/` にワイルドカードを置きます。
+
 ### Refine がメモリ不足で落ちる
 - context を半分にしていますが、落ちますね。
 - 初回のアップスケールで解像度を抑えつつ Refine を使用、とかもできましたが、重い印象でした。
@@ -164,8 +172,7 @@ AnimateDiff とモデルに相性があり、[黒画像になる](#真っ黒の�
 - `Update.bat`
 	- 簡単プロンプトアニメと [AnimateDiff prompt travel](https://github.com/s9roll7/animatediff-cli-prompt-travel) を更新します。
 - `FixCheckpoint.bat`
-	- モデルをドラッグ＆ドロップすると、必要であれば AnimateDiff 用にモデルを修正します。
-	- `This file works fine.` と表示されていれば、モデルに変更はありません。
+	- モデルをドラッグ＆ドロップすると、モデルに問題があれば AnimateDiff 用に修正します。モデルが書き換わったかどうかは更新日時で確認してください。
 - `FpsX4.bat`
 	- mp4 をドラッグ＆ドロップすると、[RIFE](https://github.com/megvii-research/ECCV2022-RIFE/tree/main) で FPS を4倍にします。サイズが大きくなるので再エンコード版も生成します。
 		- 第 2 引数に RIFE による中割りの分割回数（FPSの倍増を何回実施するかの）を指定できます。FPSが 1 なら 2倍、2 なら 4倍、3 なら 8倍、4 なら 16倍になります。未指定や 0 なら 2 になります。

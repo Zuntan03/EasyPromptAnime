@@ -12,10 +12,5 @@ call venv\Scripts\activate.bat
 echo animatediff fix-checkpoint %MODEL_PATH%
 animatediff fix-checkpoint %MODEL_PATH%
 
-echo.
-echo If you see "This file works fine." then the model has not been changed.
-
-pause 
-
 call venv\Scripts\deactivate.bat
 popd rem %~dp0%~dp0animatediff-cli-prompt-travel

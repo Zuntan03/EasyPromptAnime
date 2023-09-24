@@ -25,6 +25,14 @@ if not exist nadenadesitai_v10.safetensors (
 	curl -Lo nadenadesitai_v10.safetensors https://civitai.com/api/download/models/84669
 	timeout /t 1 /nobreak >nul
 )
+if not exist featurelessMix_v2020237Clearvae.safetensors (
+	curl -Lo featurelessMix_v2020237Clearvae.safetensors https://civitai.com/api/download/models/168615
+	timeout /t 1 /nobreak >nul
+)
+if not exist onigiriMix_v10Clearvae.safetensors (
+	curl -Lo onigiriMix_v10Clearvae.safetensors https://civitai.com/api/download/models/168600
+	timeout /t 1 /nobreak >nul
+)
 if not exist xxmix9realistic_v40.safetensors (
 	curl -Lo xxmix9realistic_v40.safetensors https://civitai.com/api/download/models/102222
 	timeout /t 1 /nobreak >nul
