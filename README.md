@@ -82,43 +82,68 @@
 
 ## FAQ
 
-- 効率的にシードガチャをしたい
-	- アップスケールを無効にしたり、アップスケールのサイズを下げたりすることで効率的にシードガチャができます。
-	- プロンプトをざっくり詰める段階なら、最初の生成解像度を下げたり、短時間にして先頭付近のキーフレームで検証するのも手です。
-- ガチャ結果動画のシード値を知りたい
-	- mp4 ファイル名先頭の `日時(MMDD_HHMM_SS)-数値` の `数値` 部分がシードです。
-	- `animatediff-cli-prompt-travel/(output|upscaled|refine)/` 以下にある `prompt.json` でも確認できます。
-- 「[簡単プロンプトアニメエディタ](https://colab.research.google.com/drive/1XeVRMmw-dyALMacKU-_Xj2nMboZL_TM3)」の初期値や選択肢を変えたい
-	- Colab のメニュー `ファイル - ドライブにコピーを保存` して、一番下の `コードを表示` から該当部分を編集します。
-- モデルを追加したい
-	- `animatediff-cli-prompt-travel/data/models/sd/` にモデルを置きます。
-		- [stable-diffusion-model-toolkit](https://github.com/arenasys/stable-diffusion-webui-model-toolkit) などで VAE をモデルに埋め込んでください。以下手順。
-			- WebUI の `Toolkit` タブで `リフレッシュ` してから `入力` で VAE を埋め込むモデルを選択して `読み込み` ます。
-			- `高度な設定`	に移り、`Component - Class` から `VAE-v1` を選択します。
-			- `実行 - ファイル` で埋め込む VAE を選択して `Import` します。
-			- `名前` で VAE を埋め込んだモデルのファイル名を指定して `保存` で、モデルフォルダに VAE を埋め込んだモデルが保存されます。
-			- `animatediff-cli-prompt-travel/data/models/sd/` に VAE を埋め込んだモデルを移動します。
-	- Colab ソースの `model_name = "nadenadesitai_v10" # @param [...]` の `...` を書き換えます。
-	- AnimateDiff とモデルに相性があり、使えない・アップスケール時に黒画像になる(埋め込みVAEの影響ならVAE差し替え？)・アニメーションしない場合があります。
-- モーションモジュールを追加したい
-	- `animatediff-cli-prompt-travel/data/models/motion-module/` にモーションモジュールを置きます。
-	- Colab ソースの `motion_module = "mm_sd_v15_v2.ckpt" # @param [...]` の `...` を書き換えます。
-- LoRA を使いたい
-	- `animatediff-cli-prompt-travel/data/lora/` に LoRA を置きます。
-		- 使える LoRA は通常の LierLa 形式で、C3Lier(Locon) 以降は使えないっぽいです。
-	- LoRA の読み込みは、プロンプトエディタの `L:` で始める行で指定します。
-- TI を使いたい
-	- `animatediff-cli-prompt-travel/data/embeddings/` に TI を置きます。
-- ControlNet を使いたい
-	- [AnimateDiff prompt travel](https://github.com/s9roll7/animatediff-cli-prompt-travel) がそのまま動作していますので、生成設定ファイルを手書きすれば使えます。
-	- そのうち対応するかも？
-- Refine がメモリ不足で落ちる
-	- context を半分にしていますが、落ちますね。
-	- 初回のアップスケールで解像度を抑えつつ Refine を使用、とかもできましたが、重い印象でした。
-- ストレージ容量が足りない
-	- まずは [WizTree](https://forest.watch.impress.co.jp/library/software/wiztree/) で状況を確認してください。それでもストレージ容量が足りなかったら、買ってください。
-- Colabで編集する意味ある？
-	- ありません。「[Colab版簡単プロンプトアニメ](https://colab.research.google.com/drive/1QVxBjAamxOIAAlSohQklZltRPx8WsxEN)」のコードを流用しただけなので、利用者が多そうだったらローカルエディタを用意する、かも。
+### 効率的にシードガチャをしたい
+- アップスケールを無効にしたり、アップスケールのサイズを下げたりすることで効率的にシードガチャができます。
+- プロンプトをざっくり詰める段階なら、最初の生成解像度を下げたり、短時間にして先頭付近のキーフレームで検証するのも手です。
+
+### ガチャ結果動画のシード値を知りたい
+- mp4 ファイル名先頭の `日時(MMDD_HHMM_SS)-数値` の `数値` 部分がシードです。
+- `animatediff-cli-prompt-travel/(output|upscaled|refine)/` 以下にある `prompt.json` でも確認できます。
+
+### 「[簡単プロンプトアニメエディタ](https://colab.research.google.com/drive/1XeVRMmw-dyALMacKU-_Xj2nMboZL_TM3)」の初期値や選択肢を変えたい
+- Colab のメニュー `ファイル - ドライブにコピーを保存` して、一番下の `コードを表示` から該当部分を編集します。
+
+### モデルを追加したい
+- `animatediff-cli-prompt-travel/data/models/sd/` にモデルを置きます。
+	- **[！注意！] [stable-diffusion-model-toolkit](https://github.com/arenasys/stable-diffusion-webui-model-toolkit) などで、[モデルに VAE を埋め込んでください](#stable-diffusion-model-toolkit-によるモデルへの-vae-埋め込み方法)。** <br>
+	モデルに VAE を埋め込まないと、[このようになる](https://twitter.com/Zuntan03/status/1705779826056147188) 場合があります。
+
+- Colab ソースの `model_name = "nadenadesitai_v10" # @param [...]` の `...` を書き換えます。
+- AnimateDiff とモデルに相性があり、使えない・アップスケール時に黒画像になる(埋め込みVAEの影響ならVAE差し替え？)・アニメーションしない場合があります。
+
+#### [stable-diffusion-model-toolkit](https://github.com/arenasys/stable-diffusion-webui-model-toolkit) によるモデルへの VAE 埋め込み方法
+
+1. [Stable Diffusion web UI](https://github.com/AUTOMATIC1111/stable-diffusion-webui) に [stable-diffusion-model-toolkit](https://github.com/arenasys/stable-diffusion-webui-model-toolkit) をインストールします。
+2. Stable Diffusion web UI の `Toolkit` タブで `リフレッシュ` してから `入力` で VAE を埋め込むモデルを選択して `読み込み` ます。
+3. `高度な設定`	に移り、`Component - Class` から `VAE-v1` を選択します。
+4. `実行 - ファイル` で埋め込む VAE を選択して `Import` します。
+5. `名前` で VAE を埋め込んだモデルのファイル名を指定して `保存` で、モデルフォルダに VAE を埋め込んだモデルが保存されます。
+6. `animatediff-cli-prompt-travel/data/models/sd/` に VAE を埋め込んだモデルを移動します。
+
+### 真っ黒の動画が生成されてしまう
+
+以下のいずれかの手順で、改善するかもしれません。
+
+1. 生成設定ファイルのファイル名に `-V` を付け足します（改善報告あり）。
+2. [モデルの VAE を差し替え](#stable-diffusion-model-toolkit-によるモデルへの-vae-埋め込み方法)ます。
+3. 生成設定ファイルのファイル名に `-X` を付け足します（未検証、`-V`, `-v`, `-x` との併用も）。
+4. 別のモデルを使います。
+
+### モーションモジュールを追加したい
+- `animatediff-cli-prompt-travel/data/models/motion-module/` にモーションモジュールを置きます。
+- Colab ソースの `motion_module = "mm_sd_v15_v2.ckpt" # @param [...]` の `...` を書き換えます。
+
+### LoRA を使いたい
+- `animatediff-cli-prompt-travel/data/lora/` に LoRA を置きます。
+	- 使える LoRA は通常の LierLa 形式で、C3Lier(Locon) 以降は使えないっぽいです。
+- LoRA の読み込みは、プロンプトエディタの `L:` で始める行で指定します。
+
+### TI を使いたい
+- `animatediff-cli-prompt-travel/data/embeddings/` に TI を置きます。
+
+### ControlNet を使いたい
+- [AnimateDiff prompt travel](https://github.com/s9roll7/animatediff-cli-prompt-travel) がそのまま動作していますので、生成設定ファイルを手書きすれば使えます。
+- そのうち対応するかも？
+
+### Refine がメモリ不足で落ちる
+- context を半分にしていますが、落ちますね。
+- 初回のアップスケールで解像度を抑えつつ Refine を使用、とかもできましたが、重い印象でした。
+
+### ストレージ容量が足りない
+- まずは [WizTree](https://forest.watch.impress.co.jp/library/software/wiztree/) で状況を確認してください。それでもストレージ容量が足りなかったら、買ってください。
+
+### Colabで編集する意味ある？
+- ありません。「[Colab版簡単プロンプトアニメ](https://colab.research.google.com/drive/1QVxBjAamxOIAAlSohQklZltRPx8WsxEN)」のコードを流用しただけなので、利用者が多そうだったらローカルエディタを用意する、かも。
 
 ## 各ツールの説明
 
@@ -175,6 +200,10 @@
 |F|0|ffmpeg で mp4 に変換する際の FPS を指定します。`FpsX4.bat` の第 4 引数説明参照。|
 |M|20|ffmpeg で mp4 に変換する際の crf を指定します。`FpsX4.bat` の第 5 引数説明参照。|
 |U|10|Tile アップスケール後の画像を MP4 にする際のFPSを指定します。|
+|v|-|動画の生成で half-vae を有効にします。|
+|V|-|動画のアップスケールで half-vae を有効にします。|
+|x|-|動画の生成で xFormers を有効にします。|
+|X|-|動画のアップスケールで xFormers を有効にします。|
 
 ## 参照
 

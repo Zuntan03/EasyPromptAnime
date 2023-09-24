@@ -19,6 +19,11 @@ set UPSCALE1_HEIGHT=
 set UPSCALE2=
 set UPSCALE2_HEIGHT=
 
+set GENERATE_USE_XFORMERS=
+set GENERATE_FORCE_HALF_VAE=
+set UPSCALE_USE_XFORMERS=
+set UPSCALE_FORCE_HALF_VAE=
+
 if "%~1" == "" (
 	echo [ERROR] Drag and drop the configuration *[OPTIONS].json file.
 	echo -L[Lenght]-W[Width]-H[Height]-C[Context]-T[TileHeight]
@@ -47,7 +52,7 @@ for /f "tokens=2-12 delims=-" %%a in ("%~n1") do (
 )
 
 if not exist temp\ ( mkdir temp )
-copy /Y "%CONFIG_PATH%" %CONFIG_TEMP_PATH% > nul
+copy /Y "%CONFIG_PATH%" "%CONFIG_TEMP_PATH%" > nul
 
 echo CONFIG_PATH: %CONFIG_PATH%
 echo generate -L %LENGTH% -W %WIDTH% -H %HEIGHT% -C %CONTEXT%
@@ -55,8 +60,8 @@ if not "%UPSCALE1%" == "" ( echo %UPSCALE1% -H %UPSCALE1_HEIGHT% )
 if not "%UPSCALE2%" == "" ( echo %UPSCALE2% -H %UPSCALE2_HEIGHT% )
 echo.
 
-echo animatediff generate -L %LENGTH% -W %WIDTH% -H %HEIGHT% -C %CONTEXT% -c %CONFIG_TEMP_PATH%
-animatediff generate -L %LENGTH% -W %WIDTH% -H %HEIGHT% -C %CONTEXT% -c %CONFIG_TEMP_PATH%
+echo animatediff generate -L %LENGTH% -W %WIDTH% -H %HEIGHT% -C %CONTEXT% -c "%CONFIG_TEMP_PATH%" %GENERATE_USE_XFORMERS% %GENERATE_FORCE_HALF_VAE%
+animatediff generate -L %LENGTH% -W %WIDTH% -H %HEIGHT% -C %CONTEXT% -c "%CONFIG_TEMP_PATH%" %GENERATE_USE_XFORMERS% %GENERATE_FORCE_HALF_VAE%
 
 call :FIND_NEW_DIR output
 set GENERATE_DIR=output\%NEW_DIR%
@@ -72,8 +77,8 @@ if "%UPSCALE1%" == "" (
 	copy /Y !GENERATE_DIR!\*.mp4 "%CONFIG_DIR%" > nul
 	goto :END
 ) else if "%UPSCALE1%" == "tile-upscale" (
-	echo animatediff %UPSCALE1% -H %UPSCALE1_HEIGHT% %GENERATE_FRAMES_DIR%
-	animatediff %UPSCALE1% -H %UPSCALE1_HEIGHT% %GENERATE_FRAMES_DIR%
+	echo animatediff %UPSCALE1% -H %UPSCALE1_HEIGHT% %GENERATE_FRAMES_DIR% %UPSCALE_USE_XFORMERS% %UPSCALE_FORCE_HALF_VAE%
+	animatediff %UPSCALE1% -H %UPSCALE1_HEIGHT% %GENERATE_FRAMES_DIR% %UPSCALE_USE_XFORMERS% %UPSCALE_FORCE_HALF_VAE%
 
 	call :FIND_NEW_DIR upscaled
 	set UPSCALE1_DIR=upscaled\!NEW_DIR!
@@ -84,8 +89,8 @@ if "%UPSCALE1%" == "" (
 	echo Frames2Mp4.bat !UPSCALE1_FRAMES_DIR! %TILE_UPSCALE_FPS% %FFMPEG_CRF%
 	call ..\Frames2Mp4.bat "!UPSCALE1_FRAMES_DIR!" %TILE_UPSCALE_FPS% %FFMPEG_CRF%
 ) else if "%UPSCALE1%" == "refine" (
-	echo animatediff %UPSCALE1% -H %UPSCALE1_HEIGHT% -C %REFINER_CONTEXT% %GENERATE_FRAMES_DIR%
-	animatediff %UPSCALE1% -H %UPSCALE1_HEIGHT% -C %REFINER_CONTEXT% %GENERATE_FRAMES_DIR%
+	echo animatediff %UPSCALE1% -H %UPSCALE1_HEIGHT% -C %REFINER_CONTEXT% %GENERATE_FRAMES_DIR% %UPSCALE_USE_XFORMERS% %UPSCALE_FORCE_HALF_VAE%
+	animatediff %UPSCALE1% -H %UPSCALE1_HEIGHT% -C %REFINER_CONTEXT% %GENERATE_FRAMES_DIR% %UPSCALE_USE_XFORMERS% %UPSCALE_FORCE_HALF_VAE%
 
 	call :FIND_NEW_DIR refine
 	set UPSCALE1_DIR=refine\!NEW_DIR!
@@ -108,8 +113,8 @@ if "%UPSCALE2%" == "" (
 	copy /Y !UPSCALE1_DIR!\*.mp4 "%CONFIG_DIR%" > nul
 	goto :END
 ) else if "%UPSCALE2%" == "tile-upscale" (
-	echo animatediff %UPSCALE2% -H %UPSCALE2_HEIGHT% !UPSCALE1_FRAMES_DIR!
-	animatediff %UPSCALE2% -H %UPSCALE2_HEIGHT% !UPSCALE1_FRAMES_DIR!
+	echo animatediff %UPSCALE2% -H %UPSCALE2_HEIGHT% !UPSCALE1_FRAMES_DIR! %UPSCALE_USE_XFORMERS% %UPSCALE_FORCE_HALF_VAE%
+	animatediff %UPSCALE2% -H %UPSCALE2_HEIGHT% !UPSCALE1_FRAMES_DIR! %UPSCALE_USE_XFORMERS% %UPSCALE_FORCE_HALF_VAE%
 
 	call :FIND_NEW_DIR upscaled
 	set UPSCALE2_DIR=upscaled\!NEW_DIR!
@@ -120,8 +125,8 @@ if "%UPSCALE2%" == "" (
 	echo Frames2Mp4.bat !UPSCALE2_FRAMES_DIR! %TILE_UPSCALE_FPS% %FFMPEG_CRF%
 	call ..\Frames2Mp4.bat "!UPSCALE2_FRAMES_DIR!" %TILE_UPSCALE_FPS% %FFMPEG_CRF%
 ) else if "%UPSCALE2%" == "refine" (
-	echo animatediff %UPSCALE2% -H %UPSCALE2_HEIGHT% -C %REFINER_CONTEXT% !UPSCALE1_FRAMES_DIR!
-	animatediff %UPSCALE2% -H %UPSCALE2_HEIGHT% -C %REFINER_CONTEXT% !UPSCALE1_FRAMES_DIR!
+	echo animatediff %UPSCALE2% -H %UPSCALE2_HEIGHT% -C %REFINER_CONTEXT% !UPSCALE1_FRAMES_DIR! %UPSCALE_USE_XFORMERS% %UPSCALE_FORCE_HALF_VAE%
+	animatediff %UPSCALE2% -H %UPSCALE2_HEIGHT% -C %REFINER_CONTEXT% !UPSCALE1_FRAMES_DIR! %UPSCALE_USE_XFORMERS% %UPSCALE_FORCE_HALF_VAE%
 
 	call :FIND_NEW_DIR refine
 	set UPSCALE2_DIR=refine\!NEW_DIR!
@@ -199,6 +204,14 @@ if "%ARG_KEY%" == "L" (
 	set FFMPEG_CRF=%ARG_VALUE%
 ) else if "%ARG_KEY%" == "U" (
 	set TILE_UPSCALE_FPS=%ARG_VALUE%
+) else if "%ARG_KEY%" == "x" (
+	set GENERATE_USE_XFORMERS=--xformers
+) else if "%ARG_KEY%" == "v" (
+	set GENERATE_FORCE_HALF_VAE=--half-vae
+) else if "%ARG_KEY%" == "X" (
+	set UPSCALE_USE_XFORMERS=--xformers
+) else if "%ARG_KEY%" == "V" (
+	set UPSCALE_FORCE_HALF_VAE=--half-vae
 ) else (
 	echo [ERROR] Unknown argument: %ARG%
 	pause

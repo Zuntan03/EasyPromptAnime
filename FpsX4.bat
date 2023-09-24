@@ -4,9 +4,6 @@ if "%~1" == "" (
 	pause & exit /b 1
 )
 
-pushd %~dp0ECCV2022-RIFE
-call venv\Scripts\activate.bat
-
 set RIFE_DIV_NUM=2
 set RIFE_FPS_NAME=
 set RIFE_FPS_OPTION=
@@ -32,6 +29,9 @@ if not "%~5" == "" if not "%~5" == "0" (
 set SRC_PATH="%~f1"
 set RIFE_DEST_PATH="%~dpn1-D%RIFE_DIV_NUM%%RIFE_FPS_NAME%.mp4"
 set FFMPEG_DEST_PATH="%~dpn1-D%RIFE_DIV_NUM%%RIFE_FPS_NAME%e%FFMPEG_FPS_NAME%.mp4"
+
+pushd %~dp0ECCV2022-RIFE
+call venv\Scripts\activate.bat
 
 @REM echo ARGS: %1 %2 %3 %4 %5
 @REM echo RIFE_DIV_NUM: %RIFE_DIV_NUM%
