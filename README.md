@@ -23,7 +23,8 @@
 [7](https://twitter.com/safa_dayo/status/1705183157920616482),
 [8](https://twitter.com/hina_chocoboo13/status/1705213931466485813),
 [9](https://twitter.com/cigmatari/status/1705225865356009612),
-[10](https://twitter.com/keythpiece/status/1705605784091193717)
+[10](https://twitter.com/keythpiece/status/1705605784091193717),
+[11](https://twitter.com/TakaWeekendProg/status/1705745532424233372)
 
 ## 主な更新履歴
 
