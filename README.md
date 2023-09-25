@@ -32,7 +32,8 @@
 [15](https://twitter.com/aicocoa982/status/1705323937826304461)
 [16](https://twitter.com/Lover57227277/status/1706000986509361201)
 [17](https://twitter.com/julajp/status/1706031579876012182)
-
+[18](https://twitter.com/towya_aillust/status/1706280379454464103)
+[19](https://twitter.com/PhotogenicWeekE/status/1706257379644572109)
 
 ## 主な更新履歴
 
