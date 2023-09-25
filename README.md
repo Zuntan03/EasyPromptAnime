@@ -29,11 +29,15 @@
 [12](https://twitter.com/llrinnell/status/1705898369586212877)
 [13](https://twitter.com/toki_mwc/status/1705929754455794159)
 [14](https://twitter.com/towya_aillust/status/1705957586636513745)
+[15](https://twitter.com/aicocoa982/status/1705323937826304461)
+[16](https://twitter.com/Lover57227277/status/1706000986509361201)
+[17](https://twitter.com/julajp/status/1706031579876012182)
+
 
 ## 主な更新履歴
 
 - 2024/09/25
-	- ffmpeg のインストールに失敗する不具合を修正しました。
+	- FFmpeg のインストールに失敗する不具合を修正しました。
 		- `Update.bat` を実行すると修正します。
 - 2024/09/24
 	- **今回の更新では `Update.bat` を 2回！実行してください（`Update.bat` を更新したため）。**
@@ -194,8 +198,8 @@ mp4 をドラッグ＆ドロップすると、[RIFE](https://github.com/megvii-r
 
 - 第 2 引数に RIFE による中割りの分割回数（FPSの倍増を何回実施するかの）を指定できます。FPSが 1 なら 2倍、2 なら 4倍、3 なら 8倍、4 なら 16倍になります。未指定や 0 なら 2 になります。
 - 第 3 引数に RIFE の分割後の FPS を指定できます。 **この FPS 指定では画像の枚数を変更せずに FPS を適用しますので、アニメーションの速度と長さが変わります。** 1秒の 10FPS の動画を RIFE で 4倍にして 40枚の画像がある状態で、第三引数で 60FPS を指定すると、アニメーションが早くなり 0.66秒で再生が終わります。逆に 8倍で80枚にして 60FPS を指定した場合は、ゆっくり再生されて 1.33秒で再生が終わります。0 なら未指定です。
-- 第 4 引数で ffmpeg による再エンコード時の FPS を指定できます。再生速度や動画の長さは変わりません。0 なら未指定です。
-- 第 5 引数で ffmpeg による再エンコード時の crf を指定できます。未指定や 0 なら 20 になります。
+- 第 4 引数で FFmpeg による再エンコード時の FPS を指定できます。再生速度や動画の長さは変わりません。0 なら未指定です。
+- 第 5 引数で FFmpeg による再エンコード時の crf を指定できます。未指定や 0 なら 20 になります。
 
 ### `Frames2Mp4.bat`
 
@@ -225,9 +229,9 @@ mp4 をドラッグ＆ドロップすると X(Twitter) アップロード用の�
 
 例） `Config-L30-C16-W448-H544-T1088-T1632.json` を `Generate.bat` にドロップ
 1. `animediff generate -L 30 -C 16 -W 448 -H544`
-2. `animediff tile-upscale -H 1088` から ffmpeg で mp4 生成
+2. `animediff tile-upscale -H 1088` から FFmpeg で mp4 生成
 	- `-R` なら `animediff refine -C (context / 2)`
-3. `animediff tile-upscale -H 1632` から ffmpeg で mp4 生成
+3. `animediff tile-upscale -H 1632` から FFmpeg で mp4 生成
 4. [RIFE](https://github.com/megvii-research/ECCV2022-RIFE/tree/main) でフレーム補間
 
 ### ファイル名オプション一覧
@@ -242,8 +246,8 @@ mp4 をドラッグ＆ドロップすると X(Twitter) アップロード用の�
 |R|-|Refine アップスケール後の動画の高さを指定します。2回指定できます。|
 |D|2|RIFE による中割りの分割回数を指定します。`FpsX4.bat` の第 2 引数説明参照。|
 |I|0|RIFE による中割り後の FPS を指定します。`FpsX4.bat` の第 3 引数説明参照。|
-|F|0|ffmpeg で mp4 に変換する際の FPS を指定します。`FpsX4.bat` の第 4 引数説明参照。|
-|M|20|ffmpeg で mp4 に変換する際の crf を指定します。`FpsX4.bat` の第 5 引数説明参照。|
+|F|0|FFmpeg で mp4 に変換する際の FPS を指定します。`FpsX4.bat` の第 4 引数説明参照。|
+|M|20|FFmpeg で mp4 に変換する際の crf を指定します。`FpsX4.bat` の第 5 引数説明参照。|
 |U|10|Tile アップスケール後の画像を MP4 にする際のFPSを指定します。|
 |v|-|動画の生成で half-vae を有効にします。|
 |V|-|動画のアップスケールで half-vae を有効にします。|
@@ -255,7 +259,7 @@ mp4 をドラッグ＆ドロップすると X(Twitter) アップロード用の�
 ### ツール・ライブラリ
 
 - [AnimateDiff prompt travel](https://github.com/s9roll7/animatediff-cli-prompt-travel) 
-- [Codex FFmpeg](https://github.com/GyanD/codexffmpeg)
+- [Codex FFmpeg](https://github.com/GyanD/codexFFmpeg)
 - [Real-Time Intermediate Flow Estimation for Video Frame Interpolation](https://github.com/megvii-research/ECCV2022-RIFE)
 
 # ライセンス
