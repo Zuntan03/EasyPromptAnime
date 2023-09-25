@@ -10,18 +10,18 @@
 
 ## 作例
 
+- 人気の利用者つぶやき: 
+[@Yokohara_h](https://twitter.com/Yokohara_h/status/1705981094473183699)
+[@PhotogenicWeekE](https://twitter.com/PhotogenicWeekE/status/1705175475176530146)
+[@cigmatari](https://twitter.com/cigmatari/status/1705225865356009612)
+[@hina_chocoboo13](https://twitter.com/hina_chocoboo13/status/1705213931466485813)
 - 9/25: [AnimateDiff prompt travelの更新比較](https://twitter.com/Zuntan03/status/1706246410851819836) の [きれいな動画](https://yyy.wpx.jp/m/202309/PromptTravelUpdateXxMix.mp4)
 - 9/24: [モデルへの VAE 組み込み有無比較](https://twitter.com/Zuntan03/status/1705779826056147188) の [きれいな動画](https://yyy.wpx.jp/m/202309/ModelVae-crf26.mp4)
 - 9/23: [motion-moduleのmm_sd_v15_v2とmm-Stabilized_high比較](https://twitter.com/Zuntan03/status/1705537060491432132) [FullHD 超え動画](https://yyy.wpx.jp/m/202309/V152HighGrid.mp4)
 - 9/21: FullHD 相当 [KuronekoAkiba](https://yyy.wpx.jp/m/202309/KuronekoAkiba.mp4)
 - 9/18: [nadenadesitai_v10](https://yyy.wpx.jp/m/202309/nadenadesitai_v10.mp4), [xxmix9realistic_v40](https://yyy.wpx.jp/m/202309/xxmix9realistic_v40.mp4), [onigiriMix_v10](https://yyy.wpx.jp/m/202309/onigiriMix_v10.mp4), [mistoonAnime_v20](https://yyy.wpx.jp/m/202309/mistoonAnime_v20.mp4)
-- 利用者のつぶやき（気づいたもののみ）
-	- 人気の投稿: 
-[@Yokohara_h](https://twitter.com/Yokohara_h/status/1705981094473183699)
-[@PhotogenicWeekE](https://twitter.com/PhotogenicWeekE/status/1705175475176530146)
-[@cigmatari](https://twitter.com/cigmatari/status/1705225865356009612)
-[@hina_chocoboo13](https://twitter.com/hina_chocoboo13/status/1705213931466485813)
-	- [@llrinnell](https://twitter.com/llrinnell/status/1703711755128779226)
+- 利用者つぶやき（気付いたもののみ）:
+[@llrinnell](https://twitter.com/llrinnell/status/1703711755128779226)
 [@ai_gene_fumo7](https://twitter.com/ai_gene_fumo7/status/1704116905299382547)
 [@moshimur](https://twitter.com/moshimur/status/1704322583095812332)
 [@mouriAIart](https://twitter.com/mouriAIart/status/1704986700358013430)
