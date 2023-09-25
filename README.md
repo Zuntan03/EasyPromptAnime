@@ -32,6 +32,9 @@
 
 ## 主な更新履歴
 
+- 2024/09/25
+	- ffmpeg のインストールに失敗する不具合を修正しました。
+		- `Update.bat` を実行すると修正します。
 - 2024/09/24
 	- **今回の更新では `Update.bat` を 2回！実行してください（`Update.bat` を更新したため）。**
 	- [AnimateDiff prompt travel](https://github.com/s9roll7/animatediff-cli-prompt-travel) の更新に対応しました。

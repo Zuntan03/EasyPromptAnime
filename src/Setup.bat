@@ -104,12 +104,12 @@ if not exist ECCV2022-RIFE (
 	popd rem ECCV2022-RIFE
 )
 
-set FFMPEG_DIR=ffmpeg-2023-09-07-git-9c9f48e7f2-essentials_build
+set FFMPEG_DIR=ffmpeg-master-latest-win64-gpl
 if not exist %FFMPEG_DIR% (
-	curl -Lo ffmpeg.zip https://github.com/GyanD/codexffmpeg/releases/download/2023-09-07-git-9c9f48e7f2/%FFMPEG_DIR%.zip
+	curl -Lo ffmpeg.zip https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-win64-gpl.zip
 	PowerShell -Version 5.1 -ExecutionPolicy Bypass Expand-Archive -Path ffmpeg.zip -DestinationPath .
 	del ffmpeg.zip
-	copy /Y %FFMPEG_DIR%\bin\ffmpeg.exe animatediff-cli-prompt-travel
+	copy /Y %FFMPEG_DIR%\bin\*.exe animatediff-cli-prompt-travel
 	copy /Y %FFMPEG_DIR%\bin\*.exe ECCV2022-RIFE
 )
 
