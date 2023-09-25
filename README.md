@@ -10,6 +10,7 @@
 
 ## 作例
 
+- 9/25: [AnimateDiff prompt travelの更新比較](https://twitter.com/Zuntan03/status/1706246410851819836) の [きれいな動画](https://yyy.wpx.jp/m/202309/PromptTravelUpdateXxMix.mp4)
 - 9/24: [モデルへの VAE 組み込み有無比較](https://twitter.com/Zuntan03/status/1705779826056147188) の [きれいな動画](https://yyy.wpx.jp/m/202309/ModelVae-crf26.mp4)
 - 9/23: [motion-moduleのmm_sd_v15_v2とmm-Stabilized_high比較](https://twitter.com/Zuntan03/status/1705537060491432132) [FullHD 超え動画](https://yyy.wpx.jp/m/202309/V152HighGrid.mp4)
 - 9/21: FullHD 相当 [KuronekoAkiba](https://yyy.wpx.jp/m/202309/KuronekoAkiba.mp4)
