@@ -15,12 +15,13 @@
 [@PhotogenicWeekE](https://twitter.com/PhotogenicWeekE/status/1705175475176530146)
 [@cigmatari](https://twitter.com/cigmatari/status/1705225865356009612)
 [@hina_chocoboo13](https://twitter.com/hina_chocoboo13/status/1705213931466485813)
+- 9/26: [実はプロンプトをアニメーションしなくてもいいんです](https://twitter.com/Zuntan03/status/1706602454476095701) の [きれいな動画](https://yyy.wpx.jp/m/202309/Oiyami.mp4)
 - 9/25: [AnimateDiff prompt travelの更新比較](https://twitter.com/Zuntan03/status/1706246410851819836) の [きれいな動画](https://yyy.wpx.jp/m/202309/PromptTravelUpdateXxMix.mp4)
 - 9/24: [モデルへの VAE 組み込み有無比較](https://twitter.com/Zuntan03/status/1705779826056147188) の [きれいな動画](https://yyy.wpx.jp/m/202309/ModelVae-crf26.mp4)
 - 9/23: [motion-moduleのmm_sd_v15_v2とmm-Stabilized_high比較](https://twitter.com/Zuntan03/status/1705537060491432132) の [FullHD 超え動画](https://yyy.wpx.jp/m/202309/V152HighGrid.mp4)
 - 9/21: FullHD 相当 [KuronekoAkiba](https://yyy.wpx.jp/m/202309/KuronekoAkiba.mp4)
 - 9/18: [nadenadesitai_v10](https://yyy.wpx.jp/m/202309/nadenadesitai_v10.mp4), [xxmix9realistic_v40](https://yyy.wpx.jp/m/202309/xxmix9realistic_v40.mp4), [onigiriMix_v10](https://yyy.wpx.jp/m/202309/onigiriMix_v10.mp4), [mistoonAnime_v20](https://yyy.wpx.jp/m/202309/mistoonAnime_v20.mp4)
-- 利用者のつぶやき（気付いたもののみ）:
+- 利用者のつぶやき（気づいたもののみ）:
 [@llrinnell](https://twitter.com/llrinnell/status/1703711755128779226)
 [@ai_gene_fumo7](https://twitter.com/ai_gene_fumo7/status/1704116905299382547)
 [@moshimur](https://twitter.com/moshimur/status/1704322583095812332)
@@ -40,6 +41,8 @@
 
 ## 主な更新履歴
 
+- 2024/09/26
+	- サンプルに『[美味しいヤミー感謝感謝](https://www.google.com/search?q=%E7%BE%8E%E5%91%B3%E3%81%97%E3%81%84%E3%83%A4%E3%83%9F%E3%83%BC%E6%84%9F%E8%AC%9D%E6%84%9F%E8%AC%9D)』の `sample/Oiyami.bat` を追加しました。
 - 2024/09/25
 	- FFmpeg のインストールに失敗する不具合を修正しました。
 		- `Update.bat` を実行すると修正します。
