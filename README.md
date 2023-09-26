@@ -38,6 +38,10 @@
 [@julajp](https://twitter.com/julajp/status/1706031579876012182)
 [@towya_aillust](https://twitter.com/towya_aillust/status/1706280379454464103)
 [@PhotogenicWeekE](https://twitter.com/PhotogenicWeekE/status/1706257379644572109)
+[@Aki_AI2023](https://twitter.com/Aki_AI2023/status/1706626610273882397)
+[@RAN_kimono_jp](https://twitter.com/RAN_kimono_jp/status/1706521498712945129)
+[@MultusDim_AI](https://twitter.com/MultusDim_AI/status/1706645709011988925)
+[@KO_ISZ](https://twitter.com/KO_ISZ/status/1706660431169982611)
 
 ## 主な更新履歴
 
