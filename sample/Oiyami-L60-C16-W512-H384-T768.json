@@ -1,0 +1,44 @@
+{
+  "name": "",
+  "path": "models/sd/onigiriMix_v10Clearvae.safetensors",
+  "motion_module": "models/motion-module/mm_sd_v15_v2.ckpt",
+  "compile": false,
+  "seed": [
+    -1
+  ],
+  "scheduler": "k_dpmpp_sde",
+  "steps": 20,
+  "guidance_scale": 8,
+  "clip_skip": 2,
+  "prompt_fixed_ratio": 0.0,
+  "head_prompt": "",
+  "prompt_map": {
+    "0": "美味しいヤミー❗️✨🤟😁👍✨⚡️感謝❗️🙌✨🙌✨🙌感謝❗️🙌✨🙌✨🙌またいっぱい食べたいな❗️🥓🥩🍗🍖😋🍖🍴✨デリシャッ‼️🙏✨ｼｬ‼️🙏✨ ｼｬ‼️🙏✨ ｼｬ‼️🙏✨ ｼｬ‼️🙏✨ ｼｬ‼️🙏✨ ｼｬｯｯ‼😁🙏✨😁🙏✨😁🙏✨ハッピー🌟スマイル❗️❗️❗💥✨👉😁👈✨💥"
+  },
+  "tail_prompt": "",
+  "n_prompt": [
+    "(worst quality, low quality:1.4)"
+  ],
+  "lora_map": {},
+  "upscale_config": {
+    "scheduler": "k_dpmpp_sde",
+    "steps": 15,
+    "strength": 0.5,
+    "guidance_scale": 8,
+    "controlnet_tile": {
+      "enable": true,
+      "use_preprocessor": false,
+      "controlnet_conditioning_scale": 1.0,
+      "guess_mode": false,
+      "control_guidance_start": 0.0,
+      "control_guidance_end": 1.0
+    }
+  },
+  "output": {
+    "format": "mp4",
+    "fps": 10,
+    "encode_param": {
+      "crf": 20
+    }
+  }
+}
