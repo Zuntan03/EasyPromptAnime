@@ -2,10 +2,17 @@
 pushd %~dp0
 
 where findstr > nul 2>&1
-if %errorlevel% neq 0 (
-    echo [ERROR] findstr not found. Add C:\Windows\System32 to PATH.
+if %ERRORLEVEL% neq 0 (
+	echo [ERROR] findstr not found. Add C:\Windows\System32 to PATH.
 	pause
-    exit /b 1
+	exit /b 1
+)
+
+echo "%~dp0" | findstr /r /c:"[^a-zA-Z0-9]" >nul
+if %ERRORLEVEL% equ 0 (
+	echo [ERROR] "%~dp0" contains non-alphanumeric characters.
+	pause
+	exit /b 1
 )
 
 python --version | findstr "3.10." || (
@@ -25,6 +32,12 @@ if %ERRORLEVEL% neq 0 (
 )
 
 git clone https://github.com/Zuntan03/EasyPromptAnime
+if %ERRORLEVEL% neq 0 (
+	echo [ERROR] git clone https://github.com/Zuntan03/EasyPromptAnime
+	echo Disable virus checking software.
+	pause
+	exit /b 1
+)
 robocopy .\EasyPromptAnime\ . /s /move
 
 call src\Setup.bat

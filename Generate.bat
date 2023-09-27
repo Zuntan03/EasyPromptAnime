@@ -150,7 +150,8 @@ endlocal
 call venv\Scripts\deactivate.bat
 popd rem %~dp0animatediff-cli-prompt-travel
 
-for /f "tokens=2-7 delims=/:. " %%a in ("echo %DATE% %TIME%") do (
+set ZERO_PADDING_TIME=%TIME: =0%
+for /f "tokens=2-7 delims=/:. " %%a in ("echo %DATE% %ZERO_PADDING_TIME%") do (
 	set MMDD_HHMM_SS=%%b%%c_%%d%%e_%%f
 )
 call :FIND_NEW_MP4 "%CONFIG_DIR%"

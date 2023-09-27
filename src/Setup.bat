@@ -38,7 +38,7 @@ if not exist xxmix9realistic_v40.safetensors (
 	timeout /t 1 /nobreak >nul
 )
 for %%f in (*.safetensors) do (
-	if %%~zf LSS 10240 ( echo [BROKEN FILE]: "%%f" & del "%%f" )
+	if %%~zf LSS 10240 if %%~zf GTR 0 ( echo [BROKEN FILE]: "%%f" & del "%%f" )
 )
 popd rem data\models\sd
 
@@ -64,10 +64,10 @@ if not exist mm-Stabilized_mid.pth (
 	timeout /t 1 /nobreak >nul
 )
 for %%f in (*.ckpt) do (
-	if %%~zf LSS 10240 ( echo [BROKEN FILE]: "%%f" & del "%%f" )
+	if %%~zf LSS 10240 if %%~zf GTR 0 ( echo [BROKEN FILE]: "%%f" & del "%%f" )
 )
 for %%f in (*.pth) do (
-	if %%~zf LSS 10240 ( echo [BROKEN FILE]: "%%f" & del "%%f" )
+	if %%~zf LSS 10240 if %%~zf GTR 0 ( echo [BROKEN FILE]: "%%f" & del "%%f" )
 )
 popd rem data\models\motion-module
 
@@ -81,7 +81,7 @@ if not exist EasyNegativeV2.safetensors (
 	timeout /t 1 /nobreak >nul
 )
 for %%f in (*.safetensors) do (
-	if %%~zf LSS 3072 ( echo [BROKEN FILE]: "%%f" & del "%%f" )
+	if %%~zf LSS 3072 if %%~zf GTR 0 ( echo [BROKEN FILE]: "%%f" & del "%%f" )
 )
 popd rem data\embeddings
 
