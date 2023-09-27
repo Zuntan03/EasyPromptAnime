@@ -14,7 +14,11 @@
 [@Yokohara_h](https://twitter.com/Yokohara_h/status/1705981094473183699)
 [@PhotogenicWeekE](https://twitter.com/PhotogenicWeekE/status/1705175475176530146)
 [@cigmatari](https://twitter.com/cigmatari/status/1705225865356009612)
+[@hirochuu8](https://twitter.com/hirochuu8/status/1706851109502128256)
 [@hina_chocoboo13](https://twitter.com/hina_chocoboo13/status/1705213931466485813)
+- 利用者の HowTo記事:
+[@TakaWeekendProg](https://twitter.com/TakaWeekendProg/status/1705938614033801547)
+[@miyukin_sj](https://twitter.com/miyukin_sj/status/1706966588061348243)
 - 9/26: [実はプロンプトをアニメーションしなくてもいいんです](https://twitter.com/Zuntan03/status/1706602454476095701) の [きれいな動画](https://yyy.wpx.jp/m/202309/Oiyami.mp4)
 - 9/25: [AnimateDiff prompt travelの更新比較](https://twitter.com/Zuntan03/status/1706246410851819836) の [きれいな動画](https://yyy.wpx.jp/m/202309/PromptTravelUpdateXxMix.mp4)
 - 9/24: [モデルへの VAE 組み込み有無比較](https://twitter.com/Zuntan03/status/1705779826056147188) の [きれいな動画](https://yyy.wpx.jp/m/202309/ModelVae-crf26.mp4)
@@ -42,6 +46,7 @@
 [@RAN_kimono_jp](https://twitter.com/RAN_kimono_jp/status/1706521498712945129)
 [@MultusDim_AI](https://twitter.com/MultusDim_AI/status/1706645709011988925)
 [@KO_ISZ](https://twitter.com/KO_ISZ/status/1706660431169982611)
+[@Neosuchiai](https://twitter.com/Neosuchiai/status/1706906692401967551)
 
 ## 主な更新履歴
 
