@@ -47,6 +47,11 @@
 [@MultusDim_AI](https://twitter.com/MultusDim_AI/status/1706645709011988925)
 [@KO_ISZ](https://twitter.com/KO_ISZ/status/1706660431169982611)
 [@Neosuchiai](https://twitter.com/Neosuchiai/status/1706906692401967551)
+[@Masa_8823](https://twitter.com/Masa_8823/status/1706606068959494262)
+[@hanpen_ai](https://twitter.com/hanpen_ai/status/1706176389551128874)
+[@mogiken](https://twitter.com/mogiken/status/1705827822953263302)
+[@PlayShingo](https://twitter.com/PlayShingo/status/1705356415194509634)
+[@toki_mwc](https://twitter.com/toki_mwc/status/1706100234911392195)
 
 ## 主な更新履歴
 
