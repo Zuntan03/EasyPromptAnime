@@ -6,6 +6,6 @@ if "%~1" == "" (
 )
 
 :BEGIN
-call %~dp0Generate.bat "%~1"
-timeout /t 1 /nobreak >nul
+call "%~dp0Generate.bat" "%~1"
+if %ERRORLEVEL% neq 0 ( exit /b 1 )
 goto BEGIN
