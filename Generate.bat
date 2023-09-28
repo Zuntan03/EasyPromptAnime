@@ -174,7 +174,7 @@ exit /b 0
 call venv\Scripts\deactivate.bat
 popd rem %~dp0animatediff-cli-prompt-travel
 echo [ERROR EXIT]
-exit /b 0
+exit /b 1
 
 :PARSE_ARG
 if "%~1" == "" ( exit /b 0 )
