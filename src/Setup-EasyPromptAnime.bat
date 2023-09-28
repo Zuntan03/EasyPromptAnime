@@ -8,7 +8,7 @@ if %ERRORLEVEL% neq 0 (
 	exit /b 1
 )
 
-echo "%~dp0" | findstr /r /c:"[^a-zA-Z0-9]" >nul
+echo "%~dp0" | findstr /r /c:"[^a-zA-Z0-9:/\\]" >nul
 if %ERRORLEVEL% equ 0 (
 	echo [ERROR] "%~dp0" contains non-alphanumeric characters.
 	pause
