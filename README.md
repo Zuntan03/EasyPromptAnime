@@ -53,7 +53,7 @@
 [@mogiken](https://twitter.com/mogiken/status/1705827822953263302)
 [@PlayShingo](https://twitter.com/PlayShingo/status/1705356415194509634)
 [@toki_mwc](https://twitter.com/toki_mwc/status/1706100234911392195)
-
+[@ai_cute_girls](https://twitter.com/ai_cute_girls/status/1707400802715984163)
 
 ## 主な更新履歴
 
