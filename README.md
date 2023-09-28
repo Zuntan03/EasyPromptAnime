@@ -54,8 +54,13 @@
 [@PlayShingo](https://twitter.com/PlayShingo/status/1705356415194509634)
 [@toki_mwc](https://twitter.com/toki_mwc/status/1706100234911392195)
 
+
 ## 主な更新履歴
 
+- 2024/09/28
+	- 昨日の「インストール時のエラーチェックを強化しました。」に問題があり、インストールできなかった不具合を修正しました。
+		- [Setup-EasyPromptAnime.bat](https://github.com/Zuntan03/EasyPromptAnime/raw/main/src/Setup-EasyPromptAnime.bat?20230928) を再ダウンロードして、インストールしてください。
+	- animatediff のコマンドでエラーが発生した際に、処理を終了するようにしました。
 - 2024/09/27
 	- インストール時のエラーチェックを強化しました。
 	- 0~9時に生成した際に、動画ファイル名の時間部分をゼロパディングするようにしました。

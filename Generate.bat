@@ -62,6 +62,7 @@ echo.
 
 echo animatediff generate -L %LENGTH% -W %WIDTH% -H %HEIGHT% -C %CONTEXT% -c "%CONFIG_TEMP_PATH%" %GENERATE_USE_XFORMERS% %GENERATE_FORCE_HALF_VAE%
 animatediff generate -L %LENGTH% -W %WIDTH% -H %HEIGHT% -C %CONTEXT% -c "%CONFIG_TEMP_PATH%" %GENERATE_USE_XFORMERS% %GENERATE_FORCE_HALF_VAE%
+if %ERRORLEVEL% neq 0 ( goto :ERROR_EXIT )
 
 call :FIND_NEW_DIR output
 set GENERATE_DIR=output\%NEW_DIR%
@@ -79,6 +80,7 @@ if "%UPSCALE1%" == "" (
 ) else if "%UPSCALE1%" == "tile-upscale" (
 	echo animatediff %UPSCALE1% -H %UPSCALE1_HEIGHT% %GENERATE_FRAMES_DIR% %UPSCALE_USE_XFORMERS% %UPSCALE_FORCE_HALF_VAE%
 	animatediff %UPSCALE1% -H %UPSCALE1_HEIGHT% %GENERATE_FRAMES_DIR% %UPSCALE_USE_XFORMERS% %UPSCALE_FORCE_HALF_VAE%
+	if %ERRORLEVEL% neq 0 ( endlocal & goto :ERROR_EXIT )
 
 	call :FIND_NEW_DIR upscaled
 	set UPSCALE1_DIR=upscaled\!NEW_DIR!
@@ -91,6 +93,7 @@ if "%UPSCALE1%" == "" (
 ) else if "%UPSCALE1%" == "refine" (
 	echo animatediff %UPSCALE1% -H %UPSCALE1_HEIGHT% -C %REFINER_CONTEXT% %GENERATE_FRAMES_DIR% %UPSCALE_USE_XFORMERS% %UPSCALE_FORCE_HALF_VAE%
 	animatediff %UPSCALE1% -H %UPSCALE1_HEIGHT% -C %REFINER_CONTEXT% %GENERATE_FRAMES_DIR% %UPSCALE_USE_XFORMERS% %UPSCALE_FORCE_HALF_VAE%
+	if %ERRORLEVEL% neq 0 ( endlocal & goto :ERROR_EXIT )
 
 	call :FIND_NEW_DIR refine
 	set UPSCALE1_DIR=refine\!NEW_DIR!
@@ -115,6 +118,7 @@ if "%UPSCALE2%" == "" (
 ) else if "%UPSCALE2%" == "tile-upscale" (
 	echo animatediff %UPSCALE2% -H %UPSCALE2_HEIGHT% !UPSCALE1_FRAMES_DIR! %UPSCALE_USE_XFORMERS% %UPSCALE_FORCE_HALF_VAE%
 	animatediff %UPSCALE2% -H %UPSCALE2_HEIGHT% !UPSCALE1_FRAMES_DIR! %UPSCALE_USE_XFORMERS% %UPSCALE_FORCE_HALF_VAE%
+	if %ERRORLEVEL% neq 0 ( endlocal & goto :ERROR_EXIT )
 
 	call :FIND_NEW_DIR upscaled
 	set UPSCALE2_DIR=upscaled\!NEW_DIR!
@@ -127,6 +131,7 @@ if "%UPSCALE2%" == "" (
 ) else if "%UPSCALE2%" == "refine" (
 	echo animatediff %UPSCALE2% -H %UPSCALE2_HEIGHT% -C %REFINER_CONTEXT% !UPSCALE1_FRAMES_DIR! %UPSCALE_USE_XFORMERS% %UPSCALE_FORCE_HALF_VAE%
 	animatediff %UPSCALE2% -H %UPSCALE2_HEIGHT% -C %REFINER_CONTEXT% !UPSCALE1_FRAMES_DIR! %UPSCALE_USE_XFORMERS% %UPSCALE_FORCE_HALF_VAE%
+	if %ERRORLEVEL% neq 0 ( endlocal & goto :ERROR_EXIT )
 
 	call :FIND_NEW_DIR refine
 	set UPSCALE2_DIR=refine\!NEW_DIR!
@@ -163,6 +168,12 @@ call :FIND_NEW_MP4 "%CONFIG_DIR%"
 echo FpsX4.bat "%CONFIG_DIR%\%NEW_MP4%" %RIFE_DIV% %RIFE_FPS% %FFMPEG_FPS% %FFMPEG_CRF%
 call %~dp0FpsX4.bat "%CONFIG_DIR%\%NEW_MP4%" %RIFE_DIV% %RIFE_FPS% %FFMPEG_FPS% %FFMPEG_CRF%
 
+exit /b 0
+
+:ERROR_EXIT
+call venv\Scripts\deactivate.bat
+popd rem %~dp0animatediff-cli-prompt-travel
+echo [ERROR EXIT]
 exit /b 0
 
 :PARSE_ARG
