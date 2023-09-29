@@ -15,8 +15,11 @@
 [@PhotogenicWeekE](https://twitter.com/PhotogenicWeekE/status/1705175475176530146)
 [@cigmatari](https://twitter.com/cigmatari/status/1705225865356009612)
 [@hirochuu8](https://twitter.com/hirochuu8/status/1706851109502128256)
+[@ai_cute_girls](https://twitter.com/ai_cute_girls/status/1707400802715984163)
 [@hina_chocoboo13](https://twitter.com/hina_chocoboo13/status/1705213931466485813)
 - 利用者の HowTo記事:
+[@towya_aillust](https://twitter.com/towya_aillust/status/1707527055905267718)
+[(動画)](https://www.youtube.com/watch?v=qjPmAPyKSYY)
 [@TakaWeekendProg](https://twitter.com/TakaWeekendProg/status/1705938614033801547)
 [@miyukin_sj](https://twitter.com/miyukin_sj/status/1706966588061348243)
 - 9/27: [AnimateDiff prompt travel のふたつのアニメと新機能 prompt_fixed_ratio](https://twitter.com/Zuntan03/status/1707323168707555329)
@@ -53,10 +56,16 @@
 [@mogiken](https://twitter.com/mogiken/status/1705827822953263302)
 [@PlayShingo](https://twitter.com/PlayShingo/status/1705356415194509634)
 [@toki_mwc](https://twitter.com/toki_mwc/status/1706100234911392195)
-[@ai_cute_girls](https://twitter.com/ai_cute_girls/status/1707400802715984163)
+[@AIbijo202304](https://twitter.com/AIbijo202304/status/1707591275590152219)
+[@AudioReplayApp](https://twitter.com/AudioReplayApp/status/1707626067601883630)
+[@toki_mwc](https://twitter.com/toki_mwc/status/1707609978738188599)
+[@Masa_8823](https://twitter.com/Masa_8823/status/1707688665173176767)
+[@mouriAIart](https://twitter.com/mouriAIart/status/1707668976262889656)
 
 ## 主な更新履歴
 
+- 2024/09/29
+	- フォルダ内の生成設定ファイルで一通り生成する `GenerateFolder.bat` と、これを連続生成し続ける `GenerateFolderForever.bat` を追加しました。
 - 2024/09/28
 	- 昨日の「インストール時のエラーチェックを強化しました。」に問題があり、インストールできなかった不具合を修正しました。
 		- [Setup-EasyPromptAnime.bat](https://github.com/Zuntan03/EasyPromptAnime/raw/main/src/Setup-EasyPromptAnime.bat?20230928) を再ダウンロードして、インストールしてください。
@@ -218,6 +227,14 @@ AnimateDiff とモデルに相性があり、[黒画像になる](#真っ黒の�
 ### `GenerateForever.bat`
 
 生成設定ファイルをドラッグ＆ドロップすると、動画を生成し続けます。終了時は `Ctrl+C` で止めてください。
+
+### `GenerateFolder.bat`
+
+生成設定ファイルが入っているフォルダをドラッグ＆ドロップすると、生成設定ファイルの数だけ動画を生成します。
+
+### `GenerateFolder.bat`
+
+生成設定ファイルが入っているフォルダをドラッグ＆ドロップすると、生成設定ファイルの数だけ動画を生成し続けます。終了時は `Ctrl+C` で止めてください。
 
 ### `Update.bat`
 
