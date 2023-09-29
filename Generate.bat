@@ -25,7 +25,7 @@ set UPSCALE_USE_XFORMERS=
 set UPSCALE_FORCE_HALF_VAE=
 
 if "%~1" == "" (
-	echo [ERROR] Drag and drop the configuration *[OPTIONS].json file.
+	echo [ERROR] Drag and drop the configuration .+[OPTIONS].json file.
 	echo -L[Lenght]-W[Width]-H[Height]-C[Context]-T[TileHeight]
 	pause & exit /b 1
 )
