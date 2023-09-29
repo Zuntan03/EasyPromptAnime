@@ -17,7 +17,7 @@
 [@hirochuu8](https://twitter.com/hirochuu8/status/1706851109502128256)
 [@ai_cute_girls](https://twitter.com/ai_cute_girls/status/1707400802715984163)
 [@hina_chocoboo13](https://twitter.com/hina_chocoboo13/status/1705213931466485813)
-- 利用者の HowTo記事:
+- 利用者の HowTo 記事:
 [@towya_aillust](https://twitter.com/towya_aillust/status/1707527055905267718)
 [(動画)](https://www.youtube.com/watch?v=qjPmAPyKSYY)
 [@TakaWeekendProg](https://twitter.com/TakaWeekendProg/status/1705938614033801547)
@@ -61,6 +61,10 @@
 [@toki_mwc](https://twitter.com/toki_mwc/status/1707609978738188599)
 [@Masa_8823](https://twitter.com/Masa_8823/status/1707688665173176767)
 [@mouriAIart](https://twitter.com/mouriAIart/status/1707668976262889656)
+[@taziku_co](https://twitter.com/taziku_co/status/1707773693534130231)
+[@ai_succubus](https://twitter.com/ai_succubus/status/1707795330836857281)
+[@nanaynyorai](https://twitter.com/nanaynyorai/status/1707815227205849466)
+[@towya_aillust](https://twitter.com/towya_aillust/status/1707784177607995832)
 
 ## 主な更新履歴
 
