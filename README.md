@@ -65,6 +65,7 @@
 [@ai_succubus](https://twitter.com/ai_succubus/status/1707795330836857281)
 [@nanaynyorai](https://twitter.com/nanaynyorai/status/1707815227205849466)
 [@towya_aillust](https://twitter.com/towya_aillust/status/1707784177607995832)
+[@AiMu_Tech](https://twitter.com/AiMu_Tech/status/1707874139477074064)
 
 ## 主な更新履歴
 
@@ -108,7 +109,7 @@
 
 ## 動作環境
 
-- Windows 10 以降（Update済み）の PC で、/Windows/System32 にパスが通っている
+- Windows 10 以降（Update済み、管理者権限あり）の PC で、/Windows/System32 にパスが通っている
 - 最近の NVIDIA Geforce RTX **VRAM 8BG 以上**
 - パスを通した [Python 3.10.6](https://www.python.org/ftp/python/3.10.6/python-3.10.6-amd64.exe) と [Git for Windows](https://gitforwindows.org/)
 
