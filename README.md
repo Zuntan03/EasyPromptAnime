@@ -15,6 +15,7 @@
 [@PhotogenicWeekE](https://twitter.com/PhotogenicWeekE/status/1705175475176530146)
 [@cigmatari](https://twitter.com/cigmatari/status/1705225865356009612)
 [@hirochuu8](https://twitter.com/hirochuu8/status/1706851109502128256)
+[@ai_cute_girls](https://twitter.com/ai_cute_girls/status/1707632810599895112)
 [@ai_cute_girls](https://twitter.com/ai_cute_girls/status/1707400802715984163)
 [@hina_chocoboo13](https://twitter.com/hina_chocoboo13/status/1705213931466485813)
 - 利用者の HowTo 記事:
@@ -114,6 +115,8 @@
 - パスを通した [Python 3.10.6](https://www.python.org/ftp/python/3.10.6/python-3.10.6-amd64.exe) と [Git for Windows](https://gitforwindows.org/)
 
 ## セットアップ
+
+**Avast の保護が有効になっているとインストールに失敗します。<br>一時的に保護を無効にしてインストールするか、他のウィルスチェックソフトをご利用ください。**
 
 1. 動作環境の [Python 3.10.6](https://www.python.org/ftp/python/3.10.6/python-3.10.6-amd64.exe) を導入していない場合は、[Python のインストール](https://github.com/Zuntan03/SdWebUiTutorial/blob/main/_/doc/SdWebUiInstall/SdWebUiInstall.md#python-%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB) をします。
 2. 動作環境の [Git for Windows](https://gitforwindows.org/) を導入していない場合は、[Git for Windows のインストール](https://github.com/Zuntan03/SdWebUiTutorial/blob/main/_/doc/SdWebUiInstall/SdWebUiInstall.md#git-for-windows-%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB) をします。
