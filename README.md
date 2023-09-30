@@ -69,7 +69,7 @@
 [@nanaynyorai](https://twitter.com/nanaynyorai/status/1707815227205849466)
 [@towya_aillust](https://twitter.com/towya_aillust/status/1707784177607995832)
 [@AiMu_Tech](https://twitter.com/AiMu_Tech/status/1707874139477074064)
-[@ai_nontan_room](https://twitter.com/ai_nontan_room/status/1708087342467305945)
+[@ai_nontan_room](https://twitter.com/ai_nontan_room/status/1708122189835497602)
 [@KOR_jiyugiga](https://twitter.com/KOR_jiyugiga/status/1708104597221552497)
 
 ## 主な更新履歴
