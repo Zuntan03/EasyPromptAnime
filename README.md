@@ -21,6 +21,8 @@
 - 利用者の HowTo 記事:
 [@towya_aillust](https://twitter.com/towya_aillust/status/1707527055905267718)
 [(動画)](https://www.youtube.com/watch?v=qjPmAPyKSYY)
+[taziku インストール編](https://taziku.co.jp/blog/easypromptanime-install)
+[taziku AIアニメ生成編](https://taziku.co.jp/blog/easypromptanimeai-c)
 [@TakaWeekendProg](https://twitter.com/TakaWeekendProg/status/1705938614033801547)
 [@miyukin_sj](https://twitter.com/miyukin_sj/status/1706966588061348243)
 - 9/27: [AnimateDiff prompt travel のふたつのアニメと新機能 prompt_fixed_ratio](https://twitter.com/Zuntan03/status/1707323168707555329)
@@ -116,7 +118,7 @@
 
 ## セットアップ
 
-**Avast の保護が有効になっているとインストールに失敗します。<br>一時的に保護を無効にしてインストールするか、他のウィルスチェックソフトをご利用ください。**
+**ウィルスチェックソフトの Avast の保護が有効だと、インストールに失敗します。<br>初回の動画生成の成功まで一時的に保護を無効にするか、他のウィルスチェックソフトをご利用ください。**
 
 1. 動作環境の [Python 3.10.6](https://www.python.org/ftp/python/3.10.6/python-3.10.6-amd64.exe) を導入していない場合は、[Python のインストール](https://github.com/Zuntan03/SdWebUiTutorial/blob/main/_/doc/SdWebUiInstall/SdWebUiInstall.md#python-%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB) をします。
 2. 動作環境の [Git for Windows](https://gitforwindows.org/) を導入していない場合は、[Git for Windows のインストール](https://github.com/Zuntan03/SdWebUiTutorial/blob/main/_/doc/SdWebUiInstall/SdWebUiInstall.md#git-for-windows-%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB) をします。
