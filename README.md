@@ -72,6 +72,10 @@
 [@ai_nontan_room](https://twitter.com/ai_nontan_room/status/1708122189835497602)
 [@KOR_jiyugiga](https://twitter.com/KOR_jiyugiga/status/1708104597221552497)
 [@aiojisan1234](https://twitter.com/aiojisan1234/status/1708147886041817223)
+[@Lover57227277](https://twitter.com/Lover57227277/status/1708085311631397007)
+[@AI_Lilith](https://twitter.com/AI_Lilith/status/1708144977627460000)
+[@foxyy4i](https://twitter.com/foxyy4i/status/1708169197740818574)
+[@a_i_art_girl](https://twitter.com/a_i_art_girl/status/1708314038885913022)
 
 ## 主な更新履歴
 
