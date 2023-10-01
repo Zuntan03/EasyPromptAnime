@@ -71,6 +71,7 @@
 [@AiMu_Tech](https://twitter.com/AiMu_Tech/status/1707874139477074064)
 [@ai_nontan_room](https://twitter.com/ai_nontan_room/status/1708122189835497602)
 [@KOR_jiyugiga](https://twitter.com/KOR_jiyugiga/status/1708104597221552497)
+[@aiojisan1234](https://twitter.com/aiojisan1234/status/1708147886041817223)
 
 ## 主な更新履歴
 
