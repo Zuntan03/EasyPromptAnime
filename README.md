@@ -76,6 +76,7 @@
 [@AI_Lilith](https://twitter.com/AI_Lilith/status/1708144977627460000)
 [@foxyy4i](https://twitter.com/foxyy4i/status/1708169197740818574)
 [@a_i_art_girl](https://twitter.com/a_i_art_girl/status/1708058379707662374)
+[@towya_aillust](https://twitter.com/towya_aillust/status/1708489618986082478)
 
 ## 主な更新履歴
 
