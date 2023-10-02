@@ -16,6 +16,7 @@
 [@cigmatari](https://twitter.com/cigmatari/status/1705225865356009612)
 [@hirochuu8](https://twitter.com/hirochuu8/status/1706851109502128256)
 [@ai_cute_girls](https://twitter.com/ai_cute_girls/status/1707632810599895112)
+[@hina_chocoboo13](https://twitter.com/hina_chocoboo13/status/1708354881143337268)
 [@ai_cute_girls](https://twitter.com/ai_cute_girls/status/1707400802715984163)
 [@hina_chocoboo13](https://twitter.com/hina_chocoboo13/status/1705213931466485813)
 - 利用者の HowTo 記事:
@@ -77,6 +78,9 @@
 [@foxyy4i](https://twitter.com/foxyy4i/status/1708169197740818574)
 [@a_i_art_girl](https://twitter.com/a_i_art_girl/status/1708058379707662374)
 [@towya_aillust](https://twitter.com/towya_aillust/status/1708489618986082478)
+[@yimamura](https://twitter.com/yimamura/status/1706560200734589207)
+[@ai_nontan_room](https://twitter.com/ai_nontan_room/status/1708698807075266759)
+[@yimamura](https://twitter.com/yimamura/status/1708744498782904828)
 
 ## 主な更新履歴
 
