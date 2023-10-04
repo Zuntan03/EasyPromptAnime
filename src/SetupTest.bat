@@ -7,9 +7,8 @@ if not exist animatediff-cli-prompt-travel (
 	python -m venv venv
 	call venv\Scripts\activate.bat
 	python -m pip install --upgrade pip
-	pip install xformers
-	pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
-	pip install mediapipe
+	pip install torch==2.0.1+cu118 torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+	pip install xformers==0.0.22 mediapipe
 	pip install -e .
 	pip install -e .[stylize]
 	pip install -e .[dwpose]
@@ -94,7 +93,7 @@ if not exist ECCV2022-RIFE (
 	python -m venv venv
 	call venv\Scripts\activate.bat
 	python -m pip install --upgrade pip
-	pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+	pip install torch==2.0.1+cu118 torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
 	pip install -r requirements.txt
 	pip install numpy==1.23.5
 	call venv\Scripts\deactivate.bat
