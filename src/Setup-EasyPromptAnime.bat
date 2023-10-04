@@ -44,4 +44,4 @@ call src\Setup.bat
 start OpenColabEditor.bat
 
 popd rem %~dp0
-del %~f0
+del "%~f0"
