@@ -9,6 +9,7 @@ import os, glob
 
 class BasicForm:
     maxLength = 600
+    sizeResolution = 64
 
     def __init__(self, parent):
         self.frm = ttk.Frame(parent)
@@ -121,7 +122,7 @@ class BasicForm:
             self.frmSize,
             from_=384,
             to=640,
-            resolution=64,
+            resolution=BasicForm.sizeResolution,
             orient=tk.HORIZONTAL,
             variable=self.varWidth,
             takefocus=True,
@@ -136,7 +137,7 @@ class BasicForm:
             self.frmSize,
             from_=384,
             to=640,
-            resolution=64,
+            resolution=BasicForm.sizeResolution,
             orient=tk.HORIZONTAL,
             variable=self.varHeight,
             takefocus=True,
@@ -258,9 +259,13 @@ class BasicForm:
     @classmethod
     def loadConfig(self):
         BasicForm.maxLength = Config.get("ui", "max_length", BasicForm.maxLength)
+        BasicForm.sizeResolution = Config.get(
+            "ui", "size_resolution", BasicForm.sizeResolution
+        )
 
     def storeConfig(self):
         Config.set("ui", "max_length", BasicForm.maxLength)
+        Config.set("ui", "size_resolution", BasicForm.sizeResolution)
 
     def setDarkTheme(self, colors):
         self.sliLength.configure(colors["sli"])
