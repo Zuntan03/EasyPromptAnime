@@ -69,6 +69,8 @@
     "m_log_folder": "Log",
     "m_tool": "Tools",
     "m_tool_convert_lora": "Convert LoRA",
+    "m_tool_easy_leco": "EasyLECO",
+    "m_tool_easy_leco_url": "https://colab.research.google.com/drive/1cEoOeLbGmzCK5dP-Xa6Yx0B53uS461J8",
     "m_download": "Download",
     "m_model_download": "Model",
     "m_help": "Help",

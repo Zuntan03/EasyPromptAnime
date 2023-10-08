@@ -74,6 +74,8 @@ class Menu:
 
         self.toolMenu.add_command(label=L10n.get("m_tool_convert_lora"))
 
+        self.toolMenu.add_command(label=L10n.get("m_tool_easy_leco"))
+
     def initDownloadMenu(self):
         self.downloadMenu = tk.Menu(self.menuBar, tearoff=False)
         self.menuBar.add_cascade(label=L10n.get("m_download"), menu=self.downloadMenu)

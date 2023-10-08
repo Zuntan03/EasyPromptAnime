@@ -50,6 +50,8 @@ class MenuController:
             L10n.get("m_tool_convert_lora"), command=lambda: self.convertLora()
         )
 
+        self.openUrl(tool, "m_tool_easy_leco", L10n.get("m_tool_easy_leco_url"))
+
     def convertLora(self):
         srcPath = filedialog.askopenfilename(
             title=L10n.get("dlg_convert_lora_title"),

@@ -69,6 +69,8 @@
     "m_log_folder": "ログ",
     "m_tool": "ツール",
     "m_tool_convert_lora": "LoRA 変換",
+    "m_tool_easy_leco": "簡単LECO",
+    "m_tool_easy_leco_url": "https://colab.research.google.com/drive/1LYi2kvZV1XN05MATqhqWs79cNdTkb33P",
     "m_download": "ダウンロード",
     "m_model_download": "モデル",
     "m_help": "ヘルプ",
