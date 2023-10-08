@@ -12,7 +12,7 @@ if not exist venv (
 	call venv\Scripts\activate.bat
 	python -m pip install --upgrade pip
 	pip install torch==2.0.1+cu118 torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
-	pip install xformers==0.0.22 mediapipe
+	pip install xformers==0.0.22 mediapipe pytorch_lightning
 	pip install -e .
 	pip install -e .[stylize]
 	pip install -e .[dwpose]
@@ -20,7 +20,14 @@ if not exist venv (
 )
 
 if not exist data\lora ( mkdir data\lora )
-if not exist data\vae ( mkdir data\vae )
+if not exist data\vae (
+	mkdir data\vae 
+
+	@REM Update old env 
+	call venv\Scripts\activate.bat
+	pip install pytorch_lightning
+	call venv\Scripts\deactivate.bat
+)
 
 pushd data\models\sd
 if not exist xxmix9realistic_v40.safetensors (
