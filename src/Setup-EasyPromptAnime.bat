@@ -41,7 +41,9 @@ if %ERRORLEVEL% neq 0 (
 robocopy .\EasyPromptAnime\ . /s /move
 
 call src\Setup.bat
-start OpenColabEditor.bat
+start EasyPromptAnimeEditor.bat
+
+if %errorlevel% neq 0 ( pause & popd & exit /b %errorlevel% )
 
 popd rem %~dp0
 del "%~f0"

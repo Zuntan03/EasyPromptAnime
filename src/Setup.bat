@@ -3,7 +3,11 @@ pushd %~dp0..
 
 if not exist animatediff-cli-prompt-travel (
 	git clone https://github.com/s9roll7/animatediff-cli-prompt-travel
-	pushd animatediff-cli-prompt-travel
+)
+
+pushd animatediff-cli-prompt-travel
+
+if not exist venv (
 	python -m venv venv
 	call venv\Scripts\activate.bat
 	python -m pip install --upgrade pip
@@ -13,12 +17,15 @@ if not exist animatediff-cli-prompt-travel (
 	pip install -e .[stylize]
 	pip install -e .[dwpose]
 	call venv\Scripts\deactivate.bat
-
-	mkdir data\lora
-	popd rem animatediff-cli-prompt-travel
 )
 
-pushd animatediff-cli-prompt-travel
+if not exist data\lora ( mkdir data\lora )
+if not exist data\vae ( mkdir data\vae )
+
+if not exist convert_vae_pt_to_diffusers.py (
+	curl -LO https://github.com/huggingface/diffusers/raw/main/scripts/convert_vae_pt_to_diffusers.py
+)
+if %errorlevel% neq 0 ( pause & popd & exit /b %errorlevel% )
 
 pushd data\models\sd
 if not exist nadenadesitai_v10.safetensors (
@@ -112,5 +119,9 @@ if not exist %FFMPEG_DIR% (
 	copy /Y %FFMPEG_DIR%\bin\*.exe animatediff-cli-prompt-travel
 	copy /Y %FFMPEG_DIR%\bin\*.exe ECCV2022-RIFE
 )
+
+call src\Setup-SdScripts.bat
+call src\Setup-Vae.bat
+if %errorlevel% neq 0 ( pause & popd & exit /b %errorlevel% )
 
 popd rem %~dp0..
