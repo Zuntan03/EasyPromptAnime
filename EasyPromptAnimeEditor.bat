@@ -11,6 +11,8 @@ if not exist editor\venv (
 	call editor\venv\Scripts\deactivate.bat
 )
 
+if not exist output ( mkdir output )
+
 call editor\venv\Scripts\activate.bat
 
 if not exist editor\log ( mkdir editor\log )
