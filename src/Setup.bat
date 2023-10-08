@@ -105,7 +105,8 @@ if not exist venv (
 	pip install -r requirements.txt
 	pip install numpy==1.23.5
 	call venv\Scripts\deactivate.bat
-
+)
+if not exist train_log (
 	curl -Lo RifeModel.zip https://drive.google.com/uc?id=1APIzVeI-4ZZCEuIRE1m6WYfSCaOsi_7_
 	PowerShell -Version 5.1 -ExecutionPolicy Bypass Expand-Archive -Path RifeModel.zip -DestinationPath .
 	del RifeModel.zip
