@@ -76,6 +76,7 @@ class MenuController:
             "AnimateDiff prompt travel",
             "https://github.com/s9roll7/animatediff-cli-prompt-travel",
         )
+        self.openUrlNoL10n(ref, "sd-scripts", "https://github.com/kohya-ss/sd-scripts")
         self.openUrlNoL10n(ref, "Codex FFmpeg", "https://github.com/GyanD/codexFFmpeg")
         self.openUrlNoL10n(
             ref, "ECCV2022-RIFE", "https://github.com/megvii-research/ECCV2022-RIFE"
