@@ -98,23 +98,23 @@
 
 ## 主な更新履歴
 
-- 2024/09/29
+- 2023/09/29
 	- フォルダ内の生成設定ファイルで一通り生成する `GenerateFolder.bat` と、これを連続生成し続ける `GenerateFolderForever.bat` を追加しました。
-- 2024/09/28
+- 2023/09/28
 	- 昨日の「インストール時のエラーチェックを強化しました。」に問題があり、インストールできなかった不具合を修正しました。
 		- [Setup-EasyPromptAnime.bat](https://github.com/Zuntan03/EasyPromptAnime/raw/main/src/Setup-EasyPromptAnime.bat?20230928) を再ダウンロードして、インストールしてください。
 	- animatediff のコマンドでエラーが発生した際に、処理を終了するようにしました。
 		- GenerateForever.exe も同様に、処理を終了するようにしました。
-- 2024/09/27
+- 2023/09/27
 	- インストール時のエラーチェックを強化しました。
 	- 0~9時に生成した際に、動画ファイル名の時間部分をゼロパディングするようにしました。
 	- モデルファイルなどのシンボリックリンクを削除しないようにしました。
-- 2024/09/26
+- 2023/09/26
 	- サンプルに『[美味しいヤミー感謝感謝](https://www.google.com/search?q=%E7%BE%8E%E5%91%B3%E3%81%97%E3%81%84%E3%83%A4%E3%83%9F%E3%83%BC%E6%84%9F%E8%AC%9D%E6%84%9F%E8%AC%9D)』の `sample/Oiyami.bat` を追加しました。
-- 2024/09/25
+- 2023/09/25
 	- FFmpeg のインストールに失敗する不具合を修正しました。
 		- `Update.bat` を実行すると修正します。
-- 2024/09/24
+- 2023/09/24
 	- **今回の更新では `Update.bat` を 2回！実行してください（`Update.bat` を更新したため）。**
 	- [AnimateDiff prompt travel](https://github.com/s9roll7/animatediff-cli-prompt-travel) の更新に対応しました。
 		- AnimateDiff 用にモデルを修正する `FixCheckpoint.bat` を追加しました。<br>

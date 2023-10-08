@@ -68,6 +68,13 @@ class MenuController:
 
     def initHelpEvents(self):
         hlp = self.form.menu.helpMenu
+        hlp.entryconfig(
+            L10n.get("m_prompt_help"),
+            command=lambda: self.form.input.txtInput.insert(
+                tk.END, L10n.get("hlp_prompt")
+            ),
+        )
+
         self.openUrl(hlp, "m_github", "https://github.com/Zuntan03/EasyPromptAnime")
 
         ref = self.form.menu.referenceMenu

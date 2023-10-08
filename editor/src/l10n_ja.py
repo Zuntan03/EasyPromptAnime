@@ -72,6 +72,7 @@
     "m_download": "ダウンロード",
     "m_model_download": "モデル",
     "m_help": "ヘルプ",
+    "m_prompt_help": "プロンプトの書き方",
     "m_github": "簡単プロンプトアニメ GitHub",
     "m_reference": "参照",
     "dlg_convert_lora_title": "変換する LoRA を選択してください。",
@@ -84,4 +85,37 @@
     "err_inv_line": "行の表記が正しくありません。 {0}",
     "err_inv_frame_num": "フレームの値が正しくありません。{0}: {1}",
     "err_inv_lora_def": 'LoRA の定義が正しくありません。"{0}" {1}',
+    "hlp_prompt": """
+# フレーム数＋コロン(:)＋プロンプトで、アニメのキーフレームにプロンプトを指定します。
+# フレーム数＋コロンではなく、「H:」「F:」「N:」「L:」の場合はアニメ全体に特別な設定をします。
+# シャープ(#)以降はコメントです。
+
+H: crowds, akihabara
+# 「H:」か「h:」で始まる行はヘッダプロンプトの指定で、アニメのキーフレームのプロンプト先頭にヘッダプロンプトを足します。
+
+ 0: standing, upset
+10: waving at viewer, surprised
+20: waving at viewer, smile
+# アニメの 0フレームに「standing, upset」、10フレームに「waving at viewer, surprised」、20フレームに「waving at viewer, smile」のプロンプトを使用します。
+# 1秒間に 10枚の画像が表示され(10 Frame per second)で、キーフレームの間は補間されます。
+
+F: 1girl, maid outfit
+# 「F:」か「f:」で始まる行はフッタプロンプトの指定で、アニメのキーフレームのプロンプト末尾にフッタプロンプトを足します。
+
+# 上記の指定で3秒間（30フレーム）生成した場合の、キーフレームのプロンプトは以下になります。
+#  0フレーム「crowds, akihabara, standing, upset, 1girl, maid outfit」
+# 10フレーム「crowds, akihabara, waving at viewer, surprised, 1girl, maid outfit」
+# 20フレーム「crowds, akihabara, waving at viewer, smile, 1girl, maid outfit」
+# 30フレーム「crowds, akihabara, standing, upset, 1girl, maid outfit」
+
+# 細々とキーフレームを設定しなくとも、0フレームに「dancing」のような動きを表す言葉を入れておけば、AI が勝手に動かしてくれます。
+
+N:(worst quality, low quality:1.4)
+#「N:」か「n:」で始まる行は、アニメの全フレームで使用するネガティブプロンプトを指定します。
+
+# L:explosion:-0.2 # 行頭の # でコメントになっています。LoRA を使う場合は先頭の # を消してください。
+#「L:」か「l:」で始まる行は、LoRA のファイル名＋コロン(:)＋強度を、カンマ(,)区切りで複数指定できます。
+# LoRAを使いたい場合は、メニューの [フォルダ - プロンプトトラベル - LoRA] に *.safetensors 形式の LoRA を置いてください。
+# 使える LoRA は通常の LierLa 形式です。C3Lier(Locon) 形式はメニューの [ツール - LoRA 変換] で LierLa 形式に変換して利用できます。
+""",
 }

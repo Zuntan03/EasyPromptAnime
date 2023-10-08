@@ -87,6 +87,8 @@ class Menu:
         self.helpMenu = tk.Menu(self.menuBar, tearoff=False)
         self.menuBar.add_cascade(label=L10n.get("m_help"), menu=self.helpMenu)
 
+        self.helpMenu.add_command(label=L10n.get("m_prompt_help"))
+
         self.helpMenu.add_command(label=L10n.get("m_github"))
 
         self.referenceMenu = tk.Menu(self.helpMenu, tearoff=False)
