@@ -120,8 +120,8 @@ class BasicForm:
         self.lblWidth.pack(UiPack.lbl)
         self.sliWidth = tk.Scale(
             self.frmSize,
-            from_=384,
-            to=640,
+            from_=256,
+            to=768,
             resolution=BasicForm.sizeResolution,
             orient=tk.HORIZONTAL,
             variable=self.varWidth,
@@ -135,8 +135,8 @@ class BasicForm:
         self.lblHeight.pack(UiPack.lbl)
         self.sliHeight = tk.Scale(
             self.frmSize,
-            from_=384,
-            to=640,
+            from_=256,
+            to=768,
             resolution=BasicForm.sizeResolution,
             orient=tk.HORIZONTAL,
             variable=self.varHeight,
