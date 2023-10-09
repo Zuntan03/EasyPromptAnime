@@ -38,9 +38,13 @@
 			"url": "https://huggingface.co/guoyww/animatediff/resolve/main/mm_sd_v15_v2.ckpt",
 			"info": "https://huggingface.co/guoyww/animatediff"
 		},
+		"improvedHumansMotion_refinedHumanMovement.ckpt": {
+			"url": "https://civitai.com/api/download/models/174464",
+			"info": "https://civitai.com/models/155528"
+		},
 		"missionarymotion.safetensors": {
 			"url": "https://civitai.com/api/download/models/134809",
-			"info": "https://huggingface.co/guoyww/animatediff",
+			"info": "https://civitai.com/models/123612",
 			"isZip": true
 		},
 		"mm_sd_v15.ckpt": {
@@ -58,6 +62,38 @@
 		"mm-Stabilized_mid.pth": {
 			"url": "https://huggingface.co/manshoety/AD_Stabilized_Motion/resolve/main/mm-Stabilized_mid.pth",
 			"info": "https://huggingface.co/manshoety/AD_Stabilized_Motion"
+		}
+	},
+	"vae": {
+		"kl-f8-anime2.ckpt": {
+			"url": "https://huggingface.co/hakurei/waifu-diffusion-v1-4/resolve/main/vae/kl-f8-anime2.ckpt",
+			"info": "https://huggingface.co/hakurei/waifu-diffusion-v1-4"
+		},
+		"orangemix.pt": {
+			"url": "https://huggingface.co/WarriorMama777/OrangeMixs/resolve/main/VAEs/orangemix.vae.pt",
+			"info": "https://huggingface.co/WarriorMama777/OrangeMixs"
+		},
+		"vae-ft-ema-560000.safetensors": {
+			"url": "https://huggingface.co/stabilityai/sd-vae-ft-ema-original/resolve/main/vae-ft-ema-560000-ema-pruned.safetensors",
+			"info": "https://huggingface.co/stabilityai/sd-vae-ft-ema-original"
+		},
+		"vae-ft-mse-840000.safetensors": {
+			"url": "https://huggingface.co/stabilityai/sd-vae-ft-mse-original/resolve/main/vae-ft-mse-840000-ema-pruned.safetensors",
+			"info": "https://huggingface.co/stabilityai/sd-vae-ft-mse-original"
+		},
+		"clearvae_v22.safetensors": {
+			"url": "https://civitai.com/api/download/models/80518",
+			"info": "https://civitai.com/models/22354"
+		}
+	},
+	"embedding": {
+		"EasyNegative.safetensors": {
+			"url": "https://huggingface.co/datasets/gsdf/EasyNegative/resolve/main/EasyNegative.safetensors",
+			"info": "https://huggingface.co/datasets/gsdf/EasyNegative"
+		},
+		"EasyNegativeV2.safetensors": {
+			"url": "https://huggingface.co/gsdf/Counterfeit-V3.0/resolve/main/embedding/EasyNegativeV2.safetensors",
+			"info": "https://huggingface.co/gsdf/Counterfeit-V3.0"
 		}
 	}
 }

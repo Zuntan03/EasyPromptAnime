@@ -73,6 +73,8 @@ class MenuController:
         self.categoryDirs = {
             "model": Path.model,
             "motion_module": Path.motionModule,
+            "vae": Path.vae,
+            "embedding": Path.embeddings,
         }
         dlMenu = self.form.menu.downloadMenu
         dlMenu.configure(postcommand=self.updateDownloadMenu)
@@ -97,14 +99,10 @@ class MenuController:
             unzipDir = os.path.dirname(dstPath)
             dstPath = os.path.join(os.path.dirname(dstPath), "temp.zip")
 
-        print(f"{category}, {name}")
-        print(
-            f'URL: {data["url"]}\nINFO: {data["info"]}\nDST: {dstPath}\nUNZIP: {unzipDir}\n'
-        )
+        Log.user(L10n.format("log_start_download", name, data["info"]))
         cmd = f'echo {data["info"]} & curl -Lo {dstPath} {data["url"]} || pause'
         if unzipDir != "":
             cmd += f" & PowerShell -Version 5.1 -ExecutionPolicy Bypass Expand-Archive -Path {dstPath} -DestinationPath {unzipDir} -Force || pause & del {dstPath}"
-        Log.user(cmd)
         subprocess.run(["start", "cmd", "/c", cmd], shell=True)
 
     def initHelpEvents(self):

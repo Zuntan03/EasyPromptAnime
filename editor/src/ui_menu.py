@@ -100,6 +100,8 @@ class Menu:
 
         self.dlModel = initDlMenu("model")
         self.dlMotionModule = initDlMenu("motion_module")
+        self.dlVae = initDlMenu("vae")
+        self.dlEmbedding = initDlMenu("embedding")
 
     def initHelpMenu(self):
         self.helpMenu = tk.Menu(self.menuBar, tearoff=False)
