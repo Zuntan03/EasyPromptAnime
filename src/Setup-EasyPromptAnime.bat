@@ -38,12 +38,19 @@ if %ERRORLEVEL% neq 0 (
 	pause
 	exit /b 1
 )
+
 robocopy .\EasyPromptAnime\ . /s /move
+if %ERRORLEVEL% neq 0 (
+	echo [ERROR] robocopy .\EasyPromptAnime\ . /s /move
+	pause
+	exit /b 1
+)
 
 call src\Setup.bat
-start EasyPromptAnimeEditor.bat
+if %errorlevel% neq 0 ( popd & exit /b %errorlevel% )
 
-if %errorlevel% neq 0 ( pause & popd & exit /b %errorlevel% )
+start cmd /c EasyPromptAnimeEditor.bat
 
 popd rem %~dp0
+echo The following error messages are not a problem.
 del "%~f0"
