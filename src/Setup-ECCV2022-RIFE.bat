@@ -30,10 +30,7 @@ if not exist venv (
 )
 if not exist train_log (
 	echo curl https://github.com/hzwer/Practical-RIFE/blob/main/README.md#model-list
-	@REM 4.7
-	curl -Lo RifeModel.zip https://drive.google.com/uc?id=1dCuyDT2Vbj-hLxy_0vDRD4u7W1teik5-
-	@REM 3.6 
-	@REM curl -Lo RifeModel.zip https://drive.google.com/uc?id=1APIzVeI-4ZZCEuIRE1m6WYfSCaOsi_7_
+	curl -Lo RifeModel.zip https://drive.google.com/uc?id=1APIzVeI-4ZZCEuIRE1m6WYfSCaOsi_7_
 	if %errorlevel% neq 0 ( pause & popd & exit /b %errorlevel% )
 
 	echo Unzip RifeModel.zip
