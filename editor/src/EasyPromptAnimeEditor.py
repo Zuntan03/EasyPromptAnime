@@ -62,5 +62,6 @@ L10n.load()
 editor = EasyPromptAnimeEditor()
 
 Log.user(L10n.format("log_initialization_end", time.perf_counter() - initStartTime))
-
+Log.user(L10n.get("log_see_prompt_help"))
+Log.user(L10n.get("news"))
 editor.run()

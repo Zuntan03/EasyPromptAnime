@@ -25,7 +25,7 @@ class Form:
 
     def __init__(self):
         self.win = tk.Tk()
-        self.win.title(L10n.get("title"))
+        self.win.title(f'{L10n.get("title")}: {L10n.get("news")}')
         self.win.minsize(Form.winMinW, Form.winMinH)
 
         winGeom = f"{Form.winInitW}x{Form.winInitH}"
