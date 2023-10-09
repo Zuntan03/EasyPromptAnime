@@ -4,6 +4,8 @@ if "%~1" == "" (
 	pause & exit /b 1
 )
 
+set PATH=%~dp0ffmpeg-master-latest-win64-gpl\bin;%PATH%
+
 set CRF=20
 if not "%~2" == "" if not "%~2" == "0" (
 	set CRF=%~2

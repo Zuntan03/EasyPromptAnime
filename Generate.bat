@@ -1,5 +1,6 @@
 @echo off
 echo.
+set PATH=%~dp0ffmpeg-master-latest-win64-gpl\bin;%PATH%
 
 set LENGTH=30
 set WIDTH=384

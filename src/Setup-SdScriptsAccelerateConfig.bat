@@ -1,5 +1,7 @@
 @echo off
-if not exist %~dp0..\sd-scripts ( echo Not exist sd-scripts. & pause & popd & exit /b 1 )
+if not exist %~dp0..\sd-scripts (
+	echo Not exist sd-scripts. & pause & exit /b 1
+)
 
 pushd %~dp0..\sd-scripts
 call venv\Scripts\activate.bat

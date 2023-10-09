@@ -1,9 +1,11 @@
 @echo off
-
 if "%~1" == "" (
 	echo [ERROR] Drag and drop the frames directory.
 	pause & exit /b 1
 )
+
+set PATH=%~dp0ffmpeg-master-latest-win64-gpl\bin;%PATH%
+
 set FRAMES_DIR=%~dpn1
 set FPS=10
 set CRF=20

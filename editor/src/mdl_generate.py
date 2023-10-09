@@ -5,7 +5,7 @@ from mdl_notifier import Notifier
 
 class Generate(Notifier):
     defLength = 30
-    defModel = "xxmix9realistic_v40.safetensors"
+    defModel = "real_model_N.safetensors"
     defVae = "kl-f8-anime2.ckpt"
     defMotionModule = "mm_sd_v15_v2.ckpt"
     defContext = 16

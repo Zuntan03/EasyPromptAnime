@@ -4,6 +4,8 @@ if "%~1" == "" (
 	pause & exit /b 1
 )
 
+set PATH=%~dp0ffmpeg-master-latest-win64-gpl\bin;%PATH%
+
 set SRC_PATH="%~f1"
 set DEST_PATH="%~dpn1x.mp4"
 

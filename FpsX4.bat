@@ -3,6 +3,7 @@ if "%~1" == "" (
 	echo [ERROR] Drag and drop the mp4 file.
 	pause & exit /b 1
 )
+set PATH=%~dp0ffmpeg-master-latest-win64-gpl\bin;%PATH%
 
 set RIFE_DIV_NUM=2
 set RIFE_FPS_NAME=

@@ -24,6 +24,10 @@
 			"url": "https://civitai.com/api/download/models/84669",
 			"info": "https://civitai.com/models/79846"
 		},
+		"hardcoreHentai_v11.safetensors": {
+			"url": "https://civitai.com/api/download/models/162084",
+			"info": "https://civitai.com/models/136054"
+		},
 		"real_model_N.safetensors": {
 			"url": "https://huggingface.co/fcski/real_model_L/resolve/main/real_model_N.safetensors",
 			"info": "https://huggingface.co/fcski/real_model_L"
@@ -69,15 +73,15 @@
 			"url": "https://huggingface.co/hakurei/waifu-diffusion-v1-4/resolve/main/vae/kl-f8-anime2.ckpt",
 			"info": "https://huggingface.co/hakurei/waifu-diffusion-v1-4"
 		},
-		"orangemix.pt": {
+		"orangemix.vae.pt": {
 			"url": "https://huggingface.co/WarriorMama777/OrangeMixs/resolve/main/VAEs/orangemix.vae.pt",
 			"info": "https://huggingface.co/WarriorMama777/OrangeMixs"
 		},
-		"vae-ft-ema-560000.safetensors": {
+		"vae-ft-ema-560000-ema-pruned.safetensors": {
 			"url": "https://huggingface.co/stabilityai/sd-vae-ft-ema-original/resolve/main/vae-ft-ema-560000-ema-pruned.safetensors",
 			"info": "https://huggingface.co/stabilityai/sd-vae-ft-ema-original"
 		},
-		"vae-ft-mse-840000.safetensors": {
+		"vae-ft-mse-840000-ema-pruned.safetensors": {
 			"url": "https://huggingface.co/stabilityai/sd-vae-ft-mse-original/resolve/main/vae-ft-mse-840000-ema-pruned.safetensors",
 			"info": "https://huggingface.co/stabilityai/sd-vae-ft-mse-original"
 		},
