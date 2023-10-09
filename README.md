@@ -146,6 +146,8 @@
 
 **ウィルスチェックソフトの Avast の保護が有効だと、インストールに失敗します。<br>初回の動画生成の成功まで一時的に保護を無効にするか、他のウィルスチェックソフトをご利用ください。**
 
+**Stable Diffusion web UI や ComfyUI は終了した状態で、セットアップしてください。**
+
 1. 動作環境の [Python 3.10.6](https://www.python.org/ftp/python/3.10.6/python-3.10.6-amd64.exe) を導入していない場合は、[Python のインストール](https://github.com/Zuntan03/SdWebUiTutorial/blob/main/_/doc/SdWebUiInstall/SdWebUiInstall.md#python-%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB) をします。
 2. 動作環境の [Git for Windows](https://gitforwindows.org/) を導入していない場合は、[Git for Windows のインストール](https://github.com/Zuntan03/SdWebUiTutorial/blob/main/_/doc/SdWebUiInstall/SdWebUiInstall.md#git-for-windows-%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB) をします。
 2. [Civitai](https://civitai.com) がダウンしていないか確認します。
