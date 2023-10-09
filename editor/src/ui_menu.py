@@ -1,6 +1,8 @@
-﻿from l10n import L10n
+﻿import json
 import tkinter as tk
 import tkinter.ttk as ttk
+from const import Path
+from l10n import L10n
 from ui_const import Ui, UiPack
 
 
@@ -12,7 +14,7 @@ class Menu:
         self.initFileMenu()
         self.initFolderMenu()
         self.initToolMenu()
-        # self.initDownloadMenu()
+        self.initDownloadMenu()
         self.initHelpMenu()
 
     def initFileMenu(self):
@@ -77,13 +79,27 @@ class Menu:
         self.toolMenu.add_command(label=L10n.get("m_tool_easy_leco"))
 
     def initDownloadMenu(self):
+        self.downloadMenuData = ""
+        with open(Path.downloadMenu, "r", encoding="utf-8-sig") as f:
+            self.downloadMenuData = json.load(f)
+
         self.downloadMenu = tk.Menu(self.menuBar, tearoff=False)
         self.menuBar.add_cascade(label=L10n.get("m_download"), menu=self.downloadMenu)
 
-        self.downloadModelMenu = tk.Menu(self.downloadMenu, tearoff=False)
-        self.downloadMenu.add_cascade(
-            label=L10n.get("m_model_download"), menu=self.downloadModelMenu
-        )
+        def initDlMenu(category):
+            dlMenu = tk.Menu(self.downloadMenu, tearoff=False)
+            self.downloadMenu.add_cascade(
+                label=L10n.get(f"m_dl_{category}"), menu=dlMenu
+            )
+
+            for name, data in self.downloadMenuData[category].items():
+                data["menu"] = dlMenu
+                data["checked"] = tk.BooleanVar(value=True)
+                dlMenu.add_checkbutton(label=name, variable=data["checked"])
+            return dlMenu
+
+        self.dlModel = initDlMenu("model")
+        self.dlMotionModule = initDlMenu("motion_module")
 
     def initHelpMenu(self):
         self.helpMenu = tk.Menu(self.menuBar, tearoff=False)

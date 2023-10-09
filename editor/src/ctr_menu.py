@@ -15,6 +15,7 @@ class MenuController:
         self.initFileEvents()
         self.initFolderEvents()
         self.initToolEvents()
+        self.initDownloadEvents()
         self.initHelpEvents()
 
     def initFileEvents(self):
@@ -67,6 +68,44 @@ class MenuController:
             ["start", "cmd", "/c", "ConvertLora.bat", srcPath, f"{dim}", modelPath],
             shell=True,
         )
+
+    def initDownloadEvents(self):
+        self.categoryDirs = {
+            "model": Path.model,
+            "motion_module": Path.motionModule,
+        }
+        dlMenu = self.form.menu.downloadMenu
+        dlMenu.configure(postcommand=self.updateDownloadMenu)
+
+        for category, categoryData in self.form.menu.downloadMenuData.items():
+            for name, data in categoryData.items():
+                data["menu"].entryconfig(
+                    name,
+                    command=lambda c=category, n=name, d=data: self.download(c, n, d),
+                )
+
+    def updateDownloadMenu(self):
+        for category, categoryData in self.form.menu.downloadMenuData.items():
+            for name, data in categoryData.items():
+                dstPath = os.path.join(self.categoryDirs[category], name)
+                data["checked"].set(os.path.exists(dstPath))
+
+    def download(self, category, name, data):
+        dstPath = os.path.join(self.categoryDirs[category], name)
+        unzipDir = ""
+        if "isZip" in data and data["isZip"]:
+            unzipDir = os.path.dirname(dstPath)
+            dstPath = os.path.join(os.path.dirname(dstPath), "temp.zip")
+
+        print(f"{category}, {name}")
+        print(
+            f'URL: {data["url"]}\nINFO: {data["info"]}\nDST: {dstPath}\nUNZIP: {unzipDir}\n'
+        )
+        cmd = f'echo {data["info"]} & curl -Lo {dstPath} {data["url"]} || pause'
+        if unzipDir != "":
+            cmd += f" & PowerShell -Version 5.1 -ExecutionPolicy Bypass Expand-Archive -Path {dstPath} -DestinationPath {unzipDir} -Force || pause & del {dstPath}"
+        Log.user(cmd)
+        subprocess.run(["start", "cmd", "/c", cmd], shell=True)
 
     def initHelpEvents(self):
         hlp = self.form.menu.helpMenu

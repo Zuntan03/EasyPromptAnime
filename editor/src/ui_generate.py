@@ -63,6 +63,7 @@ class GenerateForm:
     def listMotionModuleValues(self):
         baseQuery = os.path.join(Path.motionModule, "**", "*.")
         motionModules = glob.glob(baseQuery + "ckpt", recursive=True)
+        motionModules += glob.glob(baseQuery + "safetensors", recursive=True)
         motionModules += glob.glob(baseQuery + "pth", recursive=True)
         pfxLen = len(Path.motionModule) + 1
         motionModules = [motionModule[pfxLen:] for motionModule in motionModules]

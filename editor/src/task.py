@@ -48,14 +48,14 @@ class Task:
             if len(cls.queue) == 0:
                 return
 
-        started = not cls.queue[0].isRunning
-        if started:
+        startNow = not cls.queue[0].isRunning
+        if startNow:
             cls.queue[0].startTime = time.perf_counter()
             cls.queue[0].timeStr = Path.getYYYYMMDDHHMMSS()
             cls.queue[0].isRunning = True
             cls.queue[0].logStart()
 
-        if cls.queue[0].run() or started:
+        if cls.queue[0].run() or startNow:
             cls.queueInfoChanged()
 
         if len(cls.queue) > 0:

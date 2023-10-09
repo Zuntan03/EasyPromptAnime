@@ -1,0 +1,63 @@
+﻿{
+	"model": {
+		"featurelessMix_v20202307.safetensors": {
+			"url": "https://civitai.com/api/download/models/118974",
+			"info": "https://civitai.com/models/65202"
+		},
+		"featurelessCuteMix_v10.safetensors": {
+			"url": "https://civitai.com/api/download/models/167499",
+			"info": "https://civitai.com/models/149907"
+		},
+		"featurelessJRPG3DMix_v10.safetensors": {
+			"url": "https://civitai.com/api/download/models/174474",
+			"info": "https://civitai.com/models/155538"
+		},
+		"onigiriMix_v10.safetensors": {
+			"url": "https://civitai.com/api/download/models/163077",
+			"info": "https://civitai.com/models/146434"
+		},
+		"manmaruMix_v20.safetensors": {
+			"url": "https://civitai.com/api/download/models/116017",
+			"info": "https://civitai.com/models/86277"
+		},
+		"nadenadesitai_v10.safetensors": {
+			"url": "https://civitai.com/api/download/models/84669",
+			"info": "https://civitai.com/models/79846"
+		},
+		"real_model_N.safetensors": {
+			"url": "https://huggingface.co/fcski/real_model_L/resolve/main/real_model_N.safetensors",
+			"info": "https://huggingface.co/fcski/real_model_L"
+		},
+		"xxmix9realistic_v40.safetensors": {
+			"url": "https://civitai.com/api/download/models/102222",
+			"info": "https://civitai.com/models/47274"
+		}
+	},
+	"motion_module": {
+		"mm_sd_v15_v2.ckpt": {
+			"url": "https://huggingface.co/guoyww/animatediff/resolve/main/mm_sd_v15_v2.ckpt",
+			"info": "https://huggingface.co/guoyww/animatediff"
+		},
+		"missionarymotion.safetensors": {
+			"url": "https://civitai.com/api/download/models/134809",
+			"info": "https://huggingface.co/guoyww/animatediff",
+			"isZip": true
+		},
+		"mm_sd_v15.ckpt": {
+			"url": "https://huggingface.co/guoyww/animatediff/resolve/main/mm_sd_v15.ckpt",
+			"info": "https://huggingface.co/guoyww/animatediff"
+		},
+		"mm_sd_v14.ckpt": {
+			"url": "https://huggingface.co/guoyww/animatediff/resolve/main/mm_sd_v14.ckpt",
+			"info": "https://huggingface.co/guoyww/animatediff"
+		},
+		"mm-Stabilized_high.pth": {
+			"url": "https://huggingface.co/manshoety/AD_Stabilized_Motion/resolve/main/mm-Stabilized_high.pth",
+			"info": "https://huggingface.co/manshoety/AD_Stabilized_Motion"
+		},
+		"mm-Stabilized_mid.pth": {
+			"url": "https://huggingface.co/manshoety/AD_Stabilized_Motion/resolve/main/mm-Stabilized_mid.pth",
+			"info": "https://huggingface.co/manshoety/AD_Stabilized_Motion"
+		}
+	}
+}
