@@ -22,5 +22,5 @@ class BasicController:
         mGenerate.bind("upscale1Scale", vBasic.varUpscale1Scale)
 
         mGenerate.bind("upscale2Enabled", vBasic.varUpscale2Enabled)
-        mGenerate.bind("upscale2Mode", vBasic.varUpscale1Mode)
+        mGenerate.bind("upscale2Mode", vBasic.varUpscale2Mode)
         mGenerate.bind("upscale2Scale", vBasic.varUpscale2Scale)
