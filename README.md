@@ -386,9 +386,10 @@ mp4 をドラッグ＆ドロップすると X(Twitter) アップロード用の�
 
 ### ツール・ライブラリ
 
-- [AnimateDiff prompt travel](https://github.com/s9roll7/animatediff-cli-prompt-travel) 
-- [Codex FFmpeg](https://github.com/GyanD/codexFFmpeg)
+- [AnimateDiff prompt travel](https://github.com/s9roll7/animatediff-cli-prompt-travel)
 - [Real-Time Intermediate Flow Estimation for Video Frame Interpolation](https://github.com/megvii-research/ECCV2022-RIFE)
+- [sd-scripts](https://github.com/kohya-ss/sd-scripts)
+- [Codex FFmpeg](https://github.com/GyanD/codexFFmpeg)
 
 # ライセンス
 
