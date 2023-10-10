@@ -40,11 +40,6 @@ if %ERRORLEVEL% neq 0 (
 )
 
 robocopy .\EasyPromptAnime\ . /s /move
-if %ERRORLEVEL% neq 0 (
-	echo [ERROR] robocopy .\EasyPromptAnime\ . /s /move
-	pause
-	exit /b 1
-)
 
 call src\Setup.bat
 if %errorlevel% neq 0 ( popd & exit /b %errorlevel% )
