@@ -26,6 +26,14 @@ class PromptTravel:
     "lora_map": {{
 {LORA_MAP}
     }},
+    "ip_adapter_map": {{
+        "enable": {IP_ADAPTER_USE},
+        "input_image_dir": "ip_adapter_image/{IP_ADAPTER_IMAGE_DIR}",
+        "save_input_image": true,
+        "scale": {IP_ADAPTER_SCALE},
+        "is_plus_face": {IP_ADAPTER_USE_PLUS_FACE},
+        "is_plus": {IP_ADAPTER_USE_PLUS}
+    }},
     "upscale_config": {{
         "scheduler": "{UPSCALE_SCHEDULER}",
         "steps": {UPSCALE_STEPS},
@@ -34,10 +42,10 @@ class PromptTravel:
         "controlnet_tile": {{
             "enable": true,
             "use_preprocessor": false,
-            "controlnet_conditioning_scale": 1.0,
+            "controlnet_conditioning_scale": {UPSACLE_TILE_SCALE},
             "guess_mode": false,
-            "control_guidance_start": 0.0,
-            "control_guidance_end": 1.0
+            "control_guidance_start": {UPSACLE_TILE_START},
+            "control_guidance_end": {UPSACLE_TILE_END}
         }}
     }},
     "output": {{
@@ -104,6 +112,14 @@ class PromptTravel:
             "UPSCALE_STEPS": generate.upscaleSteps,
             "UPSCALE_STRENGTH": upscaleStrength,
             "UPSCALE_GUIDANCE_SCALE": generate.upscaleGuidanceScale,
+            "UPSACLE_TILE_SCALE": generate.upscaleTileScale,
+            "UPSACLE_TILE_START": generate.upscaleTileStart,
+            "UPSACLE_TILE_END": generate.upscaleTileEnd,
+            "IP_ADAPTER_USE": str(generate.useIpAdapter).lower(),
+            "IP_ADAPTER_IMAGE_DIR": generate.ipAdapterImageDir,
+            "IP_ADAPTER_SCALE": generate.ipAdapterScale,
+            "IP_ADAPTER_USE_PLUS_FACE": str(generate.useIpAdapterPlusFace).lower(),
+            "IP_ADAPTER_USE_PLUS": str(generate.useIpAdapterPlus).lower(),
             "FPS": fps,
         }
 

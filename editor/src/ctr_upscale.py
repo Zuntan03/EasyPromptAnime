@@ -13,5 +13,8 @@ class UpscaleController:
         mGenerate.bind("upscaleSteps", vUpscale.varSteps)
         mGenerate.bind("upscaleGuidanceScale", vUpscale.varGuidanceScale)
         mGenerate.bind("upscaleStrength", vUpscale.varDenoise)
+        mGenerate.bind("upscaleTileScale", vUpscale.varTileScale)
+        mGenerate.bind("upscaleTileStart", vUpscale.varTileStart)
+        mGenerate.bind("upscaleTileEnd", vUpscale.varTileEnd)
         mGenerate.bind("upscaleUseHalfVae", vUpscale.varUseHalfVae)
         mGenerate.bind("upscaleUseXFormers", vUpscale.varUseXFormers)

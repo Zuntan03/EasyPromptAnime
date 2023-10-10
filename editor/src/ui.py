@@ -6,6 +6,7 @@ from ui_preview import PreviewForm
 from ui_basic import BasicForm
 from ui_generate import GenerateForm
 from ui_upscale import UpscaleForm
+from ui_ip_adapter import IpAdapterForm
 from ui_output import OutputForm
 import tkinter as tk
 import tkinter.ttk as ttk
@@ -43,13 +44,14 @@ class Form:
         self.basic = BasicForm(self.ntbFunc)
         self.generate = GenerateForm(self.ntbFunc)
         self.upscale = UpscaleForm(self.ntbFunc)
+        self.ipAdapter = IpAdapterForm(self.ntbFunc)
         self.paneWin.add(
             self.ntbFunc,
             height=self.ntbFuncH,
             minsize=Form.ntbFuncMinH,
             stretch="never",
         )
-        self.ntbFunc.select(1)
+        self.ntbFunc.select(1)  # Default 1
 
         self.output = OutputForm(self.paneWin)
         self.paneWin.pack(fill=tk.BOTH, expand=True)
@@ -84,7 +86,9 @@ class Form:
         Config.set("ui_size", "win_y", self.win.winfo_y())
 
         self.input.storeConfig()
-        Config.set("ui_size", "func_h", self.ntbFunc.winfo_height())
+        func_h = self.ntbFunc.winfo_height()
+        if func_h != 1:
+            Config.set("ui_size", "func_h", func_h)
         self.basic.storeConfig()
         self.generate.storeConfig()
         self.output.storeConfig()
@@ -175,6 +179,7 @@ class Form:
         self.basic.setDarkTheme(colors)
         self.generate.setDarkTheme(colors)
         self.upscale.setDarkTheme(colors)
+        self.ipAdapter.setDarkTheme(colors)
         self.output.setDarkTheme(colors)
 
     def run(self):

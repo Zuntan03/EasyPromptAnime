@@ -32,8 +32,16 @@ class Generate(Notifier):
     defUpscaleSteps = 15
     defUpscaleGuidanceScale = 6.0
     defUpscaleStrength = 0.6
+    defUpscaleTileScale = 1.0
+    defUpscaleTileStart = 0.0
+    defUpscaleTileEnd = 1.0
     defUpscaleUseHalfVae = False
     defUpscaleUseXFormers = False
+    defUseIpAdapter = False
+    defUseIpAdapterPlus = True
+    defUseIpAdapterPlusFace = True
+    defIpAdapterScale = 0.5
+    defIpAdapterImageDir = "test"
 
     def __init__(self):
         super().__init__()
@@ -65,8 +73,17 @@ class Generate(Notifier):
         self.upscaleSteps = Generate.defUpscaleSteps
         self.upscaleGuidanceScale = Generate.defUpscaleGuidanceScale
         self.upscaleStrength = Generate.defUpscaleStrength
+        self.upscaleTileScale = Generate.defUpscaleTileScale
+        self.upscaleTileStart = Generate.defUpscaleTileStart
+        self.upscaleTileEnd = Generate.defUpscaleTileEnd
         self.upscaleUseHalfVae = Generate.defUpscaleUseHalfVae
         self.upscaleUseXFormers = Generate.defUpscaleUseXFormers
+
+        self.useIpAdapter = Generate.defUseIpAdapter
+        self.useIpAdapterPlus = Generate.defUseIpAdapterPlus
+        self.useIpAdapterPlusFace = Generate.defUseIpAdapterPlusFace
+        self.ipAdapterScale = Generate.defIpAdapterScale
+        self.ipAdapterImageDir = Generate.defIpAdapterImageDir
 
     def getUpscale1Height(self):
         return int(self.height * self.upscale1Scale)
@@ -144,11 +161,36 @@ class Generate(Notifier):
         Generate.defUpscaleStrength = Config.getFloat(
             "default", "upscale_strength", Generate.defUpscaleStrength
         )
+        Generate.defUpscaleTileScale = Config.getFloat(
+            "default", "upscale_tile_scale", Generate.defUpscaleTileScale
+        )
+        Generate.defUpscaleTileStart = Config.getFloat(
+            "default", "upscale_tile_start", Generate.defUpscaleTileStart
+        )
+        Generate.defUpscaleTileEnd = Config.getFloat(
+            "default", "upscale_tile_end", Generate.defUpscaleTileEnd
+        )
         Generate.defUpscaleUseHalfVae = Config.getBool(
             "default", "upscale_use_half_vae", Generate.defUpscaleUseHalfVae
         )
         Generate.defUpscaleUseXFormers = Config.getBool(
             "default", "upscale_use_x_formers", Generate.defUpscaleUseXFormers
+        )
+
+        Generate.defUseIpAdapter = Config.getBool(
+            "default", "use_ip_adapter", Generate.defUseIpAdapter
+        )
+        Generate.defUseIpAdapterPlus = Config.getBool(
+            "default", "use_ip_adapter_plus", Generate.defUseIpAdapterPlus
+        )
+        Generate.defUseIpAdapterPlusFace = Config.getBool(
+            "default", "use_ip_adapter_plus_face", Generate.defUseIpAdapterPlusFace
+        )
+        Generate.defIpAdapterScale = Config.getFloat(
+            "default", "ip_adapter_scale", Generate.defIpAdapterScale
+        )
+        Generate.defIpAdapterImageDir = Config.get(
+            "default", "ip_adapter_image_dir", Generate.defIpAdapterImageDir
         )
 
     def storeConfig(self):
@@ -182,5 +224,16 @@ class Generate(Notifier):
             "default", "upscale_guidance_scale", Generate.defUpscaleGuidanceScale
         )
         Config.set("default", "upscale_strength", Generate.defUpscaleStrength)
+        Config.set("default", "upscale_tile_scale", Generate.defUpscaleTileScale)
+        Config.set("default", "upscale_tile_start", Generate.defUpscaleTileStart)
+        Config.set("default", "upscale_tile_end", Generate.defUpscaleTileEnd)
         Config.set("default", "upscale_use_half_vae", Generate.defUpscaleUseHalfVae)
         Config.set("default", "upscale_use_x_formers", Generate.defUpscaleUseXFormers)
+
+        Config.set("default", "use_ip_adapter", Generate.defUseIpAdapter)
+        Config.set("default", "use_ip_adapter_plus", Generate.defUseIpAdapterPlus)
+        Config.set(
+            "default", "use_ip_adapter_plus_face", Generate.defUseIpAdapterPlusFace
+        )
+        Config.set("default", "ip_adapter_scale", Generate.defIpAdapterScale)
+        Config.set("default", "ip_adapter_image_dir", Generate.defIpAdapterImageDir)

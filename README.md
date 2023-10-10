@@ -22,13 +22,16 @@
 [@aiko_ai_ai](https://twitter.com/aiko_ai_ai/status/1709127397159649375)
 [@hina_chocoboo13](https://twitter.com/hina_chocoboo13/status/1705213931466485813)
 - 利用者の HowTo 記事:
+[@samoHKP](https://twitter.com/samoHKP/status/1710769467142107327)
 [@towya_aillust](https://twitter.com/towya_aillust/status/1707527055905267718)
-[動画解説](https://www.youtube.com/watch?v=qjPmAPyKSYY)
+[動画1](https://www.youtube.com/watch?v=qjPmAPyKSYY)
+[動画2](https://www.youtube.com/watch?v=mHFBRXA1z58)
 [taziku](https://www.youtube.com/shorts/Lq7kyWEhh3Q)
 [1](https://taziku.co.jp/blog/easypromptanime-install)
 [2](https://taziku.co.jp/blog/easypromptanimeai-c)
 [3](https://taziku.co.jp/blog/easypromptanime-prompt)
 [4](https://taziku.co.jp/blog/easypromptanime-model)
+[@nobu00740](https://twitter.com/nobu00740/status/1710911068648952299)
 [@zono_0](https://qiita.com/zono_0/items/0f9b63f0b581721f01d9)
 [@TakaWeekendProg](https://twitter.com/TakaWeekendProg/status/1705938614033801547)
 [@miyukin_sj](https://twitter.com/miyukin_sj/status/1706966588061348243)
@@ -95,9 +98,36 @@
 [@zono_0](https://twitter.com/zono_0/status/1709178123051483136)
 [@shinshin86](https://twitter.com/shinshin86/status/1709324698599969112)
 [@vvf162c1](https://twitter.com/vvf162c1/status/1709166818898977146)
+[@vvf162c1](https://twitter.com/vvf162c1/status/1709916173205418002)
+[@mouriAIart](https://twitter.com/mouriAIart/status/1709840100153278502)
+[@aicocoa982](https://twitter.com/aicocoa982/status/1710584766981165106)
+[@tiyorin0924](https://twitter.com/tiyorin0924/status/1710622890369204296)
+[@katarina7410](https://twitter.com/katarina7410/status/1710994031260709334)
+[@FUKUAILabo](https://twitter.com/FUKUAILabo/status/1711489205660975329)
+[@Rakhsh_](https://twitter.com/Rakhsh_/status/1711434624705102255)
+[@julajp](https://twitter.com/julajp/status/1711720270061572306)
+[@PlayShingo](https://twitter.com/PlayShingo/status/1710585195731247134)
+[@ezakiairi](https://twitter.com/ezakiairi/status/1710647631448613208)
+[@mouriAIart](https://twitter.com/mouriAIart/status/1710911353618370759)
+[@kura_starwing](https://twitter.com/kura_starwing/status/1711626392297976257)
+[@777_shinta](https://twitter.com/777_shinta/status/1711349591424311300)
+[@Masa_8823](https://twitter.com/Masa_8823/status/1711557781357289670)
+[@roiyaruRIZ](https://twitter.com/roiyaruRIZ/status/1711674005701423571)
+[@aikoujp](https://twitter.com/aikoujp/status/1711668138281168931)
+[@PlayShingo](https://twitter.com/PlayShingo/status/1711696881091567673)
 
 ## 主な更新履歴
 
+- 2023/10/10
+	- `ツール` メニューの `使えない LoRA を使えるように変換` でこれまで使えなかった LoRA が使える場合があります。
+	- `アニメ` メニューのアップスケールで、アニメ生成とアップスケールを別々に実行できます。
+		- 生成と同じオプションでアプスケする `生成時の設定で初回アップスケール` と、エディタの設定を適用して色々変更できる `現在の設定で初回アップスケール` です。
+		- 黒画面への対処や、モデルやLoRAパラメータを変えてのアップスケールができます。
+		- これに合わせてタイルアップスケールの強度と開始と終了を設定できるようにしました。
+	- `IPアダプタ` で[生成時に画像をプロンプトとして使えます](https://www.google.com/search?q=ip-adapter)。
+		- プロンプトとして使いたい画像をフォルダにまとめ、ファイル名で 010.png などとフレーム数を指定する必要があります。
+	- `ダウンロード` からモデルやモーションモジュールなどをダウンロードできます。
+		- おすすめのものがあれば教えてください。
 - 2023/10/09
 	- ローカル版エディタをα版としてひっそり公開しました。
 		- `EasyPromptAnimeEditor.bat` で起動します。

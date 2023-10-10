@@ -12,6 +12,7 @@ class Menu:
         parent.config(menu=self.menuBar)
 
         self.initFileMenu()
+        self.initAnimeMenu()
         self.initFolderMenu()
         self.initToolMenu()
         self.initDownloadMenu()
@@ -26,11 +27,21 @@ class Menu:
             label=L10n.get("m_setting_file"), menu=self.settingFileMenu
         )
 
-        self.settingFileMenu.add_command(label=L10n.get("m_ini_file"))
-        self.settingFileMenu.add_command(label=L10n.get("m_default_prompt_file"))
+        self.settingFileMenu.add_command(label=L10n.get("m_open_ini_file"))
+        self.settingFileMenu.add_command(label=L10n.get("m_open_default_prompt_file"))
         self.settingFileMenu.add_command(
-            label=L10n.get("m_prompt_travel_template_file")
+            label=L10n.get("m_open_prompt_travel_template_file")
         )
+
+    def initAnimeMenu(self):
+        self.animeMenu = tk.Menu(self.menuBar, tearoff=False)
+        self.menuBar.add_cascade(label=L10n.get("m_anime"), menu=self.animeMenu)
+
+        self.animeMenu.add_command(label=L10n.get("m_anime_preview"))
+        self.animeMenu.add_command(label=L10n.get("m_anime_seed_gacha"))
+        self.animeMenu.add_command(label=L10n.get("m_anime_generate"))
+        self.animeMenu.add_command(label=L10n.get("m_anime_upscale"))
+        self.animeMenu.add_command(label=L10n.get("m_anime_upscale_config"))
 
     def initFolderMenu(self):
         self.folderMenu = tk.Menu(self.menuBar, tearoff=False)

@@ -142,7 +142,9 @@ class InputForm:
         InputForm.initH = Config.get("ui_size", "input_h", fallback=InputForm.initH)
 
     def storeConfig(self):
-        Config.set("ui_size", "input_h", self.frm.winfo_height())
+        input_h = self.frm.winfo_height()
+        if input_h != 1:
+            Config.set("ui_size", "input_h", input_h)
 
     def setDarkTheme(self, colors):
         self.txtInput.configure(colors["txt"])

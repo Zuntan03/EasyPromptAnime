@@ -47,12 +47,13 @@ class Path:
     promptTravelOutput = os.path.join(promptTravel, "output")
     promptTravelUpscaled = os.path.join(promptTravel, "upscaled")
     promptTravelRefined = os.path.join(promptTravel, "refine")
+    ipAdapter = os.path.join(data, "ip_adapter_image")
 
     editor = "editor"
     tmp = os.path.join(editor, "tmp")
     log = os.path.join(editor, "log")
     defaultPrompt = os.path.join(editor, "DefaultPrompt-0_1_0.txt")
-    promptTravelTemplate = os.path.join(editor, "PromptTravelTemplate-0_1_0.txt")
+    promptTravelTemplate = os.path.join(editor, "PromptTravelTemplate-0_2_0.txt")
     downloadMenu = os.path.join(editor, "DownloadMenu.json")
 
     @classmethod

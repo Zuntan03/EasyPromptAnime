@@ -50,7 +50,9 @@ class OutputForm:
         OutputForm.initH = Config.get("ui_size", "output_h", OutputForm.initH)
 
     def storeConfig(self):
-        Config.set("ui_size", "output_h", self.ntb.winfo_height())
+        output_h = self.ntb.winfo_height()
+        if output_h != 1:
+            Config.set("ui_size", "output_h", output_h)
 
     def setDarkTheme(self, colors):
         self.txtUser.configure(colors["selIns"])

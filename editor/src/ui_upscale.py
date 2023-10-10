@@ -16,6 +16,7 @@ class UpscaleForm:
 
         self.initSchedulerSteps()
         self.initGuidanceScaleDenoise()
+        self.initTile()
         self.initHalfVaeXFormers()
 
         parent.add(self.frm, text=L10n.get("upscale_tab"))
@@ -95,6 +96,53 @@ class UpscaleForm:
 
         self.frmDenoiseGuidanceScale.pack(UiPack.frm)
 
+    def initTile(self):
+        self.frmTile = ttk.Frame(self.frm)
+
+        self.lblTileScale = ttk.Label(self.frmTile, text=L10n.get("upscale_tile_scale"))
+        self.lblTileScale.pack(UiPack.lbl)
+        self.varTileScale = tk.DoubleVar(value=1.0)
+        self.sliTileScale = tk.Scale(
+            self.frmTile,
+            from_=0.0,
+            to=1.0,
+            resolution=0.05,
+            orient=tk.HORIZONTAL,
+            variable=self.varTileScale,
+            takefocus=True,
+        )
+        self.sliTileScale.pack(UiPack.sli)
+
+        self.lblTileStart = ttk.Label(self.frmTile, text=L10n.get("upscale_tile_start"))
+        self.lblTileStart.pack(UiPack.lbl)
+        self.varTileStart = tk.DoubleVar(value=0.0)
+        self.sliTileStart = tk.Scale(
+            self.frmTile,
+            from_=0.0,
+            to=1.0,
+            resolution=0.05,
+            orient=tk.HORIZONTAL,
+            variable=self.varTileStart,
+            takefocus=True,
+        )
+        self.sliTileStart.pack(UiPack.sli)
+
+        self.lblTileEnd = ttk.Label(self.frmTile, text=L10n.get("upscale_tile_end"))
+        self.lblTileEnd.pack(UiPack.lbl)
+        self.varTileEnd = tk.DoubleVar(value=1.0)
+        self.sliTileEnd = tk.Scale(
+            self.frmTile,
+            from_=0.0,
+            to=1.0,
+            resolution=0.05,
+            orient=tk.HORIZONTAL,
+            variable=self.varTileEnd,
+            takefocus=True,
+        )
+        self.sliTileEnd.pack(UiPack.sli)
+
+        self.frmTile.pack(UiPack.frm)
+
     def initHalfVaeXFormers(self):
         self.frmHalfVaeXFormers = ttk.Frame(self.frm)
 
@@ -134,5 +182,8 @@ class UpscaleForm:
         self.sliSteps.configure(colors["sli"])
         self.sliDenoise.configure(colors["sli"])
         self.sliGuidanceScale.configure(colors["sli"])
+        self.sliTileScale.configure(colors["sli"])
+        self.sliTileStart.configure(colors["sli"])
+        self.sliTileEnd.configure(colors["sli"])
         self.chkUseHalfVae.configure(colors["chk"])
         self.chkUseXFormers.configure(colors["chk"])

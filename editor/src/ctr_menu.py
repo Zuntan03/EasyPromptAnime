@@ -4,6 +4,8 @@ from tkinter import filedialog
 from const import Path
 from l10n import L10n
 from log import Log
+from tsk_generate import GenerateTask
+from tsk_upscale import UpscaleTask
 
 
 class MenuController:
@@ -13,6 +15,7 @@ class MenuController:
 
     def initEvents(self):
         self.initFileEvents()
+        self.initAnimeEvents()
         self.initFolderEvents()
         self.initToolEvents()
         self.initDownloadEvents()
@@ -20,9 +23,47 @@ class MenuController:
 
     def initFileEvents(self):
         stf = self.form.menu.settingFileMenu
-        self.openFile(stf, "m_ini_file", Path.ini)
-        self.openFile(stf, "m_default_prompt_file", Path.defaultPrompt)
-        self.openFile(stf, "m_prompt_travel_template_file", Path.promptTravelTemplate)
+        self.openFile(stf, "m_open_ini_file", Path.ini)
+        self.openFile(stf, "m_open_default_prompt_file", Path.defaultPrompt)
+        self.openFile(
+            stf, "m_open_prompt_travel_template_file", Path.promptTravelTemplate
+        )
+
+    def initAnimeEvents(self):
+        anime = self.form.menu.animeMenu
+        anime.entryconfig(
+            L10n.get("m_anime_preview"),
+            command=lambda: GenerateTask.preview(self.model),
+        )
+        anime.entryconfig(
+            L10n.get("m_anime_seed_gacha"),
+            command=lambda: GenerateTask.seedGacha(self.model),
+        )
+        anime.entryconfig(
+            L10n.get("m_anime_generate"),
+            command=lambda: GenerateTask.generate(self.model),
+        )
+        anime.entryconfig(
+            L10n.get("m_anime_upscale"), command=lambda: self.upscale(False)
+        )
+        anime.entryconfig(
+            L10n.get("m_anime_upscale_config"), command=lambda: self.upscale(True)
+        )
+
+    def upscale(self, configOverride):
+        Log.user(
+            L10n.get("log_upscale_config_override" if configOverride else "log_upscale")
+        )
+        upscaleDir = filedialog.askdirectory(
+            title=L10n.get("dlg_upscale_title"), initialdir=Path.promptTravelOutput
+        )
+
+        if upscaleDir == "":
+            return
+        if configOverride:
+            UpscaleTask.upscaleWithConfigOverride(self.model, upscaleDir)
+        else:
+            UpscaleTask.upscale(self.model, upscaleDir)
 
     def initFolderEvents(self):
         fld = self.form.menu.folderMenu
