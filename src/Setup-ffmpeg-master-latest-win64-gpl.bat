@@ -20,5 +20,7 @@ if not exist %FFMPEG_DIR% (
 
 	copy /Y %FFMPEG_DIR%\bin\ffmpeg.exe ECCV2022-RIFE
 	if %errorlevel% neq 0 ( pause & popd & exit /b %errorlevel% )
+	copy /Y %FFMPEG_DIR%\bin\ffprobe.exe ECCV2022-RIFE
+	if %errorlevel% neq 0 ( pause & popd & exit /b %errorlevel% )
 )
 popd rem %~dp0..
