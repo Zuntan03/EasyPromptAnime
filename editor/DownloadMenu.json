@@ -44,10 +44,19 @@
 			"url": "https://huggingface.co/guoyww/animatediff/resolve/main/mm_sd_v15_v2.ckpt",
 			"info": "https://huggingface.co/guoyww/animatediff"
 		},
+		"temporaldiffMotion_v10.ckpt": {
+			"url": "https://civitai.com/api/download/models/160418",
+			"info": "https://civitai.com/models/144934"
+		},
+		"yoinkoorlabsNSFWMotion_godmodev20.ckpt": {
+			"url": "https://civitai.com/api/download/models/177016",
+			"info": "https://civitai.com/models/144354",
+			"tag": "NSFW"
+		},
 		"missionarymotion.safetensors": {
 			"url": "https://civitai.com/api/download/models/134809",
 			"info": "https://civitai.com/models/123612",
-			"tag": "adult",
+			"tag": "NSFW",
 			"isZip": true
 		},
 		"improvedHumansMotion_refinedHumanMovement.ckpt": {
