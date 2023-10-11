@@ -38,7 +38,7 @@ class PromptTravel:
         "scheduler": "{UPSCALE_SCHEDULER}",
         "steps": {UPSCALE_STEPS},
         "strength": {UPSCALE_STRENGTH},
-        "upscale_guidance_scale": {UPSCALE_GUIDANCE_SCALE},
+        "guidance_scale": {UPSCALE_GUIDANCE_SCALE},
         "controlnet_tile": {{
             "enable": true,
             "use_preprocessor": false,
