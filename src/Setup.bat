@@ -5,7 +5,7 @@ if %errorlevel% neq 0 ( exit /b %errorlevel% )
 call %~dp0Setup-ECCV2022-RIFE.bat
 if %errorlevel% neq 0 ( exit /b %errorlevel% )
 
-call %~dp0Setup-SdScripts.bat
+call %~dp0Setup-sd-scripts.bat
 if %errorlevel% neq 0 ( exit /b %errorlevel% )
 
 call %~dp0Setup-ffmpeg-master-latest-win64-gpl.bat
