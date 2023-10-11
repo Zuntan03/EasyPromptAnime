@@ -5,6 +5,10 @@ if not exist ECCV2022-RIFE (
 	echo git clone https://github.com/megvii-research/ECCV2022-RIFE
 	git clone https://github.com/megvii-research/ECCV2022-RIFE
 	if %errorlevel% neq 0 ( pause & popd & exit /b %errorlevel% )
+	pushd ECCV2022-RIFE
+	git checkout 1a21b29145d2d8ac557c22ad1a156c4c4aa39348
+	if %errorlevel% neq 0 ( pause & popd & popd & exit /b %errorlevel% )
+	popd rem ECCV2022-RIFE
 )
 popd rem %~dp0..
 
