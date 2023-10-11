@@ -5,10 +5,6 @@ if not exist animatediff-cli-prompt-travel (
 	echo git clone https://github.com/s9roll7/animatediff-cli-prompt-travel
 	git clone https://github.com/s9roll7/animatediff-cli-prompt-travel
 	if %errorlevel% neq 0 ( pause & popd & exit /b %errorlevel% )
-	pushd animatediff-cli-prompt-travel
-	git checkout aa9798a0a9d5e6248e109adc5d5ae869d18278c6
-	if %errorlevel% neq 0 ( pause & popd & popd & exit /b %errorlevel% )
-	popd rem animatediff-cli-prompt-travel
 )
 popd rem %~dp0..
 
