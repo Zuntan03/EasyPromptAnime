@@ -124,8 +124,9 @@ class MenuController:
 
         for category, categoryData in self.form.menu.downloadMenuData.items():
             for name, data in categoryData.items():
+                label = f'({data["tag"]}) {name}' if "tag" in data else name
                 data["menu"].entryconfig(
-                    name,
+                    label,
                     command=lambda c=category, n=name, d=data: self.download(c, n, d),
                 )
 
@@ -173,12 +174,14 @@ class MenuController:
 
     def openFile(self, menu, name, path):
         menu.entryconfig(
-            L10n.get(name), command=lambda: subprocess.run(["start", path], shell=True)
+            L10n.get(name),
+            command=lambda: subprocess.run(["start", path], shell=True),
         )
 
     def openFolder(self, menu, name, path):
         menu.entryconfig(
-            L10n.get(name), command=lambda: subprocess.run(["explorer", path])
+            L10n.get(name),
+            command=lambda: subprocess.run(["explorer", path]),
         )
 
     def openUrl(self, menu, name, url):

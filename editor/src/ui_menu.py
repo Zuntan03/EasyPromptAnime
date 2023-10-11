@@ -104,9 +104,10 @@ class Menu:
             )
 
             for name, data in self.downloadMenuData[category].items():
+                label = f'({data["tag"]}) {name}' if "tag" in data else name
                 data["menu"] = dlMenu
                 data["checked"] = tk.BooleanVar(value=True)
-                dlMenu.add_checkbutton(label=name, variable=data["checked"])
+                dlMenu.add_checkbutton(label=label, variable=data["checked"])
             return dlMenu
 
         self.dlModel = initDlMenu("model")

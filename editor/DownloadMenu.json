@@ -1,40 +1,42 @@
 ﻿{
 	"model": {
-		"featurelessMix_v20202307.safetensors": {
-			"url": "https://civitai.com/api/download/models/118974",
-			"info": "https://civitai.com/models/65202"
-		},
-		"featurelessCuteMix_v10.safetensors": {
-			"url": "https://civitai.com/api/download/models/167499",
+		"featurelessCuteMix_v10Clearvae.safetensors": {
+			"url": "https://civitai.com/api/download/models/168584",
 			"info": "https://civitai.com/models/149907"
+		},
+		"featurelessMix_v2020237Clearvae.safetensors": {
+			"url": "https://civitai.com/api/download/models/168615",
+			"info": "https://civitai.com/models/65202"
 		},
 		"featurelessJRPG3DMix_v10.safetensors": {
 			"url": "https://civitai.com/api/download/models/174474",
 			"info": "https://civitai.com/models/155538"
 		},
-		"onigiriMix_v10.safetensors": {
-			"url": "https://civitai.com/api/download/models/163077",
-			"info": "https://civitai.com/models/146434"
-		},
-		"manmaruMix_v20.safetensors": {
-			"url": "https://civitai.com/api/download/models/116017",
+		"manmaruMix_v20Clearvae.safetensors": {
+			"url": "https://civitai.com/api/download/models/168630",
 			"info": "https://civitai.com/models/86277"
+		},
+		"onigiriMix_v10Clearvae.safetensors": {
+			"url": "https://civitai.com/api/download/models/168600",
+			"info": "https://civitai.com/models/146434"
 		},
 		"nadenadesitai_v10.safetensors": {
 			"url": "https://civitai.com/api/download/models/84669",
 			"info": "https://civitai.com/models/79846"
 		},
-		"hardcoreHentai_v11.safetensors": {
-			"url": "https://civitai.com/api/download/models/162084",
-			"info": "https://civitai.com/models/136054"
+		"1990s2000s_v10": {
+			"url": "https://civitai.com/api/download/models/179913",
+			"info": "https://civitai.com/models/159947"
 		},
 		"real_model_N.safetensors": {
 			"url": "https://huggingface.co/fcski/real_model_L/resolve/main/real_model_N.safetensors",
-			"info": "https://huggingface.co/fcski/real_model_L"
+			"info": "https://huggingface.co/fcski/real_model_L",
+			"tag": "real"
 		},
 		"xxmix9realistic_v40.safetensors": {
 			"url": "https://civitai.com/api/download/models/102222",
-			"info": "https://civitai.com/models/47274"
+			"info": "https://civitai.com/models/47274",
+			"tag": "real"
 		}
 	},
 	"motion_module": {
@@ -42,14 +44,15 @@
 			"url": "https://huggingface.co/guoyww/animatediff/resolve/main/mm_sd_v15_v2.ckpt",
 			"info": "https://huggingface.co/guoyww/animatediff"
 		},
-		"improvedHumansMotion_refinedHumanMovement.ckpt": {
-			"url": "https://civitai.com/api/download/models/174464",
-			"info": "https://civitai.com/models/155528"
-		},
 		"missionarymotion.safetensors": {
 			"url": "https://civitai.com/api/download/models/134809",
 			"info": "https://civitai.com/models/123612",
+			"tag": "adult",
 			"isZip": true
+		},
+		"improvedHumansMotion_refinedHumanMovement.ckpt": {
+			"url": "https://civitai.com/api/download/models/174464",
+			"info": "https://civitai.com/models/155528"
 		},
 		"mm_sd_v15.ckpt": {
 			"url": "https://huggingface.co/guoyww/animatediff/resolve/main/mm_sd_v15.ckpt",
