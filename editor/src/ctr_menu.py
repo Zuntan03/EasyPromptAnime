@@ -100,6 +100,8 @@ class MenuController:
             filetypes=[("C3Lier LoRA or LoCon LoRA", "*.safetensors")],
             initialdir=Path.lora,
         )
+        if srcPath is None or srcPath == "":
+            return
         srcPath = os.path.abspath(srcPath)
         modelPath = os.path.abspath(os.path.join(Path.model, self.model.generate.model))
         dim = 32
