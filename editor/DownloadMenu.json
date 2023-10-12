@@ -8,6 +8,10 @@
 			"url": "https://civitai.com/api/download/models/168615",
 			"info": "https://civitai.com/models/65202"
 		},
+		"featurelessFlat2DMix_v10.safetensors": {
+			"url": "https://civitai.com/api/download/models/180234",
+			"info": "https://civitai.com/models/160209"
+		},
 		"featurelessJRPG3DMix_v10.safetensors": {
 			"url": "https://civitai.com/api/download/models/174474",
 			"info": "https://civitai.com/models/155538"
@@ -28,14 +32,14 @@
 			"url": "https://civitai.com/api/download/models/179913",
 			"info": "https://civitai.com/models/159947"
 		},
-		"real_model_N.safetensors": {
-			"url": "https://huggingface.co/fcski/real_model_L/resolve/main/real_model_N.safetensors",
-			"info": "https://huggingface.co/fcski/real_model_L",
-			"tag": "real"
-		},
 		"xxmix9realistic_v40.safetensors": {
 			"url": "https://civitai.com/api/download/models/102222",
 			"info": "https://civitai.com/models/47274",
+			"tag": "real"
+		},
+		"real_model_N.safetensors": {
+			"url": "https://huggingface.co/fcski/real_model_L/resolve/main/real_model_N.safetensors",
+			"info": "https://huggingface.co/fcski/real_model_L",
 			"tag": "real"
 		}
 	},
@@ -44,32 +48,19 @@
 			"url": "https://huggingface.co/guoyww/animatediff/resolve/main/mm_sd_v15_v2.ckpt",
 			"info": "https://huggingface.co/guoyww/animatediff"
 		},
-		"temporaldiffMotion_v10.ckpt": {
-			"url": "https://civitai.com/api/download/models/160418",
-			"info": "https://civitai.com/models/144934"
-		},
-		"yoinkoorlabsNSFWMotion_godmodev20.ckpt": {
-			"url": "https://civitai.com/api/download/models/177016",
-			"info": "https://civitai.com/models/144354",
-			"tag": "NSFW"
-		},
 		"missionarymotion.safetensors": {
 			"url": "https://civitai.com/api/download/models/134809",
 			"info": "https://civitai.com/models/123612",
 			"tag": "NSFW",
 			"isZip": true
 		},
+		"temporaldiffMotion_v10.ckpt": {
+			"url": "https://civitai.com/api/download/models/160418",
+			"info": "https://civitai.com/models/144934"
+		},
 		"improvedHumansMotion_refinedHumanMovement.ckpt": {
 			"url": "https://civitai.com/api/download/models/174464",
 			"info": "https://civitai.com/models/155528"
-		},
-		"mm_sd_v15.ckpt": {
-			"url": "https://huggingface.co/guoyww/animatediff/resolve/main/mm_sd_v15.ckpt",
-			"info": "https://huggingface.co/guoyww/animatediff"
-		},
-		"mm_sd_v14.ckpt": {
-			"url": "https://huggingface.co/guoyww/animatediff/resolve/main/mm_sd_v14.ckpt",
-			"info": "https://huggingface.co/guoyww/animatediff"
 		},
 		"mm-Stabilized_high.pth": {
 			"url": "https://huggingface.co/manshoety/AD_Stabilized_Motion/resolve/main/mm-Stabilized_high.pth",
@@ -78,6 +69,19 @@
 		"mm-Stabilized_mid.pth": {
 			"url": "https://huggingface.co/manshoety/AD_Stabilized_Motion/resolve/main/mm-Stabilized_mid.pth",
 			"info": "https://huggingface.co/manshoety/AD_Stabilized_Motion"
+		},
+		"yoinkoorlabsNSFWMotion_godmodev20.ckpt": {
+			"url": "https://civitai.com/api/download/models/177016",
+			"info": "https://civitai.com/models/144354",
+			"tag": "NSFW"
+		},
+		"mm_sd_v15.ckpt": {
+			"url": "https://huggingface.co/guoyww/animatediff/resolve/main/mm_sd_v15.ckpt",
+			"info": "https://huggingface.co/guoyww/animatediff"
+		},
+		"mm_sd_v14.ckpt": {
+			"url": "https://huggingface.co/guoyww/animatediff/resolve/main/mm_sd_v14.ckpt",
+			"info": "https://huggingface.co/guoyww/animatediff"
 		}
 	},
 	"vae": {
