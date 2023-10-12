@@ -1,12 +1,12 @@
 ﻿{
 	"model": {
-		"featurelessCuteMix_v10Clearvae.safetensors": {
-			"url": "https://civitai.com/api/download/models/168584",
-			"info": "https://civitai.com/models/149907"
-		},
 		"featurelessMix_v2020237Clearvae.safetensors": {
 			"url": "https://civitai.com/api/download/models/168615",
 			"info": "https://civitai.com/models/65202"
+		},
+		"featurelessCuteMix_v10Clearvae.safetensors": {
+			"url": "https://civitai.com/api/download/models/168584",
+			"info": "https://civitai.com/models/149907"
 		},
 		"featurelessFlat2DMix_v10.safetensors": {
 			"url": "https://civitai.com/api/download/models/180234",
@@ -30,11 +30,27 @@
 		},
 		"1990s2000s_v10": {
 			"url": "https://civitai.com/api/download/models/179913",
-			"info": "https://civitai.com/models/159947"
+			"info": "https://civitai.com/models/159947",
+			"tag": "manga"
+		},
+		"aniverse_thxEd14Pruned.safetensors": {
+			"url": "https://civitai.com/api/download/models/165868",
+			"info": "https://civitai.com/models/107842",
+			"tag": "semi-real"
+		},
+		"realcartoon3d_v8.safetensors": {
+			"url": "https://civitai.com/api/download/models/159751",
+			"info": "https://civitai.com/models/94809",
+			"tag": "semi-real"
 		},
 		"xxmix9realistic_v40.safetensors": {
 			"url": "https://civitai.com/api/download/models/102222",
 			"info": "https://civitai.com/models/47274",
+			"tag": "real"
+		},
+		"majicmixRealistic_v7.safetensors": {
+			"url": "https://civitai.com/api/download/models/176425",
+			"info": "https://civitai.com/models/43331",
 			"tag": "real"
 		},
 		"real_model_N.safetensors": {
@@ -54,13 +70,13 @@
 			"tag": "NSFW",
 			"isZip": true
 		},
-		"temporaldiffMotion_v10.ckpt": {
-			"url": "https://civitai.com/api/download/models/160418",
-			"info": "https://civitai.com/models/144934"
-		},
 		"improvedHumansMotion_refinedHumanMovement.ckpt": {
 			"url": "https://civitai.com/api/download/models/174464",
 			"info": "https://civitai.com/models/155528"
+		},
+		"temporaldiffMotion_v10.ckpt": {
+			"url": "https://civitai.com/api/download/models/160418",
+			"info": "https://civitai.com/models/144934"
 		},
 		"mm-Stabilized_high.pth": {
 			"url": "https://huggingface.co/manshoety/AD_Stabilized_Motion/resolve/main/mm-Stabilized_high.pth",
@@ -70,11 +86,6 @@
 			"url": "https://huggingface.co/manshoety/AD_Stabilized_Motion/resolve/main/mm-Stabilized_mid.pth",
 			"info": "https://huggingface.co/manshoety/AD_Stabilized_Motion"
 		},
-		"yoinkoorlabsNSFWMotion_godmodev20.ckpt": {
-			"url": "https://civitai.com/api/download/models/177016",
-			"info": "https://civitai.com/models/144354",
-			"tag": "NSFW"
-		},
 		"mm_sd_v15.ckpt": {
 			"url": "https://huggingface.co/guoyww/animatediff/resolve/main/mm_sd_v15.ckpt",
 			"info": "https://huggingface.co/guoyww/animatediff"
@@ -82,6 +93,11 @@
 		"mm_sd_v14.ckpt": {
 			"url": "https://huggingface.co/guoyww/animatediff/resolve/main/mm_sd_v14.ckpt",
 			"info": "https://huggingface.co/guoyww/animatediff"
+		},
+		"yoinkoorlabsNSFWMotion_godmodev20.ckpt": {
+			"url": "https://civitai.com/api/download/models/177016",
+			"info": "https://civitai.com/models/144354",
+			"tag": "NSFW"
 		}
 	},
 	"vae": {
