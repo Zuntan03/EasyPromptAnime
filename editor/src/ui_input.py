@@ -28,7 +28,7 @@ class InputForm:
 
         self.frmTool.pack(fill=tk.Y, side=tk.RIGHT)
 
-        self.txtInput = scrolledtext.ScrolledText(self.frm)
+        self.txtInput = scrolledtext.ScrolledText(self.frm, undo=True, maxundo=-1)
         self.txtInput.configure(Ui.cfgTxtArea)
         self.txtInput.pack(UiPack.txt)
 
