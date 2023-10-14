@@ -39,6 +39,8 @@ The GUI tool supports English. Please translate this page using your browser's t
 [@zono_0](https://qiita.com/zono_0/items/0f9b63f0b581721f01d9)
 [@TakaWeekendProg](https://twitter.com/TakaWeekendProg/status/1705938614033801547)
 [@miyukin_sj](https://twitter.com/miyukin_sj/status/1706966588061348243)
+- 10/14: 汎用 LoRA [3dSlider_v2](https://twitter.com/Zuntan03/status/1713064888397181256),
+[flat2](https://twitter.com/Zuntan03/status/1713067612874359173)
 - 9/27: [AnimateDiff prompt travel のふたつのアニメと新機能 prompt_fixed_ratio](https://twitter.com/Zuntan03/status/1707323168707555329)
 - 9/26: [実はプロンプトをアニメーションしなくてもいいんです](https://twitter.com/Zuntan03/status/1706602454476095701) の [きれいな動画](https://yyy.wpx.jp/m/202309/Oiyami.mp4)
 - 9/25: [AnimateDiff prompt travelの更新比較](https://twitter.com/Zuntan03/status/1706246410851819836) の [きれいな動画](https://yyy.wpx.jp/m/202309/PromptTravelUpdateXxMix.mp4)
@@ -129,6 +131,8 @@ The GUI tool supports English. Please translate this page using your browser's t
 
 - 2023/10/14
 	- `ダウンロード` メニューの `LoRA` に汎用的な LoRA を追加しました。
+		- [3dSlider_v2](https://twitter.com/Zuntan03/status/1713064888397181256),
+[flat2](https://twitter.com/Zuntan03/status/1713067612874359173)
 	- `設定` メニューに `現在のプロンプトを起動時のプロンプトにする` と `現在の設定を起動時の設定にする` と `ライト/ダークモードの切り替え（再起動後に適用）` を追加しました。
 - 2023/10/12
 	- プロンプト入力欄で `元に戻す(Ctrl+Z)` , `やり直し(Ctrl+Y)` を使えるようにしました。
