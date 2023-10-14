@@ -19,6 +19,10 @@ class Model:
         Generate.loadConfig()
         Editor.loadConfig()
 
+    def updateConfig(self):
+        self.generate.updateConfig()
+        self.editor.updateConfig()
+
     def storeConfig(self):
         self.generate.storeConfig()
         self.editor.storeConfig()

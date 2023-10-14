@@ -65,6 +65,21 @@ class Editor(Notifier):
 
         Editor.defFfplayCmd = Config.get("ui", "ffplay_cmd", Editor.defFfplayCmd)
 
+    def updateConfig(self):
+        Editor.defPreviewUpscale = self.previewUpscale
+        # Editor.defPreviewInterpolation = self.previewInterpolation
+        Editor.defPreviewStart = self.previewStart
+        Editor.defPreviewLength = self.previewLength
+
+        Editor.defPreviewShowKeyframe = self.previewShowKeyframe
+        Editor.defPreviewShowHeaderFooter = self.previewShowHeaderFooter
+        Editor.defPreviewShowAnime = self.previewShowAnime
+
+        Editor.defTaskForever = self.taskForever
+        Editor.defTaskPauseByError = self.taskPauseByError
+
+        # Editor.defFfplayCmd = self.ffplayCmd
+
     def storeConfig(self):
         Config.set("ui_preview", "upscale", Editor.defPreviewUpscale)
         # Config.set("ui_preview", "interpolation", Editor.defPreviewInterpolation)

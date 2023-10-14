@@ -10,7 +10,7 @@ class Prompt(Notifier):
 10: waving at viewer, surprised
 20: waving at viewer, smile
 F: 1girl, maid outfit
-N:(worst quality, low quality:1.4)
+N:(worst quality, low quality:1.2)
 """
 
     def __init__(self):
@@ -42,6 +42,11 @@ N:(worst quality, low quality:1.4)
             with open(Path.defaultPrompt, "w", encoding="utf-8-sig") as f:
                 f.write(Prompt.defaultPrompt)
             self.set("original", Prompt.defaultPrompt)
+
+    def saveDefaultPrompt(self):
+        Prompt.defaultPrompt = self.original
+        with open(Path.defaultPrompt, "w", encoding="utf-8-sig") as f:
+            f.write(Prompt.defaultPrompt.strip() + "\n")
 
     def getLastPrompt(self):
         frames = sorted(self.prompts["prompt_map"].keys())

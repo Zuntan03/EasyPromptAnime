@@ -14,7 +14,7 @@ class L10n:
         return cls._l10n[key].format(*args)
 
     @classmethod
-    def load(cls):
+    def loadConfig(cls):
         lang = Config.get("ui", "lang", fallback=locale.getdefaultlocale()[0][:2])
         cls._l10n = l10nEn
         if lang == "ja":

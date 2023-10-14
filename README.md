@@ -20,6 +20,7 @@
 [@hina_chocoboo13](https://twitter.com/hina_chocoboo13/status/1708354881143337268)
 [@ai_cute_girls](https://twitter.com/ai_cute_girls/status/1707400802715984163)
 [@aiko_ai_ai](https://twitter.com/aiko_ai_ai/status/1709127397159649375)
+[@ai_cute_girls](https://twitter.com/ai_cute_girls/status/1712243339922461046)
 [@hina_chocoboo13](https://twitter.com/hina_chocoboo13/status/1705213931466485813)
 - 利用者の HowTo 記事:
 [@samoHKP](https://twitter.com/samoHKP/status/1710769467142107327)
@@ -31,6 +32,7 @@
 [2](https://taziku.co.jp/blog/easypromptanimeai-c)
 [3](https://taziku.co.jp/blog/easypromptanime-prompt)
 [4](https://taziku.co.jp/blog/easypromptanime-model)
+[5](https://taziku.co.jp/blog/easypromptanime-0)
 [@nobu00740](https://twitter.com/nobu00740/status/1710911068648952299)
 [@zono_0](https://qiita.com/zono_0/items/0f9b63f0b581721f01d9)
 [@TakaWeekendProg](https://twitter.com/TakaWeekendProg/status/1705938614033801547)
@@ -115,9 +117,19 @@
 [@roiyaruRIZ](https://twitter.com/roiyaruRIZ/status/1711674005701423571)
 [@aikoujp](https://twitter.com/aikoujp/status/1711668138281168931)
 [@PlayShingo](https://twitter.com/PlayShingo/status/1711696881091567673)
+[@ryoheiplus](https://twitter.com/ryoheiplus/status/1712774074664091727)
+[@iriomotebox](https://twitter.com/iriomotebox/status/1711959604807283074)
+[@koichi_business](https://twitter.com/koichi_business/status/1712392392907854207)
+[@Neosuchiai](https://twitter.com/Neosuchiai/status/1712286175988416876)
+[@sky252510](https://twitter.com/sky252510/status/1711943866520371522)
 
 ## 主な更新履歴
 
+- 2023/10/14
+	- `設定` メニューに `現在のプロンプトを起動時のプロンプトにする` と `現在の設定を起動時の設定にする` と `ライト/ダークモードの切り替え（再起動後に適用）` を追加しました。
+- 2023/10/12
+	- プロンプト入力欄で `元に戻す(Ctrl+Z)` , `やり直し(Ctrl+Y)` を使えるようにしました。
+	- `ダウンロード` メニューの項目を充実しました。
 - 2023/10/10
 	- `ツール` メニューの `使えない LoRA を使えるように変換` でこれまで使えなかった LoRA が使える場合があります。
 	- `アニメ` メニューのアップスケールで、アニメ生成とアップスケールを別々に実行できます。

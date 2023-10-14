@@ -153,9 +153,9 @@ class BasicForm:
         self.frmSize.pack(UiPack.frm)
 
     def swapSize(self):
-        tmp = self.varWidth.get()
+        width = self.varWidth.get()
         self.varWidth.set(self.varHeight.get())
-        self.varHeight.set(tmp)
+        self.varHeight.set(width)
 
     def initUpsdcale1(self):
         self.frmUpscale1 = ttk.Frame(self.frm)

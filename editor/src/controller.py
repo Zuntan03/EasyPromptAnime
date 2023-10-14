@@ -1,5 +1,7 @@
 ﻿import tkinter as tk
-
+from const import Path
+from config import Config
+from l10n import L10n
 from ctr_menu import MenuController
 from ctr_input import InputController
 from ctr_preview import PreviewController
@@ -15,7 +17,7 @@ class Controller:
         self.form = form
         self.model = model
 
-        self.menu = MenuController(form, model)
+        self.menu = MenuController(self, form, model)
         self.input = InputController(form, model)
         self.preview = PreviewController(form, model)
         self.basic = BasicController(form, model)
@@ -27,3 +29,12 @@ class Controller:
         self.menu.initEvents()
         self.input.initEvents()
         self.preview.initEvents()
+
+    def updateConfig(self):
+        self.model.updateConfig()
+
+    def saveConfig(self):
+        L10n.storeConfig()
+        self.model.storeConfig()
+        self.form.storeConfig()
+        Config.save(Path.ini)

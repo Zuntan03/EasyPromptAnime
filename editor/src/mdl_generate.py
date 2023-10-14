@@ -13,7 +13,7 @@ class Generate(Notifier):
     defSteps = 20
     defGuidanceScale = 8.0
     defClipSkip = 2
-    defPromptFixedRatio = 0.5
+    defPromptFixedRatio = 0.7
     defUseHalfVae = False
     defUseXFormers = False
     defWidth = 384
@@ -192,6 +192,47 @@ class Generate(Notifier):
         Generate.defIpAdapterImageDir = Config.get(
             "default", "ip_adapter_image_dir", Generate.defIpAdapterImageDir
         )
+
+    def updateConfig(self):
+        Generate.defLength = self.length
+        Generate.defModel = self.model
+        Generate.defVae = self.vae
+        Generate.defMotionModule = self.motionModule
+        Generate.defContext = self.context
+        Generate.defScheduler = self.scheduler
+        Generate.defSteps = self.steps
+        Generate.defGuidanceScale = self.guidanceScale
+        Generate.defClipSkip = self.clipSkip
+        Generate.defPromptFixedRatio = self.promptFixedRatio
+        Generate.defUseHalfVae = self.useHalfVae
+        Generate.defUseXFormers = self.useXFormers
+        Generate.defWidth = self.width
+        Generate.defHeight = self.height
+        Generate.defSeed = self.seed
+
+        Generate.defUpscale1Enabled = self.upscale1Enabled
+        Generate.defUpscale1Mode = self.upscale1Mode
+        Generate.defUpscale1Scale = self.upscale1Scale
+
+        Generate.defUpscale2Enabled = self.upscale2Enabled
+        Generate.defUpscale2Mode = self.upscale2Mode
+        Generate.defUpscale2Scale = self.upscale2Scale
+
+        Generate.defUpscaleScheduler = self.upscaleScheduler
+        Generate.defUpscaleSteps = self.upscaleSteps
+        Generate.defUpscaleGuidanceScale = self.upscaleGuidanceScale
+        Generate.defUpscaleStrength = self.upscaleStrength
+        Generate.defUpscaleTileScale = self.upscaleTileScale
+        Generate.defUpscaleTileStart = self.upscaleTileStart
+        Generate.defUpscaleTileEnd = self.upscaleTileEnd
+        Generate.defUpscaleUseHalfVae = self.upscaleUseHalfVae
+        Generate.defUpscaleUseXFormers = self.upscaleUseXFormers
+
+        Generate.defUseIpAdapter = self.useIpAdapter
+        Generate.defUseIpAdapterPlus = self.useIpAdapterPlus
+        Generate.defUseIpAdapterPlusFace = self.useIpAdapterPlusFace
+        Generate.defIpAdapterScale = self.ipAdapterScale
+        Generate.defIpAdapterImageDir = self.ipAdapterImageDir
 
     def storeConfig(self):
         Config.set("default", "length", Generate.defLength)

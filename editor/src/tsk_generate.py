@@ -115,7 +115,7 @@ class GenerateTask(CommandPromptTask):
 
     def createCommand(self):
         self.configName = f"{self.timeStr}{self.configSuffix}.json"
-        self.configPath = os.path.join(self.tmpDir, self.configName)
+        self.configPath = os.path.join(self.tempDir, self.configName)
         with open(self.configPath, "w", encoding="utf-8") as f:
             f.write(self.config)
         return f"Generate.bat {self.configPath}"
@@ -125,7 +125,7 @@ class GenerateTask(CommandPromptTask):
         latestMp4FileName = ""
         latestMp4Path = ""
 
-        for root, dirs, files in os.walk(self.tmpDir):
+        for root, dirs, files in os.walk(self.tempDir):
             for file in files:
                 if file.endswith(".mp4"):
                     path = os.path.join(root, file)

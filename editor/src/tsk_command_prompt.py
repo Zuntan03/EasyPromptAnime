@@ -13,7 +13,7 @@ class CommandPromptTask(Task):
 
     def resetState(self):
         super().resetState()
-        self.tmpDir = ""
+        self.tempDir = ""
         self.errorPath = ""
 
         self.command = None
@@ -27,10 +27,10 @@ class CommandPromptTask(Task):
         return self.pollThread()
 
     def startThread(self):
-        self.tmpDir = os.path.join(Path.tmp, self.timeStr)
-        os.path.exists(self.tmpDir) or os.makedirs(self.tmpDir)
+        self.tempDir = os.path.join(Path.temp, self.timeStr)
+        os.path.exists(self.tempDir) or os.makedirs(self.tempDir)
 
-        self.errorPath = os.path.join(self.tmpDir, f"{self.timeStr}-Error.txt")
+        self.errorPath = os.path.join(self.tempDir, f"{self.timeStr}-Error.txt")
 
         cmd = self.createCommand()
         if self.editor.taskPauseByError:

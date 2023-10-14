@@ -11,27 +11,17 @@ class Menu:
         self.menuBar = tk.Menu(parent)
         parent.config(menu=self.menuBar)
 
-        self.initFileMenu()
+        # self.initFileMenu()
         self.initAnimeMenu()
         self.initFolderMenu()
         self.initToolMenu()
         self.initDownloadMenu()
+        self.initSettingMenu()
         self.initHelpMenu()
 
     def initFileMenu(self):
         self.fileMenu = tk.Menu(self.menuBar, tearoff=False)
         self.menuBar.add_cascade(label=L10n.get("m_file"), menu=self.fileMenu)
-
-        self.settingFileMenu = tk.Menu(self.fileMenu, tearoff=False)
-        self.fileMenu.add_cascade(
-            label=L10n.get("m_setting_file"), menu=self.settingFileMenu
-        )
-
-        self.settingFileMenu.add_command(label=L10n.get("m_open_ini_file"))
-        self.settingFileMenu.add_command(label=L10n.get("m_open_default_prompt_file"))
-        self.settingFileMenu.add_command(
-            label=L10n.get("m_open_prompt_travel_template_file")
-        )
 
     def initAnimeMenu(self):
         self.animeMenu = tk.Menu(self.menuBar, tearoff=False)
@@ -40,6 +30,7 @@ class Menu:
         self.animeMenu.add_command(label=L10n.get("m_anime_preview"))
         self.animeMenu.add_command(label=L10n.get("m_anime_seed_gacha"))
         self.animeMenu.add_command(label=L10n.get("m_anime_generate"))
+        self.animeMenu.add_separator()
         self.animeMenu.add_command(label=L10n.get("m_anime_upscale"))
         self.animeMenu.add_command(label=L10n.get("m_anime_upscale_config"))
 
@@ -62,6 +53,7 @@ class Menu:
         self.promptTravelFolderMenu.add_command(label=L10n.get("m_embeddings_folder"))
         self.promptTravelFolderMenu.add_command(label=L10n.get("m_wildcard_folder"))
 
+        self.folderMenu.add_separator()
         self.promptTravelOutputFolderMenu = tk.Menu(self.folderMenu, tearoff=False)
         self.folderMenu.add_cascade(
             label=L10n.get("m_prompt_travel_output_folder"),
@@ -115,6 +107,20 @@ class Menu:
         self.dlVae = initDlMenu("vae")
         self.dlEmbedding = initDlMenu("embedding")
 
+    def initSettingMenu(self):
+        self.settingMenu = tk.Menu(self.menuBar, tearoff=False)
+        self.menuBar.add_cascade(label=L10n.get("m_setting"), menu=self.settingMenu)
+
+        self.settingMenu.add_command(label=L10n.get("m_set_default_prompt"))
+        self.settingMenu.add_command(label=L10n.get("m_set_default_setting"))
+        self.settingMenu.add_command(label=L10n.get("m_set_change_light_dark"))
+        self.settingMenu.add_separator()
+        self.settingMenu.add_command(label=L10n.get("m_set_open_ini_file"))
+        self.settingMenu.add_command(label=L10n.get("m_set_open_default_prompt_file"))
+        self.settingMenu.add_command(
+            label=L10n.get("m_set_open_prompt_travel_template_file")
+        )
+
     def initHelpMenu(self):
         self.helpMenu = tk.Menu(self.menuBar, tearoff=False)
         self.menuBar.add_cascade(label=L10n.get("m_help"), menu=self.helpMenu)
@@ -123,6 +129,7 @@ class Menu:
 
         self.helpMenu.add_command(label=L10n.get("m_github"))
 
+        self.helpMenu.add_separator()
         self.referenceMenu = tk.Menu(self.helpMenu, tearoff=False)
         self.helpMenu.add_cascade(
             label=L10n.get("m_reference"), menu=self.referenceMenu

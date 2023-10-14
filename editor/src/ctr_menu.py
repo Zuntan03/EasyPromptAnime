@@ -6,28 +6,26 @@ from l10n import L10n
 from log import Log
 from tsk_generate import GenerateTask
 from tsk_upscale import UpscaleTask
+from ui import Form
 
 
 class MenuController:
-    def __init__(self, form, model):
+    def __init__(self, parent, form, model):
+        self.parent = parent
         self.form = form
         self.model = model
 
     def initEvents(self):
-        self.initFileEvents()
+        # self.initFileEvents()
         self.initAnimeEvents()
         self.initFolderEvents()
         self.initToolEvents()
         self.initDownloadEvents()
+        self.initSettingEvents()
         self.initHelpEvents()
 
-    def initFileEvents(self):
-        stf = self.form.menu.settingFileMenu
-        self.openFile(stf, "m_open_ini_file", Path.ini)
-        self.openFile(stf, "m_open_default_prompt_file", Path.defaultPrompt)
-        self.openFile(
-            stf, "m_open_prompt_travel_template_file", Path.promptTravelTemplate
-        )
+    # def initFileEvents(self):
+    #     sfl = self.form.menu.fileMenu
 
     def initAnimeEvents(self):
         anime = self.form.menu.animeMenu
@@ -83,7 +81,7 @@ class MenuController:
         self.openFolder(ptof, "m_prompt_travel_tile_folder", Path.promptTravelUpscaled)
         self.openFolder(ptof, "m_prompt_travel_refine_folder", Path.promptTravelRefined)
 
-        self.openFolder(fld, "m_temp_folder", Path.tmp)
+        self.openFolder(fld, "m_temp_folder", Path.temp)
         self.openFolder(fld, "m_log_folder", Path.log)
 
     def initToolEvents(self):
@@ -148,6 +146,27 @@ class MenuController:
         if unzipDir != "":
             cmd += f" & PowerShell -Version 5.1 -ExecutionPolicy Bypass Expand-Archive -Path {dstPath} -DestinationPath {unzipDir} -Force || pause & del {dstPath}"
         subprocess.run(["start", "cmd", "/c", cmd], shell=True)
+
+    def initSettingEvents(self):
+        stm = self.form.menu.settingMenu
+
+        stm.entryconfig(
+            L10n.get("m_set_default_prompt"),
+            command=lambda: self.model.prompt.saveDefaultPrompt(),
+        )
+        stm.entryconfig(
+            L10n.get("m_set_default_setting"),
+            command=lambda: self.parent.updateConfig() & self.parent.saveConfig(),
+        )
+        stm.entryconfig(
+            L10n.get("m_set_change_light_dark"),
+            command=lambda: setattr(Form, "invOsCol", not Form.invOsCol),
+        )
+        self.openFile(stm, "m_set_open_ini_file", Path.ini)
+        self.openFile(stm, "m_set_open_default_prompt_file", Path.defaultPrompt)
+        self.openFile(
+            stm, "m_set_open_prompt_travel_template_file", Path.promptTravelTemplate
+        )
 
     def initHelpEvents(self):
         hlp = self.form.menu.helpMenu

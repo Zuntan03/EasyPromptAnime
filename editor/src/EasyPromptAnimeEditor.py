@@ -30,23 +30,17 @@ class EasyPromptAnimeEditor:
 
         # TODO: Load file or default prompt
         self.model.prompt.loadDefaultPrompt()
-        lastFrame = self.model.prompt.getLastPrompt()[0]
-        if lastFrame > 0:
-            self.model.generate.length = lastFrame + 10  # notifyAll
+        lastFrame = self.model.prompt.getLastPrompt()[0] + 10
+        if lastFrame > self.model.generate.length:
+            self.model.generate.length = lastFrame  # notifyAll
         self.model.notifyAll()
 
         self.form.win.protocol("WM_DELETE_WINDOW", self.onWinClose)
-        self.form.win.after(50, self.saveConfig)
+        self.form.win.after(50, self.controller.saveConfig)
         PromptTravel.loadTemplate()
 
-    def saveConfig(self):
-        L10n.storeConfig()
-        self.model.storeConfig()
-        self.form.storeConfig()
-        Config.save(Path.ini)
-
     def onWinClose(self):
-        self.saveConfig()
+        self.controller.saveConfig()
         self.form.win.destroy()
 
     def run(self):
@@ -57,7 +51,7 @@ initStartTime = time.perf_counter()
 
 Config.load(Path.ini, ["default", "ui", "ui_color", "ui_preview", "ui_size"])
 
-L10n.load()
+L10n.loadConfig()
 
 editor = EasyPromptAnimeEditor()
 
