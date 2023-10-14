@@ -159,7 +159,7 @@ The GUI tool supports English. Please translate this page using your browser's t
 	- フォルダ内の生成設定ファイルで一通り生成する `GenerateFolder.bat` と、これを連続生成し続ける `GenerateFolderForever.bat` を追加しました。
 - 2023/09/28
 	- 昨日の「インストール時のエラーチェックを強化しました。」に問題があり、インストールできなかった不具合を修正しました。
-		- [Setup-EasyPromptAnime.bat](https://github.com/Zuntan03/EasyPromptAnime/raw/main/src/Setup-EasyPromptAnime.bat?20230928) を再ダウンロードして、インストールしてください。
+		- [Setup-EasyPromptAnime.bat](https://github.com/Zuntan03/EasyPromptAnime/raw/main/src/Setup-EasyPromptAnime.bat?20231011) を再ダウンロードして、インストールしてください。
 	- animatediff のコマンドでエラーが発生した際に、処理を終了するようにしました。
 		- GenerateForever.exe も同様に、処理を終了するようにしました。
 - 2023/09/27
@@ -208,7 +208,7 @@ The GUI tool supports English. Please translate this page using your browser's t
 1. 動作環境の [Python 3.10.6](https://www.python.org/ftp/python/3.10.6/python-3.10.6-amd64.exe) を導入していない場合は、[Python のインストール](https://github.com/Zuntan03/SdWebUiTutorial/blob/main/_/doc/SdWebUiInstall/SdWebUiInstall.md#python-%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB) をします。
 2. 動作環境の [Git for Windows](https://gitforwindows.org/) を導入していない場合は、[Git for Windows のインストール](https://github.com/Zuntan03/SdWebUiTutorial/blob/main/_/doc/SdWebUiInstall/SdWebUiInstall.md#git-for-windows-%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB) をします。
 2. [Civitai](https://civitai.com) がダウンしていないか確認します。
-3. [Setup-EasyPromptAnime.bat](https://github.com/Zuntan03/EasyPromptAnime/raw/main/src/Setup-EasyPromptAnime.bat?20230928) を **右クリックから「名前をつけてリンク先を保存…」** でインストール先のフォルダ（英数字のみの浅いパス、 **スペース不可**）にダウンロードして実行します。
+3. [Setup-EasyPromptAnime.bat](https://github.com/Zuntan03/EasyPromptAnime/raw/main/src/Setup-EasyPromptAnime.bat?20231011) を **右クリックから「名前をつけてリンク先を保存…」** でインストール先のフォルダ（英数字のみの浅いパス、 **スペース不可**）にダウンロードして実行します。
 	- **「WindowsによってPCが保護されました」と表示されたら、「詳細表示」から「実行」します。**  
 4. インストールが終わるとローカルエディタ `EasyPromptAnimeEditor.bat` が立ち上がります。<br>~~インストールが終わると、Google Colabでプロンプト編集用の「[簡単プロンプトアニメエディタ](https://colab.research.google.com/drive/1XeVRMmw-dyALMacKU-_Xj2nMboZL_TM3)」が立ち上がります。~~
 
@@ -232,7 +232,7 @@ The GUI tool supports English. Please translate this page using your browser's t
 
 1. `OpenClabEditor.bat` で「[簡単プロンプトアニメエディタ](https://colab.research.google.com/drive/1XeVRMmw-dyALMacKU-_Xj2nMboZL_TM3)」を開きます。
 2. ひとつめの`▶`を押してプロンプト入力欄を表示し、プロンプトやパラメータを編集して、ふたつめの`▶`を押すと動画生成用の生成設定ファイル (*.json) をダウンロードします。
-3. 生成設定ファイルをインストール先([Setup-EasyPromptAnime.bat](https://github.com/Zuntan03/EasyPromptAnime/raw/main/src/Setup-EasyPromptAnime.bat) を実行したフォルダ)にある `Generate.bat` にドラッグ＆ドロップすると、生成設定ファイルの場所に動画を生成します。
+3. 生成設定ファイルをインストール先 ('Setup-EasyPromptAnime.bat' を実行したフォルダ)にある `Generate.bat` にドラッグ＆ドロップすると、生成設定ファイルの場所に動画を生成します。
 	- 生成した動画とフレームレート補間した動画と再エンコードした動画を生成します。
 
 ## FAQ
