@@ -103,6 +103,7 @@ class Menu:
             return dlMenu
 
         self.dlModel = initDlMenu("model")
+        self.dlLora = initDlMenu("lora")
         self.dlMotionModule = initDlMenu("motion_module")
         self.dlVae = initDlMenu("vae")
         self.dlEmbedding = initDlMenu("embedding")

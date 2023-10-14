@@ -88,6 +88,7 @@
     "m_tool_easy_leco_url": "https://colab.research.google.com/drive/1LYi2kvZV1XN05MATqhqWs79cNdTkb33P",
     "m_download": "ダウンロード",
     "m_dl_model": "モデル",
+    "m_dl_lora": "LoRA",
     "m_dl_motion_module": "モーションモジュール",
     "m_dl_vae": "VAE",
     "m_dl_embedding": "TI (Embedding)",

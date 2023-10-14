@@ -59,6 +59,24 @@
 			"tag": "real"
 		}
 	},
+	"lora": {
+		"flat2.safetensors": {
+			"url": "https://huggingface.co/2vXpSwA7/iroiro-lora/resolve/main/release/flat2.safetensors",
+			"info": "https://huggingface.co/2vXpSwA7/iroiro-lora"
+		},
+		"3dSlider_v2.safetensors": {
+			"url": "https://civitai.com/api/download/models/178752",
+			"info": "https://civitai.com/models/154017"
+		},
+		"HeightRatioSlider_v2.safetensors": {
+			"url": "https://civitai.com/api/download/models/173158",
+			"info": "https://civitai.com/models/153226"
+		},
+		"flatBG.safetensors": {
+			"url": "https://huggingface.co/2vXpSwA7/iroiro-lora/resolve/main/release/flatBG.safetensors",
+			"info": "https://huggingface.co/2vXpSwA7/iroiro-lora"
+		}
+	},
 	"motion_module": {
 		"mm_sd_v15_v2.ckpt": {
 			"url": "https://huggingface.co/guoyww/animatediff/resolve/main/mm_sd_v15_v2.ckpt",

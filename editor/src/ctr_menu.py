@@ -113,6 +113,7 @@ class MenuController:
     def initDownloadEvents(self):
         self.categoryDirs = {
             "model": Path.model,
+            "lora": Path.lora,
             "motion_module": Path.motionModule,
             "vae": Path.vae,
             "embedding": Path.embeddings,
