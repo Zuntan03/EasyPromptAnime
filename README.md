@@ -1,4 +1,6 @@
-﻿# 簡単プロンプトアニメ
+﻿# 簡単プロンプトアニメ / EasyPromptAnime
+
+The GUI tool supports English. Please translate this page using your browser's translate function.
 
 [AnimateDiff prompt travel](https://github.com/s9roll7/animatediff-cli-prompt-travel) を使って、ローカル PC で簡単に動画を生成する環境です。  
 **[[ 概要 ](https://twitter.com/Zuntan03/status/1704807854384066714) ] [[ Colab版（無料アカ不可） ](https://twitter.com/Zuntan03/status/1703674198101803268)]**  
