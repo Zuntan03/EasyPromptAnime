@@ -12,6 +12,7 @@ class ControlNetForm:
         self.frm = ttk.Frame(parent)
 
         self.initControlNetDirLoop()
+        self.initControlNetInfo()
 
         self.ntb = ttk.Notebook(self.frm)
         self.ntb.pack(fill=tk.BOTH, expand=True)
@@ -60,6 +61,16 @@ class ControlNetForm:
     def listControlNetDirValues(self):
         subDirs = [f.name for f in os.scandir(Path.controlNet) if f.is_dir()]
         self.cmbControlNetDir.configure(values=subDirs)
+
+    def initControlNetInfo(self):
+        self.frmInfo = ttk.Frame(self.frm)
+
+        self.lblControlNetInfo = ttk.Label(
+            self.frmInfo, text=L10n.get("control_net_info")
+        )
+        self.lblControlNetInfo.pack(UiPack.lbl)
+
+        self.frmInfo.pack(UiPack.frm)
 
     def initControlNetTab(self, parent, cnType):
         name = cnType.name

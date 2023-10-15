@@ -37,6 +37,7 @@
     "generate_use_x_formers": "Use xFormers",
     "control_net_dir": "ControlNet folder",
     "control_net_loop": "Apply to loop",
+    "control_net_info": "Place png images for each control net in a subfolder of the folder for the control net.\nThe file name of the png image specifies the number of frames to use the control net, such as 000.png (0 frames) or 010.png (10 frames, 1 second).\nIf you select a folder for control net, the necessary subfolders will be automatically created.",
     "control_net_enable": "Enable {0}",
     "control_net_open_dir": "Open {0} image folder",
     "control_net_preprocessor": "Use preprocessor",
