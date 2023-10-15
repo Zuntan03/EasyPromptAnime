@@ -22,6 +22,7 @@ class Menu:
     def initFileMenu(self):
         self.fileMenu = tk.Menu(self.menuBar, tearoff=False)
         self.menuBar.add_cascade(label=L10n.get("m_file"), menu=self.fileMenu)
+        self.fileMenu.add_command(label=L10n.get("m_file_save_as"))
 
     def initAnimeMenu(self):
         self.animeMenu = tk.Menu(self.menuBar, tearoff=False)

@@ -39,6 +39,7 @@ The GUI tool supports English. Please translate this page using your browser's t
 [@zono_0](https://qiita.com/zono_0/items/0f9b63f0b581721f01d9)
 [@TakaWeekendProg](https://twitter.com/TakaWeekendProg/status/1705938614033801547)
 [@miyukin_sj](https://twitter.com/miyukin_sj/status/1706966588061348243)
+- 10/15: [LoRA まとめ](https://twitter.com/Zuntan03/status/1713547944446882188)
 - 10/14: 汎用 LoRA [3dSlider_v2](https://twitter.com/Zuntan03/status/1713064888397181256),
 [flat2](https://twitter.com/Zuntan03/status/1713067612874359173)
 - 9/27: [AnimateDiff prompt travel のふたつのアニメと新機能 prompt_fixed_ratio](https://twitter.com/Zuntan03/status/1707323168707555329)
@@ -126,9 +127,12 @@ The GUI tool supports English. Please translate this page using your browser's t
 [@koichi_business](https://twitter.com/koichi_business/status/1712392392907854207)
 [@Neosuchiai](https://twitter.com/Neosuchiai/status/1712286175988416876)
 [@sky252510](https://twitter.com/sky252510/status/1711943866520371522)
+[@TakaWeekendProg](https://twitter.com/TakaWeekendProg/status/1713547498655256920)
 
 ## 主な更新履歴
 
+- 2023/10/15
+	- ControlNet の tile, canny, depth, inpaint, ip2p, lineart, lineart_anime, mlsd, normalbae, openpose, scribble, seg, shuffle, softedge に対応しました。
 - 2023/10/14
 	- `ダウンロード` メニューの `LoRA` に汎用的な LoRA を追加しました。
 		- [3dSlider_v2](https://twitter.com/Zuntan03/status/1713064888397181256),

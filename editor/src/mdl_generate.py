@@ -1,4 +1,4 @@
-﻿from const import Const
+﻿from const import Const, ControlNetType
 from config import Config
 from mdl_notifier import Notifier
 
@@ -16,17 +16,34 @@ class Generate(Notifier):
     defPromptFixedRatio = 0.7
     defUseHalfVae = False
     defUseXFormers = False
-    defWidth = 384
-    defHeight = 512
+    defWidth = 384  # TODO: Out of Sdene
+    defHeight = 512  # TODO: Out of Sdene
     defSeed = -1
 
-    defUpscale1Enabled = True
-    defUpscale1Mode = Const.tile
-    defUpscale1Scale = 2.0
+    defControlNetDir = "test"
+    defControlNetLoop = True
 
-    defUpscale2Enabled = False
+    defCnEnable = False
+    defCnUsePreprocessor = True
+    defCnGuessMode = False
+    defCnScale = 1.0
+    defCnScaleList = "0.8, 0.6, 0.4, 0.2"
+    defCnStart = 0.0
+    defCnEnd = 1.0
+
+    defUseIpAdapter = False
+    defUseIpAdapterPlus = True
+    defUseIpAdapterPlusFace = True
+    defIpAdapterScale = 0.5
+    defIpAdapterImageDir = "test"
+
+    defUpscale1Enabled = True  # TODO: Out of Sdene
+    defUpscale1Mode = Const.tile
+    defUpscale1Scale = 2.0  # TODO: Out of Sdene
+
+    defUpscale2Enabled = False  # TODO: Out of Sdene
     defUpscale2Mode = Const.tile
-    defUpscale2Scale = 1.5
+    defUpscale2Scale = 1.5  # TODO: Out of Sdene
 
     defUpscaleScheduler = "DPM++ SDE Karras"
     defUpscaleSteps = 15
@@ -37,11 +54,6 @@ class Generate(Notifier):
     defUpscaleTileEnd = 1.0
     defUpscaleUseHalfVae = False
     defUpscaleUseXFormers = False
-    defUseIpAdapter = False
-    defUseIpAdapterPlus = True
-    defUseIpAdapterPlusFace = True
-    defIpAdapterScale = 0.5
-    defIpAdapterImageDir = "test"
 
     def __init__(self):
         super().__init__()
@@ -61,6 +73,52 @@ class Generate(Notifier):
         self.height = Generate.defHeight
         self.seed = Generate.defSeed
 
+        self.controlNetDir = Generate.defControlNetDir
+        self.controlNetLoop = Generate.defControlNetLoop
+
+        for cnType in ControlNetType:
+            setattr(
+                self,
+                f"cnEnable_{cnType.name}",
+                getattr(Generate, f"defCnEnable_{cnType.name}"),
+            )
+            setattr(
+                self,
+                f"cnUsePreprocessor_{cnType.name}",
+                getattr(Generate, f"defCnUsePreprocessor_{cnType.name}"),
+            )
+            setattr(
+                self,
+                f"cnGuessMode_{cnType.name}",
+                getattr(Generate, f"defCnGuessMode_{cnType.name}"),
+            )
+            setattr(
+                self,
+                f"cnScale_{cnType.name}",
+                getattr(Generate, f"defCnScale_{cnType.name}"),
+            )
+            setattr(
+                self,
+                f"cnScaleList_{cnType.name}",
+                getattr(Generate, f"defCnScaleList_{cnType.name}"),
+            )
+            setattr(
+                self,
+                f"cnStart_{cnType.name}",
+                getattr(Generate, f"defCnStart_{cnType.name}"),
+            )
+            setattr(
+                self,
+                f"cnEnd_{cnType.name}",
+                getattr(Generate, f"defCnEnd_{cnType.name}"),
+            )
+
+        self.useIpAdapter = Generate.defUseIpAdapter
+        self.useIpAdapterPlus = Generate.defUseIpAdapterPlus
+        self.useIpAdapterPlusFace = Generate.defUseIpAdapterPlusFace
+        self.ipAdapterScale = Generate.defIpAdapterScale
+        self.ipAdapterImageDir = Generate.defIpAdapterImageDir
+
         self.upscale1Enabled = Generate.defUpscale1Enabled
         self.upscale1Mode = Generate.defUpscale1Mode
         self.upscale1Scale = Generate.defUpscale1Scale
@@ -78,12 +136,6 @@ class Generate(Notifier):
         self.upscaleTileEnd = Generate.defUpscaleTileEnd
         self.upscaleUseHalfVae = Generate.defUpscaleUseHalfVae
         self.upscaleUseXFormers = Generate.defUpscaleUseXFormers
-
-        self.useIpAdapter = Generate.defUseIpAdapter
-        self.useIpAdapterPlus = Generate.defUseIpAdapterPlus
-        self.useIpAdapterPlusFace = Generate.defUseIpAdapterPlusFace
-        self.ipAdapterScale = Generate.defIpAdapterScale
-        self.ipAdapterImageDir = Generate.defIpAdapterImageDir
 
     def getUpscale1Height(self):
         return int(self.height * self.upscale1Scale)
@@ -128,6 +180,94 @@ class Generate(Notifier):
         Generate.defWidth = Config.getInt("default", "width", Generate.defWidth)
         Generate.defHeight = Config.getInt("default", "height", Generate.defHeight)
         Generate.defSeed = Config.getInt("default", "seed", Generate.defSeed)
+
+        Generate.defControlNetDir = Config.get(
+            "default", "control_net_dir", Generate.defControlNetDir
+        )
+        Generate.defControlNetLoop = Config.getBool(
+            "default", "control_net_loop", Generate.defControlNetLoop
+        )
+
+        for cnType in ControlNetType:
+            setattr(
+                Generate,
+                f"defCnEnable_{cnType.name}",
+                Config.getBool(
+                    "default_controlnet",
+                    f"{cnType.name}_enable",
+                    getattr(Generate, f"defCnEnable_{cnType.name}"),
+                ),
+            )
+            setattr(
+                Generate,
+                f"defCnUsePreprocessor_{cnType.name}",
+                Config.getBool(
+                    "default_controlnet",
+                    f"{cnType.name}_use_preprocessor",
+                    getattr(Generate, f"defCnUsePreprocessor_{cnType.name}"),
+                ),
+            )
+            setattr(
+                Generate,
+                f"defCnGuessMode_{cnType.name}",
+                Config.getBool(
+                    "default_controlnet",
+                    f"{cnType.name}_guess_mode",
+                    getattr(Generate, f"defCnGuessMode_{cnType.name}"),
+                ),
+            )
+            setattr(
+                Generate,
+                f"defCnScale_{cnType.name}",
+                Config.getFloat(
+                    "default_controlnet",
+                    f"{cnType.name}_scale",
+                    getattr(Generate, f"defCnScale_{cnType.name}"),
+                ),
+            )
+            setattr(
+                Generate,
+                f"defCnScaleList_{cnType.name}",
+                Config.get(
+                    "default_controlnet",
+                    f"{cnType.name}_scale_list",
+                    getattr(Generate, f"defCnScaleList_{cnType.name}"),
+                ),
+            )
+            setattr(
+                Generate,
+                f"defCnStart_{cnType.name}",
+                Config.getFloat(
+                    "default_controlnet",
+                    f"{cnType.name}_start",
+                    getattr(Generate, f"defCnStart_{cnType.name}"),
+                ),
+            )
+            setattr(
+                Generate,
+                f"defCnEnd_{cnType.name}",
+                Config.getFloat(
+                    "default_controlnet",
+                    f"{cnType.name}_end",
+                    getattr(Generate, f"defCnEnd_{cnType.name}"),
+                ),
+            )
+
+        Generate.defUseIpAdapter = Config.getBool(
+            "default", "use_ip_adapter", Generate.defUseIpAdapter
+        )
+        Generate.defUseIpAdapterPlus = Config.getBool(
+            "default", "use_ip_adapter_plus", Generate.defUseIpAdapterPlus
+        )
+        Generate.defUseIpAdapterPlusFace = Config.getBool(
+            "default", "use_ip_adapter_plus_face", Generate.defUseIpAdapterPlusFace
+        )
+        Generate.defIpAdapterScale = Config.getFloat(
+            "default", "ip_adapter_scale", Generate.defIpAdapterScale
+        )
+        Generate.defIpAdapterImageDir = Config.get(
+            "default", "ip_adapter_image_dir", Generate.defIpAdapterImageDir
+        )
 
         Generate.defUpscale1Enabled = Config.getBool(
             "default", "upscale1_enabled", Generate.defUpscale1Enabled
@@ -177,22 +317,6 @@ class Generate(Notifier):
             "default", "upscale_use_x_formers", Generate.defUpscaleUseXFormers
         )
 
-        Generate.defUseIpAdapter = Config.getBool(
-            "default", "use_ip_adapter", Generate.defUseIpAdapter
-        )
-        Generate.defUseIpAdapterPlus = Config.getBool(
-            "default", "use_ip_adapter_plus", Generate.defUseIpAdapterPlus
-        )
-        Generate.defUseIpAdapterPlusFace = Config.getBool(
-            "default", "use_ip_adapter_plus_face", Generate.defUseIpAdapterPlusFace
-        )
-        Generate.defIpAdapterScale = Config.getFloat(
-            "default", "ip_adapter_scale", Generate.defIpAdapterScale
-        )
-        Generate.defIpAdapterImageDir = Config.get(
-            "default", "ip_adapter_image_dir", Generate.defIpAdapterImageDir
-        )
-
     def updateConfig(self):
         Generate.defLength = self.length
         Generate.defModel = self.model
@@ -209,6 +333,52 @@ class Generate(Notifier):
         Generate.defWidth = self.width
         Generate.defHeight = self.height
         Generate.defSeed = self.seed
+
+        Generate.defControlNetDir = self.controlNetDir
+        Generate.defControlNetLoop = self.controlNetLoop
+
+        for cnType in ControlNetType:
+            setattr(
+                Generate,
+                f"defCnEnable_{cnType.name}",
+                getattr(self, f"cnEnable_{cnType.name}"),
+            )
+            setattr(
+                Generate,
+                f"defCnUsePreprocessor_{cnType.name}",
+                getattr(self, f"cnUsePreprocessor_{cnType.name}"),
+            )
+            setattr(
+                Generate,
+                f"defCnGuessMode_{cnType.name}",
+                getattr(self, f"cnGuessMode_{cnType.name}"),
+            )
+            setattr(
+                Generate,
+                f"defCnScale_{cnType.name}",
+                getattr(self, f"cnScale_{cnType.name}"),
+            )
+            setattr(
+                Generate,
+                f"defCnScaleList_{cnType.name}",
+                getattr(self, f"cnScaleList_{cnType.name}"),
+            )
+            setattr(
+                Generate,
+                f"defCnStart_{cnType.name}",
+                getattr(self, f"cnStart_{cnType.name}"),
+            )
+            setattr(
+                Generate,
+                f"defCnEnd_{cnType.name}",
+                getattr(self, f"cnEnd_{cnType.name}"),
+            )
+
+        Generate.defUseIpAdapter = self.useIpAdapter
+        Generate.defUseIpAdapterPlus = self.useIpAdapterPlus
+        Generate.defUseIpAdapterPlusFace = self.useIpAdapterPlusFace
+        Generate.defIpAdapterScale = self.ipAdapterScale
+        Generate.defIpAdapterImageDir = self.ipAdapterImageDir
 
         Generate.defUpscale1Enabled = self.upscale1Enabled
         Generate.defUpscale1Mode = self.upscale1Mode
@@ -228,12 +398,6 @@ class Generate(Notifier):
         Generate.defUpscaleUseHalfVae = self.upscaleUseHalfVae
         Generate.defUpscaleUseXFormers = self.upscaleUseXFormers
 
-        Generate.defUseIpAdapter = self.useIpAdapter
-        Generate.defUseIpAdapterPlus = self.useIpAdapterPlus
-        Generate.defUseIpAdapterPlusFace = self.useIpAdapterPlusFace
-        Generate.defIpAdapterScale = self.ipAdapterScale
-        Generate.defIpAdapterImageDir = self.ipAdapterImageDir
-
     def storeConfig(self):
         Config.set("default", "length", Generate.defLength)
         Config.set("default", "model", Generate.defModel)
@@ -250,6 +414,54 @@ class Generate(Notifier):
         Config.set("default", "width", Generate.defWidth)
         Config.set("default", "height", Generate.defHeight)
         Config.set("default", "seed", Generate.defSeed)
+
+        Config.set("default", "control_net_dir", Generate.defControlNetDir)
+        Config.set("default", "control_net_loop", Generate.defControlNetLoop)
+
+        for cnType in ControlNetType:
+            Config.set(
+                "default_controlnet",
+                f"{cnType.name}_enable",
+                getattr(Generate, f"defCnEnable_{cnType.name}"),
+            )
+            Config.set(
+                "default_controlnet",
+                f"{cnType.name}_use_preprocessor",
+                getattr(Generate, f"defCnUsePreprocessor_{cnType.name}"),
+            )
+            Config.set(
+                "default_controlnet",
+                f"{cnType.name}_guess_mode",
+                getattr(Generate, f"defCnGuessMode_{cnType.name}"),
+            )
+            Config.set(
+                "default_controlnet",
+                f"{cnType.name}_scale",
+                getattr(Generate, f"defCnScale_{cnType.name}"),
+            )
+            Config.set(
+                "default_controlnet",
+                f"{cnType.name}_scale_list",
+                getattr(Generate, f"defCnScaleList_{cnType.name}"),
+            )
+            Config.set(
+                "default_controlnet",
+                f"{cnType.name}_start",
+                getattr(Generate, f"defCnStart_{cnType.name}"),
+            )
+            Config.set(
+                "default_controlnet",
+                f"{cnType.name}_end",
+                getattr(Generate, f"defCnEnd_{cnType.name}"),
+            )
+
+        Config.set("default", "use_ip_adapter", Generate.defUseIpAdapter)
+        Config.set("default", "use_ip_adapter_plus", Generate.defUseIpAdapterPlus)
+        Config.set(
+            "default", "use_ip_adapter_plus_face", Generate.defUseIpAdapterPlusFace
+        )
+        Config.set("default", "ip_adapter_scale", Generate.defIpAdapterScale)
+        Config.set("default", "ip_adapter_image_dir", Generate.defIpAdapterImageDir)
 
         Config.set("default", "upscale1_enabled", Generate.defUpscale1Enabled)
         Config.set("default", "upscale1_mode", Generate.defUpscale1Mode)
@@ -271,10 +483,14 @@ class Generate(Notifier):
         Config.set("default", "upscale_use_half_vae", Generate.defUpscaleUseHalfVae)
         Config.set("default", "upscale_use_x_formers", Generate.defUpscaleUseXFormers)
 
-        Config.set("default", "use_ip_adapter", Generate.defUseIpAdapter)
-        Config.set("default", "use_ip_adapter_plus", Generate.defUseIpAdapterPlus)
-        Config.set(
-            "default", "use_ip_adapter_plus_face", Generate.defUseIpAdapterPlusFace
-        )
-        Config.set("default", "ip_adapter_scale", Generate.defIpAdapterScale)
-        Config.set("default", "ip_adapter_image_dir", Generate.defIpAdapterImageDir)
+
+for cnType in ControlNetType:
+    setattr(Generate, f"defCnEnable_{cnType.name}", Generate.defCnEnable)
+    setattr(
+        Generate, f"defCnUsePreprocessor_{cnType.name}", Generate.defCnUsePreprocessor
+    )
+    setattr(Generate, f"defCnGuessMode_{cnType.name}", Generate.defCnGuessMode)
+    setattr(Generate, f"defCnScale_{cnType.name}", Generate.defCnScale)
+    setattr(Generate, f"defCnScaleList_{cnType.name}", Generate.defCnScaleList)
+    setattr(Generate, f"defCnStart_{cnType.name}", Generate.defCnStart)
+    setattr(Generate, f"defCnEnd_{cnType.name}", Generate.defCnEnd)

@@ -49,7 +49,10 @@ class EasyPromptAnimeEditor:
 
 initStartTime = time.perf_counter()
 
-Config.load(Path.ini, ["default", "ui", "ui_color", "ui_preview", "ui_size"])
+Config.load(
+    Path.ini,
+    ["default", "default_controlnet", "ui", "ui_color", "ui_preview", "ui_size"],
+)
 
 L10n.loadConfig()
 

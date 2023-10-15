@@ -5,8 +5,9 @@ from ui_input import InputForm
 from ui_preview import PreviewForm
 from ui_basic import BasicForm
 from ui_generate import GenerateForm
-from ui_upscale import UpscaleForm
+from ui_control_net import ControlNetForm
 from ui_ip_adapter import IpAdapterForm
+from ui_upscale import UpscaleForm
 from ui_output import OutputForm
 import tkinter as tk
 import tkinter.ttk as ttk
@@ -14,9 +15,9 @@ import darkdetect
 
 
 class Form:
-    winMinW = 600
+    winMinW = 860
     winMinH = 750
-    winInitW = 800
+    winInitW = 900
     winInitH = 900
     winInitX = "None"
     winInitY = "40"
@@ -43,8 +44,9 @@ class Form:
         self.preview = PreviewForm(self.ntbFunc)
         self.basic = BasicForm(self.ntbFunc)
         self.generate = GenerateForm(self.ntbFunc)
-        self.upscale = UpscaleForm(self.ntbFunc)
+        self.controlNet = ControlNetForm(self.ntbFunc)
         self.ipAdapter = IpAdapterForm(self.ntbFunc)
+        self.upscale = UpscaleForm(self.ntbFunc)
         self.paneWin.add(
             self.ntbFunc,
             height=self.ntbFuncH,
@@ -178,8 +180,9 @@ class Form:
         self.preview.setDarkTheme(colors)
         self.basic.setDarkTheme(colors)
         self.generate.setDarkTheme(colors)
-        self.upscale.setDarkTheme(colors)
+        self.controlNet.setDarkTheme(colors)
         self.ipAdapter.setDarkTheme(colors)
+        self.upscale.setDarkTheme(colors)
         self.output.setDarkTheme(colors)
 
     def run(self):
