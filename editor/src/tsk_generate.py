@@ -11,7 +11,7 @@ class GenerateTask(CommandPromptTask):
     def generate(cls, model):
         gen = model.generate
         config = PromptTravel.getConfig(
-            gen, gen.model, gen.upscaleStrength, model.prompt.prompts, 10
+            gen, gen.model, gen.upscaleStrength, model.prompt.data, 10
         )
         configSuffix = PromptTravel.GetConfigFileSuffix(
             gen.length,
@@ -37,7 +37,7 @@ class GenerateTask(CommandPromptTask):
     def seedGacha(cls, model):
         gen = model.generate
         config = PromptTravel.getConfig(
-            gen, gen.model, gen.upscaleStrength, model.prompt.prompts, 10
+            gen, gen.model, gen.upscaleStrength, model.prompt.data, 10
         )
         configSuffix = PromptTravel.GetConfigFileSuffix(
             gen.length,
@@ -63,8 +63,8 @@ class GenerateTask(CommandPromptTask):
         start = edt.previewStart
         length = model.getPreviewLength()
         end = model.getPreviewEnd()
-        prompts = copy.deepcopy(model.prompt.prompts)
-        promptMap = prompts["prompt_map"]
+        promptData = copy.deepcopy(model.prompt.data)
+        promptMap = promptData["prompt_map"]
 
         removeKeys = []
         for keyFrame in promptMap.keys():
@@ -81,7 +81,7 @@ class GenerateTask(CommandPromptTask):
 
         gen = model.generate
         config = PromptTravel.getConfig(
-            gen, gen.model, gen.upscaleStrength, prompts, 5 if halfFps else 10
+            gen, gen.model, gen.upscaleStrength, promptData, 5 if halfFps else 10
         )
         configSuffix = PromptTravel.GetConfigFileSuffix(
             (int)(length * 0.5) if halfFps else length,

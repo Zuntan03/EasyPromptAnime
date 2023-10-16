@@ -1,9 +1,7 @@
-﻿import os
-from tkinter import filedialog
-from const import Path
+﻿from const import Path
 from config import Config
 from l10n import L10n
-from serializer import Serializer
+from ctr_file import FileController
 from ctr_menu import MenuController
 from ctr_input import InputController
 from ctr_preview import PreviewController
@@ -20,6 +18,8 @@ class Controller:
         self.form = form
         self.model = model
 
+        self.file = FileController(form, model)
+
         self.menu = MenuController(self, form, model)
         self.input = InputController(form, model)
         self.preview = PreviewController(form, model)
@@ -34,21 +34,6 @@ class Controller:
         self.input.initEvents()
         self.preview.initEvents()
         self.controlNet.initEvents()
-
-    def saveAs(self):
-        os.path.exists(Path.save) or os.makedirs(Path.save)  # TODO:
-        saveAsPath = filedialog.asksaveasfilename(
-            filetypes=[(L10n.get("title"), "*.json")],
-            initialdir=Path.save,  # TODO:
-        )
-        print(saveAsPath)
-        if saveAsPath == "":
-            return
-        if not saveAsPath.endswith(".json"):
-            saveAsPath += ".json"
-        saved = Serializer.save(self.model, self.form, saveAsPath)
-        if saved:
-            print(f"Set savePath: {saveAsPath}")
 
     def updateConfig(self):
         self.model.updateConfig()

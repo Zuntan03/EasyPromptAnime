@@ -131,6 +131,8 @@ The GUI tool supports English. Please translate this page using your browser's t
 
 ## 主な更新履歴
 
+- 2023/10/17
+	- 簡単プロンプトアニメのエディタの状態を保存して、読み込めるようにしました。
 - 2023/10/15
 	- ControlNet の tile, canny, depth, inpaint, ip2p, lineart, lineart_anime, mlsd, normalbae, openpose, scribble, seg, shuffle, softedge に対応しました。
 - 2023/10/14

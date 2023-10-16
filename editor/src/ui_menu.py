@@ -11,7 +11,7 @@ class Menu:
         self.menuBar = tk.Menu(parent)
         parent.config(menu=self.menuBar)
 
-        # self.initFileMenu()
+        self.initFileMenu()
         self.initAnimeMenu()
         self.initFolderMenu()
         self.initToolMenu()
@@ -22,6 +22,8 @@ class Menu:
     def initFileMenu(self):
         self.fileMenu = tk.Menu(self.menuBar, tearoff=False)
         self.menuBar.add_cascade(label=L10n.get("m_file"), menu=self.fileMenu)
+        self.fileMenu.add_command(label=L10n.get("m_file_open"))
+        self.fileMenu.add_command(label=L10n.get("m_file_save"))
         self.fileMenu.add_command(label=L10n.get("m_file_save_as"))
 
     def initAnimeMenu(self):

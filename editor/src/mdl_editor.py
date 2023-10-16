@@ -20,7 +20,7 @@ class Editor(Notifier):
     def __init__(self):
         super().__init__()
 
-        # self.savePath = ""
+        self.savePath = ""
 
         self.previewUpscale = Editor.defPreviewUpscale
         # self.previewInterpolation = Editor.defPreviewInterpolation

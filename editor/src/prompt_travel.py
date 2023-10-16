@@ -207,7 +207,7 @@ class PromptTravel:
             return PromptTravel.defaultTemplate
 
     @classmethod
-    def getConfig(cls, generate, model, upscaleStrength, prompts, fps):
+    def getConfig(cls, generate, model, upscaleStrength, promptData, fps):
         modelPath = os.path.join(cls.modelDir, model).replace("\\", "/")
 
         motionModulePath = os.path.join(cls.motionModuleDir, generate.motionModule)
@@ -216,13 +216,13 @@ class PromptTravel:
         vaePath = os.path.join(cls.vaeDir, generate.vae).replace("\\", "/")
 
         promptMap = ""
-        for frame, prompt in prompts["prompt_map"].items():
+        for frame, prompt in promptData["prompt_map"].items():
             if promptMap != "":
                 promptMap += ",\n"
             promptMap += f'        "{frame}": "{prompt}"'
 
         loraMap = ""
-        for loraName, loraWeight in prompts["lora_map"].items():
+        for loraName, loraWeight in promptData["lora_map"].items():
             if loraMap != "":
                 loraMap += ",\n"
             loraMap += f'        "lora/{loraName}.safetensors": {loraWeight}'
@@ -237,10 +237,10 @@ class PromptTravel:
             "GUIDANCE_SCALE": generate.guidanceScale,
             "CLIP_SKIP": generate.clipSkip,
             "PROMPT_FIXED_RATIO": generate.promptFixedRatio,
-            "HEADER_PROMPT": prompts["header"],
+            "HEADER_PROMPT": promptData["header"],
             "PROMPT_MAP": promptMap,
-            "FOOTER_PROMPT": prompts["footer"],
-            "NEGATIVE_PROMPT": prompts["negative"],
+            "FOOTER_PROMPT": promptData["footer"],
+            "NEGATIVE_PROMPT": promptData["negative"],
             "LORA_MAP": loraMap,
             "CONTROLNET_IS_LOOP": str(generate.controlNetLoop).lower(),
             "CONTROLNET_DIR": generate.controlNetDir,

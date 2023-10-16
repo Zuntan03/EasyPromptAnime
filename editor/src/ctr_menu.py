@@ -16,7 +16,7 @@ class MenuController:
         self.model = model
 
     def initEvents(self):
-        # self.initFileEvents()
+        self.initFileEvents()
         self.initAnimeEvents()
         self.initFolderEvents()
         self.initToolEvents()
@@ -26,7 +26,9 @@ class MenuController:
 
     def initFileEvents(self):
         sfl = self.form.menu.fileMenu
-        sfl.entryconfig(L10n.get("m_file_save_as"), command=self.parent.saveAs)
+        sfl.entryconfig(L10n.get("m_file_open"), command=self.parent.file.open)
+        sfl.entryconfig(L10n.get("m_file_save"), command=self.parent.file.save)
+        sfl.entryconfig(L10n.get("m_file_save_as"), command=self.parent.file.saveAs)
 
     def initAnimeEvents(self):
         anime = self.form.menu.animeMenu

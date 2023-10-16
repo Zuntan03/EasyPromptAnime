@@ -11,7 +11,7 @@ class UpscaleTask(CommandPromptTask):
     def upscaleWithConfigOverride(cls, model, upscaleDir):
         gen = model.generate
         config = PromptTravel.getConfig(
-            gen, gen.model, gen.upscaleStrength, model.prompt.prompts, 10
+            gen, gen.model, gen.upscaleStrength, model.prompt.data, 10
         )
         cls.upscale(model, upscaleDir, config)
 

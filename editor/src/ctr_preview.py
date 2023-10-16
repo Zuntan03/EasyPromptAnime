@@ -16,7 +16,7 @@ class PreviewController:
         self.initPreview()
 
     def initPreview(self):
-        self.model.prompt.subsc("original", self.updatePerview)
+        self.model.prompt.subsc("text", self.updatePerview)
         self.model.generate.subsc("length", self.updatePerview)
 
         mEdit = self.model.editor

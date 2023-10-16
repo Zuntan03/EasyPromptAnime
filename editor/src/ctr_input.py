@@ -10,7 +10,7 @@ class InputController:
         self.model = model
 
         vInput = self.form.input
-        self.model.prompt.subsc("original", self.setTxtInput)
+        self.model.prompt.subsc("text", self.setTxtInput)
         vInput.txtInput.bind("<<Modified>>", self.modifiedTxtInput)
         self.bindKeyboardShortcuts()
 
@@ -29,7 +29,7 @@ class InputController:
 
     def setTxtInput(self, *args):
         vTxtInput = self.form.input.txtInput
-        mOriginal = self.model.prompt.original
+        mOriginal = self.model.prompt.text
         if mOriginal == vTxtInput.get("1.0", tk.END):
             return
         vTxtInput.delete("1.0", tk.END)
@@ -37,7 +37,7 @@ class InputController:
 
     def modifiedTxtInput(self, *args):
         vTxtInput = self.form.input.txtInput
-        self.model.prompt.set("original", vTxtInput.get("1.0", tk.END))
+        self.model.prompt.set("text", vTxtInput.get("1.0", tk.END))
         vTxtInput.edit_modified(False)
 
     def bindKeyboardShortcuts(self):
