@@ -11,6 +11,8 @@ from ui_upscale import UpscaleForm
 from ui_output import OutputForm
 import tkinter as tk
 import tkinter.ttk as ttk
+
+# from tkinterdnd2 import DND_FILES, TkinterDnD
 import darkdetect
 
 
@@ -27,7 +29,7 @@ class Form:
 
     def __init__(self):
         self.win = tk.Tk()
-        self.win.title(f'{L10n.get("title")}: {L10n.get("news")}')
+        self.win.title(f'{L10n.get("title")}')
         self.win.minsize(Form.winMinW, Form.winMinH)
 
         winGeom = f"{Form.winInitW}x{Form.winInitH}"

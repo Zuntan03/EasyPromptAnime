@@ -57,6 +57,9 @@ class Generate(Notifier):
 
     def __init__(self):
         super().__init__()
+        self.reset()
+
+    def reset(self):
         self.length = Generate.defLength
         self.model = Generate.defModel
         self.vae = Generate.defVae
@@ -136,6 +139,14 @@ class Generate(Notifier):
         self.upscaleTileEnd = Generate.defUpscaleTileEnd
         self.upscaleUseHalfVae = Generate.defUpscaleUseHalfVae
         self.upscaleUseXFormers = Generate.defUpscaleUseXFormers
+
+        self.isChanged = True
+
+    def set(self, memberName, value):
+        result = super().set(memberName, value)
+        if result:
+            self.isChanged = True
+        return result
 
     def getUpscale1Height(self):
         return int(self.height * self.upscale1Scale)

@@ -26,6 +26,9 @@ class PromptTravel:
     "lora_map": {{
 {LORA_MAP}
     }},
+    "motion_lora_map": {{
+{MOTION_LORA_MAP}
+    }},
     "ip_adapter_map": {{
         "enable": {IP_ADAPTER_USE},
         "input_image_dir": "ip_adapter_image/{IP_ADAPTER_IMAGE_DIR}",
@@ -194,6 +197,7 @@ class PromptTravel:
 
     modelDir = os.path.join("models", "sd")
     motionModuleDir = os.path.join("models", "motion-module")
+    motionLoraDir = os.path.join("models", "motion_lora").replace("\\", "/")
     vaeDir = "vae"
 
     @classmethod
@@ -227,6 +231,12 @@ class PromptTravel:
                 loraMap += ",\n"
             loraMap += f'        "lora/{loraName}.safetensors": {loraWeight}'
 
+        motionLoraMap = ""
+        for motionLoraName, motionLoraWeight in promptData["motion_lora_map"].items():
+            if motionLoraMap != "":
+                motionLoraMap += ",\n"
+            motionLoraMap += f'        "{cls.motionLoraDir}/{motionLoraName}.ckpt": {motionLoraWeight}'  # TODO: check exists
+
         replaceDic = {
             "MODEL_PATH": modelPath,
             "VAE_PATH": vaePath,
@@ -242,6 +252,7 @@ class PromptTravel:
             "FOOTER_PROMPT": promptData["footer"],
             "NEGATIVE_PROMPT": promptData["negative"],
             "LORA_MAP": loraMap,
+            "MOTION_LORA_MAP": motionLoraMap,
             "CONTROLNET_IS_LOOP": str(generate.controlNetLoop).lower(),
             "CONTROLNET_DIR": generate.controlNetDir,
             "IP_ADAPTER_USE": str(generate.useIpAdapter).lower(),

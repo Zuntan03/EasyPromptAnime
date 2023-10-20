@@ -3,16 +3,22 @@
 
 class Serializer:
     versionKey = "easy_prompt_anime_version"
-    varsion = "0.1.0"
+    varsion = "0.1.1"
 
     @classmethod
     def deserialize(cls, model, data):
-        version = data[cls.versionKey]
-        if version != cls.varsion:
-            return  # TODO: Version up & error
+        while True:
+            version = data[cls.versionKey]
+            if version == cls.varsion:
+                break
+            if version not in cls.updator:
+                return False
+            data = cls.updator[version](model, data)
+
         model.prompt.set("text", data["prompt"])
         cls.deserializeGenerate(model.generate, data["generate"])
         cls.deserializePreview(model.editor, data["preview"])
+        return True
 
     @classmethod
     def deserializeGenerate(cls, generate, data):
@@ -82,6 +88,8 @@ class Serializer:
         editor.set("previewShowKeyframe", data["show_keyframe"])
         editor.set("previewShowHeaderFooter", data["show_header_footer"])
         editor.set("previewShowAnime", data["show_anime"])
+        editor.set("taskForever", data["taskForever"])
+        editor.set("taskPauseByError", data["taskPauseByError"])
 
     @classmethod
     def serialize(cls, model):
@@ -166,4 +174,18 @@ class Serializer:
             "show_keyframe": editor.previewShowKeyframe,
             "show_header_footer": editor.previewShowHeaderFooter,
             "show_anime": editor.previewShowAnime,
+            "taskForever": editor.taskForever,
+            "taskPauseByError": editor.taskPauseByError,
         }
+
+    @classmethod
+    def updateVer0_1_0(cls, model, data):
+        data["preview"]["taskForever"] = model.editor.taskForever
+        data["preview"]["taskPauseByError"] = model.editor.taskPauseByError
+        data[cls.versionKey] = "0.1.1"
+        return data
+
+
+Serializer.updator = {
+    "0.1.0": Serializer.updateVer0_1_0,
+}

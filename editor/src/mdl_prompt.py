@@ -16,18 +16,24 @@ N:(worst quality, low quality:1.2)
     def __init__(self):
         super().__init__()
         self.text = ""
-        self.data = {
-            "header": "",
-            "footer": "",
-            "negative": "",
-            "lora_map": {},
-            "prompt_map": {},
-            "errors": [],
-        }
+        self.data = None
+        # self.data = {
+        #     "header": "",
+        #     "footer": "",
+        #     "negative": "",
+        #     "lora_map": {},
+        #     "prompt_map": {},
+        #     "errors": [],
+        # }
         self.subsc("text", self.updatePrompts)
+        self.reset()
 
     def updatePrompts(self, *args):
         self.data = PromptPerser.persePrompt(self.text)
+        self.isChanged = True
+
+    def reset(self):
+        self.loadDefaultPrompt()
 
     def getPreview(self, stert, length, showKeyframe, showHeaderFooter, showAnime):
         return PromptPerser.persePreview(

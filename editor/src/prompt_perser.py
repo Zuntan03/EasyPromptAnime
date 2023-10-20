@@ -10,6 +10,7 @@ class PromptPerser:
             "footer": "",
             "negative": "",
             "lora_map": {},
+            "motion_lora_map": {},
             "prompt_map": {},
             "errors": [],
         }
@@ -66,6 +67,24 @@ class PromptPerser:
                 except ValueError:
                     data["errors"].append(
                         L10n.format("err_inv_lora_def", lora_def, val)
+                    )
+                    return
+        elif key == "m":
+            for motion_lora_def in val.split(","):
+                motion_lora_kvp = motion_lora_def.split(":", 1)
+                if len(motion_lora_kvp) < 2:
+                    data["errors"].append(
+                        L10n.format("err_inv_motion_lora_def", motion_lora_def, val)
+                    )
+                    return
+                motion_lora_key = motion_lora_kvp[0].strip()
+                motion_lora_weight = motion_lora_kvp[1].strip()
+                try:
+                    motion_lora_weight = float(motion_lora_weight)
+                    data["motion_lora_map"][motion_lora_key] = motion_lora_weight
+                except ValueError:
+                    data["errors"].append(
+                        L10n.format("err_inv_motion_lora_def", motion_lora_def, val)
                     )
                     return
         elif key.isdigit():
@@ -131,8 +150,15 @@ class PromptPerser:
         if len(loras) > 0:
             loraDefs = "LoRA: "
             for lora in loras:
-                loraDefs += f"<{lora}: {data['lora_map'][lora]}> "
+                loraDefs += f"<lora: {lora}: {data['lora_map'][lora]}> "
             preview.append(loraDefs)
+
+        motion_loras = data["motion_lora_map"].keys()
+        if len(motion_loras) > 0:
+            motion_loraDefs = "Motion LoRA: "
+            for motion_lora in motion_loras:
+                motion_loraDefs += f"<motion_lora: {motion_lora}: {data['motion_lora_map'][motion_lora]}> "
+            preview.append(motion_loraDefs)
 
         for err in data["errors"]:
             preview.append(f"{L10n.get('error')}: {err}")

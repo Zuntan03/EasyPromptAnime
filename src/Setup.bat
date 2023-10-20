@@ -10,3 +10,6 @@ if %errorlevel% neq 0 ( exit /b %errorlevel% )
 
 call %~dp0Setup-ffmpeg-master-latest-win64-gpl.bat
 if %errorlevel% neq 0 ( exit /b %errorlevel% )
+
+call %~dp0Setup-editor.bat
+if %errorlevel% neq 0 ( exit /b %errorlevel% )

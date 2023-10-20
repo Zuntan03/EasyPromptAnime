@@ -118,6 +118,40 @@
 			"tag": "NSFW"
 		}
 	},
+	"motion_lora": {
+		"v2_lora_PanLeft.ckpt": {
+			"url": "https://huggingface.co/guoyww/animatediff/resolve/main/v2_lora_PanLeft.ckpt",
+			"info": "https://huggingface.co/guoyww/animatediff"
+		},
+		"v2_lora_PanRight.ckpt": {
+			"url": "https://huggingface.co/guoyww/animatediff/resolve/main/v2_lora_PanRight.ckpt",
+			"info": "https://huggingface.co/guoyww/animatediff"
+		},
+		"v2_lora_RollingAnticlockwise.ckpt": {
+			"url": "https://huggingface.co/guoyww/animatediff/resolve/main/v2_lora_RollingAnticlockwise.ckpt",
+			"info": "https://huggingface.co/guoyww/animatediff"
+		},
+		"v2_lora_RollingClockwise.ckpt": {
+			"url": "https://huggingface.co/guoyww/animatediff/resolve/main/v2_lora_RollingClockwise.ckpt",
+			"info": "https://huggingface.co/guoyww/animatediff"
+		},
+		"v2_lora_TiltDown.ckpt": {
+			"url": "https://huggingface.co/guoyww/animatediff/resolve/main/v2_lora_TiltDown.ckpt",
+			"info": "https://huggingface.co/guoyww/animatediff"
+		},
+		"v2_lora_TiltUp.ckpt": {
+			"url": "https://huggingface.co/guoyww/animatediff/resolve/main/v2_lora_TiltUp.ckpt",
+			"info": "https://huggingface.co/guoyww/animatediff"
+		},
+		"v2_lora_ZoomIn.ckpt": {
+			"url": "https://huggingface.co/guoyww/animatediff/resolve/main/v2_lora_ZoomIn.ckpt",
+			"info": "https://huggingface.co/guoyww/animatediff"
+		},
+		"v2_lora_ZoomOut.ckpt": {
+			"url": "https://huggingface.co/guoyww/animatediff/resolve/main/v2_lora_ZoomOut.ckpt",
+			"info": "https://huggingface.co/guoyww/animatediff"
+		}
+	},
 	"vae": {
 		"kl-f8-anime2.ckpt": {
 			"url": "https://huggingface.co/hakurei/waifu-diffusion-v1-4/resolve/main/vae/kl-f8-anime2.ckpt",

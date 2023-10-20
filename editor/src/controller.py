@@ -11,6 +11,7 @@ from ctr_control_net import ControlNetController
 from ctr_ip_adapter import IpAdapterController
 from ctr_upscale import UpscaleController
 from ctr_output import OutputController
+from prompt_travel import PromptTravel
 
 
 class Controller:
@@ -34,6 +35,23 @@ class Controller:
         self.input.initEvents()
         self.preview.initEvents()
         self.controlNet.initEvents()
+
+        self.model.prompt.loadDefaultPrompt()
+        lastFrame = self.model.prompt.getLastPrompt()[0] + 10
+        if lastFrame > self.model.generate.length:
+            self.model.generate.length = lastFrame
+        self.model.notifyAll()
+        self.file.resetChanged()
+
+        PromptTravel.loadTemplate()
+        self.form.win.after(50, lambda: self.saveConfig() or self.file.resetChanged())
+        self.form.win.protocol("WM_DELETE_WINDOW", self.onWinClose)
+
+    def onWinClose(self):
+        if not self.file.askSave():
+            return
+        self.saveConfig()
+        self.form.win.destroy()
 
     def updateConfig(self):
         self.model.updateConfig()

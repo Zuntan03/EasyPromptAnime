@@ -12,41 +12,33 @@ pushd %~dp0..\animatediff-cli-prompt-travel
 if not exist venv (
 	python -m venv venv
 	if %errorlevel% neq 0 ( pause & popd & exit /b %errorlevel% )
-
-	call venv\Scripts\activate.bat
-	echo pip install animatediff-cli-prompt-travel venv
-	python -m pip install --upgrade pip
-	if %errorlevel% neq 0 ( pause & popd & exit /b %errorlevel% )
-
-	pip install torch==2.0.1+cu118 torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
-	if %errorlevel% neq 0 ( pause & popd & exit /b %errorlevel% )
-
-	pip install xformers==0.0.22 mediapipe pytorch_lightning
-	if %errorlevel% neq 0 ( pause & popd & exit /b %errorlevel% )
-
-	pip install -e .
-	if %errorlevel% neq 0 ( pause & popd & exit /b %errorlevel% )
-
-	pip install -e .[stylize]
-	if %errorlevel% neq 0 ( pause & popd & exit /b %errorlevel% )
-
-	pip install -e .[dwpose]
-	if %errorlevel% neq 0 ( pause & popd & exit /b %errorlevel% )
-
-	call venv\Scripts\deactivate.bat
 )
+
+call venv\Scripts\activate.bat
+
+echo pip install animatediff-cli-prompt-travel venv
+python -m pip install -q --upgrade pip
+if %errorlevel% neq 0 ( pause & popd & exit /b %errorlevel% )
+
+pip install -q torch==2.0.1+cu118 torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+if %errorlevel% neq 0 ( pause & popd & exit /b %errorlevel% )
+
+pip install -q xformers==0.0.22 mediapipe pytorch_lightning
+if %errorlevel% neq 0 ( pause & popd & exit /b %errorlevel% )
+
+pip install -q -e .
+if %errorlevel% neq 0 ( pause & popd & exit /b %errorlevel% )
+
+pip install -q -e .[stylize]
+if %errorlevel% neq 0 ( pause & popd & exit /b %errorlevel% )
+
+pip install -q -e .[dwpose]
+if %errorlevel% neq 0 ( pause & popd & exit /b %errorlevel% )
+
+call venv\Scripts\deactivate.bat
 
 if not exist data\lora ( mkdir data\lora )
-if not exist data\vae (
-	mkdir data\vae 
-
-	@REM Update old env 
-	call venv\Scripts\activate.bat
-	echo animatediff-cli-prompt-travel venv pytorch_lightning
-	pip install pytorch_lightning
-	if %errorlevel% neq 0 ( pause & popd & exit /b %errorlevel% )
-	call venv\Scripts\deactivate.bat
-)
+if not exist data\vae ( mkdir data\vae )
 
 if not exist data\models\sd\real_model_N.safetensors (
 	echo curl https://huggingface.co/fcski/real_model_L

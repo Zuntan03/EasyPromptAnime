@@ -19,7 +19,9 @@ class Editor(Notifier):
 
     def __init__(self):
         super().__init__()
+        self.reset()
 
+    def reset(self):
         self.savePath = ""
 
         self.previewUpscale = Editor.defPreviewUpscale
@@ -35,6 +37,14 @@ class Editor(Notifier):
         self.taskPauseByError = Editor.defTaskPauseByError
 
         self.ffplayCmd = Editor.defFfplayCmd
+
+        self.isChanged = True
+
+    def set(self, memberName, value):
+        result = super().set(memberName, value)
+        if result:
+            self.isChanged = True
+        return result
 
     @classmethod
     def loadConfig(cls):

@@ -27,9 +27,10 @@
 
     def set(self, memberName, value):
         if getattr(self, memberName) == value:
-            return
+            return False
         setattr(self, memberName, value)
         self.notify(memberName, value)
+        return True
 
     def trace_add(self, memberName, var):
         return var.trace_add("write", lambda *args: self.set(memberName, var.get()))

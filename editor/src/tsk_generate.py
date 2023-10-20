@@ -1,9 +1,10 @@
-﻿import os, copy, shutil, subprocess
+﻿import os, copy, shutil, subprocess, json
 from const import Path
 from l10n import L10n
 from log import Log
 from tsk_command_prompt import CommandPromptTask
 from prompt_travel import PromptTravel
+from serializer import Serializer
 
 
 class GenerateTask(CommandPromptTask):
@@ -30,7 +31,8 @@ class GenerateTask(CommandPromptTask):
             gen.getUpscale2Height(),
         )
         configSuffix = configSuffix + "-D3"
-        task = GenerateTask(model.editor, "generate_anime", config, configSuffix)
+        data = Serializer.serialize(model)
+        task = GenerateTask(model.editor, "generate_anime", config, configSuffix, data)
         cls.enqueue(task)
 
     @classmethod
@@ -52,7 +54,8 @@ class GenerateTask(CommandPromptTask):
             gen.upscale1Mode,
             (int)(gen.height * 1.5),
         )
-        task = GenerateTask(model.editor, "seed_gacha", config, configSuffix)
+        data = Serializer.serialize(model)
+        task = GenerateTask(model.editor, "seed_gacha", config, configSuffix, data)
         cls.enqueue(task)
 
     @classmethod
@@ -99,14 +102,16 @@ class GenerateTask(CommandPromptTask):
             (int)(gen.height * 1.5),
         )
         configSuffix = (configSuffix + "-U5") if halfFps else configSuffix
-        task = GenerateTask(model.editor, "preview", config, configSuffix)
+        data = Serializer.serialize(model)
+        task = GenerateTask(model.editor, "preview", config, configSuffix, data)
         cls.enqueue(task)
 
     # コンストラクタ
-    def __init__(self, editor, taskMode, config, configSuffix):
+    def __init__(self, editor, taskMode, config, configSuffix, data):
         super().__init__(editor, taskMode)
         self.config = config
         self.configSuffix = configSuffix
+        self.data = data
 
     def resetState(self):
         super().resetState()
@@ -139,6 +144,10 @@ class GenerateTask(CommandPromptTask):
         os.makedirs(outputDir, exist_ok=True)
         outputPath = os.path.join(outputDir, latestMp4FileName)
         shutil.copy(latestMp4Path, outputPath)
+
+        basePath, _ = os.path.splitext(outputPath)
+        with open(basePath + ".json", "w", encoding="utf-8-sig") as f:
+            json.dump(self.data, f, indent=4)
 
         seed = ""
         tokens = latestMp4FileName.split("-", 2)

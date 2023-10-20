@@ -22,9 +22,12 @@ class Menu:
     def initFileMenu(self):
         self.fileMenu = tk.Menu(self.menuBar, tearoff=False)
         self.menuBar.add_cascade(label=L10n.get("m_file"), menu=self.fileMenu)
+        self.fileMenu.add_command(label=L10n.get("m_file_new"))
         self.fileMenu.add_command(label=L10n.get("m_file_open"))
         self.fileMenu.add_command(label=L10n.get("m_file_save"))
         self.fileMenu.add_command(label=L10n.get("m_file_save_as"))
+        self.fileMenu.add_separator()
+        self.fileMenu.add_command(label=L10n.get("m_file_exit"))
 
     def initAnimeMenu(self):
         self.animeMenu = tk.Menu(self.menuBar, tearoff=False)
@@ -108,6 +111,7 @@ class Menu:
         self.dlModel = initDlMenu("model")
         self.dlLora = initDlMenu("lora")
         self.dlMotionModule = initDlMenu("motion_module")
+        self.dlMotionModule = initDlMenu("motion_lora")
         self.dlVae = initDlMenu("vae")
         self.dlEmbedding = initDlMenu("embedding")
 

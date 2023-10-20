@@ -11,23 +11,26 @@ popd rem %~dp0..
 pushd %~dp0..\ECCV2022-RIFE
 if not exist venv (
 	python -m venv venv
-	call venv\Scripts\activate.bat
-
-	echo pip install ECCV2022-RIFE venv
-	python -m pip install --upgrade pip
 	if %errorlevel% neq 0 ( pause & popd & exit /b %errorlevel% )
-
-	pip install torch==2.0.1+cu118 torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
-	if %errorlevel% neq 0 ( pause & popd & exit /b %errorlevel% )
-
-	pip install -r requirements.txt
-	if %errorlevel% neq 0 ( pause & popd & exit /b %errorlevel% )
-
-	pip install numpy==1.23.5
-	if %errorlevel% neq 0 ( pause & popd & exit /b %errorlevel% )
-
-	call venv\Scripts\deactivate.bat
 )
+call venv\Scripts\activate.bat
+
+echo pip install ECCV2022-RIFE venv
+python -m pip install -q --upgrade pip
+if %errorlevel% neq 0 ( pause & popd & exit /b %errorlevel% )
+
+pip install -q torch==2.0.1+cu118 torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+if %errorlevel% neq 0 ( pause & popd & exit /b %errorlevel% )
+
+pip install -q -r requirements.txt
+if %errorlevel% neq 0 ( pause & popd & exit /b %errorlevel% )
+
+pip install -q numpy==1.23.5
+if %errorlevel% neq 0 ( pause & popd & exit /b %errorlevel% )
+
+call venv\Scripts\deactivate.bat
+
+
 if not exist train_log (
 	echo curl https://github.com/hzwer/Practical-RIFE/blob/main/README.md#model-list
 	curl -Lo RifeModel.zip https://drive.google.com/uc?id=1APIzVeI-4ZZCEuIRE1m6WYfSCaOsi_7_

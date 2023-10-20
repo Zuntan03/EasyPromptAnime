@@ -9,6 +9,11 @@ class Model:
         self.generate = Generate()
         self.editor = Editor()
 
+    def reset(self):
+        self.prompt.reset()
+        self.generate.reset()
+        self.editor.reset()
+
     def notifyAll(self):
         self.prompt.notifyAll()
         self.generate.notifyAll()

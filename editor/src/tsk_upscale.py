@@ -1,9 +1,10 @@
-﻿import os, glob, shutil, subprocess
+﻿import os, glob, shutil, subprocess, json
 from const import Const, Path
 from l10n import L10n
 from log import Log
 from tsk_command_prompt import CommandPromptTask
 from prompt_travel import PromptTravel
+from serializer import Serializer
 
 
 class UpscaleTask(CommandPromptTask):
@@ -18,6 +19,7 @@ class UpscaleTask(CommandPromptTask):
     @classmethod
     def upscale(cls, model, upscaleDir, config=None):
         gen = model.generate
+        data = Serializer.serialize(model)
         task = UpscaleTask(
             model.editor,
             "upscale",
@@ -28,6 +30,7 @@ class UpscaleTask(CommandPromptTask):
             gen.upscaleUseHalfVae,
             gen.upscaleUseXFormers,
             config,
+            data,
         )
         cls.enqueue(task)
 
@@ -42,6 +45,7 @@ class UpscaleTask(CommandPromptTask):
         useHalfVae,
         useXFormers,
         config,
+        data,
     ):
         super().__init__(editor, taskMode)
         self.upscaleDir = upscaleDir
@@ -51,6 +55,7 @@ class UpscaleTask(CommandPromptTask):
         self.useHalfVae = useHalfVae
         self.useXFormers = useXFormers
         self.config = config
+        self.data = data
 
     def resetState(self):
         super().resetState()
@@ -97,6 +102,10 @@ class UpscaleTask(CommandPromptTask):
         os.makedirs(outputDir, exist_ok=True)
         outputPath = os.path.join(outputDir, mp4Name)
         shutil.copy(mp4Path, outputPath)
+
+        basePath, _ = os.path.splitext(outputPath)
+        with open(basePath + ".json", "w", encoding="utf-8-sig") as f:
+            json.dump(self.data, f, indent=4)
 
         seed = ""
         tokens = mp4Name.split(r"[_-]", 2)

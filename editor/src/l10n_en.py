@@ -1,9 +1,8 @@
 ﻿l10nEn = {
     "lang": "en",
-    "news": 'Added upscaling function from sequential png to "Anime" menu. You can fix the black screen when upscaling, or upscale the model etc. with different settings.',
     "error": "Error",
     "sec": "s",
-    "title": "EasyPromptAnime",
+    "title": "EasyPromptAnime ",
     "clear": "Clear",
     "negative_prompt": "Negative prompt",
     "swap": "Swap",
@@ -74,9 +73,11 @@
     "user_log_tab": "User Log",
     "system_log_tab": "System Log",
     "m_file": "File",
-    "m_file_open": "Open",
-    "m_file_save": "Save",
+    "m_file_new": "New (Ctrl+N)",
+    "m_file_open": "Open (Ctrl+O))",
+    "m_file_save": "Save (Ctrl+S)",
     "m_file_save_as": "Save as",
+    "m_file_exit": "Exit (Alt+F4)",
     "m_anime": "Anime",
     "m_anime_preview": "Preview",
     "m_anime_seed_gacha": "Seed Gacha",
@@ -105,6 +106,7 @@
     "m_dl_model": "Model",
     "m_dl_lora": "LoRA",
     "m_dl_motion_module": "Motion module",
+    "m_dl_motion_lora": "Motion LoRA",
     "m_dl_vae": "VAE",
     "m_dl_embedding": "TI (Embedding)",
     "m_setting": "Setting",
@@ -118,11 +120,14 @@
     "m_prompt_help": "How to write prompts",
     "m_github": "EasyPromptAnime GitHub",
     "m_reference": "Reference",
+    "dlg_ask_save": "There are unsaved changes. Do you want to save the changes?",
     "dlg_convert_lora_title": "Select LoRA to convert.",
     "dlg_upscale_title": "Select the folder (00-seed~) containing the sequentially numbered png to be upscaled.",
     "log_initialization_end": "Initialized: {0:.2f}s.",
     "log_see_prompt_help": "See [Help] menu [How to write prompts] for how to write prompts.",
+    "log_file_new": "File new",
     "log_file_open": "File open: {0}",
+    "log_file_open_failed": "File open failed: {0}",
     "log_file_save": "File save: {0}",
     "log_file_save_as": "File save as: {0}",
     "log_task_start": "Started {0}.",
@@ -136,6 +141,7 @@
     "err_inv_line": "Invalid line. {0}",
     "err_inv_frame_num": "Invalid frame number. {0}: {1}",
     "err_inv_lora_def": 'Invalid LoRA definition. "{0}" {1}',
+    "err_inv_motion_lora_def": 'Invalid Motion LoRA definition. "{0}" {1}',
     "hlp_prompt": """
 # The number of frames + colon (:) + prompt specifies the prompt for the animation keyframe.
 # Instead of frame number + colon, "H:", "F:", "N:", and "L:" will set special settings for the entire animation.
@@ -161,12 +167,14 @@ F: 1girl, maid outfit
 
 # You do not need to set keyframes in detail, just put a word that expresses movement, such as "dancing," in frame 0, and the AI will move the image on its own.
 
-N:(worst quality, low quality:1.4)
+N: (worst quality, low quality:1.4)
 # Lines beginning with "N:" or "n:" specify negative prompts to be used for all frames of the animation.
 
-# L:explosion:-0.2 # The # at the beginning of the line is a comment. If you use LoRA, please remove the # at the beginning.
+# L: explosion:-0.2 # The # at the beginning of the line is a comment. If you use LoRA, please remove the # at the beginning.
 # Lines beginning with "L:" or "l:" may contain multiple LoRA file names + colon (:) + intensity, separated by commas (,).
 # If you want to use LoRA, please put LoRA in *.safetensors format in the menu [Folder - Prompt travel - LoRA].
 # The available LoRA is the normal LierLa format. C3Lier(Locon) format can be converted to LierLa format using the menu [Tools - Convert LoRA].
+
+# M: v2_lora_ZoomIn: 1.0 # Motion LoRA
 """,
 }

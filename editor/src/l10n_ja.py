@@ -1,9 +1,8 @@
 ﻿l10nJa = {
     "lang": "ja",
-    "news": "[アニメ] メニューに連番pngからアップスケール機能を追加しました。アップスケールでの黒画面を修正したり、モデルなどを異なる設定にしてアップスケールできます。",
     "error": "エラー",
     "sec": "秒",
-    "title": "簡単プロンプトアニメ",
+    "title": "簡単プロンプトアニメ ",
     "clear": "クリア",
     "negative_prompt": "ネガティブプロンプト",
     "swap": "入替",
@@ -74,9 +73,11 @@
     "user_log_tab": "ユーザーログ",
     "system_log_tab": "システムログ",
     "m_file": "ファイル",
+    "m_file_new": "新規作成 (Ctrl+N)",
     "m_file_open": "開く (Ctrl+O)",
     "m_file_save": "上書き保存 (Ctrl+S)",
     "m_file_save_as": "名前を付けて保存",
+    "m_file_exit": "終了 (Alt+F4)",
     "m_anime": "アニメ",
     "m_anime_preview": "プレビュー",
     "m_anime_seed_gacha": "シードガチャ",
@@ -105,11 +106,12 @@
     "m_dl_model": "モデル",
     "m_dl_lora": "LoRA",
     "m_dl_motion_module": "モーションモジュール",
+    "m_dl_motion_lora": "モーション LoRA",
     "m_dl_vae": "VAE",
     "m_dl_embedding": "TI (Embedding)",
     "m_setting": "設定",
-    "m_set_default_prompt": "現在のプロンプトを起動時のプロンプトにする",
-    "m_set_default_setting": "現在の設定を起動時の設定にする",
+    "m_set_default_prompt": "現在のプロンプトをデフォルトプロンプトにする",
+    "m_set_default_setting": "現在の設定をデフォルト設定にする",
     "m_set_change_light_dark": "ライト/ダークモードの切り替え（再起動後に適用）",
     "m_set_open_ini_file": "簡単プロンプトアニメの設定 ini ファイルを開く",
     "m_set_open_default_prompt_file": "デフォルトのプロンプトファイルを開く",
@@ -118,11 +120,14 @@
     "m_prompt_help": "プロンプトの書き方",
     "m_github": "簡単プロンプトアニメ GitHub",
     "m_reference": "参照",
+    "dlg_ask_save": "保存していない変更があります。変更内容を保存しますか？",
     "dlg_convert_lora_title": "変換する LoRA を選択してください。",
     "dlg_upscale_title": "アップスケールする連番 png の入ったフォルダ（00-シード値～）を選択してください。",
     "log_initialization_end": "起動に掛かった時間: {0:.2f}秒",
     "log_see_prompt_help": "プロンプトの書き方は [ヘルプ] メニューの [プロンプトの書き方] を参照してください。",
+    "log_file_new": "ファイルを新規作成しました。",
     "log_file_open": "ファイルを開きました。{0}",
+    "log_file_open_failed": "ファイルを開くのに失敗しました。{0}",
     "log_file_save": "ファイルを上書き保存しました。{0}",
     "log_file_save_as": "ファイルに名前を付けて保存しました。{0}",
     "log_task_start": "{0} を開始しました。",
@@ -136,6 +141,7 @@
     "err_inv_line": "行の表記が正しくありません。 {0}",
     "err_inv_frame_num": "フレームの値が正しくありません。{0}: {1}",
     "err_inv_lora_def": 'LoRA の定義が正しくありません。"{0}" {1}',
+    "err_inv_motion_lora_def": 'モーション LoRA の定義が正しくありません。"{0}" {1}',
     "hlp_prompt": """
 # フレーム数＋コロン(:)＋プロンプトで、アニメのキーフレームにプロンプトを指定します。
 # フレーム数＋コロンではなく、「H:」「F:」「N:」「L:」の場合はアニメ全体に特別な設定をします。
@@ -161,12 +167,14 @@ F: 1girl, maid outfit
 
 # 細々とキーフレームを設定しなくとも、0フレームに「dancing」のような動きを表す言葉を入れておけば、AI が勝手に動かしてくれます。
 
-N:(worst quality, low quality:1.4)
+N: (worst quality, low quality:1.4)
 #「N:」か「n:」で始まる行は、アニメの全フレームで使用するネガティブプロンプトを指定します。
 
-# L:explosion:-0.2 # 行頭の # でコメントになっています。LoRA を使う場合は先頭の # を消してください。
+# L: explosion:-0.2 # 行頭の # でコメントになっています。LoRA を使う場合は先頭の # を消してください。
 #「L:」か「l:」で始まる行は、LoRA のファイル名＋コロン(:)＋強度を、カンマ(,)区切りで複数指定できます。
 # LoRAを使いたい場合は、メニューの [フォルダ - プロンプトトラベル - LoRA] に *.safetensors 形式の LoRA を置いてください。
 # 使える LoRA は通常の LierLa 形式です。C3Lier(Locon) 形式はメニューの [ツール - LoRA 変換] で LierLa 形式に変換して利用できます。
+
+# M: v2_lora_ZoomIn: 1.0 # LoRA と同様に M でモーション LoRA を指定できます。
 """,
 }

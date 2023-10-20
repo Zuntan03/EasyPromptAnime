@@ -26,9 +26,11 @@ class MenuController:
 
     def initFileEvents(self):
         sfl = self.form.menu.fileMenu
+        sfl.entryconfig(L10n.get("m_file_new"), command=self.parent.file.new)
         sfl.entryconfig(L10n.get("m_file_open"), command=self.parent.file.open)
         sfl.entryconfig(L10n.get("m_file_save"), command=self.parent.file.save)
         sfl.entryconfig(L10n.get("m_file_save_as"), command=self.parent.file.saveAs)
+        sfl.entryconfig(L10n.get("m_file_exit"), command=self.parent.onWinClose)
 
     def initAnimeEvents(self):
         anime = self.form.menu.animeMenu
@@ -118,6 +120,7 @@ class MenuController:
             "model": Path.model,
             "lora": Path.lora,
             "motion_module": Path.motionModule,
+            "motion_lora": Path.motionLora,
             "vae": Path.vae,
             "embedding": Path.embeddings,
         }
