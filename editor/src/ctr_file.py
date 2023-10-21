@@ -80,8 +80,8 @@ class FileController:
         if not saveAsPath.endswith(".json"):
             saveAsPath += ".json"
         data = Serializer.serialize(self.model)
-        with open(saveAsPath, "w") as f:
-            json.dump(data, f, indent=4, encoding="utf-8-sig")
+        with open(saveAsPath, "w", encoding="utf-8-sig") as f:
+            json.dump(data, f, indent=4)
         self.model.editor.set("savePath", saveAsPath)
         self.form.win.title(L10n.get("title") + saveAsPath)
         self.resetChanged()
