@@ -17,6 +17,8 @@ class UpscaleForm:
         self.initSchedulerSteps()
         self.initGuidanceScaleDenoise()
         self.initTile()
+        self.initIp2p()
+        self.initLineAnime()
         self.initHalfVaeXFormers()
 
         parent.add(self.frm, text=L10n.get("upscale_tab"))
@@ -99,6 +101,14 @@ class UpscaleForm:
     def initTile(self):
         self.frmTile = ttk.Frame(self.frm)
 
+        self.varTileEnable = tk.BooleanVar(value=False)
+        self.chkTileEnable = tk.Checkbutton(
+            self.frmTile,
+            text=L10n.get("upscale_tile_enable"),
+            variable=self.varTileEnable,
+        )
+        self.chkTileEnable.pack(UiPack.chk)
+
         self.lblTileScale = ttk.Label(self.frmTile, text=L10n.get("upscale_tile_scale"))
         self.lblTileScale.pack(UiPack.lbl)
         self.varTileScale = tk.DoubleVar(value=1.0)
@@ -143,6 +153,122 @@ class UpscaleForm:
 
         self.frmTile.pack(UiPack.frm)
 
+    def initIp2p(self):
+        self.frmIp2p = ttk.Frame(self.frm)
+
+        self.varIp2pEnable = tk.BooleanVar(value=False)
+        self.chkIp2pEnable = tk.Checkbutton(
+            self.frmIp2p,
+            text=L10n.get("upscale_ip2p_enable"),
+            variable=self.varIp2pEnable,
+        )
+        self.chkIp2pEnable.pack(UiPack.chk)
+
+        self.lblIp2pScale = ttk.Label(self.frmIp2p, text=L10n.get("upscale_ip2p_scale"))
+        self.lblIp2pScale.pack(UiPack.lbl)
+        self.varIp2pScale = tk.DoubleVar(value=1.0)
+        self.sliIp2pScale = tk.Scale(
+            self.frmIp2p,
+            from_=0.0,
+            to=2.0,
+            resolution=0.05,
+            orient=tk.HORIZONTAL,
+            variable=self.varIp2pScale,
+            takefocus=True,
+        )
+        self.sliIp2pScale.pack(UiPack.sli)
+
+        self.lblIp2pStart = ttk.Label(self.frmIp2p, text=L10n.get("upscale_ip2p_start"))
+        self.lblIp2pStart.pack(UiPack.lbl)
+        self.varIp2pStart = tk.DoubleVar(value=0.0)
+        self.sliIp2pStart = tk.Scale(
+            self.frmIp2p,
+            from_=0.0,
+            to=1.0,
+            resolution=0.05,
+            orient=tk.HORIZONTAL,
+            variable=self.varIp2pStart,
+            takefocus=True,
+        )
+        self.sliIp2pStart.pack(UiPack.sli)
+
+        self.lblIp2pEnd = ttk.Label(self.frmIp2p, text=L10n.get("upscale_ip2p_end"))
+        self.lblIp2pEnd.pack(UiPack.lbl)
+        self.varIp2pEnd = tk.DoubleVar(value=1.0)
+        self.sliIp2pEnd = tk.Scale(
+            self.frmIp2p,
+            from_=0.0,
+            to=1.0,
+            resolution=0.05,
+            orient=tk.HORIZONTAL,
+            variable=self.varIp2pEnd,
+            takefocus=True,
+        )
+        self.sliIp2pEnd.pack(UiPack.sli)
+
+        self.frmIp2p.pack(UiPack.frm)
+
+    def initLineAnime(self):
+        self.frmLineAnime = ttk.Frame(self.frm)
+
+        self.varLineAnimeEnable = tk.BooleanVar(value=False)
+        self.chkLineAnimeEnable = tk.Checkbutton(
+            self.frmLineAnime,
+            text=L10n.get("upscale_line_anime_enable"),
+            variable=self.varLineAnimeEnable,
+        )
+        self.chkLineAnimeEnable.pack(UiPack.chk)
+
+        self.lblLineAnimeScale = ttk.Label(
+            self.frmLineAnime, text=L10n.get("upscale_line_anime_scale")
+        )
+        self.lblLineAnimeScale.pack(UiPack.lbl)
+        self.varLineAnimeScale = tk.DoubleVar(value=1.0)
+        self.sliLineAnimeScale = tk.Scale(
+            self.frmLineAnime,
+            from_=0.0,
+            to=2.0,
+            resolution=0.05,
+            orient=tk.HORIZONTAL,
+            variable=self.varLineAnimeScale,
+            takefocus=True,
+        )
+        self.sliLineAnimeScale.pack(UiPack.sli)
+
+        self.lblLineAnimeStart = ttk.Label(
+            self.frmLineAnime, text=L10n.get("upscale_line_anime_start")
+        )
+        self.lblLineAnimeStart.pack(UiPack.lbl)
+        self.varLineAnimeStart = tk.DoubleVar(value=0.0)
+        self.sliLineAnimeStart = tk.Scale(
+            self.frmLineAnime,
+            from_=0.0,
+            to=1.0,
+            resolution=0.05,
+            orient=tk.HORIZONTAL,
+            variable=self.varLineAnimeStart,
+            takefocus=True,
+        )
+        self.sliLineAnimeStart.pack(UiPack.sli)
+
+        self.lblLineAnimeEnd = ttk.Label(
+            self.frmLineAnime, text=L10n.get("upscale_line_anime_end")
+        )
+        self.lblLineAnimeEnd.pack(UiPack.lbl)
+        self.varLineAnimeEnd = tk.DoubleVar(value=1.0)
+        self.sliLineAnimeEnd = tk.Scale(
+            self.frmLineAnime,
+            from_=0.0,
+            to=1.0,
+            resolution=0.05,
+            orient=tk.HORIZONTAL,
+            variable=self.varLineAnimeEnd,
+            takefocus=True,
+        )
+        self.sliLineAnimeEnd.pack(UiPack.sli)
+
+        self.frmLineAnime.pack(UiPack.frm)
+
     def initHalfVaeXFormers(self):
         self.frmHalfVaeXFormers = ttk.Frame(self.frm)
 
@@ -182,8 +308,17 @@ class UpscaleForm:
         self.sliSteps.configure(colors["sli"])
         self.sliDenoise.configure(colors["sli"])
         self.sliGuidanceScale.configure(colors["sli"])
+        self.chkTileEnable.configure(colors["chk"])
         self.sliTileScale.configure(colors["sli"])
         self.sliTileStart.configure(colors["sli"])
         self.sliTileEnd.configure(colors["sli"])
+        self.chkIp2pEnable.configure(colors["chk"])
+        self.sliIp2pScale.configure(colors["sli"])
+        self.sliIp2pStart.configure(colors["sli"])
+        self.sliIp2pEnd.configure(colors["sli"])
+        self.chkLineAnimeEnable.configure(colors["chk"])
+        self.sliLineAnimeScale.configure(colors["sli"])
+        self.sliLineAnimeStart.configure(colors["sli"])
+        self.sliLineAnimeEnd.configure(colors["sli"])
         self.chkUseHalfVae.configure(colors["chk"])
         self.chkUseXFormers.configure(colors["chk"])

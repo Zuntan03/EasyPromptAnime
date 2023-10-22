@@ -134,6 +134,9 @@ The GUI tool supports English. Please translate this page using your browser's t
 - 2023/10/22
 	- MP4 の動画からコントロールネット用の連番画像をワンアクションで取り出せる `MP4 画像取り込み` を追加しました。
 	<!-- TODO: 詳細リンク -->
+	- アップスケールで `ip2p` と `line_anime` を使えるようにしました。
+		<!-- - `tile` の強度 `0.6` と `ip2p` の `0.6` ぐらいの組み合わせが良さそうに見えます。
+		- `EasyPromptAnimeEditor.ini` を削除すると、新しいデフォルト値を使用できます。 -->
 - 2023/10/20
 	- モーション LoRA に対応しました。
 		- `ダウンロード` メニューの `モーション LoRA` からダウンロードできます。

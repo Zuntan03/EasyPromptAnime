@@ -177,12 +177,28 @@ class PromptTravel:
         "strength": {UPSCALE_STRENGTH},
         "guidance_scale": {UPSCALE_GUIDANCE_SCALE},
         "controlnet_tile": {{
-            "enable": true,
+            "enable": {UPSACLE_TILE_ENABLE},
             "use_preprocessor": false,
             "controlnet_conditioning_scale": {UPSACLE_TILE_SCALE},
             "guess_mode": false,
             "control_guidance_start": {UPSACLE_TILE_START},
             "control_guidance_end": {UPSACLE_TILE_END}
+        }},
+        "controlnet_ip2p": {{
+            "enable": {UPSACLE_IP2P_ENABLE},
+            "use_preprocessor": true,
+            "controlnet_conditioning_scale": {UPSACLE_IP2P_SCALE},
+            "guess_mode": false,
+            "control_guidance_start": {UPSACLE_IP2P_START},
+            "control_guidance_end": {UPSACLE_IP2P_END}
+        }},
+        "controlnet_line_anime": {{
+            "enable": {UPSACLE_LINE_ANIME_ENABLE},
+            "use_preprocessor": true,
+            "controlnet_conditioning_scale": {UPSACLE_LINE_ANIME_SCALE},
+            "guess_mode": false,
+            "control_guidance_start": {UPSACLE_LINE_ANIME_START},
+            "control_guidance_end": {UPSACLE_LINE_ANIME_END}
         }}
     }},
     "output": {{
@@ -264,9 +280,18 @@ class PromptTravel:
             "UPSCALE_STEPS": generate.upscaleSteps,
             "UPSCALE_STRENGTH": upscaleStrength,
             "UPSCALE_GUIDANCE_SCALE": generate.upscaleGuidanceScale,
+            "UPSACLE_TILE_ENABLE": str(generate.upscaleTileEnable).lower(),
             "UPSACLE_TILE_SCALE": generate.upscaleTileScale,
             "UPSACLE_TILE_START": generate.upscaleTileStart,
             "UPSACLE_TILE_END": generate.upscaleTileEnd,
+            "UPSACLE_IP2P_ENABLE": str(generate.upscaleIp2pEnable).lower(),
+            "UPSACLE_IP2P_SCALE": generate.upscaleIp2pScale,
+            "UPSACLE_IP2P_START": generate.upscaleIp2pStart,
+            "UPSACLE_IP2P_END": generate.upscaleIp2pEnd,
+            "UPSACLE_LINE_ANIME_ENABLE": str(generate.upscaleLineAnimeEnable).lower(),
+            "UPSACLE_LINE_ANIME_SCALE": generate.upscaleLineAnimeScale,
+            "UPSACLE_LINE_ANIME_START": generate.upscaleLineAnimeStart,
+            "UPSACLE_LINE_ANIME_END": generate.upscaleLineAnimeEnd,
             "FPS": fps,
         }
 

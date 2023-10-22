@@ -3,7 +3,7 @@
 
 class Serializer:
     versionKey = "easy_prompt_anime_version"
-    varsion = "0.2.0"
+    varsion = "0.3.0"
 
     @classmethod
     def deserialize(cls, model, data):
@@ -74,9 +74,18 @@ class Serializer:
         generate.set("upscaleSteps", data["upscale_steps"])
         generate.set("upscaleGuidanceScale", data["upscale_guidance_scale"])
         generate.set("upscaleStrength", data["upscale_strength"])
+        generate.set("upscaleTileEnable", data["upscale_tile_enable"])
         generate.set("upscaleTileScale", data["upscale_tile_scale"])
         generate.set("upscaleTileStart", data["upscale_tile_start"])
         generate.set("upscaleTileEnd", data["upscale_tile_end"])
+        generate.set("upscaleIp2pEnable", data["upscale_ip2p_enable"])
+        generate.set("upscaleIp2pScale", data["upscale_ip2p_scale"])
+        generate.set("upscaleIp2pStart", data["upscale_ip2p_start"])
+        generate.set("upscaleIp2pEnd", data["upscale_ip2p_end"])
+        generate.set("upscaleLineAnimeEnable", data["upscale_line_anime_enable"])
+        generate.set("upscaleLineAnimeScale", data["upscale_line_anime_scale"])
+        generate.set("upscaleLineAnimeStart", data["upscale_line_anime_start"])
+        generate.set("upscaleLineAnimeEnd", data["upscale_line_anime_end"])
         generate.set("upscaleUseHalfVae", data["upscale_use_half_vae"])
         generate.set("upscaleUseXFormers", data["upscale_use_x_formers"])
 
@@ -162,9 +171,18 @@ class Serializer:
         result["upscale_steps"] = generate.upscaleSteps
         result["upscale_guidance_scale"] = generate.upscaleGuidanceScale
         result["upscale_strength"] = generate.upscaleStrength
+        result["upscale_tile_enable"] = generate.upscaleTileEnable
         result["upscale_tile_scale"] = generate.upscaleTileScale
         result["upscale_tile_start"] = generate.upscaleTileStart
         result["upscale_tile_end"] = generate.upscaleTileEnd
+        result["upscale_ip2p_enable"] = generate.upscaleIp2pEnable
+        result["upscale_ip2p_scale"] = generate.upscaleIp2pScale
+        result["upscale_ip2p_start"] = generate.upscaleIp2pStart
+        result["upscale_ip2p_end"] = generate.upscaleIp2pEnd
+        result["upscale_line_anime_enable"] = generate.upscaleLineAnimeEnable
+        result["upscale_line_anime_scale"] = generate.upscaleLineAnimeScale
+        result["upscale_line_anime_start"] = generate.upscaleLineAnimeStart
+        result["upscale_line_anime_end"] = generate.upscaleLineAnimeEnd
         result["upscale_use_half_vae"] = generate.upscaleUseHalfVae
         result["upscale_use_x_formers"] = generate.upscaleUseXFormers
         return result
@@ -206,8 +224,25 @@ class Serializer:
         data[cls.versionKey] = "0.2.0"
         return data
 
+    @classmethod
+    def updateVer0_2_0(cls, model, data):
+        gen = model.generate
+        data["generate"]["upscale_tile_enable"] = gen.upscaleTileEnable
+        data["generate"]["upscale_ip2p_enable"] = gen.upscaleIp2pEnable
+        data["generate"]["upscale_ip2p_scale"] = gen.upscaleIp2pScale
+        data["generate"]["upscale_ip2p_start"] = gen.upscaleIp2pStart
+        data["generate"]["upscale_ip2p_end"] = gen.upscaleIp2pEnd
+        data["generate"]["upscale_line_anime_enable"] = gen.upscaleLineAnimeEnable
+        data["generate"]["upscale_line_anime_scale"] = gen.upscaleLineAnimeScale
+        data["generate"]["upscale_line_anime_start"] = gen.upscaleLineAnimeStart
+        data["generate"]["upscale_line_anime_end"] = gen.upscaleLineAnimeEnd
+
+        data[cls.versionKey] = "0.3.0"
+        return data
+
 
 Serializer.updator = {
     "0.1.0": Serializer.updateVer0_1_0,
     "0.1.1": Serializer.updateVer0_1_1,
+    "0.2.0": Serializer.updateVer0_2_0,
 }

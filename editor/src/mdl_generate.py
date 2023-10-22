@@ -49,9 +49,18 @@ class Generate(Notifier):
     defUpscaleSteps = 15
     defUpscaleGuidanceScale = 8.0
     defUpscaleStrength = 0.6
-    defUpscaleTileScale = 1.0
+    defUpscaleTileEnable = True
+    defUpscaleTileScale = 0.6
     defUpscaleTileStart = 0.0
     defUpscaleTileEnd = 1.0
+    defUpscaleIp2pEnable = True
+    defUpscaleIp2pScale = 0.6
+    defUpscaleIp2pStart = 0.0
+    defUpscaleIp2pEnd = 1.0
+    defUpscaleLineAnimeEnable = False
+    defUpscaleLineAnimeScale = 1.0
+    defUpscaleLineAnimeStart = 0.0
+    defUpscaleLineAnimeEnd = 1.0
     defUpscaleUseHalfVae = False
     defUpscaleUseXFormers = False
 
@@ -134,9 +143,18 @@ class Generate(Notifier):
         self.upscaleSteps = Generate.defUpscaleSteps
         self.upscaleGuidanceScale = Generate.defUpscaleGuidanceScale
         self.upscaleStrength = Generate.defUpscaleStrength
+        self.upscaleTileEnable = Generate.defUpscaleTileEnable
         self.upscaleTileScale = Generate.defUpscaleTileScale
         self.upscaleTileStart = Generate.defUpscaleTileStart
         self.upscaleTileEnd = Generate.defUpscaleTileEnd
+        self.upscaleIp2pEnable = Generate.defUpscaleIp2pEnable
+        self.upscaleIp2pScale = Generate.defUpscaleIp2pScale
+        self.upscaleIp2pStart = Generate.defUpscaleIp2pStart
+        self.upscaleIp2pEnd = Generate.defUpscaleIp2pEnd
+        self.upscaleLineAnimeEnable = Generate.defUpscaleLineAnimeEnable
+        self.upscaleLineAnimeScale = Generate.defUpscaleLineAnimeScale
+        self.upscaleLineAnimeStart = Generate.defUpscaleLineAnimeStart
+        self.upscaleLineAnimeEnd = Generate.defUpscaleLineAnimeEnd
         self.upscaleUseHalfVae = Generate.defUpscaleUseHalfVae
         self.upscaleUseXFormers = Generate.defUpscaleUseXFormers
 
@@ -312,6 +330,9 @@ class Generate(Notifier):
         Generate.defUpscaleStrength = Config.getFloat(
             "default", "upscale_strength", Generate.defUpscaleStrength
         )
+        Generate.defUpscaleTileEnable = Config.getBool(
+            "default", "upscale_tile_enable", Generate.defUpscaleTileEnable
+        )
         Generate.defUpscaleTileScale = Config.getFloat(
             "default", "upscale_tile_scale", Generate.defUpscaleTileScale
         )
@@ -320,6 +341,30 @@ class Generate(Notifier):
         )
         Generate.defUpscaleTileEnd = Config.getFloat(
             "default", "upscale_tile_end", Generate.defUpscaleTileEnd
+        )
+        Generate.defUpscaleIp2pEnable = Config.getBool(
+            "default", "upscale_ip2p_enable", Generate.defUpscaleIp2pEnable
+        )
+        Generate.defUpscaleIp2pScale = Config.getFloat(
+            "default", "upscale_ip2p_scale", Generate.defUpscaleIp2pScale
+        )
+        Generate.defUpscaleIp2pStart = Config.getFloat(
+            "default", "upscale_ip2p_start", Generate.defUpscaleIp2pStart
+        )
+        Generate.defUpscaleIp2pEnd = Config.getFloat(
+            "default", "upscale_ip2p_end", Generate.defUpscaleIp2pEnd
+        )
+        Generate.defUpscaleLineAnimeEnable = Config.getBool(
+            "default", "upscale_line_anime_enable", Generate.defUpscaleLineAnimeEnable
+        )
+        Generate.defUpscaleLineAnimeScale = Config.getFloat(
+            "default", "upscale_line_anime_scale", Generate.defUpscaleLineAnimeScale
+        )
+        Generate.defUpscaleLineAnimeStart = Config.getFloat(
+            "default", "upscale_line_anime_start", Generate.defUpscaleLineAnimeStart
+        )
+        Generate.defUpscaleLineAnimeEnd = Config.getFloat(
+            "default", "upscale_line_anime_end", Generate.defUpscaleLineAnimeEnd
         )
         Generate.defUpscaleUseHalfVae = Config.getBool(
             "default", "upscale_use_half_vae", Generate.defUpscaleUseHalfVae
@@ -403,9 +448,18 @@ class Generate(Notifier):
         Generate.defUpscaleSteps = self.upscaleSteps
         Generate.defUpscaleGuidanceScale = self.upscaleGuidanceScale
         Generate.defUpscaleStrength = self.upscaleStrength
+        Generate.defUpscaleTileEnable = self.upscaleTileEnable
         Generate.defUpscaleTileScale = self.upscaleTileScale
         Generate.defUpscaleTileStart = self.upscaleTileStart
         Generate.defUpscaleTileEnd = self.upscaleTileEnd
+        Generate.defUpscaleIp2pEnable = self.upscaleIp2pEnable
+        Generate.defUpscaleIp2pScale = self.upscaleIp2pScale
+        Generate.defUpscaleIp2pStart = self.upscaleIp2pStart
+        Generate.defUpscaleIp2pEnd = self.upscaleIp2pEnd
+        Generate.defUpscaleLineAnimeEnable = self.upscaleLineAnimeEnable
+        Generate.defUpscaleLineAnimeScale = self.upscaleLineAnimeScale
+        Generate.defUpscaleLineAnimeStart = self.upscaleLineAnimeStart
+        Generate.defUpscaleLineAnimeEnd = self.upscaleLineAnimeEnd
         Generate.defUpscaleUseHalfVae = self.upscaleUseHalfVae
         Generate.defUpscaleUseXFormers = self.upscaleUseXFormers
 
@@ -488,9 +542,24 @@ class Generate(Notifier):
             "default", "upscale_guidance_scale", Generate.defUpscaleGuidanceScale
         )
         Config.set("default", "upscale_strength", Generate.defUpscaleStrength)
+        Config.set("default", "upscale_tile_enable", Generate.defUpscaleTileEnable)
         Config.set("default", "upscale_tile_scale", Generate.defUpscaleTileScale)
         Config.set("default", "upscale_tile_start", Generate.defUpscaleTileStart)
         Config.set("default", "upscale_tile_end", Generate.defUpscaleTileEnd)
+        Config.set("default", "upscale_ip2p_enable", Generate.defUpscaleIp2pEnable)
+        Config.set("default", "upscale_ip2p_scale", Generate.defUpscaleIp2pScale)
+        Config.set("default", "upscale_ip2p_start", Generate.defUpscaleIp2pStart)
+        Config.set("default", "upscale_ip2p_end", Generate.defUpscaleIp2pEnd)
+        Config.set(
+            "default", "upscale_line_anime_enable", Generate.defUpscaleLineAnimeEnable
+        )
+        Config.set(
+            "default", "upscale_line_anime_scale", Generate.defUpscaleLineAnimeScale
+        )
+        Config.set(
+            "default", "upscale_line_anime_start", Generate.defUpscaleLineAnimeStart
+        )
+        Config.set("default", "upscale_line_anime_end", Generate.defUpscaleLineAnimeEnd)
         Config.set("default", "upscale_use_half_vae", Generate.defUpscaleUseHalfVae)
         Config.set("default", "upscale_use_x_formers", Generate.defUpscaleUseXFormers)
 
