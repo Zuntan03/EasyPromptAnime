@@ -3,7 +3,7 @@
 
 class Serializer:
     versionKey = "easy_prompt_anime_version"
-    varsion = "0.1.1"
+    varsion = "0.2.0"
 
     @classmethod
     def deserialize(cls, model, data):
@@ -17,7 +17,7 @@ class Serializer:
 
         model.prompt.set("text", data["prompt"])
         cls.deserializeGenerate(model.generate, data["generate"])
-        cls.deserializePreview(model.editor, data["preview"])
+        cls.deserializeEditor(model.editor, data["editor"])
         return True
 
     @classmethod
@@ -81,7 +81,7 @@ class Serializer:
         generate.set("upscaleUseXFormers", data["upscale_use_x_formers"])
 
     @classmethod
-    def deserializePreview(cls, editor, data):
+    def deserializeEditor(cls, editor, data):
         editor.set("previewUpscale", data["upscale"])
         editor.set("previewStart", data["start"])
         editor.set("previewLength", data["length"])
@@ -90,6 +90,10 @@ class Serializer:
         editor.set("previewShowAnime", data["show_anime"])
         editor.set("taskForever", data["taskForever"])
         editor.set("taskPauseByError", data["taskPauseByError"])
+        editor.set("importSpeed", data["importSpeed"])
+        editor.set("importStart", data["importStart"])
+        editor.set("importLength", data["importLength"])
+        editor.set("importIndex", data["importIndex"])
 
     @classmethod
     def serialize(cls, model):
@@ -97,7 +101,7 @@ class Serializer:
             cls.versionKey: cls.varsion,
             "prompt": model.prompt.text,
             "generate": cls.serializeGenerate(model.generate),
-            "preview": cls.serializePreview(model.editor),
+            "editor": cls.serializeEditor(model.editor),
         }
         return data
 
@@ -166,7 +170,7 @@ class Serializer:
         return result
 
     @classmethod
-    def serializePreview(cls, editor):
+    def serializeEditor(cls, editor):
         return {
             "upscale": editor.previewUpscale,
             "start": editor.previewStart,
@@ -176,6 +180,10 @@ class Serializer:
             "show_anime": editor.previewShowAnime,
             "taskForever": editor.taskForever,
             "taskPauseByError": editor.taskPauseByError,
+            "importSpeed": editor.importSpeed,
+            "importStart": editor.importStart,
+            "importLength": editor.importLength,
+            "importIndex": editor.importIndex,
         }
 
     @classmethod
@@ -185,7 +193,21 @@ class Serializer:
         data[cls.versionKey] = "0.1.1"
         return data
 
+    @classmethod
+    def updateVer0_1_1(cls, model, data):
+        data["editor"] = data["preview"]
+        del data["preview"]
+
+        data["editor"]["importSpeed"] = model.editor.importSpeed
+        data["editor"]["importStart"] = model.editor.importStart
+        data["editor"]["importLength"] = model.editor.importLength
+        data["editor"]["importIndex"] = model.editor.importIndex
+
+        data[cls.versionKey] = "0.2.0"
+        return data
+
 
 Serializer.updator = {
     "0.1.0": Serializer.updateVer0_1_0,
+    "0.1.1": Serializer.updateVer0_1_1,
 }

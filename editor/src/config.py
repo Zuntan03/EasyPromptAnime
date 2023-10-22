@@ -24,7 +24,7 @@ class Config:
 
     @classmethod
     def load(cls, path, sections):
-        cls._config = ConfigParser()
+        cls._config = ConfigParser(interpolation=None)
         [cls._config.add_section(section) for section in sections]
         cls._config.read(path, encoding="utf-8-sig")
 

@@ -13,6 +13,7 @@ class ControlNetForm:
 
         self.initControlNetDirLoop()
         self.initControlNetInfo()
+        self.initImport()
 
         self.ntb = ttk.Notebook(self.frm)
         self.ntb.pack(fill=tk.BOTH, expand=True)
@@ -71,6 +72,58 @@ class ControlNetForm:
         self.lblControlNetInfo.pack(UiPack.lbl)
 
         self.frmInfo.pack(UiPack.frm)
+
+    def initImport(self):
+        self.frmImport = ttk.Frame(self.frm)
+
+        self.btnImport = ttk.Button(
+            self.frmImport,
+            text=L10n.get("control_net_import"),
+        )
+        self.btnImport.pack(UiPack.btn)
+
+        self.lblImportSpeed = ttk.Label(
+            self.frmImport, text=L10n.get("control_net_import_speed")
+        )
+        self.lblImportSpeed.pack(UiPack.lbl)
+        self.varImportSpeed = tk.StringVar(value="1")
+        self.entImportSpeed = tk.Entry(
+            self.frmImport, textvariable=self.varImportSpeed, width=4
+        )
+        self.entImportSpeed.pack(UiPack.ent)
+
+        self.lblImportStart = ttk.Label(
+            self.frmImport, text=L10n.get("control_net_import_start")
+        )
+        self.lblImportStart.pack(UiPack.lbl)
+        self.varImportStart = tk.StringVar(value="")
+        self.entImportStart = tk.Entry(
+            self.frmImport, textvariable=self.varImportStart, width=11
+        )
+        self.entImportStart.pack(UiPack.ent)
+
+        self.lblImportStart = ttk.Label(
+            self.frmImport, text=L10n.get("control_net_import_length")
+        )
+        self.lblImportStart.pack(UiPack.lbl)
+        self.varImportLength = tk.StringVar(value="")
+        self.entImportLength = tk.Entry(
+            self.frmImport, textvariable=self.varImportLength, width=11
+        )
+        self.entImportLength.pack(UiPack.ent)
+
+        self.lblImportIndex = ttk.Label(
+            self.frmImport, text=L10n.get("control_net_import_index")
+        )
+        self.lblImportIndex.pack(UiPack.lbl)
+        self.varImportIndex = tk.StringVar(value="0")
+        self.entImportIndex = tk.Entry(
+            self.frmImport, textvariable=self.varImportIndex, width=4
+        )
+        self.entImportIndex.pack(UiPack.ent)
+
+        self.frmImport.pack(UiPack.frm)
+        pass
 
     def initControlNetTab(self, parent, cnType):
         name = cnType.name
@@ -206,6 +259,10 @@ class ControlNetForm:
 
     def setDarkTheme(self, colors):
         self.chkControlNetLoop.configure(colors["chk"])
+        self.entImportSpeed.configure(colors["ent"])
+        self.entImportStart.configure(colors["ent"])
+        self.entImportLength.configure(colors["ent"])
+        self.entImportIndex.configure(colors["ent"])
         for cnType in ControlNetType:
             getattr(self, f"chkEnable_{cnType.name}").configure(colors["chk"])
             getattr(self, f"chkPreprocessor_{cnType.name}").configure(colors["chk"])

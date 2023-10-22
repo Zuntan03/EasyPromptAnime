@@ -15,6 +15,11 @@ class Editor(Notifier):
     defTaskForever = False
     defTaskPauseByError = True
 
+    defImportSpeed = "1"
+    defImportStart = ""
+    defImportLength = ""
+    defImportIndex = "0"
+
     defFfplayCmd = "ffplay.exe -left 160 -top 80 -loop 5 -autoexit -loglevel error"
 
     def __init__(self):
@@ -35,6 +40,11 @@ class Editor(Notifier):
 
         self.taskForever = Editor.defTaskForever
         self.taskPauseByError = Editor.defTaskPauseByError
+
+        self.importSpeed = Editor.defImportSpeed
+        self.importStart = Editor.defImportStart
+        self.importLength = Editor.defImportLength
+        self.importIndex = Editor.defImportIndex
 
         self.ffplayCmd = Editor.defFfplayCmd
 
@@ -76,6 +86,13 @@ class Editor(Notifier):
             "ui", "pause_by_error", Editor.defTaskPauseByError
         )
 
+        Editor.defImportSpeed = Config.get("ui", "import_speed", Editor.defImportSpeed)
+        Editor.defImportStart = Config.get("ui", "import_start", Editor.defImportStart)
+        Editor.defImportLength = Config.get(
+            "ui", "import_length", Editor.defImportLength
+        )
+        Editor.defImportIndex = Config.get("ui", "import_index", Editor.defImportIndex)
+
         Editor.defFfplayCmd = Config.get("ui", "ffplay_cmd", Editor.defFfplayCmd)
 
     def updateConfig(self):
@@ -90,6 +107,11 @@ class Editor(Notifier):
 
         Editor.defTaskForever = self.taskForever
         Editor.defTaskPauseByError = self.taskPauseByError
+
+        Editor.defImportSpeed = self.importSpeed
+        Editor.defImportStart = self.importStart
+        Editor.defImportLength = self.importLength
+        Editor.defImportIndex = self.importIndex
 
         # Editor.defFfplayCmd = self.ffplayCmd
 
@@ -107,5 +129,10 @@ class Editor(Notifier):
 
         Config.set("ui", "forever", Editor.defTaskForever)
         Config.set("ui", "pause_by_error", Editor.defTaskPauseByError)
+
+        Config.set("ui", "import_speed", Editor.defImportSpeed)
+        Config.set("ui", "import_start", Editor.defImportStart)
+        Config.set("ui", "import_length", Editor.defImportLength)
+        Config.set("ui", "import_index", Editor.defImportIndex)
 
         Config.set("ui", "ffplay_cmd", Editor.defFfplayCmd)

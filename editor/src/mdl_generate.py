@@ -27,7 +27,7 @@ class Generate(Notifier):
     defCnUsePreprocessor = True
     defCnGuessMode = False
     defCnScale = 1.0
-    defCnScaleList = "0.8, 0.6, 0.4, 0.2"
+    defCnScaleList = ""
     defCnStart = 0.0
     defCnEnd = 1.0
 
@@ -47,7 +47,7 @@ class Generate(Notifier):
 
     defUpscaleScheduler = "DPM++ SDE Karras"
     defUpscaleSteps = 15
-    defUpscaleGuidanceScale = 6.0
+    defUpscaleGuidanceScale = 8.0
     defUpscaleStrength = 0.6
     defUpscaleTileScale = 1.0
     defUpscaleTileStart = 0.0

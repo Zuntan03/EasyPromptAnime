@@ -131,6 +131,9 @@ The GUI tool supports English. Please translate this page using your browser's t
 
 ## 主な更新履歴
 
+- 2023/10/22
+	- MP4 の動画からコントロールネット用の連番画像をワンアクションで取り出せる `MP4 画像取り込み` を追加しました。
+	<!-- TODO: 詳細リンク -->
 - 2023/10/20
 	- モーション LoRA に対応しました。
 		- `ダウンロード` メニューの `モーション LoRA` からダウンロードできます。

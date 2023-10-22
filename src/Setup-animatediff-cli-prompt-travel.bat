@@ -29,10 +29,8 @@ if %errorlevel% neq 0 ( pause & popd & exit /b %errorlevel% )
 pip install -q -e .
 if %errorlevel% neq 0 ( pause & popd & exit /b %errorlevel% )
 
+@REM chcp 65001 rem stylize_mask
 pip install -q -e .[stylize]
-if %errorlevel% neq 0 ( pause & popd & exit /b %errorlevel% )
-
-pip install -q -e .[dwpose]
 if %errorlevel% neq 0 ( pause & popd & exit /b %errorlevel% )
 
 call venv\Scripts\deactivate.bat
