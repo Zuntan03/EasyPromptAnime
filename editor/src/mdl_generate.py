@@ -50,11 +50,11 @@ class Generate(Notifier):
     defUpscaleGuidanceScale = 8.0
     defUpscaleStrength = 0.6
     defUpscaleTileEnable = True
-    defUpscaleTileScale = 0.6
+    defUpscaleTileScale = 1.0
     defUpscaleTileStart = 0.0
     defUpscaleTileEnd = 1.0
-    defUpscaleIp2pEnable = True
-    defUpscaleIp2pScale = 0.6
+    defUpscaleIp2pEnable = False
+    defUpscaleIp2pScale = 1.0
     defUpscaleIp2pStart = 0.0
     defUpscaleIp2pEnd = 1.0
     defUpscaleLineAnimeEnable = False
