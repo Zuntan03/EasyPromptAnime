@@ -86,7 +86,7 @@ class UpscaleForm:
         self.sliDenoise = tk.Scale(
             self.frmDenoiseGuidanceScale,
             from_=0.0,
-            to=1.0,
+            to=4.0,
             resolution=0.05,
             orient=tk.HORIZONTAL,
             variable=self.varDenoise,
