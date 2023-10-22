@@ -105,7 +105,7 @@ class UpscaleForm:
         self.sliTileScale = tk.Scale(
             self.frmTile,
             from_=0.0,
-            to=4.0,
+            to=2.0,
             resolution=0.05,
             orient=tk.HORIZONTAL,
             variable=self.varTileScale,

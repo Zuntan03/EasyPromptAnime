@@ -121,7 +121,7 @@ class BasicForm:
         self.sliWidth = tk.Scale(
             self.frmSize,
             from_=256,
-            to=768,
+            to=1280,
             resolution=BasicForm.sizeResolution,
             orient=tk.HORIZONTAL,
             variable=self.varWidth,
@@ -136,7 +136,7 @@ class BasicForm:
         self.sliHeight = tk.Scale(
             self.frmSize,
             from_=256,
-            to=768,
+            to=1280,
             resolution=BasicForm.sizeResolution,
             orient=tk.HORIZONTAL,
             variable=self.varHeight,
