@@ -39,6 +39,7 @@ The GUI tool supports English. Please translate this page using your browser's t
 [@zono_0](https://qiita.com/zono_0/items/0f9b63f0b581721f01d9)
 [@TakaWeekendProg](https://twitter.com/TakaWeekendProg/status/1705938614033801547)
 [@miyukin_sj](https://twitter.com/miyukin_sj/status/1706966588061348243)
+- 10/23: [MP4 取り込みで動きをつける](https://twitter.com/Zuntan03/status/1716386352508608629)
 - 10/15: [LoRA まとめ](https://twitter.com/Zuntan03/status/1713547944446882188)
 - 10/14: 汎用 LoRA [3dSlider_v2](https://twitter.com/Zuntan03/status/1713064888397181256),
 [flat2](https://twitter.com/Zuntan03/status/1713067612874359173)
@@ -133,10 +134,8 @@ The GUI tool supports English. Please translate this page using your browser's t
 
 - 2023/10/22
 	- MP4 の動画からコントロールネット用の連番画像をワンアクションで取り出せる `MP4 画像取り込み` を追加しました。
-	<!-- TODO: 詳細リンク -->
+		- 利用方法は『[MP4 取り込みで動きをつける](https://twitter.com/Zuntan03/status/1716386352508608629)』をご覧ください。
 	- アップスケールで `ip2p` と `line_anime` を使えるようにしました。
-		<!-- - `tile` の強度 `0.6` と `ip2p` の `0.6` ぐらいの組み合わせが良さそうに見えます。
-		- `EasyPromptAnimeEditor.ini` を削除すると、新しいデフォルト値を使用できます。 -->
 - 2023/10/20
 	- モーション LoRA に対応しました。
 		- `ダウンロード` メニューの `モーション LoRA` からダウンロードできます。
