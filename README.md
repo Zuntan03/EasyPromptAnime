@@ -130,6 +130,10 @@ The GUI tool supports English. Please translate this page using your browser's t
 [@sky252510](https://twitter.com/sky252510/status/1711943866520371522)
 [@TakaWeekendProg](https://twitter.com/TakaWeekendProg/status/1713547498655256920)
 
+## 不具合情報
+
+- コントロールネット使用時にプレビュー開始を 0 以外にすると動画が生成できません。
+
 ## 主な更新履歴
 
 - 2023/10/22
