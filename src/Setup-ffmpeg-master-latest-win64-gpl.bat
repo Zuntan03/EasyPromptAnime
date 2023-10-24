@@ -15,16 +15,27 @@ if not exist %FFMPEG_DIR% (
 	del ffmpeg.zip
 	if %errorlevel% neq 0 ( pause & popd & exit /b %errorlevel% )
 )
+
 if not exist animatediff-cli-prompt-travel\ffmpeg.exe (
 	copy /Y %FFMPEG_DIR%\bin\ffmpeg.exe animatediff-cli-prompt-travel
 	if %errorlevel% neq 0 ( pause & popd & exit /b %errorlevel% )
 )
-if not exist ECCV2022-RIFE\ffmpeg.exe (
-	copy /Y %FFMPEG_DIR%\bin\ffmpeg.exe ECCV2022-RIFE
+
+@REM if not exist ECCV2022-RIFE\ffmpeg.exe (
+@REM 	copy /Y %FFMPEG_DIR%\bin\ffmpeg.exe ECCV2022-RIFE
+@REM 	if %errorlevel% neq 0 ( pause & popd & exit /b %errorlevel% )
+@REM )
+@REM if not exist ECCV2022-RIFE\ffprobe.exe (
+@REM 	copy /Y %FFMPEG_DIR%\bin\ffprobe.exe ECCV2022-RIFE
+@REM 	if %errorlevel% neq 0 ( pause & popd & exit /b %errorlevel% )
+@REM )
+
+if not exist Practical-RIFE\ffmpeg.exe (
+	copy /Y %FFMPEG_DIR%\bin\ffmpeg.exe Practical-RIFE
 	if %errorlevel% neq 0 ( pause & popd & exit /b %errorlevel% )
 )
-if not exist ECCV2022-RIFE\ffprobe.exe (
-	copy /Y %FFMPEG_DIR%\bin\ffprobe.exe ECCV2022-RIFE
+if not exist Practical-RIFE\ffprobe.exe (
+	copy /Y %FFMPEG_DIR%\bin\ffprobe.exe Practical-RIFE
 	if %errorlevel% neq 0 ( pause & popd & exit /b %errorlevel% )
 )
 

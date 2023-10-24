@@ -136,6 +136,9 @@ The GUI tool supports English. Please translate this page using your browser's t
 
 ## 主な更新履歴
 
+- 2023/10/25
+	- フレーム補間をする RIFE のバージョンを 3.6 から 4.8 に上げました。
+		- アップデート後は Practical-RIFE/ を使用しますので、ECCV2022-RIFE/ を削除できます。
 - 2023/10/22
 	- MP4 の動画からコントロールネット用の連番画像をワンアクションで取り出せる `MP4 画像取り込み` を追加しました。
 		- 利用方法は『[MP4 取り込みで動きをつける](https://twitter.com/Zuntan03/status/1716386352508608629)』をご覧ください。
@@ -363,7 +366,7 @@ AnimateDiff とモデルに相性があり、[黒画像になる](#真っ黒の�
 
 ### `FpsX4.bat`
 
-mp4 をドラッグ＆ドロップすると、[RIFE](https://github.com/megvii-research/ECCV2022-RIFE/tree/main) で FPS を4倍にします。サイズが大きくなるので再エンコード版も生成します。
+mp4 をドラッグ＆ドロップすると、[RIFE](https://github.com/hzwer/Practical-RIFE) で FPS を4倍にします。サイズが大きくなるので再エンコード版も生成します。
 
 - 第 2 引数に RIFE による中割りの分割回数（FPSの倍増を何回実施するかの）を指定できます。FPSが 1 なら 2倍、2 なら 4倍、3 なら 8倍、4 なら 16倍になります。未指定や 0 なら 2 になります。
 - 第 3 引数に RIFE の分割後の FPS を指定できます。 **この FPS 指定では画像の枚数を変更せずに FPS を適用しますので、アニメーションの速度と長さが変わります。** 1秒の 10FPS の動画を RIFE で 4倍にして 40枚の画像がある状態で、第三引数で 60FPS を指定すると、アニメーションが早くなり 0.66秒で再生が終わります。逆に 8倍で80枚にして 60FPS を指定した場合は、ゆっくり再生されて 1.33秒で再生が終わります。0 なら未指定です。
@@ -401,7 +404,7 @@ mp4 をドラッグ＆ドロップすると X(Twitter) アップロード用の�
 2. `animediff tile-upscale -H 1088` から FFmpeg で mp4 生成
 	- `-R` なら `animediff refine -C (context / 2)`
 3. `animediff tile-upscale -H 1632` から FFmpeg で mp4 生成
-4. [RIFE](https://github.com/megvii-research/ECCV2022-RIFE/tree/main) でフレーム補間
+4. [RIFE](https://github.com/hzwer/Practical-RIFE) でフレーム補間
 
 ### ファイル名オプション一覧
 
@@ -428,7 +431,7 @@ mp4 をドラッグ＆ドロップすると X(Twitter) アップロード用の�
 ### ツール・ライブラリ
 
 - [AnimateDiff prompt travel](https://github.com/s9roll7/animatediff-cli-prompt-travel)
-- [Real-Time Intermediate Flow Estimation for Video Frame Interpolation](https://github.com/megvii-research/ECCV2022-RIFE)
+- [Practical-RIFE](https://github.com/hzwer/Practical-RIFE)
 - [sd-scripts](https://github.com/kohya-ss/sd-scripts)
 - [Codex FFmpeg](https://github.com/GyanD/codexFFmpeg)
 

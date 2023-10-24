@@ -31,7 +31,7 @@ set SRC_PATH="%~f1"
 set RIFE_DEST_PATH="%~dpn1-D%RIFE_DIV_NUM%%RIFE_FPS_NAME%.mp4"
 set FFMPEG_DEST_PATH="%~dpn1-D%RIFE_DIV_NUM%%RIFE_FPS_NAME%e%FFMPEG_FPS_NAME%.mp4"
 
-pushd %~dp0ECCV2022-RIFE
+pushd %~dp0Practical-RIFE
 call venv\Scripts\activate.bat
 
 @REM echo ARGS: %1 %2 %3 %4 %5
@@ -53,4 +53,4 @@ echo ffmpeg.exe -y -i %RIFE_DEST_PATH% -pix_fmt yuv420p -vcodec libx264 -tune an
 ffmpeg.exe -y -i %RIFE_DEST_PATH% -pix_fmt yuv420p -vcodec libx264 -tune animation %FFMPEG_FPS_OPTION% -crf %FFMPEG_CRF% %FFMPEG_DEST_PATH%
 
 call venv\Scripts\deactivate.bat
-popd rem %~dp0ECCV2022-RIFE
+popd rem %~dp0Practical-RIFE

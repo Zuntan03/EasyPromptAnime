@@ -146,4 +146,4 @@ class Menu:
         self.referenceMenu.add_command(label="AnimateDiff prompt travel")
         self.referenceMenu.add_command(label="sd-scripts")
         self.referenceMenu.add_command(label="Codex FFmpeg")
-        self.referenceMenu.add_command(label="ECCV2022-RIFE")
+        self.referenceMenu.add_command(label="Practical-RIFE")

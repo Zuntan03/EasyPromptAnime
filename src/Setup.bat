@@ -2,7 +2,10 @@
 call %~dp0Setup-animatediff-cli-prompt-travel.bat
 if %errorlevel% neq 0 ( exit /b %errorlevel% )
 
-call %~dp0Setup-ECCV2022-RIFE.bat
+@REM call %~dp0Setup-ECCV2022-RIFE.bat
+@REM if %errorlevel% neq 0 ( exit /b %errorlevel% )
+
+call %~dp0Setup-Practical-RIFE.bat
 if %errorlevel% neq 0 ( exit /b %errorlevel% )
 
 call %~dp0Setup-sd-scripts.bat

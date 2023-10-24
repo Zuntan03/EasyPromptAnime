@@ -195,7 +195,7 @@ class MenuController:
         self.openUrlNoL10n(ref, "sd-scripts", "https://github.com/kohya-ss/sd-scripts")
         self.openUrlNoL10n(ref, "Codex FFmpeg", "https://github.com/GyanD/codexFFmpeg")
         self.openUrlNoL10n(
-            ref, "ECCV2022-RIFE", "https://github.com/megvii-research/ECCV2022-RIFE"
+            ref, "Practical-RIFE", "https://github.com/hzwer/Practical-RIFE"
         )
 
     def openFile(self, menu, name, path):
