@@ -10,6 +10,7 @@ from ctr_generate import GenerateController
 from ctr_control_net import ControlNetController
 from ctr_ip_adapter import IpAdapterController
 from ctr_upscale import UpscaleController
+from ctr_mosaic import MosaicController
 from ctr_output import OutputController
 from prompt_travel import PromptTravel
 
@@ -29,12 +30,14 @@ class Controller:
         self.controlNet = ControlNetController(form, model)
         self.ipAdapter = IpAdapterController(form, model)
         self.upscale = UpscaleController(form, model)
+        self.mosaic = MosaicController(form, model)
         self.output = OutputController(form, model)
 
         self.menu.initEvents()
         self.input.initEvents()
         self.preview.initEvents()
         self.controlNet.initEvents()
+        self.mosaic.initEvents()
 
         self.model.prompt.loadDefaultPrompt()
         lastFrame = self.model.prompt.getLastPrompt()[0] + 10

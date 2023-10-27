@@ -11,13 +11,13 @@ class Generate(Notifier):
     defContext = 16
     defScheduler = "DPM++ SDE Karras"
     defSteps = 20
-    defGuidanceScale = 8.0
+    defGuidanceScale = 6.0
     defClipSkip = 2
     defPromptFixedRatio = 0.7
     defUseHalfVae = False
     defUseXFormers = False
-    defWidth = 384  # TODO: Out of Sdene
-    defHeight = 512  # TODO: Out of Sdene
+    defWidth = 384  # TODO: Out of Scene
+    defHeight = 512  # TODO: Out of Scene
     defSeed = -1
 
     defControlNetDir = "test"
@@ -37,18 +37,18 @@ class Generate(Notifier):
     defIpAdapterScale = 0.5
     defIpAdapterImageDir = "test"
 
-    defUpscale1Enabled = True  # TODO: Out of Sdene
+    defUpscale1Enabled = True  # TODO: Out of Scene
     defUpscale1Mode = Const.tile
-    defUpscale1Scale = 2.0  # TODO: Out of Sdene
+    defUpscale1Scale = 2.0  # TODO: Out of Scene
 
-    defUpscale2Enabled = False  # TODO: Out of Sdene
+    defUpscale2Enabled = False  # TODO: Out of Scene
     defUpscale2Mode = Const.tile
-    defUpscale2Scale = 1.5  # TODO: Out of Sdene
+    defUpscale2Scale = 1.5  # TODO: Out of Scene
 
     defUpscaleScheduler = "DPM++ SDE Karras"
     defUpscaleSteps = 15
-    defUpscaleGuidanceScale = 8.0
-    defUpscaleStrength = 0.6
+    defUpscaleGuidanceScale = 6.0
+    defUpscaleStrength = 0.45
     defUpscaleTileEnable = True
     defUpscaleTileScale = 1.0
     defUpscaleTileStart = 0.0
@@ -63,6 +63,38 @@ class Generate(Notifier):
     defUpscaleLineAnimeEnd = 1.0
     defUpscaleUseHalfVae = False
     defUpscaleUseXFormers = False
+
+    defMosaicEnabled = False
+    defMosaicThreshold = 0.2
+    defTemporalMosaic = True
+    defEllipseMosaic = True
+    defMosaicMaskBlur = 0.02
+    defMosaicFemFace = False
+    defMosaicFemBrst = False
+    defMosaicFemBrstCov = False
+    defMosaicFemGntl = True
+    defMosaicFemGntlCov = True
+    defMosaicMaleFace = False
+    defMosaicMaleBrst = False
+    defMosaicMaleGntl = True
+    defMosaicArmpit = False
+    defMosaicArmpitCov = False
+    defMosaicBelly = False
+    defMosaicBellyCov = False
+    defMosaicHip = False
+    defMosaicHipCov = False
+    defMosaicAns = False
+    defMosaicAnsCov = False
+    defMosaicFeet = False
+    defMosaicFeetCov = False
+    defMosaicScaleTop = 2.0
+    defMosaicScaleBottom = 2.0
+    defMosaicScaleLeft = 2.0
+    defMosaicScaleRight = 2.0
+    defMosaicIgnoreTop = 0.0
+    defMosaicIgnoreBottom = 0.0
+    defMosaicIgnoreLeft = 0.0
+    defMosaicIgnoreRight = 0.0
 
     def __init__(self):
         super().__init__()
@@ -157,6 +189,38 @@ class Generate(Notifier):
         self.upscaleLineAnimeEnd = Generate.defUpscaleLineAnimeEnd
         self.upscaleUseHalfVae = Generate.defUpscaleUseHalfVae
         self.upscaleUseXFormers = Generate.defUpscaleUseXFormers
+
+        self.mosaicEnabled = Generate.defMosaicEnabled
+        self.mosaicThreshold = Generate.defMosaicThreshold
+        self.temporalMosaic = Generate.defTemporalMosaic
+        self.ellipseMosaic = Generate.defEllipseMosaic
+        self.mosaicMaskBlur = Generate.defMosaicMaskBlur
+        self.mosaicFemFace = Generate.defMosaicFemFace
+        self.mosaicFemBrst = Generate.defMosaicFemBrst
+        self.mosaicFemBrstCov = Generate.defMosaicFemBrstCov
+        self.mosaicFemGntl = Generate.defMosaicFemGntl
+        self.mosaicFemGntlCov = Generate.defMosaicFemGntlCov
+        self.mosaicMaleFace = Generate.defMosaicMaleFace
+        self.mosaicMaleBrst = Generate.defMosaicMaleBrst
+        self.mosaicMaleGntl = Generate.defMosaicMaleGntl
+        self.mosaicArmpit = Generate.defMosaicArmpit
+        self.mosaicArmpitCov = Generate.defMosaicArmpitCov
+        self.mosaicBelly = Generate.defMosaicBelly
+        self.mosaicBellyCov = Generate.defMosaicBellyCov
+        self.mosaicHip = Generate.defMosaicHip
+        self.mosaicHipCov = Generate.defMosaicHipCov
+        self.mosaicAns = Generate.defMosaicAns
+        self.mosaicAnsCov = Generate.defMosaicAnsCov
+        self.mosaicFeet = Generate.defMosaicFeet
+        self.mosaicFeetCov = Generate.defMosaicFeetCov
+        self.mosaicScaleTop = Generate.defMosaicScaleTop
+        self.mosaicScaleBottom = Generate.defMosaicScaleBottom
+        self.mosaicScaleLeft = Generate.defMosaicScaleLeft
+        self.mosaicScaleRight = Generate.defMosaicScaleRight
+        self.mosaicIgnoreTop = Generate.defMosaicIgnoreTop
+        self.mosaicIgnoreBottom = Generate.defMosaicIgnoreBottom
+        self.mosaicIgnoreLeft = Generate.defMosaicIgnoreLeft
+        self.mosaicIgnoreRight = Generate.defMosaicIgnoreRight
 
         self.isChanged = True
 
@@ -373,6 +437,100 @@ class Generate(Notifier):
             "default", "upscale_use_x_formers", Generate.defUpscaleUseXFormers
         )
 
+        Generate.defMosaicEnabled = Config.getBool(
+            "default", "mosaic_enabled", Generate.defMosaicEnabled
+        )
+        Generate.defMosaicThreshold = Config.getFloat(
+            "default", "mosaic_threshold", Generate.defMosaicThreshold
+        )
+        Generate.defTemporalMosaic = Config.getBool(
+            "default", "temporal_mosaic", Generate.defTemporalMosaic
+        )
+        Generate.defEllipseMosaic = Config.getBool(
+            "default", "ellipse_mosaic", Generate.defEllipseMosaic
+        )
+        Generate.defMosaicMaskBlur = Config.getFloat(
+            "default", "mosaic_mask_blur", Generate.defMosaicMaskBlur
+        )
+        Generate.defMosaicFemFace = Config.getBool(
+            "default", "mosaic_fem_face", Generate.defMosaicFemFace
+        )
+        Generate.defMosaicFemBrst = Config.getBool(
+            "default", "mosaic_fem_brst", Generate.defMosaicFemBrst
+        )
+        Generate.defMosaicFemBrstCov = Config.getBool(
+            "default", "mosaic_fem_brst_cov", Generate.defMosaicFemBrstCov
+        )
+        Generate.defMosaicFemGntl = Config.getBool(
+            "default", "mosaic_fem_gntl", Generate.defMosaicFemGntl
+        )
+        Generate.defMosaicFemGntlCov = Config.getBool(
+            "default", "mosaic_fem_gntl_cov", Generate.defMosaicFemGntlCov
+        )
+        Generate.defMosaicMaleFace = Config.getBool(
+            "default", "mosaic_male_face", Generate.defMosaicMaleFace
+        )
+        Generate.defMosaicMaleBrst = Config.getBool(
+            "default", "mosaic_male_brst", Generate.defMosaicMaleBrst
+        )
+        Generate.defMosaicMaleGntl = Config.getBool(
+            "default", "mosaic_male_gntl", Generate.defMosaicMaleGntl
+        )
+        Generate.defMosaicArmpit = Config.getBool(
+            "default", "mosaic_armpit", Generate.defMosaicArmpit
+        )
+        Generate.defMosaicArmpitCov = Config.getBool(
+            "default", "mosaic_armpit_cov", Generate.defMosaicArmpitCov
+        )
+        Generate.defMosaicBelly = Config.getBool(
+            "default", "mosaic_belly", Generate.defMosaicBelly
+        )
+        Generate.defMosaicBellyCov = Config.getBool(
+            "default", "mosaic_belly_cov", Generate.defMosaicBellyCov
+        )
+        Generate.defMosaicHip = Config.getBool(
+            "default", "mosaic_hip", Generate.defMosaicHip
+        )
+        Generate.defMosaicHipCov = Config.getBool(
+            "default", "mosaic_hip_cov", Generate.defMosaicHipCov
+        )
+        Generate.defMosaicAns = Config.getBool(
+            "default", "mosaic_ans", Generate.defMosaicAns
+        )
+        Generate.defMosaicAnsCov = Config.getBool(
+            "default", "mosaic_ans_cov", Generate.defMosaicAnsCov
+        )
+        Generate.defMosaicFeet = Config.getBool(
+            "default", "mosaic_feet", Generate.defMosaicFeet
+        )
+        Generate.defMosaicFeetCov = Config.getBool(
+            "default", "mosaic_feet_cov", Generate.defMosaicFeetCov
+        )
+        Generate.defMosaicScaleTop = Config.getFloat(
+            "default", "mosaic_scale_top", Generate.defMosaicScaleTop
+        )
+        Generate.defMosaicScaleBottom = Config.getFloat(
+            "default", "mosaic_scale_bottom", Generate.defMosaicScaleBottom
+        )
+        Generate.defMosaicScaleLeft = Config.getFloat(
+            "default", "mosaic_scale_left", Generate.defMosaicScaleLeft
+        )
+        Generate.defMosaicScaleRight = Config.getFloat(
+            "default", "mosaic_scale_right", Generate.defMosaicScaleRight
+        )
+        Generate.defMosaicIgnoreTop = Config.getFloat(
+            "default", "mosaic_ignore_top", Generate.defMosaicIgnoreTop
+        )
+        Generate.defMosaicIgnoreBottom = Config.getFloat(
+            "default", "mosaic_ignore_bottom", Generate.defMosaicIgnoreBottom
+        )
+        Generate.defMosaicIgnoreLeft = Config.getFloat(
+            "default", "mosaic_ignore_left", Generate.defMosaicIgnoreLeft
+        )
+        Generate.defMosaicIgnoreRight = Config.getFloat(
+            "default", "mosaic_ignore_right", Generate.defMosaicIgnoreRight
+        )
+
     def updateConfig(self):
         Generate.defLength = self.length
         Generate.defModel = self.model
@@ -462,6 +620,38 @@ class Generate(Notifier):
         Generate.defUpscaleLineAnimeEnd = self.upscaleLineAnimeEnd
         Generate.defUpscaleUseHalfVae = self.upscaleUseHalfVae
         Generate.defUpscaleUseXFormers = self.upscaleUseXFormers
+
+        Generate.defMosaicEnabled = self.mosaicEnabled
+        Generate.defMosaicThreshold = self.mosaicThreshold
+        Generate.defTemporalMosaic = self.temporalMosaic
+        Generate.defEllipseMosaic = self.ellipseMosaic
+        Generate.defMosaicMaskBlur = self.mosaicMaskBlur
+        Generate.defMosaicFemFace = self.mosaicFemFace
+        Generate.defMosaicFemBrst = self.mosaicFemBrst
+        Generate.defMosaicFemBrstCov = self.mosaicFemBrstCov
+        Generate.defMosaicFemGntl = self.mosaicFemGntl
+        Generate.defMosaicFemGntlCov = self.mosaicFemGntlCov
+        Generate.defMosaicMaleFace = self.mosaicMaleFace
+        Generate.defMosaicMaleBrst = self.mosaicMaleBrst
+        Generate.defMosaicMaleGntl = self.mosaicMaleGntl
+        Generate.defMosaicArmpit = self.mosaicArmpit
+        Generate.defMosaicArmpitCov = self.mosaicArmpitCov
+        Generate.defMosaicBelly = self.mosaicBelly
+        Generate.defMosaicBellyCov = self.mosaicBellyCov
+        Generate.defMosaicHip = self.mosaicHip
+        Generate.defMosaicHipCov = self.mosaicHipCov
+        Generate.defMosaicAns = self.mosaicAns
+        Generate.defMosaicAnsCov = self.mosaicAnsCov
+        Generate.defMosaicFeet = self.mosaicFeet
+        Generate.defMosaicFeetCov = self.mosaicFeetCov
+        Generate.defMosaicScaleTop = self.mosaicScaleTop
+        Generate.defMosaicScaleBottom = self.mosaicScaleBottom
+        Generate.defMosaicScaleLeft = self.mosaicScaleLeft
+        Generate.defMosaicScaleRight = self.mosaicScaleRight
+        Generate.defMosaicIgnoreTop = self.mosaicIgnoreTop
+        Generate.defMosaicIgnoreBottom = self.mosaicIgnoreBottom
+        Generate.defMosaicIgnoreLeft = self.mosaicIgnoreLeft
+        Generate.defMosaicIgnoreRight = self.mosaicIgnoreRight
 
     def storeConfig(self):
         Config.set("default", "length", Generate.defLength)
@@ -562,6 +752,38 @@ class Generate(Notifier):
         Config.set("default", "upscale_line_anime_end", Generate.defUpscaleLineAnimeEnd)
         Config.set("default", "upscale_use_half_vae", Generate.defUpscaleUseHalfVae)
         Config.set("default", "upscale_use_x_formers", Generate.defUpscaleUseXFormers)
+
+        Config.set("default", "mosaic_enabled", Generate.defMosaicEnabled)
+        Config.set("default", "mosaic_threshold", Generate.defMosaicThreshold)
+        Config.set("default", "temporal_mosaic", Generate.defTemporalMosaic)
+        Config.set("default", "ellipse_mosaic", Generate.defEllipseMosaic)
+        Config.set("default", "mosaic_mask_blur", Generate.defMosaicMaskBlur)
+        Config.set("default", "mosaic_fem_face", Generate.defMosaicFemFace)
+        Config.set("default", "mosaic_fem_brst", Generate.defMosaicFemBrst)
+        Config.set("default", "mosaic_fem_brst_cov", Generate.defMosaicFemBrstCov)
+        Config.set("default", "mosaic_fem_gntl", Generate.defMosaicFemGntl)
+        Config.set("default", "mosaic_fem_gntl_cov", Generate.defMosaicFemGntlCov)
+        Config.set("default", "mosaic_male_face", Generate.defMosaicMaleFace)
+        Config.set("default", "mosaic_male_brst", Generate.defMosaicMaleBrst)
+        Config.set("default", "mosaic_male_gntl", Generate.defMosaicMaleGntl)
+        Config.set("default", "mosaic_armpit", Generate.defMosaicArmpit)
+        Config.set("default", "mosaic_armpit_cov", Generate.defMosaicArmpitCov)
+        Config.set("default", "mosaic_belly", Generate.defMosaicBelly)
+        Config.set("default", "mosaic_belly_cov", Generate.defMosaicBellyCov)
+        Config.set("default", "mosaic_hip", Generate.defMosaicHip)
+        Config.set("default", "mosaic_hip_cov", Generate.defMosaicHipCov)
+        Config.set("default", "mosaic_ans", Generate.defMosaicAns)
+        Config.set("default", "mosaic_ans_cov", Generate.defMosaicAnsCov)
+        Config.set("default", "mosaic_feet", Generate.defMosaicFeet)
+        Config.set("default", "mosaic_feet_cov", Generate.defMosaicFeetCov)
+        Config.set("default", "mosaic_scale_top", Generate.defMosaicScaleTop)
+        Config.set("default", "mosaic_scale_bottom", Generate.defMosaicScaleBottom)
+        Config.set("default", "mosaic_scale_left", Generate.defMosaicScaleLeft)
+        Config.set("default", "mosaic_scale_right", Generate.defMosaicScaleRight)
+        Config.set("default", "mosaic_ignore_top", Generate.defMosaicIgnoreTop)
+        Config.set("default", "mosaic_ignore_bottom", Generate.defMosaicIgnoreBottom)
+        Config.set("default", "mosaic_ignore_left", Generate.defMosaicIgnoreLeft)
+        Config.set("default", "mosaic_ignore_right", Generate.defMosaicIgnoreRight)
 
 
 for cnType in ControlNetType:

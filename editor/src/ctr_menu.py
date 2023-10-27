@@ -163,7 +163,7 @@ class MenuController:
         )
         stm.entryconfig(
             L10n.get("m_set_default_setting"),
-            command=lambda: self.parent.updateConfig() and self.parent.saveConfig(),
+            command=lambda: self.parent.updateConfig() or self.parent.saveConfig(),
         )
         stm.entryconfig(
             L10n.get("m_set_change_light_dark"),

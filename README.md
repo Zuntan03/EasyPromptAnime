@@ -136,6 +136,8 @@ The GUI tool supports English. Please translate this page using your browser's t
 
 ## 主な更新履歴
 
+- 2023/10/27
+	- 連番画像へのモザイクに対応しました。
 - 2023/10/25
 	- フレーム補間をする RIFE のバージョンを 3.6 から 4.8 に上げました。
 		- アップデート後は Practical-RIFE/ を使用しますので、ECCV2022-RIFE/ を削除できます。

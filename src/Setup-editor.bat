@@ -12,7 +12,7 @@ if %errorlevel% neq 0 ( pause & popd & exit /b %errorlevel% )
 python -m pip install -q --upgrade pip
 if %errorlevel% neq 0 ( pause & popd & exit /b %errorlevel% )
 
-pip install -q darkdetect tkinterdnd2
+pip install -q darkdetect tkinterdnd2 nudenet
 if %errorlevel% neq 0 ( pause & popd & exit /b %errorlevel% )
 
 call editor\venv\Scripts\deactivate.bat

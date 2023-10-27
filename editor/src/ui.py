@@ -8,6 +8,7 @@ from ui_generate import GenerateForm
 from ui_control_net import ControlNetForm
 from ui_ip_adapter import IpAdapterForm
 from ui_upscale import UpscaleForm
+from ui_mosaic import MosaicForm
 from ui_output import OutputForm
 import tkinter as tk
 import tkinter.ttk as ttk
@@ -49,13 +50,14 @@ class Form:
         self.controlNet = ControlNetForm(self.ntbFunc)
         self.ipAdapter = IpAdapterForm(self.ntbFunc)
         self.upscale = UpscaleForm(self.ntbFunc)
+        self.mosaic = MosaicForm(self.ntbFunc)
         self.paneWin.add(
             self.ntbFunc,
             height=self.ntbFuncH,
             minsize=Form.ntbFuncMinH,
             stretch="never",
         )
-        self.ntbFunc.select(1)  # Default 1
+        self.ntbFunc.select(6)  # Default 1
 
         self.output = OutputForm(self.paneWin)
         self.paneWin.pack(fill=tk.BOTH, expand=True)
@@ -185,6 +187,7 @@ class Form:
         self.controlNet.setDarkTheme(colors)
         self.ipAdapter.setDarkTheme(colors)
         self.upscale.setDarkTheme(colors)
+        self.mosaic.setDarkTheme(colors)
         self.output.setDarkTheme(colors)
 
     def run(self):
