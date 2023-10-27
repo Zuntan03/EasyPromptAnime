@@ -74,15 +74,22 @@ class Mosaic:
                 "path": mosaics[i]["path"],
                 "detections": [],
             }
-            # Need loop?
+
             for detection in mosaics[i]["detections"]:
                 temporalMosaic["detections"].append(detection)
-            if i > 0:
-                for detection in mosaics[i - 1]["detections"]:
-                    temporalMosaic["detections"].append(detection)
-            if i < mosaicsNum - 1:
-                for detection in mosaics[i + 1]["detections"]:
-                    temporalMosaic["detections"].append(detection)
+            counter = 1
+            while True:
+                if i >= counter:
+                    for detection in mosaics[i - counter]["detections"]:
+                        temporalMosaic["detections"].append(detection)
+                if i < mosaicsNum - counter:
+                    for detection in mosaics[i + counter]["detections"]:
+                        temporalMosaic["detections"].append(detection)
+                if len(temporalMosaic["detections"]) > 0:
+                    break
+                counter += 1
+                if counter >= mosaicsNum:
+                    break
             temporalMosaics.append(temporalMosaic)
         return temporalMosaics
 
