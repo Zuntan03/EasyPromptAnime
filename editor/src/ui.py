@@ -57,7 +57,7 @@ class Form:
             minsize=Form.ntbFuncMinH,
             stretch="never",
         )
-        self.ntbFunc.select(6)  # Default 1
+        self.ntbFunc.select(1)  # Default 1
 
         self.output = OutputForm(self.paneWin)
         self.paneWin.pack(fill=tk.BOTH, expand=True)
