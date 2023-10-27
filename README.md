@@ -111,7 +111,7 @@ The GUI tool supports English. Please translate this page using your browser's t
 [@aicocoa982](https://twitter.com/aicocoa982/status/1710584766981165106)
 [@tiyorin0924](https://twitter.com/tiyorin0924/status/1710622890369204296)
 [@katarina7410](https://twitter.com/katarina7410/status/1710994031260709334)
-[@FUKUAILabo](https://twitter.com/FUKUAILabo/status/1711489205660975329)
+[@FUKUAILabo](https://twitter.com/FUKUAILabo/status/1715489176207114417)
 [@Rakhsh_](https://twitter.com/Rakhsh_/status/1711434624705102255)
 [@julajp](https://twitter.com/julajp/status/1711720270061572306)
 [@PlayShingo](https://twitter.com/PlayShingo/status/1710585195731247134)
@@ -126,9 +126,17 @@ The GUI tool supports English. Please translate this page using your browser's t
 [@ryoheiplus](https://twitter.com/ryoheiplus/status/1712774074664091727)
 [@iriomotebox](https://twitter.com/iriomotebox/status/1711959604807283074)
 [@koichi_business](https://twitter.com/koichi_business/status/1712392392907854207)
-[@Neosuchiai](https://twitter.com/Neosuchiai/status/1712286175988416876)
+[@Neosuchiai](https://twitter.com/Neosuchiai/status/1716861042041762295)
 [@sky252510](https://twitter.com/sky252510/status/1711943866520371522)
 [@TakaWeekendProg](https://twitter.com/TakaWeekendProg/status/1713547498655256920)
+[@qriotto](https://twitter.com/qriotto/status/1713947553375699298)
+[@z_zabaglione](https://twitter.com/z_zabaglione/status/1714185274304143511)
+[@miyukin_sj](https://twitter.com/miyukin_sj/status/1716631299803480144)
+[@Sakura_Meta](https://twitter.com/Sakura_Meta/status/1716100503522972099)
+[@os_shim](https://twitter.com/os_shim/status/1713963216836149565)
+[@Lover57227277](https://twitter.com/Lover57227277/status/1713940885556396112)
+[@Masa_8823](https://twitter.com/Masa_8823/status/1717109785773129823)
+[@yuina_satuki](https://twitter.com/yuina_satuki/status/1715702737743253745)
 
 ## 不具合情報
 
