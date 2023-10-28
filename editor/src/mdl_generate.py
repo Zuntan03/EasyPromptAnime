@@ -11,7 +11,7 @@ class Generate(Notifier):
     defContext = 16
     defScheduler = "DPM++ SDE Karras"
     defSteps = 20
-    defGuidanceScale = 6.0
+    defGuidanceScale = 7.0
     defClipSkip = 2
     defPromptFixedRatio = 0.7
     defUseHalfVae = False
