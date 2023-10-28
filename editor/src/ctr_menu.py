@@ -197,6 +197,7 @@ class MenuController:
         self.openUrlNoL10n(
             ref, "Practical-RIFE", "https://github.com/hzwer/Practical-RIFE"
         )
+        self.openUrlNoL10n(ref, "NudeNet", "https://github.com/notAI-tech/NudeNet")
 
     def openFile(self, menu, name, path):
         menu.entryconfig(

@@ -147,3 +147,4 @@ class Menu:
         self.referenceMenu.add_command(label="sd-scripts")
         self.referenceMenu.add_command(label="Codex FFmpeg")
         self.referenceMenu.add_command(label="Practical-RIFE")
+        self.referenceMenu.add_command(label="NudeNet")

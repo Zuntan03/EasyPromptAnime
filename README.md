@@ -444,6 +444,7 @@ mp4 をドラッグ＆ドロップすると X(Twitter) アップロード用の�
 - [Practical-RIFE](https://github.com/hzwer/Practical-RIFE)
 - [sd-scripts](https://github.com/kohya-ss/sd-scripts)
 - [Codex FFmpeg](https://github.com/GyanD/codexFFmpeg)
+- [NudeNet](https://github.com/notAI-tech/NudeNet)
 
 # ライセンス
 

@@ -47,8 +47,8 @@ class Generate(Notifier):
 
     defUpscaleScheduler = "DPM++ SDE Karras"
     defUpscaleSteps = 15
-    defUpscaleGuidanceScale = 6.0
-    defUpscaleStrength = 0.45
+    defUpscaleGuidanceScale = 7.0
+    defUpscaleStrength = 0.4
     defUpscaleTileEnable = True
     defUpscaleTileScale = 1.0
     defUpscaleTileStart = 0.0
