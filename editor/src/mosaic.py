@@ -79,7 +79,7 @@ class Mosaic:
                 temporalMosaic["detections"].append(detection)
             counter = 1
             while True:
-                if len(temporalMosaic["detections"]) > 0:
+                if len(temporalMosaic["detections"]) >= 1:  # TODO:
                     break
                 if i >= counter:
                     for detection in mosaics[i - counter]["detections"]:

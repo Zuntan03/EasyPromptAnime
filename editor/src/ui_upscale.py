@@ -49,7 +49,7 @@ class UpscaleForm:
         self.varSteps = tk.IntVar(value=15)
         self.sliSteps = tk.Scale(
             self.frmSchedulerSteps,
-            from_=10,
+            from_=1,
             to=UpscaleForm.maxSteps,
             resolution=1,
             orient=tk.HORIZONTAL,
