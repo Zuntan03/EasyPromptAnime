@@ -8,6 +8,8 @@ class PromptTravel:
     defaultTemplate = """{{
     "name": "",
     "path": "{MODEL_PATH}",
+    "apply_lcm_lora": false,
+    "lcm_lora_scale": 1.0,
     "vae_path": "{VAE_PATH}",
     "motion_module": "{MOTION_MODULE_PATH}",
     "compile": false,

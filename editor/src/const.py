@@ -13,6 +13,8 @@ class Const:
         "ddim",
         "euler",
         "euler_a",
+        # "dpm_2_a",
+        # "k_dpm_2_a",
     ]
     schedulerNames = [
         "DPM++ 2M SDE Karras",
@@ -21,6 +23,8 @@ class Const:
         "DDIM",
         "Euler",
         "Euler a",
+        # "DPM2 a",
+        # "DPM2 a Karras",
     ]
 
     @classmethod
