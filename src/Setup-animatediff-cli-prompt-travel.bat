@@ -20,10 +20,13 @@ echo pip install animatediff-cli-prompt-travel venv
 python -m pip install -q --upgrade pip
 if %errorlevel% neq 0 ( pause & popd & exit /b %errorlevel% )
 
-pip install -q torch==2.0.1+cu118 torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+pip install -q torch==2.1.0+cu121 torchvision==0.16.0+cu121 torchaudio==2.1.0+cu121 --index-url https://download.pytorch.org/whl/cu121
 if %errorlevel% neq 0 ( pause & popd & exit /b %errorlevel% )
 
-pip install -q xformers==0.0.22 mediapipe pytorch_lightning
+pip install -q xformers==0.0.22.post7 --index-url https://download.pytorch.org/whl/cu121
+if %errorlevel% neq 0 ( pause & popd & exit /b %errorlevel% )
+
+pip install -q mediapipe pytorch_lightning
 if %errorlevel% neq 0 ( pause & popd & exit /b %errorlevel% )
 
 pip install -q -e .
