@@ -10,10 +10,11 @@ class Generate(Notifier):
     defMotionModule = "mm_sd_v15_v2.ckpt"
     defContext = 16
     defScheduler = "DPM++ SDE Karras"
-    defSteps = 20
-    defGuidanceScale = 7.0
+    defSteps = 6
+    defGuidanceScale = 2.0
     defClipSkip = 2
     defPromptFixedRatio = 0.7
+    defUseLcm = True
     defUseHalfVae = False
     defUseXFormers = False
     defWidth = 384  # TODO: Out of Scene
@@ -111,6 +112,7 @@ class Generate(Notifier):
         self.guidanceScale = Generate.defGuidanceScale
         self.clipSkip = Generate.defClipSkip
         self.promptFixedRatio = Generate.defPromptFixedRatio
+        self.useLcm = Generate.defUseLcm
         self.useHalfVae = Generate.defUseHalfVae
         self.useXFormers = Generate.defUseXFormers
         self.width = Generate.defWidth
@@ -264,6 +266,7 @@ class Generate(Notifier):
         Generate.defPromptFixedRatio = Config.getFloat(
             "default", "prompt_fixed_ratio", Generate.defPromptFixedRatio
         )
+        Generate.defUseLcm = Config.getBool("default", "use_lcm", Generate.defUseLcm)
         Generate.defUseHalfVae = Config.getBool(
             "default", "use_half_vae", Generate.defUseHalfVae
         )
@@ -542,6 +545,7 @@ class Generate(Notifier):
         Generate.defGuidanceScale = self.guidanceScale
         Generate.defClipSkip = self.clipSkip
         Generate.defPromptFixedRatio = self.promptFixedRatio
+        Generate.defUseLcm = self.useLcm
         Generate.defUseHalfVae = self.useHalfVae
         Generate.defUseXFormers = self.useXFormers
         Generate.defWidth = self.width
@@ -664,6 +668,7 @@ class Generate(Notifier):
         Config.set("default", "guidance_scale", Generate.defGuidanceScale)
         Config.set("default", "clip_skip", Generate.defClipSkip)
         Config.set("default", "prompt_fixed_ratio", Generate.defPromptFixedRatio)
+        Config.set("default", "use_lcm", Generate.defUseLcm)
         Config.set("default", "use_half_vae", Generate.defUseHalfVae)
         Config.set("default", "use_x_formers", Generate.defUseXFormers)
         Config.set("default", "width", Generate.defWidth)

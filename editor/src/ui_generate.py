@@ -167,6 +167,14 @@ class GenerateForm:
         )
         self.sliPromptFixedRatio.pack(UiPack.sli)
 
+        self.varUseLcm = tk.BooleanVar(value=True)
+        self.chkUseLcm = tk.Checkbutton(
+            self.frmPromptFixedRatioHalfVaeXFormers,
+            text=L10n.get("generate_use_lcm"),
+            variable=self.varUseLcm,
+        )
+        self.chkUseLcm.pack(UiPack.chk)
+
         self.varUseHalfVae = tk.BooleanVar(value=False)
         self.chkUseHalfVae = tk.Checkbutton(
             self.frmPromptFixedRatioHalfVaeXFormers,
@@ -208,5 +216,6 @@ class GenerateForm:
         self.sliClipSkip.configure(colors["sli"])
         self.sliGuidanceScale.configure(colors["sli"])
         self.sliPromptFixedRatio.configure(colors["sli"])
+        self.chkUseLcm.configure(colors["chk"])
         self.chkUseHalfVae.configure(colors["chk"])
         self.chkUseXFormers.configure(colors["chk"])

@@ -9,11 +9,11 @@ class PromptTravel:
     "name": "",
     "path": "{MODEL_PATH}",
     "lcm_map": {{
-        "enable": false,
-        "start_scale": 0.15,
-        "end_scale": 0.75,
-        "gradient_start": 0.2,
-        "gradient_end": 0.75
+        "enable": {USE_LCM},
+        "start_scale": 0,
+        "end_scale": 1,
+        "gradient_start": 0,
+        "gradient_end": 1
     }},
     "vae_path": "{VAE_PATH}",
     "motion_module": "{MOTION_MODULE_PATH}",
@@ -262,6 +262,7 @@ class PromptTravel:
 
         replaceDic = {
             "MODEL_PATH": modelPath,
+            "USE_LCM": str(generate.useLcm).lower(),
             "VAE_PATH": vaePath,
             "MOTION_MODULE_PATH": motionModulePath,
             "SEED": generate.seed,

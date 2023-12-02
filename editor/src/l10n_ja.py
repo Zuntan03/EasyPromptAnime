@@ -36,6 +36,7 @@
     "generate_guidance_scale": "ガイダンススケール\n(CFG スケール)",
     "generate_clip_skip": "クリップ\nスキップ",
     "generate_prompt_fixed_ratio": "プロンプト\n固定割合",
+    "generate_use_lcm": "LCM を使用",
     "generate_use_half_vae": "Half VAE を使用",
     "generate_use_x_formers": "xFormers を使用",
     "control_net_dir": "コントロールネット用のフォルダ",

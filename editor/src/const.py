@@ -80,7 +80,7 @@ class Path:
     temp = os.path.join(editor, "temp")
     log = os.path.join(editor, "log")
     defaultPrompt = os.path.join(editor, "DefaultPrompt-0_1_0.txt")
-    promptTravelTemplate = os.path.join(editor, "PromptTravelTemplate-0_5_0.txt")
+    promptTravelTemplate = os.path.join(editor, "PromptTravelTemplate-0_6_0.txt")
     downloadMenu = os.path.join(editor, "DownloadMenu.json")
 
     @classmethod
