@@ -37,6 +37,7 @@
     "generate_clip_skip": "Clip\nskip",
     "generate_prompt_fixed_ratio": "Prompt\nfixed ratio",
     "generate_use_lcm": "Use LCM",
+    "generate_use_highres_fix": "Use HiresFix",
     "generate_use_half_vae": "Use Half VAE",
     "generate_use_x_formers": "Use xFormers",
     "control_net_dir": "ControlNet folder",

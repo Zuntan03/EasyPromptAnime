@@ -3,7 +3,7 @@
 
 class Serializer:
     versionKey = "easy_prompt_anime_version"
-    varsion = "0.4.1"
+    varsion = "0.4.2"
 
     @classmethod
     def deserialize(cls, model, data):
@@ -33,6 +33,7 @@ class Serializer:
         generate.set("clipSkip", data["clip_skip"])
         generate.set("promptFixedRatio", data["prompt_fixed_ratio"])
         generate.set("useLcm", data["use_lcm"])
+        generate.set("useHighresFix", data["use_highres_fix"])
         generate.set("useHalfVae", data["use_half_vae"])
         generate.set("useXFormers", data["use_x_formers"])
         generate.set("width", data["width"])
@@ -161,6 +162,7 @@ class Serializer:
             "clip_skip": generate.clipSkip,
             "prompt_fixed_ratio": generate.promptFixedRatio,
             "use_lcm": generate.useLcm,
+            "use_highres_fix": generate.useHighresFix,
             "use_half_vae": generate.useHalfVae,
             "use_x_formers": generate.useXFormers,
             "width": generate.width,
@@ -353,6 +355,13 @@ class Serializer:
         data[cls.versionKey] = "0.4.1"
         return data
 
+    @classmethod
+    def updateVer0_4_1(cls, model, data):
+        data["generate"]["use_highres_fix"] = False
+
+        data[cls.versionKey] = "0.4.2"
+        return data
+
 
 Serializer.updator = {
     "0.1.0": Serializer.updateVer0_1_0,
@@ -360,4 +369,5 @@ Serializer.updator = {
     "0.2.0": Serializer.updateVer0_2_0,
     "0.3.0": Serializer.updateVer0_3_0,
     "0.4.0": Serializer.updateVer0_4_0,
+    "0.4.1": Serializer.updateVer0_4_1,
 }

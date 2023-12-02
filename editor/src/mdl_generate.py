@@ -15,6 +15,7 @@ class Generate(Notifier):
     defClipSkip = 2
     defPromptFixedRatio = 0.7
     defUseLcm = False
+    defUseHighresFix = False
     defUseHalfVae = False
     defUseXFormers = False
     defWidth = 384  # TODO: Out of Scene
@@ -113,6 +114,7 @@ class Generate(Notifier):
         self.clipSkip = Generate.defClipSkip
         self.promptFixedRatio = Generate.defPromptFixedRatio
         self.useLcm = Generate.defUseLcm
+        self.useHighresFix = Generate.defUseHighresFix
         self.useHalfVae = Generate.defUseHalfVae
         self.useXFormers = Generate.defUseXFormers
         self.width = Generate.defWidth
@@ -267,6 +269,9 @@ class Generate(Notifier):
             "default", "prompt_fixed_ratio", Generate.defPromptFixedRatio
         )
         Generate.defUseLcm = Config.getBool("default", "use_lcm", Generate.defUseLcm)
+        Generate.defUseHighresFix = Config.getBool(
+            "default", "use_highres_fix", Generate.defUseHighresFix
+        )
         Generate.defUseHalfVae = Config.getBool(
             "default", "use_half_vae", Generate.defUseHalfVae
         )
@@ -546,6 +551,7 @@ class Generate(Notifier):
         Generate.defClipSkip = self.clipSkip
         Generate.defPromptFixedRatio = self.promptFixedRatio
         Generate.defUseLcm = self.useLcm
+        Generate.defUseHighresFix = self.useHighresFix
         Generate.defUseHalfVae = self.useHalfVae
         Generate.defUseXFormers = self.useXFormers
         Generate.defWidth = self.width
@@ -669,6 +675,7 @@ class Generate(Notifier):
         Config.set("default", "clip_skip", Generate.defClipSkip)
         Config.set("default", "prompt_fixed_ratio", Generate.defPromptFixedRatio)
         Config.set("default", "use_lcm", Generate.defUseLcm)
+        Config.set("default", "use_highres_fix", Generate.defUseHighresFix)
         Config.set("default", "use_half_vae", Generate.defUseHalfVae)
         Config.set("default", "use_x_formers", Generate.defUseXFormers)
         Config.set("default", "width", Generate.defWidth)

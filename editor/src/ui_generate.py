@@ -175,6 +175,14 @@ class GenerateForm:
         )
         self.chkUseLcm.pack(UiPack.chk)
 
+        self.varUseHighresFix = tk.BooleanVar(value=False)
+        self.chkUseHighresFix = tk.Checkbutton(
+            self.frmPromptFixedRatioHalfVaeXFormers,
+            text=L10n.get("generate_use_highres_fix"),
+            variable=self.varUseHighresFix,
+        )
+        self.chkUseHighresFix.pack(UiPack.chk)
+
         self.varUseHalfVae = tk.BooleanVar(value=False)
         self.chkUseHalfVae = tk.Checkbutton(
             self.frmPromptFixedRatioHalfVaeXFormers,
@@ -217,5 +225,6 @@ class GenerateForm:
         self.sliGuidanceScale.configure(colors["sli"])
         self.sliPromptFixedRatio.configure(colors["sli"])
         self.chkUseLcm.configure(colors["chk"])
+        self.chkUseHighresFix.configure(colors["chk"])
         self.chkUseHalfVae.configure(colors["chk"])
         self.chkUseXFormers.configure(colors["chk"])

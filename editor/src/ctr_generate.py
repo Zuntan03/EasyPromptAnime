@@ -18,5 +18,6 @@ class GenerateController:
         mGenerate.bind("clipSkip", vGenerate.varClipSkip)
         mGenerate.bind("promptFixedRatio", vGenerate.varPromptFixedRatio)
         mGenerate.bind("useLcm", vGenerate.varUseLcm)
+        mGenerate.bind("useHighresFix", vGenerate.varUseHighresFix)
         mGenerate.bind("useHalfVae", vGenerate.varUseHalfVae)
         mGenerate.bind("useXFormers", vGenerate.varUseXFormers)

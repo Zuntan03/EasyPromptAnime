@@ -15,6 +15,15 @@ class PromptTravel:
         "gradient_start": 0,
         "gradient_end": 1
     }},
+    "gradual_latent_hires_fix_map": {{
+        "enable": {USE_HIGHRES_FIX},
+        "scale": {{
+            "0": 0.5,
+            "0.5": 1.0
+        }},
+        "reverse_steps": 0,
+        "noise_add_count": 0
+    }},
     "vae_path": "{VAE_PATH}",
     "motion_module": "{MOTION_MODULE_PATH}",
     "compile": false,
@@ -263,6 +272,7 @@ class PromptTravel:
         replaceDic = {
             "MODEL_PATH": modelPath,
             "USE_LCM": str(generate.useLcm).lower(),
+            "USE_HIGHRES_FIX": str(generate.useHighresFix).lower(),
             "VAE_PATH": vaePath,
             "MOTION_MODULE_PATH": motionModulePath,
             "SEED": generate.seed,
