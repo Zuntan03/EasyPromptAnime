@@ -28,6 +28,15 @@
 			"url": "https://civitai.com/api/download/models/84669",
 			"info": "https://civitai.com/models/79846"
 		},
+		"coffeemix_v20.safetensors": {
+			"url": "https://civitai.com/api/download/models/53475",
+			"info": "https://civitai.com/models/40630"
+		},
+		"aziibpixelmix_v10.safetensors": {
+			"url": "https://civitai.com/api/download/models/220049",
+			"info": "https://civitai.com/models/195730",
+			"tag": "pixel"
+		},
 		"1990s2000s_v10.safetensors": {
 			"url": "https://civitai.com/api/download/models/179913",
 			"info": "https://civitai.com/models/159947",
@@ -172,6 +181,10 @@
 		"clearvae_v22.safetensors": {
 			"url": "https://civitai.com/api/download/models/80518",
 			"info": "https://civitai.com/models/22354"
+		},
+		"liquid111vae_v10.safetensors": {
+			"url": "https://civitai.com/api/download/models/90456",
+			"info": "https://civitai.com/models/85106"
 		}
 	},
 	"embedding": {
