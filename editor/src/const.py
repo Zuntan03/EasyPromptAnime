@@ -13,6 +13,7 @@ class Const:
         "ddim",
         "euler",
         "euler_a",
+        "lcm",
         # "dpm_2_a",
         # "k_dpm_2_a",
     ]
@@ -23,6 +24,7 @@ class Const:
         "DDIM",
         "Euler",
         "Euler a",
+        "LCM",
         # "DPM2 a",
         # "DPM2 a Karras",
     ]
