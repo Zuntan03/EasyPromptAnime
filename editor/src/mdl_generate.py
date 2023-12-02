@@ -10,11 +10,11 @@ class Generate(Notifier):
     defMotionModule = "mm_sd_v15_v2.ckpt"
     defContext = 16
     defScheduler = "DPM++ SDE Karras"
-    defSteps = 6
-    defGuidanceScale = 2.0
+    defSteps = 20
+    defGuidanceScale = 7.0
     defClipSkip = 2
     defPromptFixedRatio = 0.7
-    defUseLcm = True
+    defUseLcm = False
     defUseHalfVae = False
     defUseXFormers = False
     defWidth = 384  # TODO: Out of Scene

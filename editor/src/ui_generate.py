@@ -167,7 +167,7 @@ class GenerateForm:
         )
         self.sliPromptFixedRatio.pack(UiPack.sli)
 
-        self.varUseLcm = tk.BooleanVar(value=True)
+        self.varUseLcm = tk.BooleanVar(value=False)
         self.chkUseLcm = tk.Checkbutton(
             self.frmPromptFixedRatioHalfVaeXFormers,
             text=L10n.get("generate_use_lcm"),
