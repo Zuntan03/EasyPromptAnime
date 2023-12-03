@@ -12,6 +12,18 @@ The GUI tool supports English. Please translate this page using your browser's t
 
 ## 作例
 
+- 10/27: [自動モザイク](https://twitter.com/Zuntan03/status/1717809494271660276)
+- 10/23: [MP4 取り込みで動きをつける](https://twitter.com/Zuntan03/status/1716386352508608629)
+- 10/15: [LoRA まとめ](https://twitter.com/Zuntan03/status/1713547944446882188)
+- 10/14: 汎用 LoRA [3dSlider_v2](https://twitter.com/Zuntan03/status/1713064888397181256),
+[flat2](https://twitter.com/Zuntan03/status/1713067612874359173)
+- 9/27: [AnimateDiff prompt travel のふたつのアニメと新機能 prompt_fixed_ratio](https://twitter.com/Zuntan03/status/1707323168707555329)
+- 9/26: [実はプロンプトをアニメーションしなくてもいいんです](https://twitter.com/Zuntan03/status/1706602454476095701) の [きれいな動画](https://yyy.wpx.jp/m/202309/Oiyami.mp4)
+- 9/25: [AnimateDiff prompt travelの更新比較](https://twitter.com/Zuntan03/status/1706246410851819836) の [きれいな動画](https://yyy.wpx.jp/m/202309/PromptTravelUpdateXxMix.mp4)
+- 9/24: [モデルへの VAE 組み込み有無比較](https://twitter.com/Zuntan03/status/1705779826056147188) の [きれいな動画](https://yyy.wpx.jp/m/202309/ModelVae-crf26.mp4)
+- 9/23: [motion-moduleのmm_sd_v15_v2とmm-Stabilized_high比較](https://twitter.com/Zuntan03/status/1705537060491432132) の [FullHD 超え動画](https://yyy.wpx.jp/m/202309/V152HighGrid.mp4)
+- 9/21: FullHD 相当 [KuronekoAkiba](https://yyy.wpx.jp/m/202309/KuronekoAkiba.mp4)
+- 9/18: [nadenadesitai_v10](https://yyy.wpx.jp/m/202309/nadenadesitai_v10.mp4), [xxmix9realistic_v40](https://yyy.wpx.jp/m/202309/xxmix9realistic_v40.mp4), [onigiriMix_v10](https://yyy.wpx.jp/m/202309/onigiriMix_v10.mp4), [mistoonAnime_v20](https://yyy.wpx.jp/m/202309/mistoonAnime_v20.mp4)
 - 利用者の人気つぶやき: 
 [@Yokohara_h](https://twitter.com/Yokohara_h/status/1705981094473183699)
 [@PhotogenicWeekE](https://twitter.com/PhotogenicWeekE/status/1705175475176530146)
@@ -39,17 +51,6 @@ The GUI tool supports English. Please translate this page using your browser's t
 [@zono_0](https://qiita.com/zono_0/items/0f9b63f0b581721f01d9)
 [@TakaWeekendProg](https://twitter.com/TakaWeekendProg/status/1705938614033801547)
 [@miyukin_sj](https://twitter.com/miyukin_sj/status/1706966588061348243)
-- 10/23: [MP4 取り込みで動きをつける](https://twitter.com/Zuntan03/status/1716386352508608629)
-- 10/15: [LoRA まとめ](https://twitter.com/Zuntan03/status/1713547944446882188)
-- 10/14: 汎用 LoRA [3dSlider_v2](https://twitter.com/Zuntan03/status/1713064888397181256),
-[flat2](https://twitter.com/Zuntan03/status/1713067612874359173)
-- 9/27: [AnimateDiff prompt travel のふたつのアニメと新機能 prompt_fixed_ratio](https://twitter.com/Zuntan03/status/1707323168707555329)
-- 9/26: [実はプロンプトをアニメーションしなくてもいいんです](https://twitter.com/Zuntan03/status/1706602454476095701) の [きれいな動画](https://yyy.wpx.jp/m/202309/Oiyami.mp4)
-- 9/25: [AnimateDiff prompt travelの更新比較](https://twitter.com/Zuntan03/status/1706246410851819836) の [きれいな動画](https://yyy.wpx.jp/m/202309/PromptTravelUpdateXxMix.mp4)
-- 9/24: [モデルへの VAE 組み込み有無比較](https://twitter.com/Zuntan03/status/1705779826056147188) の [きれいな動画](https://yyy.wpx.jp/m/202309/ModelVae-crf26.mp4)
-- 9/23: [motion-moduleのmm_sd_v15_v2とmm-Stabilized_high比較](https://twitter.com/Zuntan03/status/1705537060491432132) の [FullHD 超え動画](https://yyy.wpx.jp/m/202309/V152HighGrid.mp4)
-- 9/21: FullHD 相当 [KuronekoAkiba](https://yyy.wpx.jp/m/202309/KuronekoAkiba.mp4)
-- 9/18: [nadenadesitai_v10](https://yyy.wpx.jp/m/202309/nadenadesitai_v10.mp4), [xxmix9realistic_v40](https://yyy.wpx.jp/m/202309/xxmix9realistic_v40.mp4), [onigiriMix_v10](https://yyy.wpx.jp/m/202309/onigiriMix_v10.mp4), [mistoonAnime_v20](https://yyy.wpx.jp/m/202309/mistoonAnime_v20.mp4)
 - 利用者のつぶやき（気づいたもののみ）:
 [@llrinnell](https://twitter.com/llrinnell/status/1703711755128779226)
 [@ai_gene_fumo7](https://twitter.com/ai_gene_fumo7/status/1704116905299382547)
@@ -154,6 +155,9 @@ The GUI tool supports English. Please translate this page using your browser's t
 		- `LCM を使用` と組み合わせて `HiresFix を使用` を利用できます。
 			- `ステップ数`: `6` から `9` に増やします。
 			- `基本` の `幅` と `高さ` に、2倍のサイズを指定します。
+		- モデル相性やプロンプト調整はシビアになります。
+			- モーションモジュールを `mm-Stabilized_high` にしたほうが安定する場合もあるそうです。
+			- 各機能との相性の課題が多岐に渡るため、デフォルトでは LCM を無効にしています。
 
 [過去の更新履歴](./CHANGELOG.md)
 
