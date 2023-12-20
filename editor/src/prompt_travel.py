@@ -48,6 +48,7 @@ class PromptTravel:
     "ip_adapter_map": {{
         "enable": {IP_ADAPTER_USE},
         "input_image_dir": "ip_adapter_image/{IP_ADAPTER_IMAGE_DIR}",
+        "prompt_fixed_ratio": {PROMPT_FIXED_RATIO},
         "save_input_image": true,
         "scale": {IP_ADAPTER_SCALE},
         "is_plus_face": {IP_ADAPTER_USE_PLUS_FACE},
